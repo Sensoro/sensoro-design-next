@@ -2,18 +2,18 @@ import type { PresetColorType, SeedToken } from '../internal';
 
 export const defaultPresetColors: PresetColorType = {
   blue: '#2b6de5',
-  purple: '#722ED1',
+  purple: '#A140E7',
   cyan: '#13C2C2',
-  green: '#52C41A',
+  green: '#1ACB7C',
   magenta: '#EB2F96',
   pink: '#eb2f96',
-  red: '#F5222D',
-  orange: '#FA8C16',
-  yellow: '#FADB14',
+  red: '#F72231',
+  orange: '#F98209',
+  yellow: '#F9D806',
   volcano: '#FA541C',
-  geekblue: '#2F54EB',
-  gold: '#FAAD14',
-  lime: '#A0D911',
+  geekblue: '#2EBBEA',
+  gold: '#F9AA06',
+  lime: '#80D40C',
 };
 
 export const seedToken: SeedToken = {
@@ -21,10 +21,10 @@ export const seedToken: SeedToken = {
   ...defaultPresetColors,
 
   // Color
-  colorPrimary: '#2b6de5',
-  colorSuccess: '#52c41a',
-  colorWarning: '#faad14',
-  colorError: '#ff4d4f',
+  colorPrimary: defaultPresetColors.blue,
+  colorSuccess: defaultPresetColors.green,
+  colorWarning: defaultPresetColors.gold,
+  colorError: defaultPresetColors.red,
   colorInfo: '#1677ff',
   colorTextBase: '',
 

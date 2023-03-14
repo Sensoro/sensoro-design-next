@@ -1,6 +1,7 @@
-import React, { memo, forwardRef, } from 'react';
+import React, { memo, forwardRef, useContext, } from 'react';
 import { classNames } from '@pansy/shared';
 import { path as d3Path } from 'd3-path';
+import { ConfigContext } from '../config-provider';
 
 export interface BatteryProps {
   /** 样式前缀 */
@@ -17,12 +18,14 @@ export interface BatteryProps {
 
 export const Battery = forwardRef<HTMLSpanElement, BatteryProps>((props, ref) => {
   const {
-    prefixCls = 'lm-battery',
+    prefixCls: customizePrefixCls,
     className,
     color,
     style,
     value
   } = props;
+  const { getPrefixCls } = useContext(ConfigContext);
+  const prefixCls = getPrefixCls('battery', customizePrefixCls);
 
   const renderBattery = () => {
     let value: number = props.value || 0;

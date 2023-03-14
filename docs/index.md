@@ -1,8 +1,8 @@
 ---
-title: Material Components
+title: Sensoro Design
 hero:
   title: Components
-  description: 基于 Antd 的物料基础组件库
+  description: 一套企业级 UI 设计语言和 React 组件库。
   actions:
     - text: 快速上手
       link: /hooks/use-modal

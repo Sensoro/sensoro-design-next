@@ -14,12 +14,13 @@ export default defineConfig({
   hash: true,
   themeConfig: {
     logo,
-    name: 'Material',
+    name: 'Design',
     socialLinks: {
       github: 'https://github.com/sensoro-design/material-components',
     },
     nav: [
       { title: '组件', link: '/components' },
+      { title: '设计', link: '/spec' },
     ],
   },
   alias: {
@@ -35,6 +36,7 @@ export default defineConfig({
     ],
     codeBlockMode: 'passive',
   },
+  extraBabelPresets: ['@emotion/babel-preset-css-prop'],
   mfsu: false,
   crossorigin: {},
   ...prodConfig

@@ -19,4 +19,9 @@ export type { SpaceProps } from './space';
 export { Watermark } from './watermark';
 export type { WatermarkProps } from './watermark';
 
+export {  } from './config-provider';
+
+export { theme } from './theme';
+export type { GlobalToken } from './theme';
+
 export { version } from './version';
