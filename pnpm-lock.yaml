@@ -8,6 +8,7 @@ specifiers:
   '@emotion/babel-preset-css-prop': ^11.10.0
   '@emotion/css': ^11.10.6
   '@emotion/react': ^11.10.6
+  '@lotus-design/switch': ^1.0.0
   '@pansy/react-hooks': ^1.0.3
   '@pansy/shared': ^1.11.0
   '@rc-component/mutate-observer': ^1.0.0
@@ -51,6 +52,7 @@ dependencies:
   '@ant-design/cssinjs': 1.6.1_biqbaboplfbrettd7655fr4n2y
   '@babel/runtime': 7.21.0
   '@ctrl/tinycolor': 3.6.0
+  '@lotus-design/switch': 1.0.0_biqbaboplfbrettd7655fr4n2y
   '@pansy/react-hooks': 1.0.3_react@18.2.0
   '@pansy/shared': 1.11.0
   '@rc-component/mutate-observer': 1.0.0_biqbaboplfbrettd7655fr4n2y
@@ -1900,6 +1902,29 @@ packages:
       react: 18.2.0
       react-is: 16.13.1
     dev: true
+
+  /@lotus-design/switch/1.0.0_biqbaboplfbrettd7655fr4n2y:
+    resolution: {integrity: sha512-OKCM/TlSriL+Lz9uAmHDRTfDDyWJor4AeYw1ZdJtdvYMiphkUWajhzf0ld12TvWUiS+kodgHvR+lfTvHJPYVGw==}
+    peerDependencies:
+      react: '>=16.9.0'
+      react-dom: '>=16.9.0'
+    dependencies:
+      '@lotus-design/utils': 1.0.0_biqbaboplfbrettd7655fr4n2y
+      '@pansy/shared': 1.11.0
+      react: 18.2.0
+      react-dom: 18.2.0_react@18.2.0
+    dev: false
+
+  /@lotus-design/utils/1.0.0_biqbaboplfbrettd7655fr4n2y:
+    resolution: {integrity: sha512-7jYrF6HcfEKRLpH/CUxAsl+t6p+Q2vQjvreKwjW37tIW73qUyuigFPQzVgx0q5TnGI3pY5SjmBB/2dr+8/1QPA==}
+    peerDependencies:
+      react: '>=16.9.0'
+      react-dom: '>=16.9.0'
+    dependencies:
+      react: 18.2.0
+      react-dom: 18.2.0_react@18.2.0
+      react-is: 18.2.0
+    dev: false
 
   /@makotot/ghostui/2.0.0_react@18.2.0:
     resolution: {integrity: sha512-LD6OeMv+yGjpYZNjh34yDTCIE1NegqOtJq5gm4wX6op3QL7K5psTVzMjkWzseBoYj0XOD4g+UJVIZTprfoOPGg==}
