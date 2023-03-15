@@ -7,13 +7,14 @@ import { seedToken as defaultSeedToken } from './themes/seed';
 import statisticToken, { merge as mergeToken, statistic } from './utils/statistic';
 import { genComponentStyleHook } from './utils/genComponentStyleHook';
 
-import type { CSSInterpolation, Theme } from '@ant-design/cssinjs';
+import type { CSSInterpolation } from '@ant-design/cssinjs';
 import type { FullToken } from './utils/genComponentStyleHook';
 import type {
   AliasToken,
   PresetColorType,
   PresetColorKey,
   SeedToken,
+
 } from './interface';
 
 const defaultTheme = createTheme(defaultDerivative);

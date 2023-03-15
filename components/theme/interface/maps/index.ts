@@ -37,4 +37,5 @@ export interface MapToken
     FontMapToken,
     SizeMapToken,
     HeightMapToken,
-    StyleMapToken {}
+    StyleMapToken,
+    CommonMapToken {}

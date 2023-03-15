@@ -7,6 +7,9 @@ export type { SignalProps } from './signal';
 export { Button } from './button';
 export type { ButtonProps } from './button';
 
+export { Switch } from './switch';
+export type { SwitchProps } from './switch';
+
 export { Empty } from './empty';
 export type { EmptyProps } from './empty';
 

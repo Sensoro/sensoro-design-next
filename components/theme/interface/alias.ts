@@ -1,6 +1,23 @@
 import type { MapToken } from './maps';
 
 export interface AliasToken extends MapToken {
+  /**
+   * @desc 固定文本高亮颜色，用于带背景色的文本如 Primary Button 组件
+   * @descEN Fixed text highlight color, used for text with background color such as Primary Button components
+   */
+  colorTextLightSolid: string;
+
+  // Font
+  /** Operation icon in Select, Cascader, etc. icon fontSize. Normal is same as fontSizeSM */
+  fontSizeIcon: number;
+
+  // Line
+  /**
+   * @desc 聚焦时 Outline 尺寸
+   * @descEN Outline size when focused
+   */
+  lineWidthFocus: number;
+
   // Padding
   /**
    * @desc 内间距尺寸
@@ -79,4 +96,11 @@ export interface AliasToken extends MapToken {
    * @descEN Margin size.
    */
   marginXXL: number;
+
+  // =============== Legacy: should be remove ===============
+  /**
+   * @desc 加载状态透明度
+   * @descEN Loading opacity
+   */
+  opacityLoading: number;
 }

@@ -28,6 +28,9 @@ export function formatToken(derivativeToken: RawMergedToken): AliasToken {
   const aliasToken: AliasToken = {
     ...mergedToken,
 
+    // ============== Text ============== //
+    colorTextLightSolid: mergedToken.colorWhite,
+
     paddingXXS: mergedToken.sizeXXS,
     paddingXS: mergedToken.sizeXS,
     paddingSM: mergedToken.sizeSM,
@@ -44,6 +47,14 @@ export function formatToken(derivativeToken: RawMergedToken): AliasToken {
     marginLG: mergedToken.sizeLG,
     marginXL: mergedToken.sizeXL,
     marginXXL: mergedToken.sizeXXL,
+
+    // Font
+    fontSizeIcon: mergedToken.fontSizeSM,
+
+    // Line
+    lineWidthFocus: mergedToken.lineWidth * 4,
+
+    opacityLoading: 0.65,
   }
 
   return aliasToken;
