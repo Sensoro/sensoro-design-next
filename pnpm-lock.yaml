@@ -37,6 +37,7 @@ specifiers:
   jest-environment-jsdom: ^29.5.0
   jest-image-snapshot: ^6.1.0
   lint-staged: ^13.2.0
+  mockdate: ^3.0.5
   prettier: ^2.8.4
   rc-util: ^5.28.0
   react: ^18.2.0
@@ -88,6 +89,7 @@ devDependencies:
   jest-environment-jsdom: 29.5.0
   jest-image-snapshot: 6.1.0_jest@29.5.0
   lint-staged: 13.2.0
+  mockdate: 3.0.5
   prettier: 2.8.4
   react: 18.2.0
   react-copy-to-clipboard: 5.1.0_react@18.2.0
@@ -9432,6 +9434,10 @@ packages:
     hasBin: true
     dependencies:
       minimist: 1.2.8
+    dev: true
+
+  /mockdate/3.0.5:
+    resolution: {integrity: sha512-iniQP4rj1FhBdBYS/+eQv7j1tadJ9lJtdzgOpvsOHng/GbcDh2Fhdeq+ZRldrPYdXvCyfFUmFeEwEGXZB5I/AQ==}
     dev: true
 
   /moo-color/1.0.3:
