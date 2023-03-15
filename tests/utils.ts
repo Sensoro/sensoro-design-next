@@ -3,6 +3,16 @@ import React, { StrictMode } from 'react';
 
 import type { RenderOptions } from '@testing-library/react';
 
+const globalTimeout = global.setTimeout;
+
+export const sleep = async (timeout = 0) => {
+  await act(async () => {
+    await new Promise((resolve) => {
+      globalTimeout(resolve, timeout);
+    });
+  });
+};
+
 const customRender = (ui: React.ReactElement, options?: Omit<RenderOptions, 'wrapper'>) =>
   render(ui, { wrapper: StrictMode, ...options });
 
