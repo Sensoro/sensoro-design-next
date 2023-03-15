@@ -32,7 +32,7 @@ export const Palette: React.FC<PaletteProps> = (props) => {
     showTitle,
     direction,
     dark,
-    color: { name, count = 10, description, english, chinese } = { name: 'gray', count: 13 },
+    color: { name, count = 10, description, english, chinese } = { name: 'gray', count: 12 },
   } = props;
   const [hexColors, setHexColors] = useState<Record<PropertyKey, string>>({});
   const colorNodesRef = useRef<Record<PropertyKey, HTMLDivElement>>({});

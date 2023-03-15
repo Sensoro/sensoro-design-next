@@ -32,6 +32,18 @@ ${makePalette(color, index + 1)}
     return '';
   };
 
+  const makeGrayPalette = (index: number = 1): string => {
+    if (index <= 12) {
+      return `
+.palette-gray-${index} {
+  background: ${(gray as any)[index]};
+}
+${makeGrayPalette(index + 1)}
+    `;
+    }
+    return '';
+  };
+
   return (
     <Global
       styles={css`
@@ -98,6 +110,7 @@ ${makePalette(color, index + 1)}
           ${makePalette('yellow')}
           ${makePalette('lime')}
           ${makePalette('geekblue')}
+          ${makeGrayPalette()}
 
           text-align: left;
 
@@ -165,6 +178,80 @@ ${makePalette(color, index + 1)}
           }
         }
 
+        .color-palette-horizontal {
+          box-sizing: border-box;
+          width: 100%;
+
+          &-dark {
+            height: 303px;
+            padding: 32px 28px;
+            background-color: #141414;
+
+            .color-palette-picker {
+              margin-bottom: 0;
+            }
+
+            .color-palette-pick {
+              color: rgba(255, 255, 255, 0.65);
+              text-align: left;
+
+              &-hex {
+                color: rgba(255, 255, 255, 0.65);
+              }
+
+              .ant-row-rtl & {
+                direction: rtl;
+                text-align: right;
+              }
+            }
+          }
+
+          .main-color {
+            display: flex;
+
+            &-item {
+              position: relative;
+              flex: 1;
+              box-sizing: border-box;
+              height: 86px;
+              margin-right: 0;
+              padding: 37px 0 0;
+              line-height: normal;
+              text-align: center;
+              border-radius: 0;
+
+              .main-color-text {
+                float: none;
+              }
+
+              &:hover {
+                height: 96px;
+                margin-top: -10px;
+                border-radius: 4px 4px 0 0;
+              }
+            }
+
+            &-value {
+              position: absolute;
+              bottom: 0;
+              left: 0;
+              width: 100%;
+              text-align: center;
+              transform-origin: unset;
+            }
+
+            &:hover {
+              .main-color-item {
+                padding-top: 8px;
+              }
+
+              .main-color-value {
+                bottom: 8px;
+                opacity: 0.7;
+              }
+            }
+          }
+        }
       `}
     />
   );
