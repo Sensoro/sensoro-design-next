@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "jsx": "react-jsx",
+    "jsxImportSource": "@emotion/react",
+    "esModuleInterop": true,
+    "resolveJsonModule": true,
+    "baseUrl": "../",
+    "paths": {
+      "@@/*": [".dumi/tmp/*"],
+      "sensoro-design": ["components/index.ts"],
+      "sensoro-design/es/*": ["components/*"],
+      "sensoro-design/lib/*": ["components/*"],
+      "sensoro-design/locale/*": ["components/locale/*"]
+    }
+  },
+  "include": ["./**/*", "../site/theme/template/Content"]
+}
