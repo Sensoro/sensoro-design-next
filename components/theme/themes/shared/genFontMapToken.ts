@@ -3,6 +3,7 @@ import { genFontSizes } from './genFontSizes';
 
 export const genFontMapToken = (fontSize: number): FontMapToken => {
   const fontSizePairs = genFontSizes(fontSize);
+
   const fontSizes = fontSizePairs.map((pair) => pair.size);
   const lineHeights = fontSizePairs.map((pair) => pair.lineHeight);
 

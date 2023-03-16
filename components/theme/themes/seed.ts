@@ -38,7 +38,7 @@ export const seedToken: SeedToken = {
   fontSize: 14,
 
   // Radius
-  borderRadius: 2,
+  borderRadius: 4,
 
   // Size
   sizeUnit: 4,
