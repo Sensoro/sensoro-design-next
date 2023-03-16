@@ -125,7 +125,7 @@ ${makeGrayPalette(index + 1)}
             cursor: pointer;
             transition: all 0.2s;
 
-            &:first-child {
+            &:first-of-type {
               border-radius: 4px 4px 0 0;
             }
 
