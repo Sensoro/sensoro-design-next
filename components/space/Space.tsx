@@ -6,7 +6,7 @@ import { Item } from './Item';
 import { Compact } from './Compact';
 import { useFlexGapSupport } from '../_utils/hooks/useFlexGapSupport';
 import type { SizeType } from '../config-provider/SizeContext';
-import { useStyle } from './style';
+import useStyle from './style';
 
 export type SpaceSize = SizeType | number;
 export interface SpaceProps extends React.HTMLAttributes<HTMLDivElement> {

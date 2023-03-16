@@ -56,7 +56,7 @@ const genSpaceStyle: GenerateStyle<SpaceToken> = (token) => {
   }
 }
 
-export const useStyle = genComponentStyleHook('Space', (token) => {
+export default genComponentStyleHook('Space', (token) => {
   return [
     genSpaceStyle(token),
     genSpaceCompactStyle(token),

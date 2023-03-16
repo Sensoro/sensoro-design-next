@@ -1,7 +1,7 @@
 import React, { useContext, forwardRef, } from 'react';
 import { classNames } from '@pansy/shared';
 import { ConfigContext } from '../config-provider';
-import { useStyle } from './style';
+import useStyle from './style';
 
 import type { ButtonType, ButtonHTMLType } from './buttonHelpers';
 
@@ -32,18 +32,15 @@ type CompoundedComponent = React.ForwardRefExoticComponent<
   ButtonProps & React.RefAttributes<HTMLElement>
 > & {
   // Group: typeof Group;
-  // /** @internal */
-  // __ANT_BUTTON: boolean;
 };
 
 
 const InternalButton: React.ForwardRefRenderFunction<
   HTMLButtonElement | HTMLAnchorElement,
   ButtonProps
-> = (props, ref) => {
+> = (props) => {
   const {
     prefixCls: customizePrefixCls,
-    loading = false,
     htmlType = 'button',
     children,
   } = props;

@@ -6,7 +6,7 @@ import { Switch as LotusSwitch } from '@lotus-design/switch';
 import { ConfigContext } from '../config-provider';
 import { SizeContext } from '../config-provider/SizeContext';
 import { DisabledContext } from '../config-provider/DisabledContext';
-import { useStyle } from './style';
+import useStyle from './style';
 
 export type SwitchSize = 'small' | 'default';
 export type SwitchType = 'circle' | 'round' | 'line';

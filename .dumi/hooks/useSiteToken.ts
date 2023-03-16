@@ -7,7 +7,7 @@ const { useToken } = theme;
 export const useSiteToken = () => {
   const result = useToken();
   const { token } = result;
-  const { getPrefixCls, iconPrefixCls } = useContext(ConfigContext);
+  const { getPrefixCls } = useContext(ConfigContext);
   const siteMarkdownCodeBg = token.colorFillTertiary;
 
   const rootPrefixCls = getPrefixCls();

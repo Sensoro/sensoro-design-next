@@ -16,8 +16,6 @@ export type {
   PresetColorKey,
 } from './presetColors';
 export type { SeedToken } from './seeds';
-export type { AliasToken } from './alias';
-export type { ComponentTokenMap } from './components';
 export type {
   MapToken,
   ColorMapToken,
@@ -27,3 +25,5 @@ export type {
   SizeMapToken,
   HeightMapToken,
 } from './maps';
+export type { AliasToken } from './alias';
+export type { ComponentTokenMap } from './components';

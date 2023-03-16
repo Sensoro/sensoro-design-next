@@ -63,7 +63,7 @@ const genSharedPlateStyle: GenerateStyle<PlateToken> = (token): CSSObject => {
 }
 
 // ============================== Export ==============================
-export const useStyle = genComponentStyleHook('Plate', (token) => {
+export default genComponentStyleHook('Plate', (token) => {
   const plateToken: PlateToken = mergeToken<PlateToken>(token, {});
 
   return [genSharedPlateStyle(plateToken)];

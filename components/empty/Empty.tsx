@@ -3,7 +3,7 @@ import { classNames } from '@pansy/shared';
 import NoDataPurely from '@sensoro-design/icons/NoDataPurely';
 import { ConfigContext } from '../config-provider';
 import { useLocale } from '../locale/useLocale';
-import { useStyle } from './style';
+import useStyle from './style';
 
 const defaultEmptyIcon = <NoDataPurely />;
 

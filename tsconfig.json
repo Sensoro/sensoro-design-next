@@ -24,10 +24,5 @@
     "skipLibCheck": true,
     "stripInternal": true
   },
-  "include": [
-    ".dumi/**/*",
-    ".dumirc.ts",
-    "components/**/*"
-  ],
   "exclude": ["node_modules", "lib", "es"]
 }

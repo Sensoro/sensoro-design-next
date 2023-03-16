@@ -1,4 +1,4 @@
-import React, { createContext,  } from 'react';
+import { createContext,  } from 'react';
 import { SizeType } from './SizeContext';
 
 import type { Locale } from '../locale';

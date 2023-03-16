@@ -1,12 +1,10 @@
 import { useContext } from 'react';
 import { useStyleRegister } from '@ant-design/cssinjs';
 import { ConfigContext } from '../../config-provider/ConfigContext';
-import { genCommonStyle, } from '../../style';
 import { useToken, mergeToken, statisticToken } from '../internal';
 
 import type { CSSInterpolation } from '@ant-design/cssinjs';
 import type { ComponentTokenMap, GlobalToken, } from '../interface';
-import type { UseComponentStyleResult } from '../internal';
 
 export type OverrideTokenWithoutDerivative = ComponentTokenMap;
 export type OverrideComponent = keyof OverrideTokenWithoutDerivative;

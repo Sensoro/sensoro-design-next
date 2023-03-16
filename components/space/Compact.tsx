@@ -12,18 +12,13 @@ export interface SpaceCompactProps extends React.HTMLAttributes<HTMLDivElement> 
 }
 
 export const Compact: React.FC<SpaceCompactProps> = (props) => {
-  const { getPrefixCls, direction: directionConfig } = useContext(ConfigContext);
+  const { getPrefixCls } = useContext(ConfigContext);
   const {
-    size = 'middle',
-    direction,
-    block,
     prefixCls: customizePrefixCls,
-    className,
-    rootClassName,
-    children,
-    ...restProps
   } = props;
   const prefixCls = getPrefixCls('space-compact', customizePrefixCls);
+
+  console.log(prefixCls);
 
   return null;
 }

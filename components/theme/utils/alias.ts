@@ -1,4 +1,3 @@
-import { getAlphaColor } from './getAlphaColor';
 import { seedToken } from '../themes/seed';
 
 import type { AliasToken, MapToken, OverrideToken, SeedToken } from '../interface';
