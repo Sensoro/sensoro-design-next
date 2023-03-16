@@ -110,7 +110,7 @@ const TokenTable: React.FC<TokenTableProps> = ({ type }) => {
     [type, lang],
   );
 
-  return <Table dataSource={data} columns={columns} pagination={false} bordered />;
+  return <Table dataSource={data} rowKey="name" columns={columns} pagination={false} bordered />;
 }
 
 export default TokenTable;
