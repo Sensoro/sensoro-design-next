@@ -31,7 +31,7 @@ const getTokenList = (list: TypeDoc.DeclarationReflection[], source: string) => 
           ?.content.reduce((result, str) => result.concat(str.text), '') || '',
       name:
         item.comment?.blockTags
-          ?.find((tag) => tag.tag === '@nameZH')
+          ?.find((tag) => tag.tag === '@name')
           ?.content.reduce((result, str) => result.concat(str.text), '') || '',
       nameEn:
         item.comment?.blockTags
