@@ -21,10 +21,11 @@ const useStyle = () => {
     }),
     dot: css({
       display: 'inline-block',
-      width: 8,
-      height: 8,
+      width: 6,
+      height: 6,
       borderRadius: token.borderRadiusLG,
       marginInlineEnd: 4,
+      border: `1px solid ${token.colorSplit}`,
     }),
   };
 };

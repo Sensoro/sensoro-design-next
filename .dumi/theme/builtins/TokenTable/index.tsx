@@ -38,8 +38,6 @@ const locales = {
 
 const defaultToken = getDesignToken();
 
-console.log(defaultToken);
-
 const useStyle = () => {
   const { token } = useSiteToken();
 

@@ -1,4 +1,5 @@
 import { seedToken } from '../themes/seed';
+import { getAlphaColor } from './getAlphaColor';
 
 import type { AliasToken, MapToken, OverrideToken, SeedToken } from '../interface';
 
@@ -26,6 +27,9 @@ export function formatToken(derivativeToken: RawMergedToken): AliasToken {
   // Generate alias token
   const aliasToken: AliasToken = {
     ...mergedToken,
+
+    // ============== Split ============== //
+    colorSplit: getAlphaColor(mergedToken.colorBorderSecondary, mergedToken.colorBgContainer),
 
     // ============== Text ============== //
     colorTextLightSolid: mergedToken.colorWhite,

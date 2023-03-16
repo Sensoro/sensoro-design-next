@@ -14,12 +14,12 @@ export const useSiteToken = () => {
 
   return {
     ...result,
-    headerHeight: 64,
-    menuItemBorder: 2,
-    mobileMaxWidth: 767.99,
-    siteMarkdownCodeBg,
     token: {
       ...token,
+      headerHeight: 64,
+      menuItemBorder: 2,
+      mobileMaxWidth: 767.99,
+      siteMarkdownCodeBg,
       senCls: `.${rootPrefixCls}`,
     },
   }

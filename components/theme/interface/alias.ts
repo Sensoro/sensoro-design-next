@@ -2,6 +2,12 @@ import type { MapToken } from './maps';
 
 export interface AliasToken extends MapToken {
   /**
+   * @name 分割线颜色
+   * @desc 用于作为分割线的颜色，此颜色和 colorBorderSecondary 的颜色一致，但是用的是透明色。
+   */
+  colorSplit: string;
+
+  /**
    * @desc 固定文本高亮颜色，用于带背景色的文本如 Primary Button 组件
    * @descEN Fixed text highlight color, used for text with background color such as Primary Button components
    */
