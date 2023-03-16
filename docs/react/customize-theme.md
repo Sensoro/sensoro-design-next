@@ -54,4 +54,18 @@ const theme = {
 | algorithm | 用于修改 Seed Token 到 Map Token 的算法 | `(token: SeedToken) => MapToken` \| `((token: SeedToken) => MapToken)[]` | `defaultAlgorithm` |
 | components | 用于修改各个组件的 Component Token 以及覆盖该组件消费的 Alias Token | OverrideToken | - |
 
-<ColorChunk color="red">1890ff</ColorChunk>
+### SeedToken
+
+<TokenTable type="seed"></TokenTable>
+
+### MapToken
+
+> 继承所有 SeedToken 的属性
+
+<TokenTable type="map"></TokenTable>
+
+### AliasToken
+
+> 继承所有 SeedToken 和 MapToken 的属性
+
+<TokenTable type="alias"></TokenTable>

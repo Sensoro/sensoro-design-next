@@ -1,4 +1,5 @@
 import * as TypeDoc from 'typedoc';
+import { fsExtra } from '@umijs/utils';
 
 interface TokenMeta {
   source: string;
@@ -54,6 +55,8 @@ const getTokenList = (list: TypeDoc.DeclarationReflection[], source: string) => 
   const project = app.convert();
 
   if (project) {
+    // Project may not have converted correctly
+    const output = 'components/version/token-meta.json';
     const tokenMeta: Record<string, TokenMeta[]> = {};
     let presetColors: string[] = [];
 
@@ -94,9 +97,8 @@ const getTokenList = (list: TypeDoc.DeclarationReflection[], source: string) => 
       (item) => !tokenMeta.seed.some((seedItem) => seedItem.token === item.token),
     );
 
-    const finalMeta = Object.entries(tokenMeta).reduce((acc, [key, value]) => {
+    const finalMeta = Object.entries(tokenMeta).reduce<Record<string, Omit<TokenMeta, 'token'>>>((acc, [key, value]) => {
       value.forEach((item) => {
-        // @ts-ignore
         acc[item.token] = {
           name: item.name,
           nameEn: item.nameEn,
@@ -109,6 +111,11 @@ const getTokenList = (list: TypeDoc.DeclarationReflection[], source: string) => 
       return acc;
     }, {});
 
-    console.log(finalMeta);
+    fsExtra.writeJsonSync(output, finalMeta, {
+      encoding: 'utf8',
+      spaces: 2,
+    });
+    // eslint-disable-next-line no-console
+    console.log(`✅  Token Meta has been written to ${output}`);
   }
 })();
