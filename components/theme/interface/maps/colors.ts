@@ -153,6 +153,12 @@ interface ColorPrimaryMapToken {
   colorPrimaryHover: string; // 5
 
   /**
+   * @name 主色禁用态
+   * @desc 主色梯度下的禁用态
+   */
+  colorPrimaryDisabled: string; // 3
+
+  /**
    * @name 主色激活态
    * @desc 主色梯度下的深色激活态
    * @descEN Dark active states under dominant color gradient
@@ -214,6 +220,12 @@ interface ColorSuccessMapToken {
   colorSuccessHover: string; // 5
 
   /**
+   * @name 主色禁用态
+   * @desc 主色梯度下的禁用态
+   */
+  colorSuccessDisabled: string; // 3
+
+  /**
    * @name 成功色
    * @desc 默认的成功色，如 Result、Progress 等组件中都有使用该颜色
    */
@@ -273,6 +285,12 @@ interface ColorWarningMapToken {
    * @desc 警戒色的深色悬浮态
    */
   colorWarningHover: string; // 5
+
+  /**
+   * @name 警戒色禁用态
+   * @desc 警戒色梯度下的禁用态
+   */
+  colorWarningDisabled: string; // 3
 
   /**
    * @name 警戒色
@@ -390,6 +408,12 @@ interface ColorErrorMapToken {
    * @descEN Error hover color
    */
   colorErrorHover: string; // 5
+
+  /**
+   * @name 错误色禁用态
+   * @desc 错误色梯度下的禁用态
+   */
+  colorErrorDisabled: string; // 3
 
   /**
    * @name 错误色
