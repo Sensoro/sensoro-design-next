@@ -4,7 +4,7 @@ import CopyToClipboard from 'react-copy-to-clipboard';
 import { useSiteToken } from '../../../hooks/useSiteToken';
 import { useStyle } from './style';
 
-type ColorType = 'primary' | 'success';
+type ColorType = 'primary' | 'success' | 'error' | 'warning';
 
 interface TokenColorProps {
   type: ColorType;
@@ -55,6 +55,50 @@ export const colorConfig: Record<ColorType, { token: string; desc: string }[]> =
       desc: '背景',
     },
   ],
+  error: [
+    {
+      token: 'colorError',
+      desc: '常规',
+    },
+    {
+      token: 'colorErrorHover',
+      desc: '悬浮',
+    },
+    {
+      token: 'colorErrorActive',
+      desc: '点击',
+    },
+    {
+      token: 'colorErrorDisabled',
+      desc: '禁用',
+    },
+    {
+      token: 'colorErrorBg',
+      desc: '背景',
+    },
+  ],
+  warning: [
+    {
+      token: 'colorWarning',
+      desc: '常规',
+    },
+    {
+      token: 'colorWarningHover',
+      desc: '悬浮',
+    },
+    {
+      token: 'colorWarningActive',
+      desc: '点击',
+    },
+    {
+      token: 'colorWarningDisabled',
+      desc: '禁用',
+    },
+    {
+      token: 'colorWarningBg',
+      desc: '背景',
+    },
+  ],
 };
 
 const TokenColor: React.FC<TokenColorProps> = (props) => {
@@ -90,7 +134,6 @@ const TokenColor: React.FC<TokenColorProps> = (props) => {
               </div>
             </div>
           </CopyToClipboard>
-
         )
       })}
     </div>
