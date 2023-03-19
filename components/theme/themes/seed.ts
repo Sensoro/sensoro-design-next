@@ -54,7 +54,7 @@ export const seedToken: SeedToken = {
   motionEaseOutQuint: 'cubic-bezier(0.23, 1, 0.32, 1)',
 
   // Radius
-  borderRadius: 4,
+  borderRadius: 2,
 
   // Size
   sizeUnit: 4,

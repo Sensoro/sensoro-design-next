@@ -3,9 +3,9 @@ import type { MapToken } from '../../interface';
 type Radius = Pick<MapToken, 'borderRadius' | 'borderRadiusXS' | 'borderRadiusSM' | 'borderRadiusLG' | 'borderRadiusOuter'>;
 
 export const genRadius = (radiusBase: number): Radius => {
-  let radiusXS = radiusBase;
-  let radiusSM = radiusBase / 2;
-  let radiusLG = radiusBase * 2;
+  let radiusSM = radiusBase;
+  let radiusXS = radiusBase * 2;
+  let radiusLG = radiusBase * 2 * 2;
   let radiusOuter = radiusBase;
 
   return {
