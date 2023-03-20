@@ -8,6 +8,8 @@ specifiers:
   '@emotion/babel-preset-css-prop': ^11.10.0
   '@emotion/css': ^11.10.6
   '@emotion/react': ^11.10.6
+  '@lotus-design/checkbox': ^1.0.0
+  '@lotus-design/segmented': ^0.3.0
   '@lotus-design/switch': ^1.0.0
   '@pansy/react-hooks': ^1.0.3
   '@pansy/shared': ^1.11.0
@@ -57,6 +59,8 @@ dependencies:
   '@ant-design/cssinjs': 1.6.1_biqbaboplfbrettd7655fr4n2y
   '@babel/runtime': 7.21.0
   '@ctrl/tinycolor': 3.6.0
+  '@lotus-design/checkbox': 1.0.0_biqbaboplfbrettd7655fr4n2y
+  '@lotus-design/segmented': 0.3.0_biqbaboplfbrettd7655fr4n2y
   '@lotus-design/switch': 1.0.0_biqbaboplfbrettd7655fr4n2y
   '@pansy/react-hooks': 1.0.3_react@18.2.0
   '@pansy/shared': 1.11.0
@@ -1912,6 +1916,31 @@ packages:
       react: 18.2.0
       react-is: 16.13.1
     dev: true
+
+  /@lotus-design/checkbox/1.0.0_biqbaboplfbrettd7655fr4n2y:
+    resolution: {integrity: sha512-rlBNH94PMDTNBCtWckY26C/KgJAW0m9+X4ZHgGnHZ7q1H0Amgjq7aVx0NjVvsIdx9DF44AhsqipBdJXaQmlg6Q==}
+    peerDependencies:
+      react: '>=16.9.0'
+      react-dom: '>=16.9.0'
+    dependencies:
+      '@lotus-design/utils': 1.0.0_biqbaboplfbrettd7655fr4n2y
+      '@pansy/shared': 1.11.0
+      react: 18.2.0
+      react-dom: 18.2.0_react@18.2.0
+    dev: false
+
+  /@lotus-design/segmented/0.3.0_biqbaboplfbrettd7655fr4n2y:
+    resolution: {integrity: sha512-gyTSvBrZyokRumcZQ4YlO6XFwPSu3trc2Sou8yaoDktpAkFrzfZ7hgACe5YR201S2CIsiXvGWFUfA1rjXaaoew==}
+    peerDependencies:
+      react: '>=16.9.0'
+      react-dom: '>=16.9.0'
+    dependencies:
+      '@lotus-design/utils': 1.0.0_biqbaboplfbrettd7655fr4n2y
+      '@pansy/shared': 1.11.0
+      rc-motion: 2.6.3_biqbaboplfbrettd7655fr4n2y
+      react: 18.2.0
+      react-dom: 18.2.0_react@18.2.0
+    dev: false
 
   /@lotus-design/switch/1.0.0_biqbaboplfbrettd7655fr4n2y:
     resolution: {integrity: sha512-OKCM/TlSriL+Lz9uAmHDRTfDDyWJor4AeYw1ZdJtdvYMiphkUWajhzf0ld12TvWUiS+kodgHvR+lfTvHJPYVGw==}
