@@ -77,6 +77,22 @@ export function formatToken(derivativeToken: RawMergedToken): AliasToken {
     marginXL: mergedToken.sizeXL,
     marginXXL: mergedToken.sizeXXL,
 
+    boxShadow: `
+      0 6px 16px 0 rgba(0, 0, 0, 0.08),
+      0 3px 6px -4px rgba(0, 0, 0, 0.12),
+      0 9px 28px 8px rgba(0, 0, 0, 0.05)
+    `,
+    boxShadowSecondary: `
+      0 6px 16px 0 rgba(0, 0, 0, 0.08),
+      0 3px 6px -4px rgba(0, 0, 0, 0.12),
+      0 9px 28px 8px rgba(0, 0, 0, 0.05)
+    `,
+    boxShadowTertiary: `
+      0 1px 2px 0 rgba(0, 0, 0, 0.03),
+      0 1px 6px -1px rgba(0, 0, 0, 0.02),
+      0 2px 4px 0 rgba(0, 0, 0, 0.02)
+    `,
+
     // Font
     fontSizeIcon: mergedToken.fontSizeSM,
 
@@ -86,12 +102,17 @@ export function formatToken(derivativeToken: RawMergedToken): AliasToken {
     // Control
     lineWidth: mergedToken.lineWidth,
     controlOutlineWidth: mergedToken.lineWidth * 2,
+    // Checkbox size and expand icon size
+    controlInteractiveSize: mergedToken.controlHeight / 2,
 
     controlTmpOutline: mergedToken.colorFillQuaternary,
     colorHighlight: mergedToken.colorError,
     controlOutline: getAlphaColor(mergedToken.colorPrimaryBg, mergedToken.colorBgContainer),
 
     opacityLoading: 0.65,
+
+    controlPaddingHorizontal: 12,
+    controlPaddingHorizontalSM: 8,
   }
 
   return aliasToken;

@@ -136,7 +136,7 @@ export interface AliasToken extends MapToken {
 
   // Control
   /**
-   * @nameZH 输入组件的外轮廓线宽度
+   * @name 输入组件的外轮廓线宽度
    * @nameEN Input component outline width
    * @desc 控制输入组件的外轮廓线宽度。
    * @descEN Control the outline width of input component.
@@ -144,7 +144,7 @@ export interface AliasToken extends MapToken {
   controlOutlineWidth: number;
 
   /**
-   * @nameZH 高亮颜色
+   * @name 高亮颜色
    * @nameEN Highlight color
    * @desc 控制页面元素高亮时的颜色。
    * @descEN Control the color of page element when highlighted.
@@ -152,12 +152,20 @@ export interface AliasToken extends MapToken {
   colorHighlight: string;
 
   /**
-   * @nameZH 输入组件的 Outline 颜色
+   * @name 输入组件的 Outline 颜色
    * @nameEN Input component outline color
    * @desc 控制输入组件的外轮廓线颜色。
    * @descEN Control the outline color of input component.
    */
   controlOutline: string;
+
+  /**
+   * @name 控制组件的交互大小
+   * @nameEN Interactive size of control component
+   * @desc 控制组件的交互大小。
+   * @descEN Control the interactive size of control component.
+   */
+  controlInteractiveSize: number;
 
   // Font
   /** Operation icon in Select, Cascader, etc. icon fontSize. Normal is same as fontSizeSM */
@@ -301,9 +309,46 @@ export interface AliasToken extends MapToken {
   opacityLoading: number;
 
   /**
+   * @nameZH 一级阴影
+   * @nameEN Box shadow
+   * @desc 控制元素阴影样式。
+   * @descEN Control the box shadow style of an element.
+   */
+  boxShadow: string;
+  /**
+   * @nameZH 二级阴影
+   * @nameEN Secondary box shadow
+   * @desc 控制元素二级阴影样式。
+   * @descEN Control the secondary box shadow style of an element.
+   */
+  boxShadowSecondary: string;
+  /**
+   * @nameZH 三级阴影
+   * @nameEN Tertiary box shadow
+   * @desc 控制元素三级盒子阴影样式。
+   * @descEN Control the tertiary box shadow style of an element.
+   */
+  boxShadowTertiary: string;
+
+  /**
    * Used for DefaultButton, Switch which has default outline
    * @desc 默认样式的 Outline 颜色
    * @descEN Default style outline color.
    */
   controlTmpOutline: string;
+
+  /**
+   * @name 控制水平内间距
+   * @nameEN Control horizontal padding
+   * @desc 控制元素水平内间距。
+   * @descEN Control the horizontal padding of an element.
+   */
+  controlPaddingHorizontal: number;
+  /**
+    * @name 控制中小尺寸水平内间距
+    * @nameEN Control horizontal padding with a small-medium size
+    * @desc 控制元素中小尺寸水平内间距。
+    * @descEN Control the horizontal padding of an element with a small-medium size.
+    */
+  controlPaddingHorizontalSM: number;
 }

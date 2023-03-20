@@ -1,6 +1,12 @@
 import type { CSSObject } from '@ant-design/cssinjs';
 import type { AliasToken } from '../theme/internal';
 
+export const textEllipsis: CSSObject = {
+  overflow: 'hidden',
+  whiteSpace: 'nowrap',
+  textOverflow: 'ellipsis',
+};
+
 export const resetComponent = (token: AliasToken): CSSObject => ({
   boxSizing: 'border-box',
   margin: 0,
