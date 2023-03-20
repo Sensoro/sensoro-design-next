@@ -1,0 +1,123 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Segmented render empty segmented 1`] = `
+<div
+  class="s-segmented css-dev-only-do-not-override-1xffqj3"
+>
+  <div
+    class="s-segmented-group"
+  />
+</div>
+`;
+
+exports[`Segmented render label with ReactNode 1`] = `
+<div
+  class="s-segmented css-dev-only-do-not-override-1xffqj3"
+>
+  <div
+    class="s-segmented-group"
+  >
+    <label
+      class="s-segmented-item s-segmented-item-selected"
+    >
+      <input
+        checked=""
+        class="s-segmented-item-input"
+        type="radio"
+      />
+      <div
+        class="s-segmented-item-label"
+        title="Daily"
+      >
+        Daily
+      </div>
+    </label>
+    <label
+      class="s-segmented-item"
+    >
+      <input
+        class="s-segmented-item-input"
+        type="radio"
+      />
+      <div
+        class="s-segmented-item-label"
+      >
+        <div
+          id="weekly"
+        >
+          Weekly
+        </div>
+      </div>
+    </label>
+    <label
+      class="s-segmented-item"
+    >
+      <input
+        class="s-segmented-item-input"
+        type="radio"
+      />
+      <div
+        class="s-segmented-item-label"
+      >
+        <h2>
+          Monthly
+        </h2>
+      </div>
+    </label>
+  </div>
+</div>
+`;
+
+exports[`Segmented render segmented ok 1`] = `
+<div
+  class="s-segmented css-dev-only-do-not-override-1xffqj3"
+>
+  <div
+    class="s-segmented-group"
+  >
+    <label
+      class="s-segmented-item s-segmented-item-selected"
+    >
+      <input
+        checked=""
+        class="s-segmented-item-input"
+        type="radio"
+      />
+      <div
+        class="s-segmented-item-label"
+        title="Daily"
+      >
+        Daily
+      </div>
+    </label>
+    <label
+      class="s-segmented-item"
+    >
+      <input
+        class="s-segmented-item-input"
+        type="radio"
+      />
+      <div
+        class="s-segmented-item-label"
+        title="Weekly"
+      >
+        Weekly
+      </div>
+    </label>
+    <label
+      class="s-segmented-item"
+    >
+      <input
+        class="s-segmented-item-input"
+        type="radio"
+      />
+      <div
+        class="s-segmented-item-label"
+        title="Monthly"
+      >
+        Monthly
+      </div>
+    </label>
+  </div>
+</div>
+`;
