@@ -52,6 +52,7 @@
     "@sensoro-design/icons": "^2.2.0",
     "d3-path": "^3.1.0",
     "dayjs": "^1.11.7",
+    "rc-motion": "^2.6.3",
     "rc-util": "^5.29.2",
     "scroll-into-view-if-needed": "^3.0.6"
   },
