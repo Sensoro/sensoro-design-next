@@ -9,7 +9,7 @@ import useStyle from './style';
 import type {
   SegmentedLabeledOption as LotusSegmentedLabeledOption,
   SegmentedProps as LotusSegmentedProps,
-  SegmentedValue as SegmentedRawOption,
+  SegmentedRawOption,
 } from '@lotus-design/segmented';
 import type { SizeType } from '../config-provider/SizeContext';
 
@@ -69,8 +69,8 @@ export const Segmented = forwardRef<HTMLDivElement, SegmentedProps>((props, ref)
   const mergedSize = customSize || size;
 
   const extendedOptions = useMemo<LotusSegmentedProps['options']>(
-    () => {
-      return options.map((option) => {
+    () =>
+      options.map((option) => {
         if (isSegmentedLabeledOptionWithIcon(option)) {
           const { icon, label, ...restOption } = option;
           return {
@@ -84,8 +84,7 @@ export const Segmented = forwardRef<HTMLDivElement, SegmentedProps>((props, ref)
           };
         }
         return option;
-      })
-    },
+      }),
     [options, prefixCls],
   )
 
@@ -101,10 +100,10 @@ export const Segmented = forwardRef<HTMLDivElement, SegmentedProps>((props, ref)
         },
         hashId,
       )}
+      options={extendedOptions}
       ref={ref}
       prefixCls={prefixCls}
       direction={direction}
-      options={extendedOptions}
     />
   )
 })

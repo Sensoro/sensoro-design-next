@@ -1,5 +1,6 @@
 import { useContext } from 'react';
 import { useStyleRegister } from '@ant-design/cssinjs';
+import { genCommonStyle } from '../../style';
 import { ConfigContext } from '../../config-provider/ConfigContext';
 import { useToken, mergeToken, statisticToken } from '../internal';
 
@@ -81,7 +82,7 @@ export function genComponentStyleHook<ComponentName extends OverrideComponent>(
           });
           flush(component, mergedComponentToken);
 
-          return [styleInterpolation];
+          return [genCommonStyle(token, prefixCls), styleInterpolation];
         }
       ),
       hashId,
