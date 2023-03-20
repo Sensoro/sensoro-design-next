@@ -28,10 +28,29 @@ export function formatToken(derivativeToken: RawMergedToken): AliasToken {
   const aliasToken: AliasToken = {
     ...mergedToken,
 
+    colorLink: mergedToken.colorInfoText,
+    colorLinkHover: mergedToken.colorInfoHover,
+    colorLinkActive: mergedToken.colorInfoActive,
+    colorLinkDisabled: mergedToken.colorInfoDisabled,
+
+    // ============== Background ============== //
+    colorFillContent: mergedToken.colorFillSecondary,
+    colorFillContentHover: mergedToken.colorFill,
+    colorFillAlter: mergedToken.colorFillQuaternary,
+    colorBgContainerDisabled: mergedToken.colorFillTertiary,
+    colorBgTextHover: mergedToken.colorFillSecondary,
+    colorBgTextActive: mergedToken.colorFill,
+
     // ============== Split ============== //
+    colorBorderBg: mergedToken.colorBgContainer,
     colorSplit: getAlphaColor(mergedToken.colorBorderSecondary, mergedToken.colorBgContainer),
 
     // ============== Text ============== //
+    colorTextPlaceholder: mergedToken.colorTextQuaternary,
+    colorTextDisabled: mergedToken.colorTextQuaternary,
+    colorTextHeading: mergedToken.colorText,
+    colorTextLabel: mergedToken.colorTextSecondary,
+    colorTextDescription: mergedToken.colorTextTertiary,
     colorTextLightSolid: mergedToken.colorWhite,
 
     paddingXXS: mergedToken.sizeXXS,
@@ -41,6 +60,13 @@ export function formatToken(derivativeToken: RawMergedToken): AliasToken {
     paddingMD: mergedToken.sizeMD,
     paddingLG: mergedToken.sizeLG,
     paddingXL: mergedToken.sizeXL,
+
+    paddingContentHorizontalLG: mergedToken.sizeLG,
+    paddingContentVerticalLG: mergedToken.sizeMS,
+    paddingContentHorizontal: mergedToken.sizeMS,
+    paddingContentVertical: mergedToken.sizeSM,
+    paddingContentHorizontalSM: mergedToken.size,
+    paddingContentVerticalSM: mergedToken.sizeXS,
 
     marginXXS: mergedToken.sizeXXS,
     marginXS: mergedToken.sizeXS,
@@ -56,6 +82,14 @@ export function formatToken(derivativeToken: RawMergedToken): AliasToken {
 
     // Line
     lineWidthFocus: mergedToken.lineWidth * 4,
+
+    // Control
+    lineWidth: mergedToken.lineWidth,
+    controlOutlineWidth: mergedToken.lineWidth * 2,
+
+    controlTmpOutline: mergedToken.colorFillQuaternary,
+    colorHighlight: mergedToken.colorError,
+    controlOutline: getAlphaColor(mergedToken.colorPrimaryBg, mergedToken.colorBgContainer),
 
     opacityLoading: 0.65,
   }

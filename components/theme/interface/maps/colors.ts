@@ -94,6 +94,9 @@ export interface ColorNeutralMapToken {
    * @descEN Container background color, e.g: default button, input box, etc. Be sure not to confuse this with `colorBgElevated`.
    */
   colorBgContainer: string;
+  colorBgContainerHover: string;
+  colorBgContainerActive: string;
+  colorBgContainerDisabled: string;
 
   /**
    * @name 浮层容器背景色
@@ -220,8 +223,8 @@ interface ColorSuccessMapToken {
   colorSuccessHover: string; // 5
 
   /**
-   * @name 主色禁用态
-   * @desc 主色梯度下的禁用态
+   * @name 成功色禁用态
+   * @desc 成功梯度下的禁用态
    */
   colorSuccessDisabled: string; // 3
 
@@ -360,6 +363,12 @@ interface ColorInfoMapToken {
    * @name 信息色的深色激活态
    */
   colorInfoActive: string; // 7
+
+  /**
+   * @name 信息色禁用态
+   * @desc 信息色梯度下的禁用态
+   */
+  colorInfoDisabled: string; // 3
 
   /**
    * @name 信息色的文本悬浮态

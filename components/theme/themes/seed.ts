@@ -25,7 +25,7 @@ export const seedToken: SeedToken = {
   colorSuccess: defaultPresetColors.green,
   colorWarning: defaultPresetColors.gold,
   colorError: defaultPresetColors.red,
-  colorInfo: '#1677ff',
+  colorInfo: defaultPresetColors.blue,
   colorTextBase: '',
 
   colorBgBase: '',
@@ -55,6 +55,8 @@ export const seedToken: SeedToken = {
 
   // Radius
   borderRadius: 2,
+  borderRadiusNone: 0,
+  borderRadiusCircle: '50%',
 
   // Size
   sizeUnit: 4,
