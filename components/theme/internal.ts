@@ -7,14 +7,15 @@ import { seedToken as defaultSeedToken } from './themes/seed';
 import statisticToken, { merge as mergeToken, statistic } from './utils/statistic';
 import { genComponentStyleHook } from './utils/genComponentStyleHook';
 
-import type { CSSInterpolation } from '@ant-design/cssinjs';
+import type { CSSInterpolation, Theme, } from '@ant-design/cssinjs';
 import type { FullToken } from './utils/genComponentStyleHook';
 import type {
   AliasToken,
   PresetColorType,
   PresetColorKey,
   SeedToken,
-
+  MapToken,
+  OverrideToken,
 } from './interface';
 
 const defaultTheme = createTheme(defaultDerivative);
@@ -22,18 +23,18 @@ const defaultTheme = createTheme(defaultDerivative);
 // ================================ Context =================================
 export const defaultConfig = {
   token: defaultSeedToken,
-  hashed: true,
+  hashed: false,
 };
 
 export const DesignTokenContext = React.createContext<{
-  token: any;
-  theme?: any;
-  components?: any;
+  token: Partial<AliasToken>;
+  theme?: Theme<SeedToken, MapToken>;
+  components?: OverrideToken;
   hashed?: string | boolean;
 }>(defaultConfig);
 
 // ================================== Hook ==================================
-export function useToken() {
+export function useToken(): [Theme<any, any>, AliasToken, string] {
   const {
     token: rootDesignToken,
     hashed,

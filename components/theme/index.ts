@@ -1,7 +1,7 @@
 import { defaultConfig, useToken as useInternalToken } from './internal';
 import type { GlobalToken } from './interface';
 
-export { type GlobalToken };
+export type { GlobalToken };
 
 function useToken() {
   const [theme, token, hashId] = useInternalToken();
