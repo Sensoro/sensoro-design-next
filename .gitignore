@@ -7,6 +7,9 @@
 lib/**
 es/**
 
+_site
+server/
+
 # dumi
 .dumi/tmp
 .dumi/tmp-production

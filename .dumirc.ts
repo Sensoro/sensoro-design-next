@@ -24,6 +24,7 @@ export default defineConfig({
       { title: '组件', link: '/components' },
     ],
   },
+  outputPath: '_site',
   alias: {
     'sensoro-design/es': path.join(__dirname, 'components'),
     'sensoro-design/lib': path.join(__dirname, 'components'),
