@@ -1,6 +1,5 @@
 import React from 'react';
 import { Segmented, Space } from 'sensoro-design';
-import UserOutlined from '@sensoro-design/icons/UserOutlined';
 
 const App: React.FC = () => (
   <Space direction="vertical">

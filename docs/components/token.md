@@ -22,3 +22,15 @@ SensoroDesign 默认的主题色是明亮、友好的蓝色。
 ## 错误色
 
 <TokenColor type="error"></TokenColor>
+
+## 圆角
+
+我们提供了以下几种圆角样式，以供选择。
+
+<TokenRadius></TokenRadius>
+
+## 阴影
+
+我们提供了以下几种投影样式，以供选择。
+
+<TokenBoxShadow></TokenBoxShadow>

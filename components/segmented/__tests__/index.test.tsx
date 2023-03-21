@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { mountTest } from '../../../tests/shared/mountTest';
-import { fireEvent, render } from '../../../tests/utils';
+import { render } from '../../../tests/utils';
 import { Segmented } from '../index';
 
 const prefixCls = 's-segmented';

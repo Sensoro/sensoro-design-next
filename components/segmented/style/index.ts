@@ -1,4 +1,4 @@
-import type { CSSObject } from '@ant-design/cssinjs';
+import type { CSSInterpolation, CSSObject } from '@ant-design/cssinjs';
 import type { FullToken, GenerateStyle } from '../../theme/internal';
 import { genComponentStyleHook, mergeToken } from '../../theme/internal';
 import { resetComponent, textEllipsis, } from '../../style';
@@ -8,6 +8,10 @@ export interface ComponentToken {}
 interface SegmentedToken extends FullToken<'Segmented'> {
   segmentedPaddingHorizontal: number;
   segmentedPaddingHorizontalSM: number;
+  /**
+   * 容器内边距
+   * @default 4
+   */
   segmentedContainerPadding: number;
   labelColor: string;
   labelColorHover: string;
@@ -39,8 +43,8 @@ const segmentedTextEllipsisCss: CSSObject = {
   ...textEllipsis,
 };
 
-// ============================== Styles ==============================
-const genSegmentedStyle: GenerateStyle<SegmentedToken> = (token: SegmentedToken) => {
+// ============================== Shared ==============================
+const genSharedSegmentedStyle: GenerateStyle<SegmentedToken> = (token: SegmentedToken) => {
   const { componentCls } = token;
 
   return {
@@ -65,16 +69,6 @@ const genSegmentedStyle: GenerateStyle<SegmentedToken> = (token: SegmentedToken)
       // RTL styles
       [`&${componentCls}-rtl`]: {
         direction: 'rtl',
-      },
-
-      // block styles
-      [`&${componentCls}-block`]: {
-        display: 'flex',
-      },
-
-      [`&${componentCls}-block ${componentCls}-item`]: {
-        flex: 1,
-        minWidth: 0,
       },
 
       // item styles
@@ -152,7 +146,24 @@ const genSegmentedStyle: GenerateStyle<SegmentedToken> = (token: SegmentedToken)
           },
       },
 
-      // size styles
+      // disabled styles
+      ...getItemDisabledStyle(`&-disabled ${componentCls}-item`, token),
+      ...getItemDisabledStyle(`${componentCls}-item-disabled`, token),
+
+      // transition effect when `appear-active`
+      [`${componentCls}-thumb-motion-appear-active`]: {
+        transition: `transform ${token.motionDurationSlow} ${token.motionEaseInOut}, width ${token.motionDurationSlow} ${token.motionEaseInOut}`,
+        willChange: 'transform, width',
+      },
+    }
+  }
+}
+
+// =============================== Size ===============================
+const genSizeSegmentedStyle = (token: SegmentedToken): CSSInterpolation => {
+  const { componentCls } = token;
+  return {
+    [componentCls]: {
       [`&${componentCls}-lg`]: {
         borderRadius: token.borderRadiusLG,
         [`${componentCls}-item-label`]: {
@@ -177,19 +188,25 @@ const genSegmentedStyle: GenerateStyle<SegmentedToken> = (token: SegmentedToken)
           borderRadius: token.borderRadiusXS,
         },
       },
-
-      // disabled styles
-      ...getItemDisabledStyle(`&-disabled ${componentCls}-item`, token),
-      ...getItemDisabledStyle(`${componentCls}-item-disabled`, token),
-
-      // transition effect when `appear-active`
-      [`${componentCls}-thumb-motion-appear-active`]: {
-        transition: `transform ${token.motionDurationSlow} ${token.motionEaseInOut}, width ${token.motionDurationSlow} ${token.motionEaseInOut}`,
-        willChange: 'transform, width',
-      },
     }
   }
 }
+
+const genBlockSegmentedStyle: GenerateStyle<SegmentedToken> = (token) => {
+  const { componentCls } = token;
+  return {
+    [componentCls]: {
+      [`&${componentCls}-block`]: {
+        display: 'flex',
+      },
+
+      [`&${componentCls}-block ${componentCls}-item`]: {
+        flex: 1,
+        minWidth: 0,
+      },
+    },
+  };
+};
 
 // ============================== Export ==============================
 export default genComponentStyleHook('Segmented', (token) => {
@@ -215,6 +232,12 @@ export default genComponentStyleHook('Segmented', (token) => {
   });
 
   return [
-    genSegmentedStyle(segmentedToken)
+    genSharedSegmentedStyle(segmentedToken),
+
+    // Block
+    genBlockSegmentedStyle(segmentedToken),
+
+    // Size
+    genSizeSegmentedStyle(segmentedToken)
   ];
 })

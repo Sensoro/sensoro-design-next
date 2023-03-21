@@ -1,9 +1,11 @@
 import React from 'react';
-import { message } from 'antd';
+import { message, Tooltip } from 'antd';
 import { css } from '@emotion/react';
+import InfoCircleOutlined from '@sensoro-design/icons/InfoCircleOutlined';
 import CopyToClipboard from 'react-copy-to-clipboard';
 import tokenMeta from 'sensoro-design/es/version/token-meta.json';
 import { useSiteToken } from '../../../hooks/useSiteToken';
+
 
 const radiusMap = {
   borderRadiusSM: {
@@ -37,6 +39,10 @@ export const useStyle = () => {
     }),
     name: css({
       marginBottom: token.marginXS,
+
+      '> span': {
+        marginLeft: token.marginXXS,
+      },
     }),
     value: css({
       display: 'inline-block',
@@ -72,6 +78,11 @@ const TokenRadius: React.FC = () => {
             <div css={styles.item}>
               <div css={styles.name}>
                 {radiusInfo.name}
+                {radiusInfo.desc && (
+                  <Tooltip title={radiusInfo.desc}>
+                    <InfoCircleOutlined />
+                  </Tooltip>
+                )}
               </div>
               <div css={styles.value}>
                 {radiusKey}: {token[radiusKey]}

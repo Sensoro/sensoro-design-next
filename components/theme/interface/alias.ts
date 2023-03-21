@@ -309,26 +309,47 @@ export interface AliasToken extends MapToken {
   opacityLoading: number;
 
   /**
-   * @nameZH 一级阴影
+   * @name 无阴影
+   * @nameEN Box shadow
+   * @desc 控制元素阴影样式。
+   * @descEN Control the box shadow style of an element.
+   */
+  boxShadowNone: string;
+  /**
+   * @name 一级阴影
    * @nameEN Box shadow
    * @desc 控制元素阴影样式。
    * @descEN Control the box shadow style of an element.
    */
   boxShadow: string;
   /**
-   * @nameZH 二级阴影
+   * @name 二级阴影
    * @nameEN Secondary box shadow
    * @desc 控制元素二级阴影样式。
    * @descEN Control the secondary box shadow style of an element.
    */
   boxShadowSecondary: string;
   /**
-   * @nameZH 三级阴影
+   * @name 三级阴影
    * @nameEN Tertiary box shadow
    * @desc 控制元素三级盒子阴影样式。
    * @descEN Control the tertiary box shadow style of an element.
    */
   boxShadowTertiary: string;
+  /**
+   * @name 四级阴影
+   * @nameEN Tertiary box shadow
+   * @desc 控制元素三级盒子阴影样式。
+   * @descEN Control the tertiary box shadow style of an element.
+   */
+  boxShadowFourth?: string;
+  /**
+   * @name 五级阴影
+   * @nameEN Tertiary box shadow
+   * @desc 控制元素三级盒子阴影样式。
+   * @descEN Control the tertiary box shadow style of an element.
+   */
+  boxShadowFifth?: string;
 
   /**
    * Used for DefaultButton, Switch which has default outline

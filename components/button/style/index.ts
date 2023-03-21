@@ -93,7 +93,7 @@ const genPureDisabledButtonStyle = (token: ButtonToken, disabledStyle?: CSSObjec
   },
 });
 
-const genSolidDisabledButtonStyle: GenerateStyle<ButtonToken, CSSObject> = (token) => ({
+const genSolidDisabledButtonStyle: GenerateStyle<ButtonToken, CSSObject> = () => ({
   '&:disabled': {
     // ...genDisabledStyle(token),
   },

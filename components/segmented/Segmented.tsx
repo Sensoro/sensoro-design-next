@@ -60,6 +60,8 @@ export const Segmented = forwardRef<HTMLDivElement, SegmentedProps>((props, ref)
     options = [],
     ...restProps
   } = props;
+
+  // ===================== Style =====================
   const { getPrefixCls, direction } = useContext(ConfigContext);
   const prefixCls = getPrefixCls('segmented', customizePrefixCls);
   const [wrapSSR, hashId] = useStyle(prefixCls);

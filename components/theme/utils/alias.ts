@@ -77,20 +77,26 @@ export function formatToken(derivativeToken: RawMergedToken): AliasToken {
     marginXL: mergedToken.sizeXL,
     marginXXL: mergedToken.sizeXXL,
 
+    boxShadowNone: 'none',
     boxShadow: `
-      0 6px 16px 0 rgba(0, 0, 0, 0.08),
-      0 3px 6px -4px rgba(0, 0, 0, 0.12),
-      0 9px 28px 8px rgba(0, 0, 0, 0.05)
+      0 0 1px rgba(60,73,97,.08),
+      0 1px 2px rgba(109,119,137,.16)
     `,
     boxShadowSecondary: `
-      0 6px 16px 0 rgba(0, 0, 0, 0.08),
-      0 3px 6px -4px rgba(0, 0, 0, 0.12),
-      0 9px 28px 8px rgba(0, 0, 0, 0.05)
+      0 0 2px rgba(60,73,97,.08),
+      0 4px 8px rgba(109,119,137,.16)
     `,
     boxShadowTertiary: `
-      0 1px 2px 0 rgba(0, 0, 0, 0.03),
-      0 1px 6px -1px rgba(0, 0, 0, 0.02),
-      0 2px 4px 0 rgba(0, 0, 0, 0.02)
+      0 2px 4px rgba(60,73,97,.08),
+      0 8px 16px rgba(109,119,137,.16)
+    `,
+    boxShadowFourth: `
+      0 2px 8px rgba(60,73,97,.08),
+      0 16px 24px rgba(109,119,137,.16)
+    `,
+    boxShadowFifth: `
+      0 2px 8px rgba(60,73,97,.08),
+      0 20px 32px rgba(109,119,137,.16)
     `,
 
     // Font
