@@ -14,7 +14,7 @@ export default defineConfig({
   hash: true,
   themeConfig: {
     logo,
-    name: 'Design',
+    name: 'Sensoro Design',
     socialLinks: {
       github: 'https://github.com/sensoro-design/material-components',
     },

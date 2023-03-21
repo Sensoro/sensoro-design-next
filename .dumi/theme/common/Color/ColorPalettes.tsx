@@ -1,7 +1,6 @@
 import { classNames } from '@pansy/shared';
 import React from 'react';
 import { Palette } from './Palette';
-import { ColorStyle } from './ColorStyle';
 
 const colors = [
   {
@@ -82,7 +81,6 @@ export const ColorPalettes: React.FC<{ dark?: boolean }> = (props) => {
   const { dark } = props;
   return (
     <div className={classNames('color-palettes', { 'color-palettes-dark': dark })}>
-      <ColorStyle />
       {colors.map((color) => (
         <Palette key={color.name} color={color} dark={dark} showTitle />
       ))}
