@@ -10,6 +10,12 @@ export type { ButtonProps } from './button';
 export { Switch } from './switch';
 export type { SwitchProps } from './switch';
 
+export { Checkbox } from './checkbox';
+export type { CheckboxProps } from './checkbox';
+
+export { Segmented } from './segmented';
+export type { SegmentedProps } from './segmented';
+
 export { Empty } from './empty';
 export type { EmptyProps } from './empty';
 
