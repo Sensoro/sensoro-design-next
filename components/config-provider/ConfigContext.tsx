@@ -22,12 +22,18 @@ export interface ConfigContextProps {
     size?: SizeType | number;
   };
   locale?: Locale;
+  /**
+   * 设置为 true 时，将在按钮 2 个汉字之间添加空格
+   * @default false
+   */
+  autoInsertSpaceInButton?: boolean;
 }
 
 export const ConfigContext = createContext<ConfigContextProps>({
   // We provide a default function for Context without provider
   getPrefixCls: defaultGetPrefixCls,
   iconPrefixCls: defaultIconPrefixCls,
+  autoInsertSpaceInButton: false,
 });
 
 export const { Consumer: ConfigConsumer } = ConfigContext;
