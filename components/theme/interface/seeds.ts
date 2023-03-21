@@ -95,6 +95,7 @@ export interface SeedToken extends PresetColorType {
    * @nameEN Base Line Width
    * @desc 用于控制组件边框、分割线等的宽度
    * @descEN Border width of base components
+   * @default 1
    */
   lineWidth: number;
 
@@ -103,6 +104,7 @@ export interface SeedToken extends PresetColorType {
    * @nameEN Line Style
    * @desc 用于控制组件边框、分割线等的样式，默认是实线
    * @descEN Border style of base components
+   * @default 'solid'
    */
   lineType: string;
 

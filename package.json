@@ -26,10 +26,10 @@
   ],
   "scripts": {
     "start": "cross-env PORT=8888 dumi dev",
-    "tsc": "tsc --noEmit",
     "prestart": "pnpm run version",
     "pretest": "pnpm run version",
     "test": "jest",
+    "tsc": "tsc --noEmit",
     "predeploy": "pnpm run site",
     "deploy": "gh-pages -d _site -b gh-pages -f",
     "site": "dumi build",
