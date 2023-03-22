@@ -19,7 +19,6 @@ export default defineConfig({
       github: 'https://github.com/sensoro-design/material-components',
     },
     nav: [
-      { title: '设计', link: '/spec' },
       { title: '开发', link: '/react' },
       { title: '组件', link: '/components' },
     ],
