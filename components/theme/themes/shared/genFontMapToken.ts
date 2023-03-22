@@ -19,14 +19,19 @@ export const genFontMapToken = (fontSize: number): FontMapToken => {
     fontSizeHeading4: fontSizes[3],
     fontSizeHeading5: fontSizes[2],
 
+    lineHeightSM: lineHeights[0],
     lineHeight: lineHeights[1],
     lineHeightLG: lineHeights[2],
-    lineHeightSM: lineHeights[0],
 
     lineHeightHeading1: lineHeights[6],
     lineHeightHeading2: lineHeights[5],
     lineHeightHeading3: lineHeights[4],
     lineHeightHeading4: lineHeights[3],
     lineHeightHeading5: lineHeights[2],
+
+    fontWeightSM: 300,
+    fontWeight: 400,
+    fontWeightLG: 500,
+    fontWeightXL: 600,
   };
 };

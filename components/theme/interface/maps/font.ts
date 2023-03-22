@@ -3,21 +3,25 @@ export interface FontMapToken {
   /**
    * @desc 小号字体大小
    * @descEN Small font size
+   * @default 12
    */
   fontSizeSM: number;
   /**
    * @desc 标准字体大小
    * @descEN Standard font size
+   * @default 14
    */
   fontSize: number;
   /**
    * @desc 大号字体大小
    * @descEN Large font size
+   * @default 16
    */
   fontSizeLG: number;
   /**
    * @desc 超大号字体大小
    * @descEN Super large font size
+   * @default 20
    */
   fontSizeXL: number;
 
@@ -54,6 +58,11 @@ export interface FontMapToken {
 
   // LineHeight
   /**
+   * @desc 小型文本行高
+   * @descEN Line height of small text.
+   */
+  lineHeightSM: number;
+  /**
    * @desc 文本行高
    * @descEN Line height of text.
    */
@@ -63,15 +72,35 @@ export interface FontMapToken {
    * @descEN Line height of large text.
    */
   lineHeightLG: number;
-  /**
-   * @desc 小型文本行高
-   * @descEN Line height of small text.
-   */
-  lineHeightSM: number;
 
   lineHeightHeading1: number;
   lineHeightHeading2: number;
   lineHeightHeading3: number;
   lineHeightHeading4: number;
   lineHeightHeading5: number;
+
+  /**
+   * @desc 小号字重大小
+   * @descEN Small font weight
+   * @default 300
+   */
+  fontWeightSM: number;
+  /**
+   * @desc 标准字重大小
+   * @descEN Small font weight
+   * @default 400
+   */
+  fontWeight: number;
+  /**
+   * @desc 大号字重大小
+   * @descEN Large font size
+   * @default 500
+   */
+  fontWeightLG: number;
+  /**
+   * @desc 超大号字重大小
+   * @descEN Super large font size
+   * @default 600
+   */
+  fontWeightXL: number;
 }
