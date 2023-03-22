@@ -1,8 +1,7 @@
 import React, { useMemo, useState, } from 'react';
 import { css } from '@emotion/react';
-import { Affix, Anchor, Avatar, Col, Skeleton, Space, Tooltip, Typography } from 'antd';
-import { useRouteMeta, useTabMeta } from 'dumi';
-import DumiContent from 'dumi/theme-default/slots/Content';
+import { Col, Typography } from 'antd';
+import { useRouteMeta, useLocation } from 'dumi';
 
 import { useSiteToken } from '../../../hooks/useSiteToken';
 import Footer from '../Footer';
@@ -25,19 +24,12 @@ const useStyle = () => {
       &.rtl {
         padding: 0 64px 144px 170px;
       }
-
-      @media only screen and (max-width: ${token.screenLG}px) {
-        &,
-        &.rtl {
-          padding: 0 48px;
-        }
-      }
     `,
   };
 }
 
 const Content: React.FC<{ children: React.ReactNode }> = (props) => {
-  const tab = useTabMeta();
+  const { pathname } = useLocation();
   const meta = useRouteMeta();
   const styles = useStyle();
 
@@ -56,8 +48,17 @@ const Content: React.FC<{ children: React.ReactNode }> = (props) => {
     <DemoContext.Provider value={contextValue}>
       <Col xxl={20} xl={19} lg={18} md={18} sm={24} xs={24}>
         <article css={styles.articleWrapper}>
+          {meta.frontmatter?.title ? (
+            <Typography.Title style={{ fontSize: 30 }}>
+              {meta.frontmatter?.title}
+              {meta.frontmatter.subtitle && (
+                <span style={{ marginLeft: 12 }}>{meta.frontmatter.subtitle}</span>
+              )}
+            </Typography.Title>
+          ) : null}
           {props.children}
         </article>
+        <Footer />
       </Col>
     </DemoContext.Provider>
   )
