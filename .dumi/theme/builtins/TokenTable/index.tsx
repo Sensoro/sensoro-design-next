@@ -5,7 +5,7 @@ import { useLocale } from '../../../hooks/useLocale';
 import { useSiteToken } from '../../../hooks/useSiteToken';
 import tokenMeta from 'sensoro-design/es/version/token-meta.json';
 import ColorChunk from '../ColorChunk';
-import { getDesignToken } from './getDesignToken';
+import { getDesignToken } from '../../utils';
 
 import type { TableProps } from 'antd';
 
