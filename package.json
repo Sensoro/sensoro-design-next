@@ -26,10 +26,13 @@
   ],
   "scripts": {
     "start": "cross-env PORT=8888 dumi dev",
+    "size-limit": "size-limit",
     "prestart": "pnpm run version & pnpm run collect-token-statistic & pnpm run token-meta",
     "pretest": "pnpm run version",
     "presite": "pnpm run version & pnpm run collect-token-statistic & pnpm run token-meta",
     "predeploy": "pnpm run site && cp CNAME _site",
+    "clean": "rm -rf es lib coverage dist report.html",
+    "compile": "pnpm run clean",
     "test": "jest",
     "tsc": "tsc --noEmit",
     "deploy": "gh-pages -d _site -b gh-pages -f",
@@ -97,10 +100,17 @@
     "react-copy-to-clipboard": "^5.1.0",
     "react-dom": "^18.2.0",
     "redbud": "^1.6.0",
+    "size-limit": "^8.2.4",
     "ts-node": "^10.9.1",
     "typedoc": "^0.23.28",
     "typescript": "~5.0.2"
   },
+  "size-limit": [
+    {
+      "path": "./dist/sensoro-design.min.js",
+      "limit": "385 KiB"
+    }
+  ],
   "authors": [
     "wangxingkang <wang_xingkang@qq.com> (https://github.com/wangxingkang)"
   ],
