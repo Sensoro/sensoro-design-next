@@ -6,6 +6,7 @@ import { useToken, mergeToken, statisticToken } from '../internal';
 
 import type { CSSInterpolation } from '@ant-design/cssinjs';
 import type { ComponentTokenMap, GlobalToken, } from '../interface';
+import type { UseComponentStyleResult } from '../internal';
 
 export type OverrideTokenWithoutDerivative = ComponentTokenMap;
 export type OverrideComponent = keyof OverrideTokenWithoutDerivative;
@@ -43,7 +44,7 @@ export function genComponentStyleHook<ComponentName extends OverrideComponent>(
     | OverrideTokenWithoutDerivative[ComponentName]
     | ((token: GlobalToken) => OverrideTokenWithoutDerivative[ComponentName]),
 ) {
-  return (prefixCls: string) => {
+  return (prefixCls: string): UseComponentStyleResult => {
     const [theme, token, hashId] = useToken();
     const { getPrefixCls, iconPrefixCls } = useContext(ConfigContext);
     const rootPrefixCls = getPrefixCls();

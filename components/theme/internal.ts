@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, createContext } from 'react';
 import { createTheme, useCacheToken, useStyleRegister } from '@ant-design/cssinjs';
 import { version } from '../version';
 import { formatToken } from './utils/alias';
@@ -11,6 +11,7 @@ import type { CSSInterpolation, Theme, } from '@ant-design/cssinjs';
 import type { FullToken } from './utils/genComponentStyleHook';
 import type {
   AliasToken,
+  GlobalToken,
   PresetColorType,
   PresetColorKey,
   SeedToken,
@@ -21,20 +22,22 @@ import type {
 const defaultTheme = createTheme(defaultDerivative);
 
 // ================================ Context =================================
-export const defaultConfig = {
-  token: defaultSeedToken,
-  hashed: false,
-};
-
-export const DesignTokenContext = React.createContext<{
+export interface DesignTokenContextType {
   token: Partial<AliasToken>;
   theme?: Theme<SeedToken, MapToken>;
   components?: OverrideToken;
   hashed?: string | boolean;
-}>(defaultConfig);
+}
+
+export const defaultConfig = {
+  token: defaultSeedToken as DesignTokenContextType['token'],
+  hashed: false,
+};
+
+export const DesignTokenContext = createContext<DesignTokenContextType>(defaultConfig);
 
 // ================================== Hook ==================================
-export function useToken(): [Theme<any, any>, AliasToken, string] {
+export function useToken(): [Theme<SeedToken, MapToken>, GlobalToken, string] {
   const {
     token: rootDesignToken,
     hashed,

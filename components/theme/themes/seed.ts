@@ -1,19 +1,26 @@
 import type { PresetColorType, SeedToken } from '../internal';
 
 export const defaultPresetColors: PresetColorType = {
-  blue: '#2b6de5',
+  // 蓝色
+  blue: '#2B6DE5',
+  // 蓝紫色
+  violet: '#4A42F0',
+  // 紫色
   purple: '#A140E7',
-  cyan: '#13C2C2',
-  green: '#1ACB7C',
-  magenta: '#EB2F96',
-  pink: '#eb2f96',
+  // 红色
   red: '#F72231',
-  orange: '#F98209',
-  yellow: '#F9D806',
-  volcano: '#FA541C',
-  geekblue: '#2EBBEA',
+  // 橙色
+  orange: '#F98206',
+  // 黄橙色
   gold: '#F9AA06',
+  // 黄色
+  yellow: '#F9D806',
+  // 亮绿色
   lime: '#80D40C',
+  // 绿色
+  green: '#1ACB7C',
+  // 亮蓝色
+  lightblue: '#2EBBEA',
 };
 
 export const seedToken: SeedToken = {
