@@ -72,6 +72,10 @@ export interface FontMapToken {
    * @descEN Line height of large text.
    */
   lineHeightLG: number;
+  /**
+   * @desc 超大型文本行高
+   */
+  lineHeightXL: number;
 
   lineHeightHeading1: number;
   lineHeightHeading2: number;
