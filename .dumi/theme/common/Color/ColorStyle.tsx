@@ -3,21 +3,19 @@ import { Global, css } from '@emotion/react';
 import { useSiteToken } from '../../../hooks/useSiteToken';
 
 const gray: Record<number, string> = {
-  1: '#fff',
-  2: '#fbfbfc',
-  3: '#f6f7f8',
-  4: '#f1f2f4',
-  5: '#eceef0',
-  6: '#dbdee2',
-  7: '#c2c7ce',
-  8: '#aab0ba',
-  9: '#6d7789',
-  10: '#3c4961',
-  11: '#0a1b39',
-  12: '#000',
+  1: '#fbfbfc',
+  2: '#f6f7f8',
+  3: '#f1f2f4',
+  4: '#eceef0',
+  5: '#dbdee2',
+  6: '#c2c7ce',
+  7: '#aab0ba',
+  8: '#6d7789',
+  9: '#3c4961',
+  10: '#0a1b39',
 };
 
-export const ColorStyle = () => {
+export const ColorStyle: React.FC = () => {
   const { token } = useSiteToken();
 
   const makePalette = (color: string, index: number = 1): string => {
@@ -99,17 +97,15 @@ ${makeGrayPalette(index + 1)}
 
         .main-color {
           ${makePalette('blue')}
+          ${makePalette('violet')}
           ${makePalette('purple')}
-          ${makePalette('cyan')}
-          ${makePalette('green')}
-          ${makePalette('magenta')}
           ${makePalette('red')}
-          ${makePalette('volcano')}
           ${makePalette('orange')}
           ${makePalette('gold')}
           ${makePalette('yellow')}
           ${makePalette('lime')}
-          ${makePalette('geekblue')}
+          ${makePalette('green')}
+          ${makePalette('lightblue')}
           ${makeGrayPalette()}
 
           text-align: left;

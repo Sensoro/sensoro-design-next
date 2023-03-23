@@ -4,16 +4,28 @@ import { Palette } from './Palette';
 
 const colors = [
   {
+    name: 'blue',
+    english: 'Daybreak Blue',
+    chinese: '拂晓蓝',
+    description: '包容、科技、普惠',
+  },
+  {
+    name: 'violet',
+    english: 'Geek Blue',
+    chinese: '极客蓝',
+    description: '探索、钻研',
+  },
+  {
+    name: 'purple',
+    english: 'Golden Purple',
+    chinese: '酱紫',
+    description: '优雅、浪漫',
+  },
+  {
     name: 'red',
     english: 'Dust Red',
     chinese: '薄暮',
     description: '斗志、奔放',
-  },
-  {
-    name: 'volcano',
-    english: 'Volcano',
-    chinese: '火山',
-    description: '醒目、澎湃',
   },
   {
     name: 'orange',
@@ -46,34 +58,10 @@ const colors = [
     description: '健康、创新',
   },
   {
-    name: 'cyan',
-    english: 'Cyan',
-    chinese: '明青',
+    name: 'lightblue',
+    english: 'Light Blue',
+    chinese: '明蓝',
     description: '希望、坚强',
-  },
-  {
-    name: 'blue',
-    english: 'Daybreak Blue',
-    chinese: '拂晓蓝',
-    description: '包容、科技、普惠',
-  },
-  {
-    name: 'geekblue',
-    english: 'Geek Blue',
-    chinese: '极客蓝',
-    description: '探索、钻研',
-  },
-  {
-    name: 'purple',
-    english: 'Golden Purple',
-    chinese: '酱紫',
-    description: '优雅、浪漫',
-  },
-  {
-    name: 'magenta',
-    english: 'Magenta',
-    chinese: '法式洋红',
-    description: '明快、感性',
   },
 ];
 
