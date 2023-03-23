@@ -47,7 +47,7 @@ styleFiles.forEach((file) => {
   ReactDOMServer.renderToString(
     React.createElement(
       DesignTokenContext.Provider,
-      { value: { token: { ...seedToken, wireframe: true } } },
+      { value: { token: { ...seedToken } } },
       React.createElement(Component),
     ),
   );
