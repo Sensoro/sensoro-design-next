@@ -54,6 +54,12 @@ export interface ColorNeutralMapToken {
    */
   colorBorderSecondary: string;
 
+  /**
+   * @name 虚线边框色
+   * @nameEN Dashed Border Color
+   */
+  colorBorderDashed: string;
+
   // ----------   Fill   ---------- //
 
   /**
