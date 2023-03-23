@@ -26,16 +26,17 @@
   ],
   "scripts": {
     "start": "cross-env PORT=8888 dumi dev",
-    "prestart": "pnpm run version",
+    "prestart": "pnpm run version & pnpm run collect-token-statistic & pnpm run token-meta",
     "pretest": "pnpm run version",
+    "presite": "pnpm run version & pnpm run collect-token-statistic & pnpm run token-meta",
+    "predeploy": "pnpm run site && cp CNAME _site",
     "test": "jest",
     "tsc": "tsc --noEmit",
-    "predeploy": "pnpm run site && cp CNAME _site",
     "deploy": "gh-pages -d _site -b gh-pages -f",
     "site": "dumi build && cp .surgeignore _site",
     "version": "redbud run ./scripts/generate-version.ts",
     "collect-token-statistic": "redbud run scripts/collect-token-statistic.ts",
-    "generate-token-meta": "redbud run scripts/generate-token-meta.ts",
+    "token-meta": "redbud run scripts/generate-token-meta.ts",
     "prepare": "husky install"
   },
   "peerDependencies": {
