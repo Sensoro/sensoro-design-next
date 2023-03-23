@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import { Card, Typography, Descriptions, } from 'antd';
 import { Space } from 'sensoro-design';
 import tokenMeta from 'sensoro-design/es/version/token-meta.json';
@@ -10,40 +10,30 @@ type TokenData = {
   desc: string;
   type: string;
   value: number;
-  lineHeight: string;
-  lineHeightValue: number;
 };
 
-const fontSizeMap = {
-  fontSizeSM: {
-    ...tokenMeta['fontSizeSM'],
-    desc: '小号',
-    lineHeight: 'lineHeightSM'
+const fontWeightMap = {
+  fontWeightSM: {
+    ...tokenMeta['fontWeightSM'],
   },
-  fontSize: {
-    ...tokenMeta['fontSize'],
-    desc: '标准',
-    lineHeight: 'lineHeight'
+  fontWeight: {
+    ...tokenMeta['fontWeight'],
   },
-  fontSizeLG: {
-    ...tokenMeta['fontSizeLG'],
-    desc: '大号',
-    lineHeight: 'flineHeightLG'
+  fontWeightLG: {
+    ...tokenMeta['fontWeightLG'],
   },
-  fontSizeXL: {
-    ...tokenMeta['fontSizeXL'],
-    desc: '超大号',
-    lineHeight: 'fontSizeXL'
+  fontWeightXL: {
+    ...tokenMeta['fontWeightXL'],
   },
 };
 
 const defaultToken = getDesignToken();
 const { Paragraph } = Typography;
 
-export const TokenFontSize: React.FC = () => {
-  const data = React.useMemo<TokenData[]>(
+export const TokenFontWeight: React.FC = () => {
+  const data = useMemo<TokenData[]>(
     () =>
-      Object.entries(fontSizeMap)
+      Object.entries(fontWeightMap)
         .map(([token, meta]) => {
           const lineHeight = token.replace('fontSize', 'lineHeight');
 
@@ -52,8 +42,6 @@ export const TokenFontSize: React.FC = () => {
             desc: meta.desc,
             type: meta.type,
             value: (defaultToken as any)[token],
-            lineHeight: lineHeight,
-            lineHeightValue: (defaultToken as any)[lineHeight],
           }
         }),
     [],
@@ -65,24 +53,16 @@ export const TokenFontSize: React.FC = () => {
         return (
           <Card style={{ minWidth: 240 }} key={info.name} hoverable>
             <Descriptions title={info.desc} column={1} colon={false}>
-              <Descriptions.Item label="字号">
+              <Descriptions.Item label="字重">
                 <Paragraph copyable={{ text: info.name }} style={{ margin: 0 }}>
                   {info.name}
                 </Paragraph>
               </Descriptions.Item>
-              <Descriptions.Item label="字号值">
+              <Descriptions.Item label="字重值">
                 {info.value}
               </Descriptions.Item>
-              <Descriptions.Item label="行高">
-                <Paragraph copyable={{ text: info.lineHeight }} style={{ margin: 0 }}>
-                  {info.lineHeight}
-                </Paragraph>
-              </Descriptions.Item>
-              <Descriptions.Item label="行高值">
-                {info.lineHeightValue}
-              </Descriptions.Item>
               <Descriptions.Item label="示例">
-                <span style={{ fontSize: info.value }}>
+                <span style={{ fontWeight: info.value }}>
                   Sensoro Design
                 </span>
               </Descriptions.Item>
@@ -94,4 +74,4 @@ export const TokenFontSize: React.FC = () => {
   );
 }
 
-export default TokenFontSize
+export default TokenFontWeight
