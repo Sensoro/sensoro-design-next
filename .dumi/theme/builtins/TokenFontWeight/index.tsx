@@ -35,8 +35,6 @@ export const TokenFontWeight: React.FC = () => {
     () =>
       Object.entries(fontWeightMap)
         .map(([token, meta]) => {
-          const lineHeight = token.replace('fontSize', 'lineHeight');
-
           return {
             name: token,
             desc: meta.desc,

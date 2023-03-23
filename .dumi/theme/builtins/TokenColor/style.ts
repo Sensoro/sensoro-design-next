@@ -15,7 +15,6 @@ export const useStyle = () => {
       cursor: 'pointer',
       flex: 1,
       boxSizing: 'border-box',
-      background: token.colorFillTertiary,
       marginRight: 0,
       lineHeight: 'normal',
       borderRadius: 0,

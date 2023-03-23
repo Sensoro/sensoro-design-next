@@ -23,14 +23,18 @@ SensoroDesign 默认的主题色是明亮、友好的蓝色。
 
 ## 辅助色
 
-### 成功色
+### 成功色 - success
 
 <TokenColor type="success"></TokenColor>
 
-## 警示色
+### 警示色 - warning
 
 <TokenColor type="warning"></TokenColor>
 
-## 错误色
+### 错误色 - error
 
 <TokenColor type="error"></TokenColor>
+
+### 信息色 - info
+
+<TokenColor type="info"></TokenColor>
