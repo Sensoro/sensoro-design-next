@@ -28,7 +28,8 @@ export type { SpaceProps } from './space';
 export { Watermark } from './watermark';
 export type { WatermarkProps } from './watermark';
 
-export {  } from './config-provider';
+export { Scrollbar } from './scrollbar';
+export type { ScrollbarProps } from './scrollbar';
 
 export { theme } from './theme';
 export type { GlobalToken } from './theme';

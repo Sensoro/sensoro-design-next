@@ -86,6 +86,13 @@ export interface ColorNeutralMapToken {
    */
   colorFillQuaternary: string;
 
+  // ----------   Scrollbar   ---------- //
+  /**
+   * @name 滚动条颜色
+   */
+  colorScrollbar: string;
+  colorScrollbarHover: string;
+
   // ----------   Surface   ---------- //
 
   /**

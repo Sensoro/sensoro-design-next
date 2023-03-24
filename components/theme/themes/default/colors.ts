@@ -51,5 +51,8 @@ export const generateNeutralColorPalettes: GenerateNeutralColorMap = (
     colorBorder: getAlphaColor(colorTextBase, 0.08),
     colorBorderSecondary: getSolidColor(colorBgBase, 6),
     colorBorderDashed: getAlphaColor(colorTextBase, 0.15),
+
+    colorScrollbar: getAlphaColor(colorTextBase, 0.25),
+    colorScrollbarHover: getAlphaColor(colorTextBase, 0.35),
   };
 };
