@@ -37,8 +37,8 @@ export const FontSize: React.FC = () => {
         <div css={[styles.title, styles.item]}>
           字号
         </div>
-        {fontSizes.map((size) => (
-          <div css={styles.item}>
+        {fontSizes.map((size, index) => (
+          <div css={styles.item} key={index}>
             {size}
           </div>
         ))}
@@ -47,8 +47,8 @@ export const FontSize: React.FC = () => {
         <div css={[styles.title, styles.item]}>
           行高
         </div>
-        {lineHeights.map((lineHeight) => (
-          <div css={styles.item}>
+        {lineHeights.map((lineHeight, index) => (
+          <div css={styles.item} key={index}>
             {lineHeight}
           </div>
         ))}

@@ -79,7 +79,7 @@ export const TokenFontSize: React.FC = () => {
                 </Paragraph>
               </Descriptions.Item>
               <Descriptions.Item label="行高值">
-                {info.lineHeightValue}
+                {parseFloat(info.lineHeightValue.toFixed(4))}
               </Descriptions.Item>
               <Descriptions.Item label="示例">
                 <span style={{ fontSize: info.value }}>
