@@ -4,7 +4,12 @@ import type { FullToken, GenerateStyle } from '../../theme/internal';
 
 export interface ComponentToken {}
 
-interface ScrollbarToken extends FullToken<'Scrollbar'> {}
+interface ScrollbarToken extends FullToken<'Scrollbar'> {
+  scrollbaeTrackSize: number;
+  scrollbarPadding: number;
+  scrollbaeTrackSizeSM: number;
+  scrollbarPaddingSM: number;
+}
 
 // ============================== Styles ==============================
 export const genScrollbarStyle: GenerateStyle<ScrollbarToken> = (token) => {
@@ -31,18 +36,20 @@ export const genScrollbarStyle: GenerateStyle<ScrollbarToken> = (token) => {
   }
 }
 
-export const getThumbStyle: GenerateStyle<ScrollbarToken> = (token) => {
+export const getBarStyle: GenerateStyle<ScrollbarToken> = (token) => {
   const { componentCls } = token;
+
   return {
     [`${componentCls}-bar`]: {
       position: 'absolute',
-      right: 2,
-      bottom: 2,
+      padding: token.scrollbarPadding,
+      right: 0,
+      bottom: 0,
       zIndex: 1,
 
       [`&${componentCls}-bar-horizontal`]: {
-        height: 6,
-        left: 2,
+        left: 0,
+        height: token.scrollbaeTrackSize,
 
         '> div': {
           height: '100%',
@@ -50,8 +57,8 @@ export const getThumbStyle: GenerateStyle<ScrollbarToken> = (token) => {
       },
 
       [`&${componentCls}-bar-vertical`]: {
-        width: 6,
-        top: 2,
+        top: 0,
+        width: token.scrollbaeTrackSize,
 
         '> div': {
           width: '100%',
@@ -72,15 +79,28 @@ export const getThumbStyle: GenerateStyle<ScrollbarToken> = (token) => {
         }
       }
     },
+    [`${componentCls}-small ${componentCls}-bar`]: {
+      [`&${componentCls}-bar-horizontal`]: {
+        height: token.scrollbaeTrackSizeSM,
+      },
+      [`&${componentCls}-bar-vertical`]: {
+        width: token.scrollbaeTrackSizeSM,
+      },
+    }
   }
 }
 
 // ============================== Export ==============================
 export default genComponentStyleHook('Radio', (token) => {
-  const scrollbarToken: ScrollbarToken = mergeToken<ScrollbarToken>(token, {});
+  const scrollbarToken: ScrollbarToken = mergeToken<ScrollbarToken>(token, {
+    scrollbaeTrackSize: 16,
+    scrollbarPadding: 4,
+    scrollbaeTrackSizeSM: 12,
+    scrollbarPaddingSM: 4,
+  });
 
   return [
     genScrollbarStyle(scrollbarToken),
-    getThumbStyle(scrollbarToken),
+    getBarStyle(scrollbarToken),
   ]
 });
