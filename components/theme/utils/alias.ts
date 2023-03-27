@@ -78,11 +78,10 @@ export function formatToken(derivativeToken: RawMergedToken): AliasToken {
     marginXXL: mergedToken.sizeXXL,
 
     boxShadowNone: 'none',
-
     boxShadow: `
-      0 6px 16px -8px rgba(60,73,97,.08),
-      0 9px 28px 0 rgba(60,73,97,.04),
-      0 12px 48px 16px rgba(60,73,97,.02)
+      0 1px 2px -2px rgba(60,73,97,.12),
+      0 3px 6px 0 rgba(60,73,97,.08),
+      0 5px 12px 4px rgba(60,73,97,.06)
     `,
     boxShadowSecondary: `
       0 3px 6px -4px rgba(60,73,97,.08),
@@ -90,9 +89,9 @@ export function formatToken(derivativeToken: RawMergedToken): AliasToken {
       0 9px 28px 8px rgba(60,73,97,.04)
     `,
     boxShadowTertiary: `
-      0 1px 2px -2px rgba(60,73,97,.12),
-      0 3px 6px 0 rgba(60,73,97,.08),
-      0 5px 12px 4px rgba(60,73,97,.06)
+      0 6px 16px -8px rgba(60,73,97,.08),
+      0 9px 28px 0 rgba(60,73,97,.04),
+      0 12px 48px 16px rgba(60,73,97,.02)
     `,
 
     // Font

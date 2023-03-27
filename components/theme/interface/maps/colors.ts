@@ -85,6 +85,7 @@ export interface ColorNeutralMapToken {
    * @desc 最弱一级的填充色，适用于不易引起注意的色块，例如斑马纹、区分边界的色块等。
    */
   colorFillQuaternary: string;
+  colorFillDisabled: string;
 
   // ----------   Scrollbar   ---------- //
   /**
@@ -107,9 +108,10 @@ export interface ColorNeutralMapToken {
    * @descEN Container background color, e.g: default button, input box, etc. Be sure not to confuse this with `colorBgElevated`.
    */
   colorBgContainer: string;
-  colorBgContainerHover: string;
-  colorBgContainerActive: string;
-  colorBgContainerDisabled: string;
+  /**
+   * @name 二级组件容器背景色
+   */
+  colorBgContainerSecondary: string;
 
   /**
    * @name 浮层容器背景色
