@@ -20,12 +20,6 @@ const boxShadowMap = {
   boxShadowTertiary: {
     ...tokenMeta['boxShadowTertiary']
   },
-  boxShadowFourth: {
-    ...tokenMeta['boxShadowFourth']
-  },
-  boxShadowFifth: {
-    ...tokenMeta['boxShadowFifth']
-  }
 };
 
 export const useStyle = () => {
@@ -81,7 +75,7 @@ const TokenBoxShadow: React.FC = () => {
               onCopy={() => message.success(`copied: ${boxShadowKey}`)}
               key={boxShadowKey}
             >
-              <Col span={8}>
+              <Col span={6}>
                 <div css={styles.item} style={{ boxShadow: token[boxShadowKey] }}>
                   <div css={styles.name}>
                     {boxShadowInfo.name}

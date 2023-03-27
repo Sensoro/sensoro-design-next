@@ -336,20 +336,6 @@ export interface AliasToken extends MapToken {
    * @descEN Control the tertiary box shadow style of an element.
    */
   boxShadowTertiary: string;
-  /**
-   * @name 四级阴影
-   * @nameEN Tertiary box shadow
-   * @desc 控制元素三级盒子阴影样式。
-   * @descEN Control the tertiary box shadow style of an element.
-   */
-  boxShadowFourth?: string;
-  /**
-   * @name 五级阴影
-   * @nameEN Tertiary box shadow
-   * @desc 控制元素三级盒子阴影样式。
-   * @descEN Control the tertiary box shadow style of an element.
-   */
-  boxShadowFifth?: string;
 
   /**
    * Used for DefaultButton, Switch which has default outline

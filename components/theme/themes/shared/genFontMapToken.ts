@@ -13,22 +13,18 @@ export const genFontMapToken = (fontSize: number): FontMapToken => {
     fontSizeLG: fontSizes[2],
     fontSizeXL: fontSizes[3],
 
-    fontSizeHeading1: fontSizes[6],
-    fontSizeHeading2: fontSizes[5],
-    fontSizeHeading3: fontSizes[4],
-    fontSizeHeading4: fontSizes[3],
-    fontSizeHeading5: fontSizes[2],
+    fontSizeHeading1: fontSizes[4],
+    fontSizeHeading2: fontSizes[2],
+    fontSizeHeading3: fontSizes[1],
 
     lineHeightSM: lineHeights[0],
     lineHeight: lineHeights[1],
     lineHeightLG: lineHeights[2],
     lineHeightXL: lineHeights[3],
 
-    lineHeightHeading1: lineHeights[6],
-    lineHeightHeading2: lineHeights[5],
-    lineHeightHeading3: lineHeights[4],
-    lineHeightHeading4: lineHeights[3],
-    lineHeightHeading5: lineHeights[2],
+    lineHeightHeading1: lineHeights[4],
+    lineHeightHeading2: lineHeights[2],
+    lineHeightHeading3: lineHeights[1],
 
     fontWeightSM: 300,
     fontWeight: 400,
