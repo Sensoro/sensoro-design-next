@@ -133,7 +133,7 @@ const genDefaultButtonStyle: GenerateStyle<ButtonToken, CSSObject> = (token) => 
 // Type: Dashed
 const genDashedButtonStyle: GenerateStyle<ButtonToken, CSSObject> = (token) => ({
   backgroundColor: token.colorBgContainer,
-  borderColor: token.colorBorder,
+  borderColor: token.colorBorderDashed,
   borderStyle: 'dashed',
 
   boxShadow: `0 ${token.controlOutlineWidth}px 0 ${token.controlTmpOutline}`,
