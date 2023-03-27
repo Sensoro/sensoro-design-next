@@ -10,6 +10,9 @@ export interface ComponentToken {}
 export interface ButtonToken extends FullToken<'Button'> {
   colorOutlineDefault: string;
   buttonPaddingHorizontal: number;
+  buttonColorBg: string;
+  buttonColorBgHover: string;
+  buttonColorBgActive: string;
 }
 
 // ============================== Shared ==============================
@@ -112,12 +115,12 @@ const genDefaultButtonStyle: GenerateStyle<ButtonToken, CSSObject> = (token) => 
 
   ...genHoverActiveButtonStyle(
     {
-      backgroundColor: token.colorBgContainerHover,
-      borderColor: token.colorBgContainerHover,
+      backgroundColor: token.buttonColorBgHover,
+      borderColor: token.buttonColorBgHover,
     },
     {
-      backgroundColor: token.colorBgContainerActive,
-      borderColor: token.colorBgContainerActive,
+      backgroundColor: token.buttonColorBgActive,
+      borderColor: token.buttonColorBgActive,
     },
   ),
 
@@ -140,10 +143,10 @@ const genDashedButtonStyle: GenerateStyle<ButtonToken, CSSObject> = (token) => (
 
   ...genHoverActiveButtonStyle(
     {
-      backgroundColor: token.colorBgContainerHover,
+      backgroundColor: token.buttonColorBgHover,
     },
     {
-      backgroundColor: token.colorBgContainerActive,
+      backgroundColor: token.buttonColorBgActive,
     },
   ),
 
@@ -301,6 +304,9 @@ export default genComponentStyleHook('Button', (token) => {
   const buttonToken = mergeToken<ButtonToken>(token, {
     colorOutlineDefault: controlTmpOutline,
     buttonPaddingHorizontal: paddingContentHorizontal,
+    buttonColorBg: token.colorFillTertiary,
+    buttonColorBgHover: token.colorFillSecondary,
+    buttonColorBgActive: token.colorFill,
   });
 
   return [
