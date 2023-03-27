@@ -124,7 +124,7 @@ export interface SeedToken extends PresetColorType {
   borderRadiusNone: number;
   /**
    * @name 全圆角
-   * @desc 基础组件的圆角大小，例如按钮、输入框、卡片等
+   * @desc 圆形组件的圆角大小，例如头像、按钮、悬浮按钮等
    */
   borderRadiusCircle: string;
 

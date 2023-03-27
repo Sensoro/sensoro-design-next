@@ -16,7 +16,10 @@ const radiusMap = {
   },
   borderRadiusLG: {
     ...tokenMeta['borderRadiusLG']
-  }
+  },
+  borderRadiusCircle: {
+    ...tokenMeta['borderRadiusCircle']
+  },
 };
 
 export const useStyle = () => {
@@ -87,7 +90,13 @@ const TokenRadius: React.FC = () => {
               <div css={styles.value}>
                 {radiusKey}: {token[radiusKey]}
               </div>
-              <div css={styles.radius} style={{ borderRadius: token[radiusKey] }} />
+              <div
+                css={styles.radius}
+                style={{
+                  borderRadius: token[radiusKey],
+                  width: radiusKey === 'borderRadiusCircle' ? 40 : undefined,
+                }}
+              />
             </div>
           </CopyToClipboard>
         )

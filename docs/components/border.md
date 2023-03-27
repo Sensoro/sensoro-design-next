@@ -19,6 +19,6 @@ order: 2
 
 ## 阴影
 
-我们提供了以下几种投影样式，以供选择。
+阴影通常用来表达界面元素的层级，阴影越重的元素距离用户越近
 
 <TokenBoxShadow></TokenBoxShadow>
