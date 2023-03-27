@@ -1,6 +1,5 @@
 import React from 'react';
 import { Card, Typography, Descriptions, Row, Col } from 'antd';
-import { Space } from 'sensoro-design';
 import tokenMeta from 'sensoro-design/es/version/token-meta.json';
 
 import { getDesignToken } from '../../utils';
@@ -91,7 +90,7 @@ export const TokenFontSize: React.FC<TokenFontSizeProps> = ({
       {data.map((info) => {
         return (
           <Col span={6} key={info.name}>
-            <Card style={{ minWidth: 240 }} hoverable>
+            <Card style={{ minWidth: 240 }} bodyStyle={{ padding: 16 }} hoverable>
               <Descriptions title={info.desc} column={1} colon={false}>
                 <Descriptions.Item label="字号">
                   <Paragraph copyable={{ text: info.name }} style={{ margin: 0 }}>

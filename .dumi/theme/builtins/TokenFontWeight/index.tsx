@@ -49,7 +49,7 @@ export const TokenFontWeight: React.FC = () => {
     <Space>
       {data.map((info) => {
         return (
-          <Card style={{ minWidth: 240 }} key={info.name} hoverable>
+          <Card style={{ minWidth: 240 }} bodyStyle={{ padding: 16 }} key={info.name} hoverable>
             <Descriptions title={info.desc} column={1} colon={false}>
               <Descriptions.Item label="字重">
                 <Paragraph copyable={{ text: info.name }} style={{ margin: 0 }}>

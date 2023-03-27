@@ -70,7 +70,7 @@ export const TokenFontColor: React.FC = () => {
       {data.map((info) => {
         return (
           <Col key={info.name} span={6}>
-            <Card hoverable>
+            <Card hoverable bodyStyle={{ padding: 16 }}>
               <Descriptions title={info.desc} column={1} colon={false}>
                 <Descriptions.Item label="变量">
                   <Paragraph copyable={{ text: info.name }} style={{ margin: 0 }}>

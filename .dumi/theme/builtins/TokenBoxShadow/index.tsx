@@ -1,5 +1,5 @@
 import React from 'react';
-import { message, Tooltip, Row, Col } from 'antd';
+import { message, Tooltip, Row, Col, Divider } from 'antd';
 import { css } from '@emotion/react';
 import InfoCircleOutlined from '@sensoro-design/icons/InfoCircleOutlined';
 import CopyToClipboard from 'react-copy-to-clipboard';
@@ -32,24 +32,36 @@ export const useStyle = () => {
       boxSizing: 'border-box',
       width: '100%',
       cursor: 'pointer',
-      padding: token.paddingLG,
+      padding: token.padding,
     }),
     item: css({
       height: 228,
-      padding: token.paddingXS,
+      padding: token.padding,
       backgroundColor: token.colorWhite,
+      display: 'flex',
+      flexDirection: 'column',
+      justifyContent: 'space-between',
     }),
-    name: css({
+    info: css({
       marginTop: token.marginXS,
 
       '> span': {
         marginLeft: token.marginXXS,
       },
     }),
+    name: css({
+      fontSize: token.fontSize,
+      fontWeight: token.fontWeightLG,
+      marginTop: token.marginXS,
+    }),
     value: css({
       padding: `${token.paddingXXS}px ${token.paddingXS}px`,
-      marginT: token.marginXS,
+      marginTop: token.marginXS,
       fontSize: 12,
+
+      '> p + p': {
+        marginTop: token.marginXS,
+      }
     }),
     boxShadow: css({
       height: 100,
@@ -63,6 +75,22 @@ const TokenBoxShadow: React.FC = () => {
   const { token } = useSiteToken();
   const styles = useStyle();
 
+  const getBoxShadowDom = (value: string) => {
+    return value
+      .replace(/\n/g, '')
+      .split('),')
+      .reduce<React.ReactNode[]>((prev, cur, index, list) => {
+        console.log(cur.trim());
+        const text = cur.trim() + (index < list.length - 1 ? '),' : '');
+        return [
+          ...prev,
+          <p key={index}>
+            {text}
+          </p>
+        ]
+      }, []);
+  }
+
   return (
     <div css={styles.container}>
       <Row gutter={[16, 16]}>
@@ -75,20 +103,21 @@ const TokenBoxShadow: React.FC = () => {
               onCopy={() => message.success(`copied: ${boxShadowKey}`)}
               key={boxShadowKey}
             >
-              <Col span={6}>
+              <Col span={8}>
                 <div css={styles.item} style={{ boxShadow: token[boxShadowKey] }}>
-                  <div css={styles.name}>
+                  <div css={styles.info}>
                     {boxShadowInfo.name}
                     {boxShadowInfo.desc && (
                       <Tooltip title={boxShadowInfo.desc}>
                         <InfoCircleOutlined />
                       </Tooltip>
                     )}
+                    <div css={styles.name}>
+                      {boxShadowKey}
+                    </div>
                   </div>
                   <div css={styles.value}>
-                    {boxShadowKey}
-                    <br />
-                    {token[boxShadowKey]}
+                    {getBoxShadowDom(token[boxShadowKey])}
                   </div>
                 </div>
               </Col>
