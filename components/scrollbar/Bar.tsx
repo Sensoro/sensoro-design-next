@@ -1,7 +1,8 @@
-import React, { useRef, useState, useEffect, useMemo, } from 'react';
+import React, { useRef, useState, useEffect, } from 'react';
 import { classNames, isBrowser } from '@pansy/shared';
-import { useEventListener } from '@pansy/react-hooks';
-import { BAR_MAP } from './utils';
+import { NodeJSTimeout } from '@pansy/shared/types';
+import { useEventListener, useClickAway, useGetState } from '@pansy/react-hooks';
+import { BAR_MAP } from './constants';
 
 export interface BarProps {
   prefixCls?: string;
@@ -19,13 +20,14 @@ export interface BarProps {
 
 type OriginalOnSelectStart = ((this: GlobalEventHandlers, ev: Event) => any) | null;
 
-let cursorDown = false
-let cursorLeave = false
+let cursorDown = false;
+// 光标是否离开
+let cursorLeave = false;
 let originalOnSelectStart: OriginalOnSelectStart = isBrowser
   ? document.onselectstart
   : null
 
-export const genBarStyle = ({
+const genBarStyle = ({
   move,
   size,
   bar,
@@ -46,30 +48,43 @@ export const Bar: React.FC<BarProps> = (props) => {
     direction = 'horizontal',
     wrapElement,
   } = props;
+  // if (!wrapElement) return null;
   const trackRef = useRef<HTMLDivElement>(null);
   const thumbRef = useRef<HTMLDivElement>(null);
-
-  const [visible, setVisible] = useState(false);
-  const [thumbState, setThumbState] = useState<Partial<Record<'X' | 'Y', number>>>({});
+  const offsetRatioRef = useRef<number>(1);
 
   const bar = BAR_MAP[direction];
+  const [visible, setVisible] = useState(false);
+  const [, setThumbState, getThumbState] = useGetState<Partial<Record<'X' | 'Y', number>>>({});
+
+  useEffect(() => {
+    let timeout: NodeJSTimeout;
+    const trackElement = trackRef.current;
+    const thumbElement = thumbRef.current;
+
+    if (trackElement && wrapElement && thumbElement) {
+      timeout = setTimeout(() => {
+        const offsetRatio = (
+          trackElement[bar.offset] ** 2 /
+          wrapElement[bar.scrollSize] /
+          ratio /
+          thumbElement[bar.offset]
+        );
+        offsetRatioRef.current = offsetRatio;
+      }, 0)
+    }
+
+    return () => {
+      timeout && clearTimeout(timeout);
+    }
+  }, [trackRef.current, wrapElement, thumbRef.current, ratio, visible])
+
+  // ===================== Style =====================
   const thumbStyle = genBarStyle({
     size,
     move,
     bar: bar,
   });
-
-  const offsetRatio = useMemo(() => {
-    if (trackRef.current && wrapElement && thumbRef.current) {
-      return (
-        trackRef.current![bar.offset] ** 2 /
-        wrapElement![bar.scrollSize] /
-        ratio /
-        thumbRef.current![bar.offset]
-      )
-    }
-    return 0;
-  }, [trackRef.current, wrapElement, thumbRef.current, ratio])
 
   useEffect(() => {
     restoreOnselectstart();
@@ -99,16 +114,10 @@ export const Bar: React.FC<BarProps> = (props) => {
     }
   )
 
-  useEventListener(
-    'mouseleave',
-    mouseLeaveScrollbarHandler,
-    {
-      target: wrapElement,
-    }
-  )
+  useClickAway(mouseLeaveScrollbarHandler, [wrapElement, trackRef], 'mouseleave');
 
   const startDrag = (e: MouseEvent) => {
-    e.stopImmediatePropagation();
+    e.stopImmediatePropagation?.();
     cursorDown = true;
 
     document.addEventListener('mousemove', mouseMoveDocumentHandler)
@@ -121,10 +130,12 @@ export const Bar: React.FC<BarProps> = (props) => {
   const mouseMoveDocumentHandler = (e: MouseEvent) => {
     const trackElement = trackRef.current;
     const thumbElement = thumbRef.current;
+    const offsetRatio = offsetRatioRef.current;
 
     if (!trackElement || !thumbElement || !wrapElement) return;
     if (cursorDown === false) return;
 
+    const thumbState = getThumbState();
     const prevPage = thumbState[bar.axis];
     if (!prevPage) return;
 
@@ -132,6 +143,7 @@ export const Bar: React.FC<BarProps> = (props) => {
       (trackElement.getBoundingClientRect()[bar.direction] -
         e[bar.client]) *
       -1;
+
     const thumbClickPosition = thumbElement[bar.offset] - prevPage;
     const thumbPositionPercentage =
       ((offset - thumbClickPosition) * 100 * offsetRatio) /
@@ -161,6 +173,7 @@ export const Bar: React.FC<BarProps> = (props) => {
   const clickTrackHandler = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
     const trackElement = trackRef.current;
     const thumbElement = thumbRef.current;
+    const offsetRatio = offsetRatioRef.current;
 
     if (!trackElement || !thumbElement || !wrapElement) return;
 
@@ -203,7 +216,7 @@ export const Bar: React.FC<BarProps> = (props) => {
       })}
       onMouseDown={clickTrackHandler}
       style={{
-        // display: always || visible ? 'block': 'none',
+        display: always || visible ? 'block': 'none',
       }}
     >
       <div

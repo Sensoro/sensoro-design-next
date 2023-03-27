@@ -12,7 +12,7 @@ import { useSize, useEventListener } from '@pansy/react-hooks';
 import { ConfigContext } from '../config-provider';
 import { Bar } from './Bar';
 import { addUnit } from '../_utils/style';
-import { GAP } from './utils';
+import { GAP } from './constants';
 import useStyle from './style';
 
 export type ScrollbarSize = 'small' | 'default';
@@ -97,6 +97,11 @@ export interface ScrollbarRef {
    * @returns
    */
   update: () => void;
+  /**
+   * 触发滚动事件
+   * @returns
+   */
+  onScroll: () => void;
 }
 
 export const InternalScrollbar: React.ForwardRefRenderFunction<ScrollbarRef, ScrollbarProps> = (props, ref) => {
@@ -108,7 +113,9 @@ export const InternalScrollbar: React.ForwardRefRenderFunction<ScrollbarRef, Scr
     always = false,
     height,
     maxHeight,
+    wrapClassName,
     wrapStyle,
+    viewClassName,
     viewStyle,
     size: customizeSize,
     minSize = 20,
@@ -133,6 +140,9 @@ export const InternalScrollbar: React.ForwardRefRenderFunction<ScrollbarRef, Scr
     },
     className,
   );
+  const wrapClasses = classNames(`${prefixCls}-wrap`, {
+    [`${prefixCls}-wrap-hidden`]: !props.native
+  }, wrapClassName);
   const mergeWrapStyle = useMemo(() => {
     const style: React.CSSProperties = {
       ...wrapStyle
@@ -160,7 +170,7 @@ export const InternalScrollbar: React.ForwardRefRenderFunction<ScrollbarRef, Scr
 
   useEffect(() => {
     update();
-  }, [size])
+  }, [minSize])
 
   const update = () => {
     const wrap = wrapRef.current;
@@ -180,7 +190,6 @@ export const InternalScrollbar: React.ForwardRefRenderFunction<ScrollbarRef, Scr
     setSizeHeight(height + GAP < offsetHeight ? height : undefined);
     setSizeWidth(width + GAP < offsetWidth ? width : undefined);
 
-    // 计算滚动条尺寸
     const ratioY = (
       originalHeight /
       (offsetHeight - originalHeight) /
@@ -198,16 +207,17 @@ export const InternalScrollbar: React.ForwardRefRenderFunction<ScrollbarRef, Scr
 
   useEventListener('resize', update)
 
+  // ===================== ref function =====================
   useImperativeHandle(ref, () => {
     return {
       scrollTo,
       setScrollTop,
       setScrollLeft,
       update,
+      onScroll: handleScroll,
     }
   }, [])
 
-  // ===================== ref function =====================
   const handleScroll = () => {
     const wrap = wrapRef.current;
 
@@ -262,17 +272,15 @@ export const InternalScrollbar: React.ForwardRefRenderFunction<ScrollbarRef, Scr
     <div ref={scrollbarRef} className={classes} style={style}>
       <div
         ref={wrapRef}
-        className={classNames(`${prefixCls}-wrap`, {
-          [`${prefixCls}-wrap-hidden`]: !props.native
-        })}
+        className={wrapClasses}
         style={mergeWrapStyle}
         onScroll={handleScroll}
       >
-        <div ref={viewRef} className={`${prefixCls}-view`} style={viewStyle}>
+        <div ref={viewRef} className={classNames(`${prefixCls}-view`, viewClassName)} style={viewStyle}>
           {children}
         </div>
       </div>
-      {!native && (
+      {!native && wrapRef.current && (
         <>
           <Bar prefixCls={prefixCls} wrapElement={wrapRef.current!} always={always} move={moveX} ratio={ratioX!} size={sizeWidth} />
           <Bar prefixCls={prefixCls} wrapElement={wrapRef.current!} always={always} move={moveY} ratio={ratioY!} size={sizeHeight} direction="vertical" />
