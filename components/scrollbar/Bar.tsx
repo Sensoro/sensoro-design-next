@@ -1,7 +1,7 @@
 import React, { useRef, useState, useEffect, } from 'react';
 import { classNames, isBrowser } from '@pansy/shared';
 import { NodeJSTimeout } from '@pansy/shared/types';
-import { useEventListener, useClickAway, useGetState } from '@pansy/react-hooks';
+import { useEventListener, useGetState } from '@pansy/react-hooks';
 import { BAR_MAP } from './constants';
 
 export interface BarProps {
@@ -48,7 +48,6 @@ export const Bar: React.FC<BarProps> = (props) => {
     direction = 'horizontal',
     wrapElement,
   } = props;
-  // if (!wrapElement) return null;
   const trackRef = useRef<HTMLDivElement>(null);
   const thumbRef = useRef<HTMLDivElement>(null);
   const offsetRatioRef = useRef<number>(1);
@@ -110,11 +109,17 @@ export const Bar: React.FC<BarProps> = (props) => {
     'mousemove',
     mouseMoveScrollbarHandler,
     {
-      target: wrapElement,
+      target: wrapElement.parentElement,
     }
   )
 
-  useClickAway(mouseLeaveScrollbarHandler, [wrapElement, trackRef], 'mouseleave');
+  useEventListener(
+    'mouseleave',
+    mouseLeaveScrollbarHandler,
+    {
+      target: wrapElement.parentElement,
+    },
+  );
 
   const startDrag = (e: MouseEvent) => {
     e.stopImmediatePropagation?.();
