@@ -8,10 +8,15 @@ const prodConfig = isProd
   ? defineConfig({
     ssr: {},
   })
-  : defineConfig({});
+  : defineConfig({
+    ssr: false,
+  });
 
 export default defineConfig({
   hash: true,
+  crossorigin: {},
+  outputPath: '_site',
+  favicons: [logo],
   themeConfig: {
     logo,
     name: 'Sensoro Design',
@@ -23,13 +28,12 @@ export default defineConfig({
       { title: '组件', link: '/components' },
     ],
   },
-  outputPath: '_site',
   alias: {
     'sensoro-design/es': path.join(__dirname, 'components'),
     'sensoro-design/lib': path.join(__dirname, 'components'),
+    'sensoro-design/locale': path.join(__dirname, 'components/locale'),
     'sensoro-design': path.join(__dirname, 'components/index.ts')
   },
-  favicons: [logo],
   resolve: {
     docDirs: ['docs'],
     atomDirs: [
@@ -39,6 +43,5 @@ export default defineConfig({
   },
   extraBabelPresets: ['@emotion/babel-preset-css-prop'],
   mfsu: false,
-  crossorigin: {},
   ...prodConfig
 })
