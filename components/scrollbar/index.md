@@ -14,6 +14,7 @@ group:
 <code src="./demo/basic.tsx">基本</code>
 <code src="./demo/size.tsx">滚动条尺寸</code>
 <code src="./demo/horizontal.tsx">横向滚动</code>
+<code src="./demo/max-height.tsx">最大高度</code>
 
 ## API
 

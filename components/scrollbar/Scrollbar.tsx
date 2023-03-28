@@ -8,7 +8,7 @@ import React, {
   forwardRef,
 } from 'react';
 import { classNames, isNumber } from '@pansy/shared';
-import { useSize, useEventListener } from '@pansy/react-hooks';
+import { useEventListener } from '@pansy/react-hooks';
 import { ConfigContext } from '../config-provider';
 import { Bar } from './Bar';
 import { addUnit } from '../_utils/style';
@@ -125,8 +125,6 @@ export const InternalScrollbar: React.ForwardRefRenderFunction<ScrollbarRef, Scr
   const scrollbarRef = useRef<HTMLDivElement>(null);
   const wrapRef = useRef<HTMLDivElement>(null);
   const viewRef = useRef<HTMLDivElement>(null);
-
-  const size = useSize(wrapRef);
 
   // ===================== Style =====================
   const { getPrefixCls } = useContext(ConfigContext);
