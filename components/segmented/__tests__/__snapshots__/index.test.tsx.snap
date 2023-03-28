@@ -2,7 +2,7 @@
 
 exports[`Segmented render empty segmented 1`] = `
 <div
-  class="s-segmented css-dev-only-do-not-override-1xffqj3"
+  class="s-segmented"
 >
   <div
     class="s-segmented-group"
@@ -12,7 +12,7 @@ exports[`Segmented render empty segmented 1`] = `
 
 exports[`Segmented render label with ReactNode 1`] = `
 <div
-  class="s-segmented css-dev-only-do-not-override-1xffqj3"
+  class="s-segmented"
 >
   <div
     class="s-segmented-group"
@@ -70,7 +70,7 @@ exports[`Segmented render label with ReactNode 1`] = `
 
 exports[`Segmented render segmented ok 1`] = `
 <div
-  class="s-segmented css-dev-only-do-not-override-1xffqj3"
+  class="s-segmented"
 >
   <div
     class="s-segmented-group"
