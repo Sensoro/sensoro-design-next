@@ -114,6 +114,10 @@ export function formatToken(derivativeToken: RawMergedToken): AliasToken {
 
     controlPaddingHorizontal: 12,
     controlPaddingHorizontalSM: 8,
+
+    controlItemBgHover: mergedToken.colorFillTertiary,
+    controlItemBgActive: mergedToken.colorPrimaryBg,
+    controlItemBgActiveHover: mergedToken.colorPrimaryBgHover,
   }
 
   return aliasToken;

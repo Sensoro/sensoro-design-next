@@ -358,4 +358,28 @@ export interface AliasToken extends MapToken {
     * @descEN Control the horizontal padding of an element with a small-medium size.
     */
   controlPaddingHorizontalSM: number;
+
+  /**
+   * @name 控制组件项在鼠标悬浮时的背景颜色
+   * @nameEN Background color of control component item when hovering
+   * @desc 控制组件项在鼠标悬浮时的背景颜色。
+   * @descEN Control the background color of control component item when hovering.
+   */
+  controlItemBgHover: string; // Note. It also is a color
+
+  /**
+   * @name 控制组件项在激活状态下的背景颜色
+   * @nameEN Background color of control component item when active
+   * @desc 控制组件项在激活状态下的背景颜色。
+   * @descEN Control the background color of control component item when active.
+   */
+  controlItemBgActive: string; // Note. It also is a color
+
+  /**
+   * @name 控制组件项在鼠标悬浮且激活状态下的背景颜色
+   * @nameEN Background color of control component item when hovering and active
+   * @desc 控制组件项在鼠标悬浮且激活状态下的背景颜色。
+   * @descEN Control the background color of control component item when hovering and active.
+   */
+  controlItemBgActiveHover: string; // Note. It also is a color
 }
