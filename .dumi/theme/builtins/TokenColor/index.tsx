@@ -4,7 +4,7 @@ import CopyToClipboard from 'react-copy-to-clipboard';
 import { useSiteToken } from '../../../hooks/useSiteToken';
 import { useStyle } from './style';
 
-type ColorType = 'primary' | 'success' | 'error' | 'warning' | 'info';
+type ColorType = 'primary' | 'success' | 'error' | 'warning' | 'info' | 'link';
 
 interface TokenColorProps {
   type: ColorType;
@@ -119,6 +119,24 @@ export const colorConfig: Record<ColorType, { token: string; desc: string }[]> =
     {
       token: 'colorInfoBg',
       desc: '背景',
+    },
+  ],
+  link: [
+    {
+      token: 'colorLink',
+      desc: '常规',
+    },
+    {
+      token: 'colorLinkHover',
+      desc: '悬浮',
+    },
+    {
+      token: 'colorLinkActive',
+      desc: '点击',
+    },
+    {
+      token: 'colorLinkDisabled',
+      desc: '禁用',
     },
   ],
 };
