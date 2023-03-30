@@ -90,8 +90,14 @@ export interface ColorNeutralMapToken {
   // ----------   Scrollbar   ---------- //
   /**
    * @name 滚动条颜色
+   * @desc 滚动条颜色，目前只应用在 Scrollbar 组件上
    */
   colorScrollbar: string;
+
+  /**
+   * @name 滚动条颜色悬浮态
+   * @desc 滚动条颜色悬浮态，目前只应用在 Scrollbar 组件上
+   */
   colorScrollbarHover: string;
 
   // ----------   Surface   ---------- //
@@ -108,6 +114,7 @@ export interface ColorNeutralMapToken {
    * @descEN Container background color, e.g: default button, input box, etc. Be sure not to confuse this with `colorBgElevated`.
    */
   colorBgContainer: string;
+
   /**
    * @name 二级组件容器背景色
    */
