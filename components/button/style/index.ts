@@ -108,8 +108,8 @@ const genSolidButtonStyle: GenerateStyle<ButtonToken, CSSObject> = (token) => ({
 
 // Type: Default
 const genDefaultButtonStyle: GenerateStyle<ButtonToken, CSSObject> = (token) => ({
-  backgroundColor: token.colorBgContainer,
-  borderColor: token.colorBgContainer,
+  backgroundColor: token.buttonColorBg,
+  borderColor: token.buttonColorBg,
 
   boxShadow: `0 ${token.controlOutlineWidth}px 0 ${token.controlTmpOutline}`,
 
