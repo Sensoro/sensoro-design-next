@@ -10,6 +10,9 @@ es/**
 _site
 server/
 
+# IDE
+.idea
+
 # dumi
 .dumi/tmp
 .dumi/tmp-production
