@@ -1,0 +1,31 @@
+{
+  "assets": {
+    "umi.css": "/umi.50b5752d.css",
+    "umi.js": "/umi.e901c4dc.js",
+    "nm__dumi__dist__client__pages__404.js": "/nm__dumi__dist__client__pages__404.be47791e.async.js",
+    "dumi__tmp-production__dumi__theme__ContextWrapper.js": "/dumi__tmp-production__dumi__theme__ContextWrapper.3e3f91e4.async.js",
+    "dumi__theme__layouts__DocLayout__index.js": "/dumi__theme__layouts__DocLayout__index.38a55dd5.async.js",
+    "docs__react__customize-theme.md.js": "/docs__react__customize-theme.md.bf0a7ab6.async.js",
+    "docs__components__border.md.js": "/docs__components__border.md.d03d6755.async.js",
+    "docs__components__color.md.js": "/docs__components__color.md.ebee7c23.async.js",
+    "docs__components__index.md.js": "/docs__components__index.md.3c68376f.async.js",
+    "docs__components__font.md.js": "/docs__components__font.md.a10dc438.async.js",
+    "docs__index.md.js": "/docs__index.md.24b39c11.async.js",
+    "components__battery__index.md.js": "/components__battery__index.md.63008a37.async.js",
+    "components__button__index.md.js": "/components__button__index.md.b60b77f0.async.js",
+    "components__empty__index.md.js": "/components__empty__index.md.52fb3384.async.js",
+    "components__plate__index.md.js": "/components__plate__index.md.2f3b84ab.async.js",
+    "components__scrollbar__index.md.js": "/components__scrollbar__index.md.2157c129.async.js",
+    "components__segmented__index.md.js": "/components__segmented__index.md.cd4bc40f.async.js",
+    "components__signal__index.md.js": "/components__signal__index.md.9c86da6e.async.js",
+    "components__space__index.md.js": "/components__space__index.md.1f86d25c.async.js",
+    "components__switch__index.md.js": "/components__switch__index.md.fb398410.async.js",
+    "components__watermark__index.md.js": "/components__watermark__index.md.6e1700bd.async.js",
+    "nm__dumi__dist__client__pages__Demo__index.js": "/nm__dumi__dist__client__pages__Demo__index.81729ffe.async.js",
+    "demos.js": "/demos.65fd2a57.async.js",
+    "segmented__demos.js": "/segmented__demos.c63ea482.async.js",
+    "signal__demos.js": "/signal__demos.6cf7410e.async.js",
+    "space__demos.js": "/space__demos.f33281d5.async.js",
+    "switch__demos.js": "/switch__demos.b5d0c89c.async.js"
+  }
+}
