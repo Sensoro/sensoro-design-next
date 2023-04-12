@@ -29,6 +29,10 @@ export const colorConfig: Record<ColorType, { token: string; desc: string }[]> =
       desc: '禁用',
     },
     {
+      token: 'colorPrimaryBgHover',
+      desc: '特殊场景',
+    },
+    {
       token: 'colorPrimaryBg',
       desc: '背景',
     },
@@ -49,6 +53,10 @@ export const colorConfig: Record<ColorType, { token: string; desc: string }[]> =
     {
       token: 'colorSuccessDisabled',
       desc: '禁用',
+    },
+    {
+      token: 'colorSuccessBgHover',
+      desc: '特殊场景',
     },
     {
       token: 'colorSuccessBg',
@@ -73,6 +81,10 @@ export const colorConfig: Record<ColorType, { token: string; desc: string }[]> =
       desc: '禁用',
     },
     {
+      token: 'colorErrorBgHover',
+      desc: '特殊场景',
+    },
+    {
       token: 'colorErrorBg',
       desc: '背景',
     },
@@ -95,6 +107,10 @@ export const colorConfig: Record<ColorType, { token: string; desc: string }[]> =
       desc: '禁用',
     },
     {
+      token: 'colorWarningBgHover',
+      desc: '特殊场景',
+    },
+    {
       token: 'colorWarningBg',
       desc: '背景',
     },
@@ -115,6 +131,10 @@ export const colorConfig: Record<ColorType, { token: string; desc: string }[]> =
     {
       token: 'colorInfoDisabled',
       desc: '禁用',
+    },
+    {
+      token: 'colorInfoBgHover',
+      desc: '特殊场景',
     },
     {
       token: 'colorInfoBg',
