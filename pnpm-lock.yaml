@@ -16,6 +16,9 @@ dependencies:
   '@lotus-design/checkbox':
     specifier: ^1.0.0
     version: 1.0.0(react-dom@18.2.0)(react@18.2.0)
+  '@lotus-design/scrollbar':
+    specifier: ^1.0.0
+    version: 1.0.0(react-dom@18.2.0)(react@18.2.0)
   '@lotus-design/segmented':
     specifier: ^1.0.0
     version: 1.0.0(react-dom@18.2.0)(react@18.2.0)
@@ -1877,6 +1880,18 @@ packages:
 
   /@lotus-design/checkbox@1.0.0(react-dom@18.2.0)(react@18.2.0):
     resolution: {integrity: sha512-rlBNH94PMDTNBCtWckY26C/KgJAW0m9+X4ZHgGnHZ7q1H0Amgjq7aVx0NjVvsIdx9DF44AhsqipBdJXaQmlg6Q==}
+    peerDependencies:
+      react: '>=16.9.0'
+      react-dom: '>=16.9.0'
+    dependencies:
+      '@lotus-design/utils': 1.0.0(react-dom@18.2.0)(react@18.2.0)
+      '@pansy/shared': 1.11.0
+      react: 18.2.0
+      react-dom: 18.2.0(react@18.2.0)
+    dev: false
+
+  /@lotus-design/scrollbar@1.0.0(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-v63scIrOdyLCCIofDi+A+RJ278ZY6slK6rXfFDGpbe8B3oe8mCMAfsd9J4OZuD1C8jH/q3MxQ1XUjN/o8Nhwyw==}
     peerDependencies:
       react: '>=16.9.0'
       react-dom: '>=16.9.0'

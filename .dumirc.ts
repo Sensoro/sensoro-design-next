@@ -1,4 +1,4 @@
-import path from 'path';
+import { join } from 'path';
 import { defineConfig } from 'dumi';
 
 const isProd = process.env.NODE_ENV === 'production';
@@ -29,10 +29,10 @@ export default defineConfig({
     ],
   },
   alias: {
-    'sensoro-design/es': path.join(__dirname, 'components'),
-    'sensoro-design/lib': path.join(__dirname, 'components'),
-    'sensoro-design/locale': path.join(__dirname, 'components/locale'),
-    'sensoro-design': path.join(__dirname, 'components/index.ts')
+    'sensoro-design/es': join(__dirname, 'components'),
+    'sensoro-design/lib': join(__dirname, 'components'),
+    'sensoro-design/locale': join(__dirname, 'components/locale'),
+    'sensoro-design': join(__dirname, 'components/index.ts')
   },
   resolve: {
     docDirs: ['docs'],

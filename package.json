@@ -52,6 +52,7 @@
     "@babel/runtime": "^7.18.3",
     "@ctrl/tinycolor": "^3.6.0",
     "@lotus-design/checkbox": "^1.0.0",
+    "@lotus-design/scrollbar": "^1.0.0",
     "@lotus-design/segmented": "^1.0.0",
     "@lotus-design/switch": "^1.0.0",
     "@pansy/react-hooks": "^1.0.3",

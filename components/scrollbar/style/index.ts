@@ -5,9 +5,9 @@ import type { FullToken, GenerateStyle } from '../../theme/internal';
 export interface ComponentToken {}
 
 interface ScrollbarToken extends FullToken<'Scrollbar'> {
-  scrollbaeTrackSize: number;
+  scrollbarTrackSize: number;
   scrollbarPadding: number;
-  scrollbaeTrackSizeSM: number;
+  scrollbarTrackSizeSM: number;
   scrollbarPaddingSM: number;
 }
 
@@ -25,7 +25,7 @@ export const genScrollbarStyle: GenerateStyle<ScrollbarToken> = (token) => {
         height: '100%',
       },
 
-      [`${componentCls}-wrap-hidden`]: {
+      [`${componentCls}-wrap-native-hidden`]: {
         scrollbarWidth: 'none',
 
         [`&::-webkit-scrollbar`]: {
@@ -49,7 +49,7 @@ export const getBarStyle: GenerateStyle<ScrollbarToken> = (token) => {
 
       [`&${componentCls}-bar-horizontal`]: {
         left: 0,
-        height: token.scrollbaeTrackSize,
+        height: token.scrollbarTrackSize,
 
         '> div': {
           height: '100%',
@@ -58,14 +58,14 @@ export const getBarStyle: GenerateStyle<ScrollbarToken> = (token) => {
 
       [`&${componentCls}-bar-vertical`]: {
         top: 0,
-        width: token.scrollbaeTrackSize,
+        width: token.scrollbarTrackSize,
 
         '> div': {
           width: '100%',
         }
       },
 
-      [`${componentCls}-thumb`]: {
+      [`${componentCls}-bar-thumb`]: {
         position: 'relative',
         display: 'block',
         width: 0,
@@ -81,10 +81,10 @@ export const getBarStyle: GenerateStyle<ScrollbarToken> = (token) => {
     },
     [`${componentCls}-small ${componentCls}-bar`]: {
       [`&${componentCls}-bar-horizontal`]: {
-        height: token.scrollbaeTrackSizeSM,
+        height: token.scrollbarTrackSizeSM,
       },
       [`&${componentCls}-bar-vertical`]: {
-        width: token.scrollbaeTrackSizeSM,
+        width: token.scrollbarTrackSizeSM,
       },
     }
   }
@@ -93,9 +93,9 @@ export const getBarStyle: GenerateStyle<ScrollbarToken> = (token) => {
 // ============================== Export ==============================
 export default genComponentStyleHook('Radio', (token) => {
   const scrollbarToken: ScrollbarToken = mergeToken<ScrollbarToken>(token, {
-    scrollbaeTrackSize: 16,
+    scrollbarTrackSize: 16,
     scrollbarPadding: 4,
-    scrollbaeTrackSizeSM: 12,
+    scrollbarTrackSizeSM: 12,
     scrollbarPaddingSM: 4,
   });
 
