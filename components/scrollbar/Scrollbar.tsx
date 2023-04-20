@@ -18,15 +18,12 @@ export const InternalScrollbar: React.ForwardRefRenderFunction<ScrollbarRef, Scr
   const prefixCls = getPrefixCls('scrollbar', customizePrefixCls);
   const [wrapSSR, hashId] = useStyle(prefixCls);
   const classes = classNames(
-    prefixCls,
     hashId,
     {
       [`${prefixCls}-small`]: customizeSize === 'small',
     },
     className,
   );
-
-  console.log(classes);
 
   return wrapSSR(
     <LotusScrollbar
