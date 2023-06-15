@@ -5,15 +5,7 @@
 
 图表组件
 
-## Usage
-
-TODO
-
-## Options
-
-TODO
-
-## Development
+## 本地开发
 
 ```bash
 # install dependencies
@@ -34,6 +26,10 @@ $ pnpm run docs:build
 # check your project for potential problems
 $ pnpm run doctor
 ```
+
+## API
+
+详细文档请参考 [AntV react 可视化组件库](https://charts.ant.design/)
 
 ## LICENSE
 
