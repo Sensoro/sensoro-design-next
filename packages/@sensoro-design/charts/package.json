@@ -44,7 +44,8 @@
     ]
   },
   "dependencies": {
-    "@ant-design/plots": "^1.2.5"
+    "@ant-design/plots": "^1.2.5",
+    "lodash": "^4.17.21"
   },
   "devDependencies": {
     "@commitlint/cli": "^17.6.5",
