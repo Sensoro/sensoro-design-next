@@ -3,10 +3,13 @@ import React, { useEffect, useState } from 'react';
 
 import { Line } from '@sensoro-design/charts';
 
+<<<<<<< HEAD
 import { Button } from 'antd';
 import { Space } from 'antd/es';
 import EditorDemo from '../../../docs/components/Editor';
 
+=======
+>>>>>>> 56dc45f (fix: line basic demo error)
 export default () => {
   const [config, setConfig] = useState<LineConfig>({
     // 注释
@@ -36,26 +39,23 @@ export default () => {
   }, []);
 
   return (
-    <Space direction="vertical" size={12} style={{ width: '100%' }}>
-      <Button>隐藏配置栏</Button>
-      <div
-        style={{
-          display: 'flex',
-          justifyContent: 'space-between',
-          columnGap: 16,
-          height: 500,
-        }}
-      >
-        <div style={{ width: '50%' }}>
-          <EditorDemo
-            value={JSON.stringify(config, null, 2)}
-            onChange={v => setConfig(JSON.parse(v as string))}
-          />
-        </div>
-        <div style={{ width: '50%' }}>
-          <Line {...config} />
-        </div>
+    <div
+      style={{
+        display: 'flex',
+        justifyContent: 'space-between',
+        columnGap: 16,
+        height: 500,
+      }}
+    >
+      <div style={{ width: '50%' }}>
+        <EditorDemo
+          value={JSON.stringify(config, null, 2)}
+          onChange={(v) => setConfig(JSON.parse(v as string))}
+        />
       </div>
-    </Space>
+      <div style={{ width: '50%' }}>
+        <Line config={config} />
+      </div>
+    </div>
   );
 };
