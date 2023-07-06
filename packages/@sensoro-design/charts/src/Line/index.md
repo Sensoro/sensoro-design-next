@@ -8,14 +8,6 @@ nav:
 
 # Line 折线图
 
-### 基础折线图
-
-<code src="./demos/basic.tsx"></code>
-
-### 曲线图
-
-<code src="./demos/curve.tsx"></code>
-
 ### 多条折线图
 
 <code src="./demos/multiple.tsx"></code>

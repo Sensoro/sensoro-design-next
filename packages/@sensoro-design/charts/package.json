@@ -45,13 +45,16 @@
   },
   "dependencies": {
     "@ant-design/plots": "^1.2.5",
-    "lodash": "^4.17.21"
+    "@pansy/shared": "^1.11.0",
+    "lodash": "^4.17.21",
+    "react-inlinesvg": "^3.0.2"
   },
   "devDependencies": {
     "@commitlint/cli": "^17.6.5",
     "@commitlint/config-conventional": "^17.6.5",
     "@lowcode/monaco-editor": "^1.0.1",
     "@sensoro-design/styles": "^1.27.1",
+    "@types/lodash": "^4.14.195",
     "@types/react": "^18.2.12",
     "@types/react-dom": "^18.2.5",
     "@umijs/lint": "^4.0.71",
