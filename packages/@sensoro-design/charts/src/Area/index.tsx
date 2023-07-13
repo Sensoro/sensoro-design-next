@@ -3,9 +3,9 @@ import React, { useMemo } from 'react';
 
 import type { AreaConfig as BaseAreaConfig } from '@ant-design/plots';
 import { Area as BaseArea } from '@ant-design/plots';
-import { COLORS_SMALL } from '@sensoro-design/charts/style';
 import { map, merge } from 'lodash';
 import { getDefaultConfig } from '../config/base';
+import { COLORS_SMALL } from '../style';
 
 import Title from '../components/Title';
 

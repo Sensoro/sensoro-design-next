@@ -6,9 +6,7 @@ interface TitleProps {
 
 const Title: React.FC<TitleProps> = ({ text }) => {
   return text ? (
-    <h3 style={{ fontSize: 16, lineHeight: '24px', marginBottom: 24 }}>
-      {text}
-    </h3>
+    <h3 style={{ fontSize: 16, lineHeight: '24px' }}>{text}</h3>
   ) : null;
 };
 

@@ -1,15 +1,21 @@
-import { get, map } from 'lodash';
 import React from 'react';
+import type { BaseConfig } from '../types';
+import type { ColorMap } from '../utils';
+
+import { get, map } from 'lodash';
 import SVG from 'react-inlinesvg';
+import marker from '../assets/marker.svg';
 import { COLORS_SMALL } from '../style';
 
-import marker from '../assets/marker.svg';
-
-interface GetDefaultConfigProps {
+export interface GetDefaultConfigProps extends BaseConfig {
   /** 自定义标点 */
   point?: boolean;
   /** 自定义 Tooltip */
   tooltip?: boolean;
+  /** 自定义颜色映射值 */
+  colorMap?: ColorMap;
+  /** 分类字段 */
+  seriesField?: string;
 }
 
 const prefixCls = 'g2-tooltip';
@@ -18,10 +24,16 @@ const prefixCls = 'g2-tooltip';
  * 获取默认配置
  * @param point 是否开启点配置
  * @param tooltip 是否开启自定义 Tooltip
+ * @param colorMap 自定义颜色映射值
+ * @param seriesField 分类字段
+ * @param customContentData 修改tooltip render数据
  */
 export const getDefaultConfig = ({
   point,
   tooltip,
+  colorMap,
+  seriesField,
+  customContentData,
 }: GetDefaultConfigProps): any => {
   const config = {
     xAxis: {
@@ -89,7 +101,7 @@ export const getDefaultConfig = ({
         style: {
           fill: 'white',
           stroke: '#5591F2',
-          lineWidth: 2,
+          lineWidth: 1,
           state: {
             active: {
               style: {
@@ -128,31 +140,40 @@ export const getDefaultConfig = ({
             height: 2,
           },
           'g2-tooltip-list-item': {
-            display: 'inline-flex',
+            display: 'flex',
             alignItems: 'center',
           },
         },
-        customContent: (title: string, data: any) => {
-          const color = COLORS_SMALL[get(data, 'data.__index__', 0)];
+        customContent: (title: string, original: any[]) => {
+          const data = customContentData
+            ? customContentData(original)
+            : original;
+
           return (
             <>
               <div className={`${prefixCls}-title`}>{title}</div>
               <ul className={`${prefixCls}-list`}>
-                {map(data, (item, idx) => (
-                  <li key={idx} className={`${prefixCls}-list-item`}>
-                    <SVG
-                      src={marker}
-                      preProcessor={(code) =>
-                        code.replace(/fill=".*?"/g, `fill="${color}"`)
-                      }
-                      style={{ marginRight: 8 }}
-                      width={8}
-                      height={8}
-                    />
-                    <span className={`${prefixCls}-name`}>销售额</span>
-                    <span className={`${prefixCls}-value`}>{item?.value}</span>
-                  </li>
-                ))}
+                {map(data, (item, idx) => {
+                  const color = seriesField
+                    ? colorMap?.[get(item, `data.${seriesField}`)]
+                    : COLORS_SMALL[0];
+
+                  return (
+                    <li key={idx} className={`${prefixCls}-list-item`}>
+                      <SVG
+                        src={marker}
+                        preProcessor={(code) =>
+                          code.replace(/fill=".*?"/g, `fill="${color}"`)
+                        }
+                        style={{ marginRight: 8 }}
+                        width={8}
+                        height={8}
+                      />
+                      <span className={`${prefixCls}-name`}>{item.name}</span>
+                      <span className={`${prefixCls}-value`}>{item.value}</span>
+                    </li>
+                  );
+                })}
               </ul>
             </>
           );

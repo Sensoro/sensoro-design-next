@@ -1,7 +1,10 @@
 import type { BaseConfig } from '@ant-design/plots';
-import { merge } from 'lodash';
+import { COLORS_SMALL } from '@sensoro-design/charts/style';
+import { keys, merge, reduce, size } from 'lodash';
 
 type Config = BaseConfig<any>;
+
+export type ColorMap = Record<string, string>;
 
 export const mergeConfig = (
   config: Config,
@@ -21,4 +24,24 @@ export const mergeConfig = (
   return merge({}, defaultConfig, config, {
     data,
   }) as any;
+};
+
+/**
+ * 生成自定义颜色
+ */
+export const generateColorMap = (colors: ColorMap) => {
+  const colorSize = size(colors);
+
+  if (colorSize < 8) {
+    return reduce(
+      keys(colors),
+      (res, key, index) => {
+        res[key] = COLORS_SMALL[index];
+        return res;
+      },
+      colors,
+    );
+  }
+
+  return colors;
 };

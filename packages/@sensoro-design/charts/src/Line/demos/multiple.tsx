@@ -1,17 +1,15 @@
 import type { LineConfig } from '@sensoro-design/charts';
 import { Line } from '@sensoro-design/charts';
+import { map } from 'lodash';
 import React, { useEffect, useState } from 'react';
 import EditorDemo from '../../../docs/components/Editor';
 
 export default () => {
-  const [config, setConfig] = useState<LineConfig>({
+  const [config, setConfig] = useState<LineConfig['config']>({
     data: [],
     xField: 'year',
     yField: 'value',
     seriesField: 'category',
-    xAxis: {
-      type: 'time',
-    },
     yAxis: {
       label: {
         // 数值格式化为千分位
@@ -45,14 +43,31 @@ export default () => {
         height: 500,
       }}
     >
-      <div style={{ width: '50%' }}>
+      <div style={{ width: '40%' }}>
         <EditorDemo
           value={JSON.stringify(config, null, 2)}
           onChange={(v) => setConfig(JSON.parse(v as string))}
         />
       </div>
-      <div style={{ width: '50%' }}>
-        <Line config={config} />
+      <div style={{ width: '60%' }}>
+        <Line
+          legend={{
+            processData: (name, index) => `类型${index + 1}`,
+          }}
+          title="多条折线图"
+          type="multiple"
+          config={config}
+          customContentData={(data) => {
+            return map(data, (item, idx) => ({
+              ...item,
+              name: `类型${idx + 1}`,
+              value: `${item.value}`.replace(
+                /\d{1,3}(?=(\d{3})+$)/g,
+                (s) => `${s},`,
+              ),
+            }));
+          }}
+        />
       </div>
     </div>
   );
