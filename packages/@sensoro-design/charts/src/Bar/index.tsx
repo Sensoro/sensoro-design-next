@@ -1,31 +1,94 @@
-import type { FC } from 'react';
-import React from 'react';
-
-import type { BarConfig } from '@ant-design/plots';
+import type { BarConfig as BaseBarConfig } from '@ant-design/plots';
 import { Bar as BaseBar } from '@ant-design/plots';
-import { mergeConfig } from '../utils';
+import { groupBy, map, merge, transform } from 'lodash';
+import React, { useMemo, type FC } from 'react';
+import Composite from '../components/Composite';
+import { getDefaultConfig } from '../config/base';
+import type { BaseConfig } from '../types';
+import { generateColorMap } from '../utils';
+import './index.less';
 
-export { BarConfig };
-
-type DataConfig = BarConfig['data'];
-type OtherConfig = Omit<BarConfig, 'data'>;
-
-interface DataProps {
-  data: DataConfig;
-  config: OtherConfig;
+export interface BarConfig extends BaseConfig {
+  type: 'basic';
+  title?: string;
+  data?: BaseBarConfig['data'];
+  config?: Omit<BaseBarConfig, 'data'> & { data?: BaseBarConfig['data'] };
 }
 
-interface ConfigProps {
-  config: BarConfig;
-  data?: undefined;
-}
+const prefixCls = 'sen-bar';
 
-type Props = DataProps | ConfigProps;
+const Bar: FC<BarConfig> = ({
+  config = {},
+  data,
+  title,
+  type = 'basic',
+  legend,
+  timeRange,
+  customContentData,
+  style = {},
+  className = '',
+}) => {
+  const { seriesField } = config;
 
-const Bar: FC<Props> = ({ config, data }) => {
-  const newConfig = mergeConfig(config, data);
+  const originalData = useMemo(
+    () =>
+      map(data ?? config?.data, (item, idx) => ({ ...item, __index__: idx })),
+    [data, config?.data],
+  );
 
-  return <BaseBar {...newConfig} />;
+  const legendMap = useMemo(
+    () => (seriesField ? groupBy(originalData, seriesField) : {}),
+    [seriesField, originalData],
+  );
+
+  const colorMap = useMemo(() => {
+    const data = transform(
+      legendMap,
+      (result: Record<string, ''>, value, key) => {
+        result[key] = '';
+        return result;
+      },
+      {},
+    );
+    return generateColorMap(data);
+  }, [legendMap]);
+
+  const defaultConfig = {
+    basic: {
+      ...getDefaultConfig({ tooltip: true }),
+      legend: false,
+    },
+  };
+
+  console.log(
+    '%c 🚀🚀🚀 defaultConfig：：',
+    'font-size:20px;background: #33A5FF;color:#fff;',
+    defaultConfig,
+  );
+
+  const newConfig = merge(defaultConfig[type], config, {
+    data: originalData,
+  }) as BaseBarConfig;
+
+  console.log(
+    '%c 🚀🚀🚀 newConfig：：',
+    'font-size:20px;background: #33A5FF;color:#fff;',
+    newConfig,
+  );
+
+  return (
+    <div className={`${prefixCls} ${className}`} style={style}>
+      <Composite
+        title={title}
+        seriesField={seriesField}
+        legend={legend}
+        colorMap={colorMap}
+        timeRange={timeRange}
+      >
+        <BaseBar {...newConfig} />
+      </Composite>
+    </div>
+  );
 };
 
 export default Bar;

@@ -27,14 +27,11 @@ const data = [
 ];
 
 export default () => {
-  const [config, setConfig] = useState<BarConfig>({
+  const [config, setConfig] = useState<BarConfig['config']>({
     data,
     xField: 'value',
     yField: 'year',
     seriesField: 'year',
-    legend: {
-      position: 'top-left',
-    },
   });
 
   return (
@@ -46,14 +43,14 @@ export default () => {
         height: 500,
       }}
     >
-      <div style={{ width: '50%' }}>
+      <div style={{ width: '40%' }}>
         <EditorDemo
           value={JSON.stringify(config, null, 2)}
           onChange={(v) => setConfig(JSON.parse(v as string))}
         />
       </div>
-      <div style={{ width: '50%' }}>
-        <Bar config={config} />
+      <div style={{ width: '60%' }}>
+        <Bar type="basic" title="条形图" config={config} />
       </div>
     </div>
   );
