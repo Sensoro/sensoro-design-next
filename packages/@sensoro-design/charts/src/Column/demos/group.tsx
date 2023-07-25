@@ -87,7 +87,7 @@ const data = [
 ];
 
 export default () => {
-  const [config, setConfig] = useState<ColumnConfig>({
+  const [config, setConfig] = useState<ColumnConfig['config']>({
     data,
     isGroup: true,
     xField: '月份',
@@ -135,7 +135,7 @@ export default () => {
         />
       </div>
       <div style={{ width: '50%' }}>
-        <Column config={config} />
+        <Column title="分组柱状图" type="group" legend config={config} />
       </div>
     </div>
   );

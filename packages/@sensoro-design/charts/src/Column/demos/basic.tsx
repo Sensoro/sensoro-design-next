@@ -39,7 +39,7 @@ const data = [
 ];
 
 export default () => {
-  const [config, setConfig] = useState<ColumnConfig>({
+  const [config, setConfig] = useState<ColumnConfig['config']>({
     data,
     xField: 'type',
     yField: 'sales',
@@ -85,7 +85,7 @@ export default () => {
         />
       </div>
       <div style={{ width: '50%' }}>
-        <Column config={config} />
+        <Column type="basic" title="基础柱状图" legend config={config} />
       </div>
     </div>
   );

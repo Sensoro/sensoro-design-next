@@ -14,4 +14,4 @@ nav:
 
 ### 分组柱状图
 
-<code src="./demos/basic.tsx"></code>
+<code src="./demos/group.tsx"></code>
