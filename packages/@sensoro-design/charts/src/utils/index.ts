@@ -1,6 +1,6 @@
 import type { BaseConfig } from '@ant-design/plots';
-import { COLORS_SMALL } from '@sensoro-design/charts/style';
 import { keys, merge, reduce, size } from 'lodash';
+import { COLORS_SMALL } from '../style';
 
 type Config = BaseConfig<any>;
 

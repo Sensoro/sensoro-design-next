@@ -16,6 +16,8 @@ export interface GetDefaultConfigProps extends BaseConfig {
   colorMap?: ColorMap;
   /** 分类字段 */
   seriesField?: string;
+  /** 是否展示十字辅助线 */
+  showCrosshairs?: boolean;
 }
 
 const prefixCls = 'g2-tooltip';
@@ -34,6 +36,7 @@ export const getDefaultConfig = ({
   colorMap,
   seriesField,
   customContentData,
+  showCrosshairs = false,
 }: GetDefaultConfigProps): any => {
   const config = {
     xAxis: {
@@ -78,7 +81,7 @@ export const getDefaultConfig = ({
       },
     },
     tooltip: {
-      showCrosshairs: true,
+      showCrosshairs,
       crosshairs: {
         type: 'x', // 展示十字辅助线
         line: {
