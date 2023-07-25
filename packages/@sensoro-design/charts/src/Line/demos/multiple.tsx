@@ -10,13 +10,13 @@ export default () => {
     xField: 'year',
     yField: 'value',
     seriesField: 'category',
-    yAxis: {
-      label: {
-        // 数值格式化为千分位
-        formatter: (v) =>
-          `${v}`.replace(/\d{1,3}(?=(\d{3})+$)/g, (s) => `${s},`),
-      },
-    },
+    // yAxis: {
+    //   label: {
+    //     // 数值格式化为千分位
+    //     formatter: (v) =>
+    //       `${v}`.replace(/\d{1,3}(?=(\d{3})+$)/g, (s) => `${s},`),
+    //   },
+    // },
   });
 
   const asyncFetch = () => {
@@ -33,6 +33,12 @@ export default () => {
   useEffect(() => {
     asyncFetch();
   }, []);
+
+  console.log(
+    '%c 🚀🚀🚀 config：：',
+    'font-size:20px;background: #33A5FF;color:#fff;',
+    config,
+  );
 
   return (
     <div

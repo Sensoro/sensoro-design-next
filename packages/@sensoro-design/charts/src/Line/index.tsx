@@ -1,17 +1,14 @@
-import type { FC } from 'react';
-import React, { useMemo } from 'react';
-
 import type { LineConfig as BaseLineConfig } from '@ant-design/plots';
 import { Line as BaseLine } from '@ant-design/plots';
-import Legend from '@sensoro-design/charts/components/Legend';
-import Title from '@sensoro-design/charts/components/Title';
-import { getDefaultConfig } from '@sensoro-design/charts/config/base';
-import { COLORS_SMALL } from '@sensoro-design/charts/style';
-import { groupBy, isBoolean, merge, transform } from 'lodash';
+import { groupBy, merge, transform } from 'lodash';
+import type { FC } from 'react';
+import React, { useMemo } from 'react';
+import Composite from '../components/Composite';
 import type { GetDefaultConfigProps } from '../config/base';
+import { getDefaultConfig } from '../config/base';
+import { COLORS_SMALL } from '../style';
 import type { BaseConfig } from '../types';
 import { generateColorMap } from '../utils';
-
 import './index.less';
 
 export interface LineConfig extends BaseConfig {
@@ -33,6 +30,7 @@ const genDefaultConfig = ({
         colorMap,
         seriesField,
         customContentData,
+        showCrosshairs: true,
       }),
       color: (data: Record<string, string>) => {
         if (seriesField) {
@@ -53,7 +51,10 @@ const Line: FC<LineConfig> = ({
   data,
   title,
   legend,
+  timeRange,
   customContentData,
+  style = {},
+  className = '',
 }) => {
   const { seriesField } = config;
   const originalData = useMemo(
@@ -95,14 +96,16 @@ const Line: FC<LineConfig> = ({
   );
 
   return (
-    <div className={prefixCls}>
-      <div className={`${prefixCls}-header`}>
-        <Title text={title} />
-        {seriesField && legend && (
-          <Legend legend={isBoolean(legend) ? {} : legend} colors={colorMap} />
-        )}
-      </div>
-      <BaseLine {...newConfig} />
+    <div className={`${prefixCls} ${className}`} style={style}>
+      <Composite
+        title={title}
+        seriesField={seriesField}
+        legend={legend}
+        colorMap={colorMap}
+        timeRange={timeRange}
+      >
+        <BaseLine {...newConfig} />
+      </Composite>
     </div>
   );
 };
