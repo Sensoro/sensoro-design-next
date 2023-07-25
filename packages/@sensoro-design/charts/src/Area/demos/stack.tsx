@@ -4,7 +4,7 @@ import React, { useEffect, useState } from 'react';
 import EditorDemo from '../../../docs/components/Editor';
 
 export default () => {
-  const [config, setConfig] = useState<AreaConfig>({
+  const [config, setConfig] = useState<AreaConfig['config']>({
     data: [],
     xField: 'date',
     yField: 'value',
@@ -35,14 +35,25 @@ export default () => {
         height: 500,
       }}
     >
-      <div style={{ width: '50%' }}>
+      <div style={{ width: '40%' }}>
         <EditorDemo
           value={JSON.stringify(config, null, 2)}
           onChange={(v) => setConfig(JSON.parse(v as string))}
         />
       </div>
-      <div style={{ width: '50%' }}>
-        <Area config={config} />
+      <div style={{ width: '60%' }}>
+        <Area
+          type="stack"
+          title="堆积面积图"
+          config={config}
+          legend
+          timeRange={{
+            options: [
+              { label: '7天', value: '1' },
+              { label: '30天', value: '2' },
+            ],
+          }}
+        />
       </div>
     </div>
   );

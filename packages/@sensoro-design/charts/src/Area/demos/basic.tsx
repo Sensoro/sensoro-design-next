@@ -37,13 +37,13 @@ export default () => {
         height: 500,
       }}
     >
-      <div style={{ width: '50%' }}>
+      <div style={{ width: '40%' }}>
         <EditorDemo
           value={JSON.stringify(config, null, 2)}
           onChange={(v) => setConfig(JSON.parse(v as string))}
         />
       </div>
-      <div style={{ width: '50%' }}>
+      <div style={{ width: '60%' }}>
         <Area config={config} />
       </div>
     </div>

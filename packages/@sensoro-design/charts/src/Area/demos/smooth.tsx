@@ -32,6 +32,12 @@ export default () => {
     asyncFetch();
   }, []);
 
+  console.log(
+    '%c 🚀🚀🚀 config：：',
+    'font-size:20px;background: #33A5FF;color:#fff;',
+    config,
+  );
+
   return (
     <div
       style={{
@@ -41,13 +47,13 @@ export default () => {
         height: 500,
       }}
     >
-      <div style={{ width: '50%' }}>
+      <div style={{ width: '40%' }}>
         <EditorDemo
           value={JSON.stringify(config, null, 2)}
           onChange={(v) => setConfig(JSON.parse(v as string))}
         />
       </div>
-      <div style={{ width: '50%' }}>
+      <div style={{ width: '60%' }}>
         <Area title="曲线图" type="smooth" config={config} />
       </div>
     </div>
