@@ -25,7 +25,11 @@ const Legend: React.FC<LegendProps> = ({ legend, colors }) => {
   );
 
   return (
-    <Space direction={direction} size={24} className={prefixCls}>
+    <Space
+      direction={direction}
+      size={direction === 'horizontal' ? 24 : 8}
+      className={prefixCls}
+    >
       {map(keys(colors), (name, index) => (
         <span className={`${prefixCls}-item`} key={name}>
           <SVG

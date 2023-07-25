@@ -1,0 +1,39 @@
+@import '~@sensoro-design/styles/style/themes/default.less';
+
+@legend-prefix-cls: ~'sen-charts';
+
+.@{legend-prefix-cls} {
+  &-header {
+    display: flex;
+    margin-bottom: @margin-lg;
+  }
+
+  &-horizontal {
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &-alone-top,
+  &-timeRange {
+    flex-direction: column;
+    gap: @margin-md;
+  }
+
+  &-timeRange-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &-vertical {
+    display: flex;
+    gap: @margin-lg;
+  }
+
+  &-alone-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: @margin-md;
+  }
+}
