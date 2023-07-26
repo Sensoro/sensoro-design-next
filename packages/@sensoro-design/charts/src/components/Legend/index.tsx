@@ -24,6 +24,8 @@ const Legend: React.FC<LegendProps> = ({ legend, colors }) => {
     [legend],
   );
 
+  const type = useMemo(() => get(legend, 'type', 'svg') ?? 'svg', [legend]);
+
   return (
     <Space
       direction={direction}
@@ -32,15 +34,22 @@ const Legend: React.FC<LegendProps> = ({ legend, colors }) => {
     >
       {map(keys(colors), (name, index) => (
         <span className={`${prefixCls}-item`} key={name}>
-          <SVG
-            src={marker}
-            preProcessor={(code) =>
-              code.replace(/fill=".*?"/g, `fill="${colors[name]}"`)
-            }
-            style={{ marginRight: 8 }}
-            width={8}
-            height={8}
-          />
+          {type === 'svg' ? (
+            <SVG
+              src={marker}
+              preProcessor={(code) =>
+                code.replace(/fill=".*?"/g, `fill="${colors[name]}"`)
+              }
+              style={{ marginRight: 8 }}
+              width={8}
+              height={8}
+            />
+          ) : (
+            <span
+              className={`${prefixCls}-box`}
+              style={{ background: colors[name] }}
+            />
+          )}
           <span className={`${prefixCls}-name`}>
             {legend?.processData && isFunction(legend?.processData)
               ? legend.processData(name, index)

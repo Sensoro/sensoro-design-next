@@ -5,6 +5,7 @@ export interface BaseLegend {
   /** direction === alone 生效 */
   position?: 'top' | 'bottom';
   processData?: (name: string, index: number) => string;
+  type?: 'svg' | 'box';
 }
 
 export interface BaseTooltip {

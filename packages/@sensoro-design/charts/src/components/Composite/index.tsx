@@ -43,13 +43,20 @@ const Composite: FC<CompositeProps> = ({
       alone: false,
       top: false,
       bottom: false,
+      box: false,
     };
     if (legend && !isBoolean(legend)) {
-      const { direction = 'horizontal', position = 'bottom' } =
-        legend as BaseLegend;
+      const {
+        direction = 'horizontal',
+        position = 'bottom',
+        type = 'svg',
+      } = legend as BaseLegend;
       obj.horizontal = false; // 先把默认值horizontal改为false
       obj[direction] = true;
       obj[position] = true;
+      if (type === 'box') {
+        obj['box'] = true;
+      }
     }
     // 如果传递了时间选择器配置，legend为true时，默认设置图例为独立底部显示
     if (timeRange && obj.horizontal) {
@@ -90,7 +97,11 @@ const Composite: FC<CompositeProps> = ({
           )}
       </div>
       {isLegend && legendDirection.vertical ? (
-        <div className={`${prefixCls}-vertical`}>
+        <div
+          className={`${prefixCls}-vertical ${
+            legendDirection.box ? `${prefixCls}-align-center` : ''
+          }`}
+        >
           <div style={{ flex: 1 }}>{children}</div>
           <Legend
             legend={isBoolean(legend) ? {} : (legend as BaseLegend)}
