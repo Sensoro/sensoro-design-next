@@ -18,6 +18,12 @@ export interface GetDefaultConfigProps extends BaseConfig {
   seriesField?: string;
   /** 是否展示十字辅助线 */
   showCrosshairs?: boolean;
+  /** 是否是饼图 */
+  pie?: boolean;
+  /** 是否是环图 */
+  ring?: boolean;
+  /** 饼图、环图的颜色分类 */
+  colorField?: string;
 }
 
 const prefixCls = 'g2-tooltip';
@@ -37,6 +43,9 @@ export const getDefaultConfig = ({
   seriesField,
   customContentData,
   showCrosshairs = false,
+  pie,
+  ring,
+  colorField,
 }: GetDefaultConfigProps): any => {
   const config = {
     xAxis: {
@@ -180,6 +189,112 @@ export const getDefaultConfig = ({
               </ul>
             </>
           );
+        },
+      },
+    });
+  }
+
+  if (pie) {
+    Object.assign(config, {
+      tooltip: {
+        ...config.tooltip,
+        domStyles: {
+          'g2-tooltip': {
+            boxShadow: 'none',
+            backgroundColor: 'rgba(10, 27, 57, 0.8)',
+          },
+          'g2-tooltip-title': {
+            color: '#c2c7ce',
+            fontSize: 12,
+            lineHeight: '20px',
+            margin: '12px 0 4px',
+          },
+          'g2-tooltip-name': {
+            color: '#fff',
+          },
+          'g2-tooltip-value': {
+            color: '#fff',
+          },
+          'g2-tooltip-marker': {
+            borderRadius: '2px',
+            height: 8,
+            width: 8,
+          },
+          'g2-tooltip-list-item': {
+            display: 'flex',
+            alignItems: 'center',
+          },
+        },
+        customContent: (title: string, original: any[]) => {
+          const data = customContentData
+            ? customContentData(original)
+            : original;
+
+          return (
+            <>
+              <ul className={`${prefixCls}-list`}>
+                {map(data, (item, idx) => {
+                  const color = colorField
+                    ? colorMap?.[get(item, `data.${colorField}`)]
+                    : COLORS_SMALL[0];
+
+                  return (
+                    <li key={idx} className={`${prefixCls}-list-item`}>
+                      <div
+                        className={`${prefixCls}-marker`}
+                        style={{ background: color, width: 8, height: 8 }}
+                      />
+                      <span className={`${prefixCls}-name`}>{item.name}</span>
+                      <span className={`${prefixCls}-value`}>{item.value}</span>
+                    </li>
+                  );
+                })}
+              </ul>
+            </>
+          );
+        },
+      },
+      theme: {
+        colors10: Array.from(
+          Array(10),
+          (item, index) => COLORS_SMALL[index % 8],
+        ),
+      },
+      interactions: [
+        {
+          type: 'element-active',
+        },
+      ],
+      appendPadding: [0, 48, 0, 0],
+      label: undefined,
+    });
+  }
+
+  if (ring) {
+    Object.assign(config, {
+      innerRadius: 0.6,
+      statistic: {
+        title: {
+          style: {
+            whiteSpace: 'pre-wrap',
+            overflow: 'hidden',
+            textOverflow: 'ellipsis',
+            fontSize: '12px',
+            lineHeight: '12px',
+            height: '12px',
+            color: 'rgba(10, 27, 57, 0.35)',
+            transform: 'translate(-50%, 8px)',
+          },
+        },
+        content: {
+          style: {
+            fontSize: '24px',
+            lineHeight: '24px',
+            height: '24px',
+            color: '#0a1b39',
+            fontFamily: 'DIN Alternate',
+            transform: 'translate(-50%, -100%)',
+          },
         },
       },
     });
