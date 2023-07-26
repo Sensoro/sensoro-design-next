@@ -31,26 +31,27 @@ const data = [
 ];
 
 export default () => {
-  const [config, setConfig] = useState<PieConfig>({
+  const [config, setConfig] = useState<PieConfig['config']>({
     data,
-    appendPadding: 10,
+    // appendPadding: 10,
     angleField: 'value',
     colorField: 'type',
-    radius: 0.9,
-    label: {
-      type: 'inner',
-      offset: '-30%',
-      content: ({ percent }) => `${(percent * 100).toFixed(0)}%`,
-      style: {
-        fontSize: 14,
-        textAlign: 'center',
-      },
-    },
-    interactions: [
-      {
-        type: 'element-active',
-      },
-    ],
+    // radius: 0.9,
+    // label: undefined,
+    // label: {
+    //   type: 'inner',
+    //   offset: '-30%',
+    //   content: ({ percent }) => `${(percent * 100).toFixed(0)}%`,
+    //   style: {
+    //     fontSize: 14,
+    //     textAlign: 'center',
+    //   },
+    // },
+    // interactions: [
+    //   {
+    //     type: 'element-active',
+    //   },
+    // ],
   });
 
   return (
@@ -69,7 +70,7 @@ export default () => {
         />
       </div>
       <div style={{ width: '50%' }}>
-        <Pie config={config} />
+        <Pie title="饼图" type="pie" config={config} />
       </div>
     </div>
   );

@@ -31,22 +31,22 @@ const data = [
 ];
 
 export default () => {
-  const [config, setConfig] = useState<PieConfig>({
-    appendPadding: 10,
+  const [config, setConfig] = useState<PieConfig['config']>({
+    // appendPadding: 10,
     data,
     angleField: 'value',
     colorField: 'type',
-    radius: 1,
-    innerRadius: 0.6,
-    label: {
-      type: 'inner',
-      offset: '-50%',
-      content: '{value}',
-      style: {
-        textAlign: 'center',
-        fontSize: 14,
-      },
-    },
+    // radius: 1,
+    // innerRadius: 0.6,
+    // label: {
+    //   type: 'inner',
+    //   offset: '-50%',
+    //   content: '{value}',
+    //   style: {
+    //     textAlign: 'center',
+    //     fontSize: 14,
+    //   },
+    // },
     interactions: [
       {
         type: 'element-selected',
@@ -56,7 +56,7 @@ export default () => {
       },
     ],
     statistic: {
-      title: false,
+      title: { content: 'title' },
       content: {
         style: {
           whiteSpace: 'pre-wrap',
@@ -84,7 +84,7 @@ export default () => {
         />
       </div>
       <div style={{ width: '50%' }}>
-        <Pie config={config} />
+        <Pie title="环图" type="ring" config={config} />
       </div>
     </div>
   );
