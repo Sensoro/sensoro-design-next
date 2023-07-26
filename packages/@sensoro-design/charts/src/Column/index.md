@@ -15,3 +15,7 @@ nav:
 ### 分组柱状图
 
 <code src="./demos/group.tsx"></code>
+
+### 双向柱状图
+
+<code src="./demos/bidirection.tsx"></code>

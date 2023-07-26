@@ -10,7 +10,7 @@ import { generateColorMap } from '../utils';
 import './index.less';
 
 export interface ColumnConfig extends BaseConfig {
-  type: 'basic' | 'group';
+  type: 'basic' | 'group' | 'bidirection'; // 基础、分组、双向
   title?: string;
   data?: BaseColumnConfig['data'];
   config?: Omit<BaseColumnConfig, 'data'> & { data?: BaseColumnConfig['data'] };
@@ -34,6 +34,19 @@ const genDefaultConfig = ({
         seriesField,
         customContentData,
       }),
+      columnWidthRatio: 0.5,
+      legend: false,
+    },
+    bidirection: {
+      ...getDefaultConfig({
+        tooltip: true,
+        colorMap,
+        seriesField,
+        customContentData,
+      }),
+      marginRatio: -1,
+      columnWidthRatio: 0.8,
+      legend: false,
     },
   };
 };
