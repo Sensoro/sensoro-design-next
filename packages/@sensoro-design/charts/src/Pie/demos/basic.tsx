@@ -24,16 +24,11 @@ const data = [
     type: '分类五',
     value: 10,
   },
-  {
-    type: '其他',
-    value: 5,
-  },
 ];
 
 export default () => {
   const [config, setConfig] = useState<PieConfig['config']>({
     data,
-    // appendPadding: 10,
     angleField: 'value',
     colorField: 'type',
     // radius: 0.9,
@@ -63,13 +58,13 @@ export default () => {
         height: 500,
       }}
     >
-      <div style={{ width: '50%' }}>
+      <div style={{ width: '40%' }}>
         <EditorDemo
           value={JSON.stringify(config, null, 2)}
           onChange={(v) => setConfig(JSON.parse(v as string))}
         />
       </div>
-      <div style={{ width: '50%' }}>
+      <div style={{ width: '60%' }}>
         <Pie title="饼图" type="pie" config={config} />
       </div>
     </div>

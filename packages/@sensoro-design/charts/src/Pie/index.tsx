@@ -25,6 +25,7 @@ const genDefaultConfig = ({
     pie: {
       ...getDefaultConfig({
         pie: true,
+        tooltipBox: true,
         colorMap,
         colorField,
         customContentData,
@@ -35,6 +36,7 @@ const genDefaultConfig = ({
       ...getDefaultConfig({
         pie: true,
         ring: true,
+        tooltipBox: true,
         colorMap,
         colorField,
         customContentData,
