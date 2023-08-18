@@ -1,6 +1,20 @@
 import type { BaseConfig } from '@ant-design/plots';
-import { keys, merge, reduce, size } from 'lodash';
-import { COLORS_SMALL } from '../style';
+import { keys, merge, reduce } from 'lodash';
+import { COLORS_LARGE, COLORS_MIDDLE, COLORS_SMALL } from '../style';
+
+const colorObj = {
+  small: COLORS_SMALL,
+  middle: COLORS_MIDDLE,
+  large: COLORS_LARGE,
+};
+
+const sizeObj = {
+  small: 8,
+  middle: 16,
+  large: 24,
+};
+
+type ColorType = 'small' | 'middle' | 'large';
 
 type Config = BaseConfig<any>;
 
@@ -29,19 +43,18 @@ export const mergeConfig = (
 /**
  * 生成自定义颜色
  */
-export const generateColorMap = (colors: ColorMap) => {
-  const colorSize = size(colors);
-
-  if (colorSize < 8) {
-    return reduce(
-      keys(colors),
-      (res, key, index) => {
-        res[key] = COLORS_SMALL[index];
-        return res;
-      },
-      colors,
-    );
-  }
+export const generateColorMap = (
+  colors: ColorMap,
+  type: ColorType = 'small',
+) => {
+  return reduce(
+    keys(colors),
+    (res, key, index) => {
+      res[key] = colorObj[type][index % sizeObj[type]];
+      return res;
+    },
+    colors,
+  );
 
   return colors;
 };

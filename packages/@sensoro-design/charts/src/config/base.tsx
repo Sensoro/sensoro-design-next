@@ -5,13 +5,15 @@ import type { ColorMap } from '../utils';
 import { get, map } from 'lodash';
 import SVG from 'react-inlinesvg';
 import marker from '../assets/marker.svg';
-import { COLORS_SMALL } from '../style';
+import { COLORS_LARGE, COLORS_SMALL } from '../style';
 
 export interface GetDefaultConfigProps extends BaseConfig {
   /** 自定义标点 */
   point?: boolean;
   /** 自定义 Tooltip */
   tooltip?: boolean;
+  /** 自定义 Tooltip */
+  tooltipBox?: boolean;
   /** 自定义颜色映射值 */
   colorMap?: ColorMap;
   /** 分类字段 */
@@ -24,6 +26,10 @@ export interface GetDefaultConfigProps extends BaseConfig {
   ring?: boolean;
   /** 饼图、环图的颜色分类 */
   colorField?: string;
+  /** treemap */
+  treemap?: boolean;
+  /** rose */
+  rose?: boolean;
 }
 
 const prefixCls = 'g2-tooltip';
@@ -39,56 +45,62 @@ const prefixCls = 'g2-tooltip';
 export const getDefaultConfig = ({
   point,
   tooltip,
+  tooltipBox,
   colorMap,
   seriesField,
   customContentData,
   showCrosshairs = false,
   pie,
   ring,
-  colorField,
+  treemap,
+  rose,
 }: GetDefaultConfigProps): any => {
   const config = {
-    xAxis: {
-      // x轴文字
-      label: {
-        style: {
-          textAlign: 'center',
-          fill: 'rgba(10, 27, 57, 0.25)',
-          fontSize: 12,
-        },
-      },
-      // x轴的线
-      line: {
-        style: {
-          stroke: '#eceef0',
-          fill: 'pink',
-        },
-      },
-      // 刻度线
-      tickLine: {
-        style: {
-          stroke: '#eceef0',
-          length: 4,
-        },
-      },
-    },
-    yAxis: {
-      label: {
-        style: {
-          fill: 'rgba(10, 27, 57, 0.25)',
-          fontSize: 12,
-        },
-      },
-      grid: {
-        line: {
-          style: {
-            stroke: '#f1f2f4',
-            lineWidth: 1,
-            lineDash: [3, 2],
+    xAxis: rose
+      ? null
+      : {
+          // x轴文字
+          label: {
+            style: {
+              textAlign: 'center',
+              fill: 'rgba(10, 27, 57, 0.25)',
+              fontSize: 12,
+            },
+          },
+          // x轴的线
+          line: {
+            style: {
+              stroke: '#eceef0',
+              fill: 'none',
+            },
+          },
+          // 刻度线
+          tickLine: {
+            style: {
+              stroke: '#eceef0',
+              length: 4,
+            },
           },
         },
-      },
-    },
+    yAxis: rose
+      ? null
+      : {
+          label: {
+            style: {
+              fill: 'rgba(10, 27, 57, 0.25)',
+              fontSize: 12,
+            },
+          },
+          grid: {
+            line: {
+              style: {
+                stroke: '#f1f2f4',
+                lineWidth: 1,
+                lineDash: [3, 2],
+              },
+            },
+          },
+        },
     tooltip: {
       showCrosshairs,
       crosshairs: {
@@ -194,7 +206,7 @@ export const getDefaultConfig = ({
     });
   }
 
-  if (pie) {
+  if (tooltipBox) {
     Object.assign(config, {
       tooltip: {
         ...config.tooltip,
@@ -234,9 +246,7 @@ export const getDefaultConfig = ({
             <>
               <ul className={`${prefixCls}-list`}>
                 {map(data, (item, idx) => {
-                  const color = colorField
-                    ? colorMap?.[get(item, `data.${colorField}`)]
-                    : COLORS_SMALL[0];
+                  const color = item.color ?? COLORS_SMALL[0];
 
                   return (
                     <li key={idx} className={`${prefixCls}-list-item`}>
@@ -254,6 +264,27 @@ export const getDefaultConfig = ({
           );
         },
       },
+    });
+  }
+
+  if (treemap) {
+    Object.assign(config, {
+      color: Array.from(Array(24), (item, index) => COLORS_LARGE[index % 24]),
+      label: {
+        style: {
+          fill: '#fff',
+          fontSize: '12px',
+          opacity: 1,
+        },
+      },
+      rectStyle: {
+        lineWidth: 2,
+      },
+    });
+  }
+
+  if (pie) {
+    Object.assign(config, {
       theme: {
         colors10: Array.from(
           Array(10),
@@ -265,7 +296,10 @@ export const getDefaultConfig = ({
           type: 'element-active',
         },
       ],
-      appendPadding: [0, 48, 0, 0],
+      width: 154,
+      height: 154,
+      autoFit: false,
+      padding: 0,
       label: undefined,
     });
   }
@@ -295,6 +329,17 @@ export const getDefaultConfig = ({
             fontFamily: 'DIN Alternate',
             transform: 'translate(-50%, -100%)',
           },
+        },
+      },
+    });
+  }
+
+  if (rose) {
+    Object.assign(config, {
+      color: Array.from(Array(24), (item, index) => COLORS_LARGE[index % 24]),
+      label: {
+        style: {
+          opacity: 0,
         },
       },
     });
