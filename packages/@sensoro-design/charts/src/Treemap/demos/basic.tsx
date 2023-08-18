@@ -93,9 +93,6 @@ export default () => {
   const [config, setConfig] = useState<TreemapConfig>({
     data,
     colorField: 'name',
-    legend: {
-      position: 'top-left',
-    },
     tooltip: {
       formatter: (v) => {
         const root = v.path[v.path.length - 1];
@@ -125,7 +122,7 @@ export default () => {
         />
       </div>
       <div style={{ width: '50%' }}>
-        <Treemap config={config} />
+        <Treemap title="矩形树图" config={config} />
       </div>
     </div>
   );

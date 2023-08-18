@@ -102,7 +102,7 @@ const Composite: FC<CompositeProps> = ({
             legendDirection.box ? `${prefixCls}-align-center` : ''
           }`}
         >
-          <div style={{ flex: 1 }}>{children}</div>
+          <div>{children}</div>
           <Legend
             legend={isBoolean(legend) ? {} : (legend as BaseLegend)}
             colors={colorMap as ColorMap}

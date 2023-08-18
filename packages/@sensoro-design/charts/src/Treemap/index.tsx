@@ -1,37 +1,53 @@
-import type { BaseConfig } from '@ant-design/plots';
+import type { BaseConfig as AntVBaseConfig } from '@ant-design/plots';
 import { Treemap as BaseTreemap } from '@ant-design/plots';
+import { merge } from 'lodash';
 import type { FC } from 'react';
 import React from 'react';
-import { mergeConfig } from '../utils';
+import Composite from '../components/Composite';
+import { getDefaultConfig } from '../config/base';
+import type { BaseConfig } from '../types';
 
-export interface TreemapConfig extends BaseConfig<any>, Record<string, any> {
-  data: {
-    name: string;
-    children: any[];
+interface Child {
+  [key: string]: any;
+}
+interface Data {
+  name: string;
+  children: Child[];
+}
+
+type BaseTreemapConfig = Omit<AntVBaseConfig<any>, 'tooltip'>;
+
+const defaultConfig = {
+  ...getDefaultConfig({ tooltipBox: true, treemap: true }),
+  legend: false,
+};
+
+export interface TreemapConfig extends BaseTreemapConfig, BaseConfig {
+  title?: string;
+  data?: Data;
+  config?: Omit<BaseTreemapConfig, 'data'> & {
+    data?: Data;
   };
 }
 
-// export { TreemapConfig };
+const prefixCls = 'sen-pie';
 
-type DataConfig = TreemapConfig['data'];
-type OtherConfig = Omit<TreemapConfig, 'data'>;
+const Treemap: FC<TreemapConfig> = ({
+  title,
+  config = {},
+  data,
+  style = {},
+  className = '',
+}) => {
+  const newConfig = merge(defaultConfig, config, { data });
 
-interface DataProps {
-  data: DataConfig;
-  config: OtherConfig;
-}
-
-interface ConfigProps {
-  config: TreemapConfig;
-  data?: undefined;
-}
-
-type Props = DataProps | ConfigProps;
-
-const Treemap: FC<Props> = ({ config, data }) => {
-  const newConfig = mergeConfig(config, data);
-
-  return <BaseTreemap {...newConfig} />;
+  return (
+    <div className={`${prefixCls} ${className}`} style={style}>
+      <Composite title={title}>
+        <BaseTreemap {...newConfig} />
+      </Composite>
+    </div>
+  );
 };
 
 export default Treemap;

@@ -8,5 +8,7 @@ export { default as Line } from './Line';
 export type { LineConfig } from './Line';
 export { default as Pie } from './Pie';
 export type { PieConfig } from './Pie';
+export { default as Rose } from './Rose';
+export type { RoseConfig } from './Rose';
 export { default as Treemap } from './Treemap';
 export type { TreemapConfig } from './Treemap';

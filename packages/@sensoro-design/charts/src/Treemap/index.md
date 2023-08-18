@@ -1,13 +1,13 @@
 ---
-title: Area 面积图
+title: Area 矩形树图
 order: 5
 nav:
   title: 组件
   path: /components
 ---
 
-# Area 面积图
+# Treemap 矩形树图
 
-### 基础面积图
+### 基础矩形树图
 
 <code src="./demos/basic.tsx"></code>

@@ -31,6 +31,11 @@ const Legend: React.FC<LegendProps> = ({ legend, colors }) => {
       direction={direction}
       size={direction === 'horizontal' ? 24 : 8}
       className={prefixCls}
+      style={{
+        rowGap: direction === 'horizontal' ? 24 : 8,
+        columnGap: 24,
+        flexWrap: 'wrap',
+      }}
     >
       {map(keys(colors), (name, index) => (
         <span className={`${prefixCls}-item`} key={name}>
