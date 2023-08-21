@@ -32,9 +32,9 @@ const genDefaultConfig = ({
   };
 };
 
-const prefixCls = 'sen-pie';
+const prefixCls = 'sen-rose';
 
-const Pie: FC<RoseConfig> = ({
+const Rose: FC<RoseConfig> = ({
   config,
   data,
   title,
@@ -101,4 +101,4 @@ const Pie: FC<RoseConfig> = ({
   );
 };
 
-export default Pie;
+export default Rose;

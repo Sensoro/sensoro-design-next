@@ -1,5 +1,5 @@
 ---
-title: Pie 玫瑰图
+title: Rose 玫瑰图
 order: 6
 nav:
   title: 组件
