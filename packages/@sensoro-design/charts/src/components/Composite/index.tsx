@@ -1,3 +1,4 @@
+import { classNames } from '@pansy/shared';
 import { Segmented } from 'antd';
 import type { SegmentedProps } from 'antd/es/segmented';
 import { isBoolean } from 'lodash';
@@ -70,13 +71,12 @@ const Composite: FC<CompositeProps> = ({
   return (
     <>
       <div
-        className={`${prefixCls}-header ${
-          legendDirection.horizontal ? `${prefixCls}-horizontal` : ''
-        } ${
-          legendDirection.alone && legendDirection.top
-            ? `${prefixCls}-alone-top`
-            : ''
-        } ${timeRange ? `${prefixCls}-timeRange` : ''}`}
+        className={classNames(`${prefixCls}-header`, {
+          [`${prefixCls}-horizontal`]: legendDirection.horizontal,
+          [`${prefixCls}-alone-top`]:
+            legendDirection.alone && legendDirection.top,
+          [`${prefixCls}-timeRange`]: timeRange,
+        })}
       >
         {!!timeRange ? (
           <div className={`${prefixCls}-timeRange-wrap`}>
@@ -98,9 +98,16 @@ const Composite: FC<CompositeProps> = ({
       </div>
       {isLegend && legendDirection.vertical ? (
         <div
-          className={`${prefixCls}-vertical ${
-            legendDirection.box ? `${prefixCls}-align-center` : ''
-          }`}
+          style={{
+            // @ts-ignore
+            gap:
+              legendDirection.vertical && !isBoolean(legend)
+                ? legend?.verticalGap
+                : undefined,
+          }}
+          className={classNames(`${prefixCls}-vertical`, {
+            [`${prefixCls}-align-center`]: legendDirection.box,
+          })}
         >
           <div>{children}</div>
           <Legend

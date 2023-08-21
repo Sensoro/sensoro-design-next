@@ -1,11 +1,11 @@
-import type { SpaceProps } from 'antd/es/space';
-import React, { useMemo } from 'react';
-import type { BaseLegend } from '../../types';
-
+import { classNames } from '@pansy/shared';
 import { Space } from 'antd';
+import type { SpaceProps } from 'antd/es/space';
 import { get, isFunction, keys, map } from 'lodash';
+import React, { useMemo } from 'react';
 import SVG from 'react-inlinesvg';
 import marker from '../../assets/marker.svg';
+import type { BaseLegend } from '../../types';
 
 import './index.less';
 
@@ -29,8 +29,9 @@ const Legend: React.FC<LegendProps> = ({ legend, colors }) => {
   return (
     <Space
       direction={direction}
+      align={direction === 'vertical' ? 'baseline' : 'start'}
       size={direction === 'horizontal' ? 24 : 8}
-      className={prefixCls}
+      className={classNames(prefixCls, { [`${prefixCls}-center`]: true })}
       style={{
         rowGap: direction === 'horizontal' ? 24 : 8,
         columnGap: 24,
