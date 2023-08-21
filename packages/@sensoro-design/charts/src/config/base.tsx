@@ -30,6 +30,8 @@ export interface GetDefaultConfigProps extends BaseConfig {
   treemap?: boolean;
   /** rose */
   rose?: boolean;
+  /** radar 雷达图 */
+  radar?: boolean;
 }
 
 const prefixCls = 'g2-tooltip';
@@ -54,6 +56,7 @@ export const getDefaultConfig = ({
   ring,
   treemap,
   rose,
+  radar,
 }: GetDefaultConfigProps): any => {
   const config = {
     xAxis: rose
@@ -341,6 +344,57 @@ export const getDefaultConfig = ({
         style: {
           opacity: 0,
         },
+      },
+    });
+  }
+
+  if (radar) {
+    Object.assign(config, {
+      xAxis: {
+        line: null,
+        tickLine: null,
+        label: {
+          offset: 12,
+          style: {
+            fill: 'rgba(10, 27, 57, 0.25)',
+            fontSize: 12,
+          },
+        },
+        grid: {
+          line: {
+            style: {
+              stroke: '#f1f2f4',
+              lineWidth: 1,
+              lineDash: [3, 2],
+            },
+          },
+        },
+      },
+      yAxis: {
+        line: null,
+        tickLine: null,
+        label: {
+          style: {
+            fill: 'rgba(10, 27, 57, 0.25)',
+            fontSize: 12,
+          },
+        },
+        grid: {
+          line: {
+            type: 'line',
+            style: {
+              stroke: '#f1f2f4',
+              lineWidth: 1,
+              lineDash: [3, 2],
+            },
+          },
+        },
+      },
+      // 开启面积
+      area: {},
+      // 开启辅助点
+      point: {
+        size: 4,
       },
     });
   }
