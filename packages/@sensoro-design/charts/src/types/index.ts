@@ -4,6 +4,8 @@ export interface BaseLegend {
   direction?: 'horizontal' | 'vertical' | 'alone';
   /** direction === alone 生效 */
   position?: 'top' | 'bottom';
+  /** direction === alone 生效 */
+  verticalGap?: number;
   processData?: (name: string, index: number) => string;
   type?: 'svg' | 'box';
 }
