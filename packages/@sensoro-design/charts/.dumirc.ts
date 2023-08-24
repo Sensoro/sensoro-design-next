@@ -1,8 +1,12 @@
 import { defineConfig } from 'dumi';
 
+const base = '/charts/';
+
 export default defineConfig({
   outputPath: 'docs-dist',
-  baseUrl: '/charts',
+  base,
+  publicPath: base,
+  hash: true,
   themeConfig: {
     title: '图表',
     nav: [],
