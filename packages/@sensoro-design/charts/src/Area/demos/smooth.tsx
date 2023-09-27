@@ -15,6 +15,7 @@ export default () => {
       },
     },
     smooth: true,
+    seriesField: 'type',
   });
 
   const asyncFetch = () => {
@@ -22,7 +23,12 @@ export default () => {
       'https://gw.alipayobjects.com/os/bmw-prod/1d565782-dde4-4bb6-8946-ea6a38ccf184.json',
     )
       .then((response) => response.json())
-      .then((json) => setConfig({ ...config, data: slice(json, 0, 10) }))
+      .then((json) =>
+        setConfig({
+          ...config,
+          data: slice(json, 0, 10).map((item) => ({ ...item, type: '销售额' })),
+        }),
+      )
       .catch((error) => {
         console.log('fetch data failed', error);
       });
@@ -31,12 +37,6 @@ export default () => {
   useEffect(() => {
     asyncFetch();
   }, []);
-
-  console.log(
-    '%c 🚀🚀🚀 config：：',
-    'font-size:20px;background: #33A5FF;color:#fff;',
-    config,
-  );
 
   return (
     <div
@@ -54,7 +54,7 @@ export default () => {
         />
       </div>
       <div style={{ width: '60%' }}>
-        <Area title="曲线图" type="smooth" config={config} />
+        <Area title="曲线图" type="smooth" config={config} legend />
       </div>
     </div>
   );

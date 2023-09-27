@@ -44,7 +44,7 @@ export default () => {
         />
       </div>
       <div style={{ width: '60%' }}>
-        <Area config={config} />
+        <Area config={config} legend />
       </div>
     </div>
   );
