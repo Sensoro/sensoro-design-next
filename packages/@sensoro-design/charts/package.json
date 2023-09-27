@@ -1,6 +1,6 @@
 {
   "name": "@sensoro-design/charts",
-  "version": "0.0.4",
+  "version": "0.0.6",
   "description": "图表组件",
   "license": "MIT",
   "module": "dist/index.js",
@@ -46,7 +46,7 @@
   },
   "dependencies": {
     "@ant-design/plots": "1.2.5",
-    "@pansy/shared": "1.11.0",
+    "@pansy/shared": "1.13.0",
     "@sensoro-design/styles": "1.27.1",
     "antd": "4.23.2",
     "lodash": "4.17.21",
