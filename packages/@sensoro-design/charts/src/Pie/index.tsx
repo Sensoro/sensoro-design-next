@@ -1,6 +1,6 @@
 import type { PieConfig as BasePieConfig } from '@ant-design/plots';
 import { Pie as BasePie } from '@ant-design/plots';
-import { groupBy, map, merge, transform } from 'lodash';
+import { every, groupBy, map, merge, transform } from 'lodash';
 import React, { useMemo, type FC } from 'react';
 import Composite from '../components/Composite';
 import type { GetDefaultConfigProps } from '../config/base';
@@ -12,7 +12,7 @@ import './index.less';
 export interface PieConfig extends BaseConfig {
   type: 'pie' | 'ring'; // 基础、分组、双向
   title?: string;
-  data?: BasePieConfig['data'];
+  data?: BasePieConfig['data'] & { value: number };
   config?: Omit<BasePieConfig, 'data'> & { data?: BasePieConfig['data'] };
 }
 
@@ -65,6 +65,12 @@ const Pie: FC<PieConfig> = ({
     [data, config?.data],
   );
 
+  // 环图如果所有数据都为空，展示一个完整的不换色的环： #F6F7F8;
+  const isRingZero = useMemo(() => {
+    // @ts-ignore
+    return type === 'ring' && every(originalData, (data) => !data.value);
+  }, [originalData]);
+
   const legendMap = useMemo(
     () => (colorField ? groupBy(originalData, colorField) : {}),
     [colorField, originalData],
@@ -94,6 +100,17 @@ const Pie: FC<PieConfig> = ({
     },
   ) as BasePieConfig;
 
+  const newData = isRingZero ? newConfig.data.slice(0, 1) : newConfig.data;
+  let tootip = newConfig.tooltip;
+
+  if (isRingZero) {
+    // @ts-ignore
+    newConfig.theme = {
+      colors10: Array.from(Array(10), () => '#F6F7F8'),
+    };
+    tootip = false;
+  }
+
   return (
     <div className={`${prefixCls} ${className}`} style={style}>
       <Composite
@@ -103,7 +120,12 @@ const Pie: FC<PieConfig> = ({
         colorMap={colorMap}
         timeRange={timeRange}
       >
-        <BasePie {...newConfig} />
+        <BasePie
+          {...newConfig}
+          data={newData}
+          tooltip={tootip}
+          interactions={isRingZero ? [] : [{ type: 'element-active' }]}
+        />
       </Composite>
     </div>
   );
