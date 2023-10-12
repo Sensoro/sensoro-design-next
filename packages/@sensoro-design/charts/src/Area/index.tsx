@@ -24,7 +24,14 @@ const genDefaultConfig = ({
   customContentData,
 }: Partial<GetDefaultConfigProps>) => {
   return {
-    basic: {},
+    basic: {
+      ...getDefaultConfig({
+        point: false,
+        tooltip: true,
+        showCrosshairs: true,
+      }),
+      legend: false,
+    },
     gradient: {
       ...getDefaultConfig({ point: true, tooltip: true, showCrosshairs: true }),
       areaStyle: () => {
@@ -35,6 +42,7 @@ const genDefaultConfig = ({
       line: {
         color: COLORS_SMALL[0],
       },
+      legend: false,
     },
     smooth: {
       ...getDefaultConfig({
@@ -50,6 +58,8 @@ const genDefaultConfig = ({
       line: {
         color: COLORS_SMALL[0],
       },
+      smooth: true,
+      legend: false,
     },
     stack: {
       ...getDefaultConfig({
