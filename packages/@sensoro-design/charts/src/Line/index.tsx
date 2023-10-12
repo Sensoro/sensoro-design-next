@@ -25,7 +25,7 @@ const genDefaultConfig = ({
   return {
     multiple: {
       ...getDefaultConfig({
-        point: false,
+        point: true,
         tooltip: true,
         colorMap,
         seriesField,
