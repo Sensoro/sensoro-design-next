@@ -157,7 +157,11 @@ export const getDefaultConfig = ({
             margin: '12px 0 4px',
           },
           'g2-tooltip-name': {
+            flex: 1,
             color: '#fff',
+            whiteSpace: 'nowrap',
+            textOverflow: 'ellipsis',
+            overflow: 'hidden',
           },
           'g2-tooltip-value': {
             color: '#fff',
@@ -169,6 +173,7 @@ export const getDefaultConfig = ({
           'g2-tooltip-list-item': {
             display: 'flex',
             alignItems: 'center',
+            maxWidth: '336px',
           },
         },
         customContent: (title: string, original: any[]) => {
@@ -225,7 +230,11 @@ export const getDefaultConfig = ({
             margin: '12px 0 4px',
           },
           'g2-tooltip-name': {
+            flex: 1,
             color: '#fff',
+            whiteSpace: 'nowrap',
+            textOverflow: 'ellipsis',
+            overflow: 'hidden',
           },
           'g2-tooltip-value': {
             color: '#fff',
@@ -238,6 +247,7 @@ export const getDefaultConfig = ({
           'g2-tooltip-list-item': {
             display: 'flex',
             alignItems: 'center',
+            maxWidth: '336px',
           },
         },
         customContent: (title: string, original: any[]) => {
