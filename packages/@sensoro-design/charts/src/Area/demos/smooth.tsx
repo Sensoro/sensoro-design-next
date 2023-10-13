@@ -14,7 +14,6 @@ export default () => {
         return { name: '销售额', value: data.scales };
       },
     },
-    smooth: true,
     seriesField: 'type',
   });
 
@@ -26,7 +25,10 @@ export default () => {
       .then((json) =>
         setConfig({
           ...config,
-          data: slice(json, 0, 10).map((item) => ({ ...item, type: '销售额' })),
+          data: slice(json, 0, 10).map((item: any) => ({
+            ...item,
+            type: '销售额',
+          })),
         }),
       )
       .catch((error) => {
