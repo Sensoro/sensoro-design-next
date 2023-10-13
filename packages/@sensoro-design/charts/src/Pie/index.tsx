@@ -1,5 +1,6 @@
 import type { PieConfig as BasePieConfig } from '@ant-design/plots';
 import { Pie as BasePie } from '@ant-design/plots';
+import { classNames } from '@pansy/shared';
 import { every, groupBy, map, merge, transform } from 'lodash';
 import React, { useMemo, type FC } from 'react';
 import Composite from '../components/Composite';
@@ -112,7 +113,7 @@ const Pie: FC<PieConfig> = ({
   }
 
   return (
-    <div className={`${prefixCls} ${className}`} style={style}>
+    <div className={classNames(`${prefixCls}`, `${className}`)} style={style}>
       <Composite
         title={title}
         seriesField={colorField}
