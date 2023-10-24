@@ -27,3 +27,7 @@ nav:
 ### 堆叠面积图
 
 <code src="./demos/stack.tsx"></code>
+
+### 空状态
+
+<code src="./demos/empty.tsx"></code>

@@ -24,6 +24,7 @@ const Bar: FC<BarConfig> = ({
   type = 'basic',
   legend,
   timeRange,
+  empty,
   customContentData,
   style = {},
   className = '',
@@ -60,21 +61,9 @@ const Bar: FC<BarConfig> = ({
     },
   };
 
-  console.log(
-    '%c 🚀🚀🚀 defaultConfig：：',
-    'font-size:20px;background: #33A5FF;color:#fff;',
-    defaultConfig,
-  );
-
   const newConfig = merge(defaultConfig[type], config, {
     data: originalData,
   }) as BaseBarConfig;
-
-  console.log(
-    '%c 🚀🚀🚀 newConfig：：',
-    'font-size:20px;background: #33A5FF;color:#fff;',
-    newConfig,
-  );
 
   return (
     <div className={`${prefixCls} ${className}`} style={style}>
@@ -85,7 +74,13 @@ const Bar: FC<BarConfig> = ({
         colorMap={colorMap}
         timeRange={timeRange}
       >
-        <BaseBar {...newConfig} />
+        {empty ? (
+          <div className={`${prefixCls}-empty`}>
+            {typeof empty === 'boolean' ? '暂无内容' : empty}
+          </div>
+        ) : (
+          <BaseBar {...newConfig} />
+        )}
       </Composite>
     </div>
   );

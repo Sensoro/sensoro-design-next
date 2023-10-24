@@ -46,11 +46,14 @@ export const mergeConfig = (
 export const generateColorMap = (
   colors: ColorMap,
   type: ColorType = 'small',
+  customsColors?: string[], // 自定义
 ) => {
   return reduce(
     keys(colors),
     (res, key, index) => {
-      res[key] = colorObj[type][index % sizeObj[type]];
+      res[key] = customsColors
+        ? customsColors[index % customsColors.length]
+        : colorObj[type][index % sizeObj[type]];
       return res;
     },
     colors,

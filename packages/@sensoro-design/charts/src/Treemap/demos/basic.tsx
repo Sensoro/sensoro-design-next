@@ -90,11 +90,11 @@ const data = {
 };
 
 export default () => {
-  const [config, setConfig] = useState<TreemapConfig>({
+  const [config, setConfig] = useState<TreemapConfig['config']>({
     data,
     colorField: 'name',
     tooltip: {
-      formatter: (v) => {
+      formatter: (v: any) => {
         const root = v.path[v.path.length - 1];
         return {
           name: v.name,

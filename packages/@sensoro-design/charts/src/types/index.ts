@@ -29,4 +29,7 @@ export interface BaseConfig {
   style?: React.CSSProperties;
   /** 类名 */
   className?: string;
+  // 自定义色值
+  customsColors?: string[];
+  empty?: boolean | string | React.ReactNode;
 }

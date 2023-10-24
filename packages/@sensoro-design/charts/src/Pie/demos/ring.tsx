@@ -42,12 +42,12 @@ export default () => {
     //   },
     // },
     interactions: [
-      {
-        type: 'element-selected',
-      },
-      {
-        type: 'element-active',
-      },
+      // {
+      //   type: 'element-selected',
+      // },
+      // {
+      //   type: 'element-active',
+      // },
     ],
     statistic: {
       title: { content: 'title' },
@@ -78,7 +78,12 @@ export default () => {
         />
       </div>
       <div style={{ width: '60%' }}>
-        <Pie title="环图" type="ring" config={config} />
+        <Pie
+          title="环图"
+          type="ring"
+          config={config}
+          customsColors={['red', 'orange', 'pink', 'blue']}
+        />
       </div>
     </div>
   );

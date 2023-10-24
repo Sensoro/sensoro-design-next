@@ -1,4 +1,4 @@
-import type { BaseConfig as AntVBaseConfig } from '@ant-design/plots';
+import type { BaseConfig as AntVBaseConfig, Tooltip } from '@ant-design/plots';
 import { Treemap as BaseTreemap } from '@ant-design/plots';
 import { merge } from 'lodash';
 import type { FC } from 'react';
@@ -26,7 +26,9 @@ export interface TreemapConfig extends BaseTreemapConfig, BaseConfig {
   title?: string;
   data?: Data;
   config?: Omit<BaseTreemapConfig, 'data'> & {
+    colorField: string;
     data?: Data;
+    tooltip: Tooltip;
   };
 }
 
@@ -38,13 +40,20 @@ const Treemap: FC<TreemapConfig> = ({
   data,
   style = {},
   className = '',
+  empty,
 }) => {
   const newConfig = merge(defaultConfig, config, { data });
 
   return (
     <div className={`${prefixCls} ${className}`} style={style}>
       <Composite title={title}>
-        <BaseTreemap {...newConfig} />
+        {empty ? (
+          <div className={`${prefixCls}-empty`}>
+            {typeof empty === 'boolean' ? '暂无内容' : empty}
+          </div>
+        ) : (
+          <BaseTreemap {...newConfig} />
+        )}
       </Composite>
     </div>
   );

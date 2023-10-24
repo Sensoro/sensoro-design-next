@@ -109,14 +109,14 @@ const Composite: FC<CompositeProps> = ({
             [`${prefixCls}-align-center`]: legendDirection.box,
           })}
         >
-          <div>{children}</div>
+          <div className={`${prefixCls}-canvas`}>{children}</div>
           <Legend
             legend={isBoolean(legend) ? {} : (legend as BaseLegend)}
             colors={colorMap as ColorMap}
           />
         </div>
       ) : (
-        children
+        <div className={`${prefixCls}-canvas`}>{children}</div>
       )}
       {isLegend && legendDirection.alone && legendDirection.bottom && (
         <div className={`${prefixCls}-alone-bottom`}>

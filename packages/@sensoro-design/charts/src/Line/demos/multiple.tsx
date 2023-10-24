@@ -58,7 +58,7 @@ export default () => {
       <div style={{ width: '60%' }}>
         <Line
           legend={{
-            processData: (name, index) => `类型${index + 1}`,
+            processData: (name, index) => `类型${name}${index + 1}`,
           }}
           title="多条折线图"
           type="multiple"

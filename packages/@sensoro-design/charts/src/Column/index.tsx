@@ -62,6 +62,7 @@ const Column: FC<ColumnConfig> = ({
   timeRange,
   style = {},
   className = '',
+  empty,
   customContentData,
 }) => {
   const { seriesField } = config ?? {};
@@ -109,7 +110,13 @@ const Column: FC<ColumnConfig> = ({
         colorMap={colorMap}
         timeRange={timeRange}
       >
-        <BaseColumn {...newConfig} />
+        {empty ? (
+          <div className={`${prefixCls}-empty`}>
+            {typeof empty === 'boolean' ? '暂无内容' : empty}
+          </div>
+        ) : (
+          <BaseColumn {...newConfig} />
+        )}
       </Composite>
     </div>
   );

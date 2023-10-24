@@ -15,3 +15,7 @@ nav:
 ### 分组条形图
 
 <code src="./demos/group.tsx"></code>
+
+### 空状态
+
+<code src="./demos/empty.tsx"></code>

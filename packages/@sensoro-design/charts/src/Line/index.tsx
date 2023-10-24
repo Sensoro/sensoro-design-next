@@ -55,6 +55,7 @@ const Line: FC<LineConfig> = ({
   customContentData,
   style = {},
   className = '',
+  empty,
 }) => {
   const { seriesField } = config;
   const originalData = useMemo(
@@ -104,7 +105,13 @@ const Line: FC<LineConfig> = ({
         colorMap={colorMap}
         timeRange={timeRange}
       >
-        <BaseLine {...newConfig} />
+        {empty ? (
+          <div className={`${prefixCls}-empty`}>
+            {typeof empty === 'boolean' ? '暂无内容' : empty}
+          </div>
+        ) : (
+          <BaseLine {...newConfig} />
+        )}
       </Composite>
     </div>
   );

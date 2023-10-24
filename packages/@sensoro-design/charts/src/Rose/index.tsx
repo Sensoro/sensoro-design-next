@@ -42,6 +42,7 @@ const Rose: FC<RoseConfig> = ({
   style = {},
   className = '',
   customContentData,
+  empty,
 }) => {
   const { seriesField } = config ?? {};
   const originalData = useMemo(
@@ -80,12 +81,6 @@ const Rose: FC<RoseConfig> = ({
     },
   ) as BaseRoseConfig;
 
-  console.log(
-    '%c 🚀🚀🚀 newConfig：：',
-    'font-size:20px;background: #33A5FF;color:#fff;',
-    newConfig,
-  );
-
   return (
     <div className={`${prefixCls} ${className}`} style={style}>
       <Composite
@@ -95,7 +90,13 @@ const Rose: FC<RoseConfig> = ({
         colorMap={colorMap}
         timeRange={timeRange}
       >
-        <BaseRose {...newConfig} />
+        {empty ? (
+          <div className={`${prefixCls}-empty`}>
+            {typeof empty === 'boolean' ? '暂无内容' : empty}
+          </div>
+        ) : (
+          <BaseRose {...newConfig} />
+        )}
       </Composite>
     </div>
   );

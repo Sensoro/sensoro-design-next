@@ -49,6 +49,7 @@ export const getDefaultConfig = ({
   tooltip,
   tooltipBox,
   colorMap,
+  customsColors,
   seriesField,
   customContentData,
   showCrosshairs = false,
@@ -111,7 +112,7 @@ export const getDefaultConfig = ({
         line: {
           style: {
             stroke: '#82b6ff',
-            lineWidth: 2,
+            lineWidth: 1,
             lineDash: [3, 2],
             lineOpacity: 1,
           },
@@ -299,9 +300,10 @@ export const getDefaultConfig = ({
   if (pie) {
     Object.assign(config, {
       theme: {
-        colors10: Array.from(
-          Array(10),
-          (item, index) => COLORS_SMALL[index % 8],
+        colors10: Array.from(Array(10), (item, index) =>
+          !!customsColors?.length
+            ? customsColors[index % customsColors.length]
+            : COLORS_SMALL[index % 8],
         ),
       },
       interactions: [

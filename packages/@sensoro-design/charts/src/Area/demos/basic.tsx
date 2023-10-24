@@ -54,7 +54,7 @@ export default () => {
         />
       </div>
       <div style={{ width: '60%' }}>
-        <Area title="基础面积图" config={config} legend type="basic" />
+        <Area title="基础面积图" config={config} legend type="basic" empty />
       </div>
     </div>
   );

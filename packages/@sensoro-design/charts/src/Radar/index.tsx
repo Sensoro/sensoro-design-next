@@ -42,6 +42,7 @@ const Radar: FC<RadarConfig> = ({
   style = {},
   className = '',
   customContentData,
+  empty,
 }) => {
   const { seriesField } = config ?? {};
   const originalData = useMemo(
@@ -89,7 +90,13 @@ const Radar: FC<RadarConfig> = ({
         colorMap={colorMap}
         timeRange={timeRange}
       >
-        <BaseRadar {...newConfig} />
+        {empty ? (
+          <div className={`${prefixCls}-empty`}>
+            {typeof empty === 'boolean' ? '暂无内容' : empty}
+          </div>
+        ) : (
+          <BaseRadar {...newConfig} />
+        )}
       </Composite>
     </div>
   );

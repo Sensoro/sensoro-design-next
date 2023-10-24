@@ -11,3 +11,7 @@ nav:
 ### 玫瑰图
 
 <code src="./demos/basic.tsx"></code>
+
+### 空状态
+
+<code src="./demos/empty.tsx"></code>

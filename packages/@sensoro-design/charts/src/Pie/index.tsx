@@ -13,6 +13,7 @@ import './index.less';
 export interface PieConfig extends BaseConfig {
   type: 'pie' | 'ring'; // 基础、分组、双向
   title?: string;
+  customsColors?: string[]; // 自定义lengend 色值
   data?: BasePieConfig['data'] & { value: number };
   config?: Omit<BasePieConfig, 'data'> & { data?: BasePieConfig['data'] };
 }
@@ -21,6 +22,7 @@ const genDefaultConfig = ({
   colorMap,
   colorField,
   customContentData,
+  customsColors,
 }: Partial<GetDefaultConfigProps>) => {
   return {
     pie: {
@@ -30,6 +32,7 @@ const genDefaultConfig = ({
         colorMap,
         colorField,
         customContentData,
+        customsColors,
       }),
       legend: false,
     },
@@ -41,6 +44,7 @@ const genDefaultConfig = ({
         colorMap,
         colorField,
         customContentData,
+        customsColors,
       }),
       legend: false,
     },
@@ -54,10 +58,13 @@ const Pie: FC<PieConfig> = ({
   data,
   title,
   type,
+  legend,
   timeRange,
+  customsColors,
   style = {},
   className = '',
   customContentData,
+  empty,
 }) => {
   const { colorField } = config ?? {};
   const originalData = useMemo(
@@ -86,7 +93,8 @@ const Pie: FC<PieConfig> = ({
       },
       {},
     );
-    return generateColorMap(data);
+
+    return generateColorMap(data, undefined, customsColors);
   }, [legendMap]);
 
   const newConfig = merge(
@@ -94,6 +102,7 @@ const Pie: FC<PieConfig> = ({
       colorMap,
       colorField,
       customContentData,
+      customsColors,
     })[type],
     config,
     {
@@ -117,16 +126,26 @@ const Pie: FC<PieConfig> = ({
       <Composite
         title={title}
         seriesField={colorField}
-        legend={{ direction: 'vertical', type: 'box' }}
+        legend={{
+          direction: 'vertical',
+          type: 'box',
+          ...(typeof legend === 'object' ? legend : {}),
+        }}
         colorMap={colorMap}
         timeRange={timeRange}
       >
-        <BasePie
-          {...newConfig}
-          data={newData}
-          tooltip={tootip}
-          interactions={isRingZero ? [] : [{ type: 'element-active' }]}
-        />
+        {empty ? (
+          <div className={`${prefixCls}-empty`}>
+            {typeof empty === 'boolean' ? '暂无内容' : empty}
+          </div>
+        ) : (
+          <BasePie
+            {...newConfig}
+            data={newData}
+            tooltip={tootip}
+            interactions={[]}
+          />
+        )}
       </Composite>
     </div>
   );

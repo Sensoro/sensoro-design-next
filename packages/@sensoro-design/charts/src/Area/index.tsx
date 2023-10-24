@@ -86,6 +86,7 @@ const Area: FC<AreaConfig> = ({
   timeRange,
   style = {},
   className = '',
+  empty,
   customContentData,
 }) => {
   const { seriesField } = config;
@@ -133,7 +134,13 @@ const Area: FC<AreaConfig> = ({
         colorMap={colorMap}
         timeRange={timeRange}
       >
-        <BaseArea {...newConfig} />
+        {empty ? (
+          <div className={`${prefixCls}-empty`}>
+            {typeof empty === 'boolean' ? '暂无内容' : empty}
+          </div>
+        ) : (
+          <BaseArea {...newConfig} />
+        )}
       </Composite>
     </div>
   );

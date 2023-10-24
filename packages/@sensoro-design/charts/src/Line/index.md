@@ -11,3 +11,7 @@ nav:
 ### 多条折线图
 
 <code src="./demos/multiple.tsx"></code>
+
+### 空状态
+
+<code src="./demos/empty.tsx"></code>
