@@ -122,7 +122,7 @@ export default () => {
         />
       </div>
       <div style={{ width: '50%' }}>
-        <Treemap title="矩形树图" config={config} />
+        <Treemap key="11" title="矩形树图" config={config} />
       </div>
     </div>
   );

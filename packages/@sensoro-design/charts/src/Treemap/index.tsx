@@ -42,7 +42,7 @@ const Treemap: FC<TreemapConfig> = ({
   className = '',
   empty,
 }) => {
-  const newConfig = merge(defaultConfig, config, { data });
+  const newConfig = merge({}, defaultConfig, config, { data });
 
   return (
     <div className={`${prefixCls} ${className}`} style={style}>

@@ -90,6 +90,7 @@ const Column: FC<ColumnConfig> = ({
   }, [legendMap]);
 
   const newConfig = merge(
+    {},
     genDefaultConfig({
       colorMap,
       seriesField,

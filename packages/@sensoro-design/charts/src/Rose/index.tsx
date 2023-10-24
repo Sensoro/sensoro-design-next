@@ -70,6 +70,7 @@ const Rose: FC<RoseConfig> = ({
   }, [legendMap]);
 
   const newConfig = merge(
+    {},
     genDefaultConfig({
       colorMap,
       seriesField,

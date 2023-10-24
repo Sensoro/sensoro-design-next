@@ -83,6 +83,7 @@ const Line: FC<LineConfig> = ({
   const newConfig = useMemo(
     () =>
       merge(
+        {},
         genDefaultConfig({
           colorMap,
           seriesField,

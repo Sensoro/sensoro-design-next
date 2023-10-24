@@ -114,6 +114,7 @@ const Area: FC<AreaConfig> = ({
   }, [legendMap]);
 
   const newConfig = merge(
+    {},
     genDefaultConfig({
       colorMap,
       seriesField,

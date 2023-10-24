@@ -70,6 +70,7 @@ const Radar: FC<RadarConfig> = ({
   }, [legendMap]);
 
   const newConfig = merge(
+    {},
     genDefaultConfig({
       colorMap,
       seriesField,

@@ -98,6 +98,7 @@ const Pie: FC<PieConfig> = ({
   }, [legendMap]);
 
   const newConfig = merge(
+    {},
     genDefaultConfig({
       colorMap,
       colorField,

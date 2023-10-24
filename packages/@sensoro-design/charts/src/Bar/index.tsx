@@ -61,7 +61,7 @@ const Bar: FC<BarConfig> = ({
     },
   };
 
-  const newConfig = merge(defaultConfig[type], config, {
+  const newConfig = merge({}, defaultConfig[type], config, {
     data: originalData,
   }) as BaseBarConfig;
 
