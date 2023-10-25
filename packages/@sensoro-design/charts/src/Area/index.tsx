@@ -22,18 +22,25 @@ const genDefaultConfig = ({
   colorMap,
   seriesField,
   customContentData,
+  legend,
 }: Partial<GetDefaultConfigProps>) => {
   return {
     basic: {
       ...getDefaultConfig({
         point: false,
         tooltip: true,
+        tooltipBox: typeof legend === 'object' && legend?.type === 'box',
         showCrosshairs: true,
       }),
       legend: false,
     },
     gradient: {
-      ...getDefaultConfig({ point: true, tooltip: true, showCrosshairs: true }),
+      ...getDefaultConfig({
+        point: true,
+        tooltip: true,
+        tooltipBox: typeof legend === 'object' && legend?.type === 'box',
+        showCrosshairs: true,
+      }),
       areaStyle: () => {
         return {
           fill: 'l(270) 0:#fff 1:rgba(43, 109, 229, 0.15)',
@@ -48,6 +55,7 @@ const genDefaultConfig = ({
       ...getDefaultConfig({
         point: false,
         tooltip: true,
+        tooltipBox: typeof legend === 'object' && legend?.type === 'box',
         showCrosshairs: true,
       }),
       areaStyle: () => {
@@ -65,6 +73,7 @@ const genDefaultConfig = ({
       ...getDefaultConfig({
         tooltip: true,
         legend: true,
+        tooltipBox: typeof legend === 'object' && legend?.type === 'box',
         colorMap,
         seriesField,
         customContentData,
@@ -119,6 +128,7 @@ const Area: FC<AreaConfig> = ({
       colorMap,
       seriesField,
       customContentData,
+      legend,
     })[type],
     config,
     {

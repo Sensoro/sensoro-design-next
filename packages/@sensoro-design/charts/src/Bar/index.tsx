@@ -56,7 +56,10 @@ const Bar: FC<BarConfig> = ({
 
   const defaultConfig = {
     basic: {
-      ...getDefaultConfig({ tooltip: true }),
+      ...getDefaultConfig({
+        tooltip: true,
+        tooltipBox: typeof legend === 'object' && legend?.type === 'box',
+      }),
       legend: false,
     },
   };

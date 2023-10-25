@@ -17,11 +17,6 @@ interface Data {
 
 type BaseTreemapConfig = Omit<AntVBaseConfig<any>, 'tooltip'>;
 
-const defaultConfig = {
-  ...getDefaultConfig({ tooltipBox: true, treemap: true }),
-  legend: false,
-};
-
 export interface TreemapConfig extends BaseTreemapConfig, BaseConfig {
   title?: string;
   data?: Data;
@@ -42,6 +37,11 @@ const Treemap: FC<TreemapConfig> = ({
   className = '',
   empty,
 }) => {
+  const defaultConfig = {
+    ...getDefaultConfig({ tooltipBox: true, treemap: true }),
+    legend: false,
+  };
+
   const newConfig = merge({}, defaultConfig, config, { data });
 
   return (

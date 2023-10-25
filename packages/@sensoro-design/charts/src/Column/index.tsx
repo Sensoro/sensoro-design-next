@@ -20,16 +20,21 @@ const genDefaultConfig = ({
   colorMap,
   seriesField,
   customContentData,
+  legend,
 }: Partial<GetDefaultConfigProps>) => {
   return {
     basic: {
-      ...getDefaultConfig({ tooltip: true }),
+      ...getDefaultConfig({
+        tooltip: true,
+        tooltipBox: typeof legend === 'object' && legend?.type === 'box',
+      }),
       columnWidthRatio: 0.4,
       legend: false,
     },
     group: {
       ...getDefaultConfig({
         tooltip: true,
+        tooltipBox: typeof legend === 'object' && legend?.type === 'box',
         colorMap,
         seriesField,
         customContentData,
@@ -40,6 +45,7 @@ const genDefaultConfig = ({
     bidirection: {
       ...getDefaultConfig({
         tooltip: true,
+        tooltipBox: typeof legend === 'object' && legend?.type === 'box',
         colorMap,
         seriesField,
         customContentData,
@@ -95,6 +101,7 @@ const Column: FC<ColumnConfig> = ({
       colorMap,
       seriesField,
       customContentData,
+      legend,
     })[type],
     config,
     {
