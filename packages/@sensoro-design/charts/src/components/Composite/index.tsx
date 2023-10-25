@@ -70,32 +70,34 @@ const Composite: FC<CompositeProps> = ({
 
   return (
     <>
-      <div
-        className={classNames(`${prefixCls}-header`, {
-          [`${prefixCls}-horizontal`]: legendDirection.horizontal,
-          [`${prefixCls}-alone-top`]:
-            legendDirection.alone && legendDirection.top,
-          [`${prefixCls}-timeRange`]: timeRange,
-        })}
-      >
-        {!!timeRange ? (
-          <div className={`${prefixCls}-timeRange-wrap`}>
+      {!title && !isLegend ? null : (
+        <div
+          className={classNames(`${prefixCls}-header`, {
+            [`${prefixCls}-horizontal`]: legendDirection.horizontal,
+            [`${prefixCls}-alone-top`]:
+              legendDirection.alone && legendDirection.top,
+            [`${prefixCls}-timeRange`]: timeRange,
+          })}
+        >
+          {!!timeRange ? (
+            <div className={`${prefixCls}-timeRange-wrap`}>
+              <Title text={title} />
+              {/* @ts-ignore */}
+              <Segmented {...timeRange} />
+            </div>
+          ) : (
             <Title text={title} />
-            {/* @ts-ignore */}
-            <Segmented {...timeRange} />
-          </div>
-        ) : (
-          <Title text={title} />
-        )}
-        {isLegend &&
-          (legendDirection.horizontal ||
-            (legendDirection.alone && legendDirection.top)) && (
-            <Legend
-              legend={isBoolean(legend) ? {} : (legend as BaseLegend)}
-              colors={colorMap as ColorMap}
-            />
           )}
-      </div>
+          {isLegend &&
+            (legendDirection.horizontal ||
+              (legendDirection.alone && legendDirection.top)) && (
+              <Legend
+                legend={isBoolean(legend) ? {} : (legend as BaseLegend)}
+                colors={colorMap as ColorMap}
+              />
+            )}
+        </div>
+      )}
       {isLegend && legendDirection.vertical ? (
         <div
           style={{
