@@ -31,22 +31,8 @@ export default () => {
     data,
     angleField: 'value',
     colorField: 'type',
-    // radius: 0.9,
-    // label: undefined,
-    // label: {
-    //   type: 'inner',
-    //   offset: '-30%',
-    //   content: ({ percent }) => `${(percent * 100).toFixed(0)}%`,
-    //   style: {
-    //     fontSize: 14,
-    //     textAlign: 'center',
-    //   },
-    // },
-    // interactions: [
-    //   {
-    //     type: 'element-active',
-    //   },
-    // ],
+    width: 300,
+    height: 300,
   });
 
   return (
@@ -65,7 +51,7 @@ export default () => {
         />
       </div>
       <div style={{ width: '60%' }}>
-        <Pie title="饼图" type="pie" config={config} />
+        <Pie title="饼图" type="pie" config={config} style={{ width: 400 }} />
       </div>
     </div>
   );

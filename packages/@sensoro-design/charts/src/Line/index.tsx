@@ -12,7 +12,8 @@ import { generateColorMap } from '../utils';
 import './index.less';
 
 export interface LineConfig extends BaseConfig {
-  type: 'multiple';
+  type?: 'basic' | 'multiple';
+  showPoint?: boolean;
   data?: BaseLineConfig['data'];
   config?: Omit<BaseLineConfig, 'data'> & { data?: BaseLineConfig['data'] };
 }
@@ -21,12 +22,33 @@ const genDefaultConfig = ({
   colorMap,
   seriesField,
   customContentData,
+  legend,
+  point,
 }: Partial<GetDefaultConfigProps>) => {
   return {
+    basic: {
+      ...getDefaultConfig({
+        point,
+        tooltip: true,
+        tooltipBox: typeof legend === 'object' && legend?.type === 'box',
+        colorMap,
+        seriesField,
+        customContentData,
+        showCrosshairs: true,
+      }),
+      color: (data: Record<string, string>) => {
+        if (seriesField) {
+          return colorMap?.[data[seriesField]];
+        }
+        return COLORS_SMALL[0];
+      },
+      legend: false,
+    },
     multiple: {
       ...getDefaultConfig({
-        point: true,
+        point,
         tooltip: true,
+        tooltipBox: typeof legend === 'object' && legend?.type === 'box',
         colorMap,
         seriesField,
         customContentData,
@@ -47,7 +69,7 @@ const prefixCls = 'sen-line';
 
 const Line: FC<LineConfig> = ({
   config = {},
-  type,
+  type = 'basic',
   data,
   title,
   legend,
@@ -56,6 +78,7 @@ const Line: FC<LineConfig> = ({
   style = {},
   className = '',
   empty,
+  showPoint = false,
 }) => {
   const { seriesField } = config;
   const originalData = useMemo(
@@ -88,6 +111,8 @@ const Line: FC<LineConfig> = ({
           colorMap,
           seriesField,
           customContentData,
+          legend,
+          point: showPoint,
         })[type],
         config,
         {

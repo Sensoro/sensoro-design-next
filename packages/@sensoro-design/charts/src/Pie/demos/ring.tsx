@@ -83,6 +83,7 @@ export default () => {
           type="ring"
           config={config}
           customsColors={['red', 'orange', 'pink', 'blue']}
+          style={{ width: 300 }}
         />
       </div>
     </div>

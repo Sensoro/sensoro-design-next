@@ -1,26 +1,19 @@
-import type { LineConfig } from '@sensoro-design/charts';
+import type { AreaConfig } from '@sensoro-design/charts';
+import { Area } from '@sensoro-design/charts';
+import { slice } from 'lodash';
 import React, { useEffect, useState } from 'react';
-
-import { Line } from '@sensoro-design/charts';
-
-<<<<<<< HEAD
-import { Button } from 'antd';
-import { Space } from 'antd/es';
 import EditorDemo from '../../../docs/components/Editor';
 
-=======
->>>>>>> 56dc45f (fix: line basic demo error)
 export default () => {
-  const [config, setConfig] = useState<LineConfig>({
-    // 注释
-    padding: 'auto',
+  const [config, setConfig] = useState<AreaConfig['config']>({
+    data: [],
     xField: 'Date',
     yField: 'scales',
-    xAxis: {
-      // type: 'timeCat',
-      tickCount: 5,
+    tooltip: {
+      formatter: (data: any) => {
+        return { name: '销售额', value: data.scales };
+      },
     },
-    data: [],
   });
 
   const asyncFetch = () => {
@@ -28,7 +21,7 @@ export default () => {
       'https://gw.alipayobjects.com/os/bmw-prod/1d565782-dde4-4bb6-8946-ea6a38ccf184.json',
     )
       .then(response => response.json())
-      .then(json => setConfig({ ...config, data: json }))
+      .then(json => setConfig({ ...config, data: slice(json, 0, 10) }))
       .catch((error) => {
         console.log('fetch data failed', error);
       });
@@ -47,14 +40,14 @@ export default () => {
         height: 500,
       }}
     >
-      <div style={{ width: '50%' }}>
+      <div style={{ width: '40%' }}>
         <EditorDemo
           value={JSON.stringify(config, null, 2)}
-          onChange={(v) => setConfig(JSON.parse(v as string))}
+          onChange={v => setConfig(JSON.parse(v as string))}
         />
       </div>
-      <div style={{ width: '50%' }}>
-        <Line config={config} />
+      <div style={{ width: '60%' }}>
+        <Area title="基础折线图" type="gradient" config={config} />
       </div>
     </div>
   );
