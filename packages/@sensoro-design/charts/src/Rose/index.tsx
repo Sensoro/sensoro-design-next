@@ -38,6 +38,7 @@ const Rose: FC<RoseConfig> = ({
   config,
   data,
   title,
+  legend,
   timeRange,
   style = {},
   className = '',
@@ -87,7 +88,9 @@ const Rose: FC<RoseConfig> = ({
       <Composite
         title={title}
         seriesField={seriesField}
-        legend={{ direction: 'vertical', type: 'box' }}
+        legend={
+          legend === false ? false : { direction: 'vertical', type: 'box' }
+        }
         colorMap={colorMap}
         timeRange={timeRange}
       >
