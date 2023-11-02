@@ -4,8 +4,10 @@ export interface BaseLegend {
   direction?: 'horizontal' | 'vertical' | 'alone';
   /** direction === alone 生效 */
   position?: 'top' | 'bottom';
-  /** direction === alone 生效 */
+  /** direction === vertical 生效，图例距离图表的间距 */
   verticalGap?: number;
+  /** 图例各个项的间距 */
+  legendItemGap?: number;
   processData?: (name: string, index: number) => string;
   type?: 'svg' | 'box';
 }

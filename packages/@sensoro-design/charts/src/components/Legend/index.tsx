@@ -26,15 +26,23 @@ const Legend: React.FC<LegendProps> = ({ legend, colors }) => {
 
   const type = useMemo(() => get(legend, 'type', 'svg') ?? 'svg', [legend]);
 
+  const gap = useMemo(() => {
+    return legend?.legendItemGap
+      ? legend?.legendItemGap
+      : direction === 'horizontal'
+      ? 24
+      : 8;
+  }, [legend, direction]);
+
   return (
     <Space
       direction={direction}
       align={direction === 'vertical' ? 'baseline' : 'start'}
-      size={direction === 'horizontal' ? 24 : 8}
+      size={gap}
       className={classNames(prefixCls, { [`${prefixCls}-center`]: true })}
       style={{
-        rowGap: direction === 'horizontal' ? 24 : 8,
-        columnGap: 24,
+        rowGap: gap,
+        columnGap: gap,
         flexWrap: 'wrap',
       }}
     >
