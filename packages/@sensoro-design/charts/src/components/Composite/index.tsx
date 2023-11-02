@@ -70,7 +70,7 @@ const Composite: FC<CompositeProps> = ({
 
   return (
     <>
-      {!title && !isLegend ? null : (
+      {!title && (!isLegend || legendDirection.vertical) ? null : (
         <div
           className={classNames(`${prefixCls}-header`, {
             [`${prefixCls}-horizontal`]: legendDirection.horizontal,
