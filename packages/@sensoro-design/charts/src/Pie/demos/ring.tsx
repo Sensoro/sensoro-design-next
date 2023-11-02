@@ -82,8 +82,10 @@ export default () => {
           title="环图"
           type="ring"
           config={config}
+          legend={{ legendItemGap: 16, verticalGap: 40 }}
           customsColors={['red', 'orange', 'pink', 'blue']}
-          style={{ width: 300 }}
+          style={{ width: 384 }}
+          className="ring"
         />
       </div>
     </div>

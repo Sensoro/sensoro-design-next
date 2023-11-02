@@ -31,8 +31,8 @@ export default () => {
     data,
     angleField: 'value',
     colorField: 'type',
-    width: 300,
-    height: 300,
+    width: 128,
+    height: 128,
   });
 
   return (
@@ -51,7 +51,14 @@ export default () => {
         />
       </div>
       <div style={{ width: '60%' }}>
-        <Pie title="饼图" type="pie" config={config} style={{ width: 400 }} />
+        <Pie
+          title="饼图"
+          type="pie"
+          config={config}
+          style={{ width: 384 }}
+          className="pie"
+          // legend={true}
+        />
       </div>
     </div>
   );
