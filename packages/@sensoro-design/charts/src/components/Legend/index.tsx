@@ -19,8 +19,10 @@ const prefixCls = 'sen-legend';
 const Legend: React.FC<LegendProps> = ({ legend, colors }) => {
   const direction = useMemo(
     () =>
-      (get(legend, 'direction', 'horizontal') as SpaceProps['direction']) ??
-      'horizontal',
+      ((get(legend, 'direction', 'horizontal') as SpaceProps['direction']) ??
+        'horizontal') === 'horizontal'
+        ? 'horizontal'
+        : 'vertical',
     [legend],
   );
 

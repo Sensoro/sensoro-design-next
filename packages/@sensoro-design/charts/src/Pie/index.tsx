@@ -2,7 +2,7 @@
 import type { PieConfig as BasePieConfig } from '@ant-design/plots';
 import { Pie as BasePie } from '@ant-design/plots';
 import { classNames } from '@pansy/shared';
-import { every, groupBy, includes, map, merge, transform } from 'lodash';
+import { every, get, groupBy, includes, map, merge, transform } from 'lodash';
 import React, { useEffect, useMemo, useState, type FC } from 'react';
 import Composite from '../components/Composite';
 import type { GetDefaultConfigProps } from '../config/base';
@@ -74,6 +74,7 @@ const Pie: FC<PieConfig> = ({
     [data, config?.data],
   );
   const [rightPadding, setRightPadding] = useState(0);
+  const [leftPadding, setLeftPadding] = useState(0);
   const [width, setWidth] = useState(154);
   const [showPie, setShowPie] = useState(false);
 
@@ -133,37 +134,59 @@ const Pie: FC<PieConfig> = ({
     }
     const pieWidth =
       (document.querySelector('.sen-pie')?.clientWidth! ?? 300) - 48;
-    const legendWidth = document.querySelector('.sen-legend')?.clientWidth ?? 0;
     const width = newConfig.height ?? 154;
 
-    const { verticalGap } =
-      legend === true || !legend
-        ? { verticalGap: 48 }
-        : { verticalGap: 48, ...legend };
+    if (get(legend, 'direction') === 'left') {
+      const curStyle = document
+        .querySelector(
+          `${className ? `.${className} .sen-legend` : '.sen-pie .sen-legend'}`,
+        )
+        ?.getAttribute('style');
 
-    const legendRightPadding = legendWidth + verticalGap;
-    const contentWidth = width + legendRightPadding;
-    const contentPadding = (pieWidth - contentWidth) / 2;
-    const left = contentPadding + width + verticalGap;
+      document
+        .querySelector(
+          `${className ? `.${className} .sen-legend` : '.sen-pie .sen-legend'}`,
+        )
+        ?.setAttribute(
+          'style',
+          `position: absolute; left: 0; ${
+            includes(curStyle, 'position: absolute;') ? '' : curStyle
+          }`,
+        );
+      setLeftPadding(pieWidth - width);
+    } else {
+      const legendWidth =
+        document.querySelector('.sen-legend')?.clientWidth ?? 0;
 
-    const curStyle = document
-      .querySelector(
-        `${className ? `.${className} .sen-legend` : '.sen-legend'}`,
-      )
-      ?.getAttribute('style');
+      const { verticalGap } =
+        legend === true || !legend
+          ? { verticalGap: 48 }
+          : { verticalGap: 48, ...legend };
 
-    document
-      .querySelector(
-        `${className ? `.${className} .sen-legend` : '.sen-legend'}`,
-      )
-      ?.setAttribute(
-        'style',
-        `position: absolute; left: ${left}px; ${
-          includes(curStyle, 'position: absolute;') ? '' : curStyle
-        }`,
-      );
+      const legendRightPadding = legendWidth + verticalGap;
+      const contentWidth = width + legendRightPadding;
+      const contentPadding = (pieWidth - contentWidth) / 2;
+      const left = contentPadding + width + verticalGap;
 
-    setRightPadding(legendRightPadding);
+      const curStyle = document
+        .querySelector(
+          `${className ? `.${className} .sen-legend` : '.sen-pie .sen-legend'}`,
+        )
+        ?.getAttribute('style');
+
+      document
+        .querySelector(
+          `${className ? `.${className} .sen-legend` : '.sen-pie .sen-legend'}`,
+        )
+        ?.setAttribute(
+          'style',
+          `position: absolute; left: ${left}px; ${
+            includes(curStyle, 'position: absolute;') ? '' : curStyle
+          }`,
+        );
+
+      setRightPadding(legendRightPadding);
+    }
     setWidth(pieWidth);
     setShowPie(true);
   }, [newConfig, legend]);
@@ -177,7 +200,7 @@ const Pie: FC<PieConfig> = ({
           legend === false
             ? false
             : {
-                direction: 'vertical',
+                direction: 'right',
                 type: 'box',
                 ...(typeof legend === 'object' ? legend : {}),
               }
@@ -193,7 +216,7 @@ const Pie: FC<PieConfig> = ({
           <BasePie
             {...newConfig}
             width={width}
-            padding={[0, rightPadding, 0, 0]}
+            padding={[0, rightPadding, 0, leftPadding]}
             data={newData}
             tooltip={tootip}
             interactions={[]}

@@ -1,10 +1,10 @@
 import { SegmentedProps } from 'antd/es/segmented';
 
 export interface BaseLegend {
-  direction?: 'horizontal' | 'vertical' | 'alone';
+  direction?: 'horizontal' | 'left' | 'right' | 'alone';
   /** direction === alone 生效 */
   position?: 'top' | 'bottom';
-  /** direction === vertical 生效，图例距离图表的间距 */
+  /** direction === left | right 生效，图例距离图表的间距 */
   verticalGap?: number;
   /** 图例各个项的间距 */
   legendItemGap?: number;

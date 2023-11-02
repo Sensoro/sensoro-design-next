@@ -12,6 +12,10 @@ nav:
 
 <code src="./demos/basic.tsx"></code>
 
+### 饼图-左侧 legend
+
+<code src="./demos/leftLegend.tsx"></code>
+
 ### 环图
 
 <code src="./demos/ring.tsx"></code>

@@ -55,8 +55,9 @@ export default () => {
           title="饼图"
           type="pie"
           config={config}
-          style={{ width: 384 }}
-          className="pie"
+          style={{ width: 284 }}
+          legend={{ direction: 'left' }}
+          className="left"
         />
       </div>
     </div>

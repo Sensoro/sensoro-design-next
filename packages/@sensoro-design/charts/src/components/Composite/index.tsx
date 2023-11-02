@@ -40,6 +40,8 @@ const Composite: FC<CompositeProps> = ({
   const legendDirection = useMemo(() => {
     const obj = {
       horizontal: true,
+      left: false,
+      right: false,
       vertical: false,
       alone: false,
       top: false,
@@ -52,12 +54,15 @@ const Composite: FC<CompositeProps> = ({
         position = 'bottom',
         type = 'svg',
       } = legend as BaseLegend;
+
       obj.horizontal = false; // 先把默认值horizontal改为false
       obj[direction] = true;
       obj[position] = true;
       if (type === 'box') {
         obj['box'] = true;
       }
+
+      obj.vertical = obj.left || obj.right;
     }
     // 如果传递了时间选择器配置，legend为true时，默认设置图例为独立底部显示
     if (timeRange && obj.horizontal) {
