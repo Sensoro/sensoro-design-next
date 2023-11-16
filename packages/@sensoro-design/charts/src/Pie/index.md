@@ -20,6 +20,10 @@ nav:
 
 <code src="./demos/ring.tsx"></code>
 
+### 环图
+
+<code src="./demos/ring2.tsx"></code>
+
 ### 空状态
 
 <code src="./demos/empty.tsx"></code>

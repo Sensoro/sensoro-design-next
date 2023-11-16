@@ -56,7 +56,7 @@ export default () => {
           type="pie"
           config={config}
           style={{ width: 384 }}
-          className="pie"
+          // className="pie"
         />
       </div>
     </div>

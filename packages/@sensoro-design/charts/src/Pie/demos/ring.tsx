@@ -13,7 +13,7 @@ const data = [
     value: 25,
   },
   {
-    type: '分类三',
+    type: '分类三wdfsd',
     value: 18,
   },
   {
@@ -31,24 +31,7 @@ export default () => {
     data,
     angleField: 'value',
     colorField: 'type',
-    // innerRadius: 0.6,
-    // label: {
-    //   type: 'inner',
-    //   offset: '-50%',
-    //   content: '{value}',
-    //   style: {
-    //     textAlign: 'center',
-    //     fontSize: 14,
-    //   },
-    // },
-    interactions: [
-      // {
-      //   type: 'element-selected',
-      // },
-      // {
-      //   type: 'element-active',
-      // },
-    ],
+
     statistic: {
       title: { content: 'title' },
       content: {
@@ -82,7 +65,26 @@ export default () => {
           title="环图"
           type="ring"
           config={config}
-          legend={{ legendItemGap: 16, verticalGap: 40 }}
+          legend={{
+            legendItemGap: 8,
+            verticalGap: 40,
+            processData: (name: string, index: number) => {
+              return (
+                <span>
+                  {name}
+                  <span
+                    style={{
+                      fontFamily: 'DIN Alternate-Bold',
+                      color: '#0A1B39',
+                      marginLeft: 8,
+                    }}
+                  >
+                    {data[index].value}
+                  </span>
+                </span>
+              );
+            },
+          }}
           customsColors={['red', 'orange', 'pink', 'blue']}
           style={{ width: 384 }}
           className="ring"

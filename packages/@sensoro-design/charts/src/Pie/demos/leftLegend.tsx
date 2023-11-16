@@ -5,23 +5,23 @@ import EditorDemo from '../../../docs/components/Editor';
 
 const data = [
   {
-    type: '分类一',
+    type: '分类一 27',
     value: 27,
   },
   {
-    type: '分类二',
+    type: '分类二 25',
     value: 25,
   },
   {
-    type: '分类三',
+    type: '分类三 18',
     value: 18,
   },
   {
-    type: '分类四',
+    type: '分类四 15',
     value: 15,
   },
   {
-    type: '分类五',
+    type: '分类五 10',
     value: 10,
   },
 ];
@@ -56,7 +56,11 @@ export default () => {
           type="pie"
           config={config}
           style={{ width: 284 }}
-          legend={{ direction: 'left' }}
+          legend={{
+            direction: 'left',
+            legendItemGap: 16,
+            textStyle: { color: 'blue' },
+          }}
           className="left"
         />
       </div>

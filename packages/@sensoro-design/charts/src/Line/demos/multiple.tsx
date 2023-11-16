@@ -60,7 +60,7 @@ export default () => {
           customContentData={(data) => {
             return map(data, (item, idx) => ({
               ...item,
-              name: `类型${idx + 1}`,
+              name: `类型${idx * 10 + 1}`,
               value: `${item.value}`.replace(
                 /\d{1,3}(?=(\d{3})+$)/g,
                 (s) => `${s},`,

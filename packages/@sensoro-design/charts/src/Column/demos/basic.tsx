@@ -85,7 +85,13 @@ export default () => {
         />
       </div>
       <div style={{ width: '50%' }}>
-        <Column type="basic" title="基础柱状图" legend config={config} />
+        <Column
+          type="basic"
+          title="基础柱状图"
+          legend={{ type: 'box' }}
+          config={config}
+          tooltip={{ showTitle: false }}
+        />
       </div>
     </div>
   );
