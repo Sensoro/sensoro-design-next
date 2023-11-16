@@ -23,6 +23,7 @@ const genDefaultConfig = ({
   seriesField,
   customContentData,
   legend,
+  showTooltipTitle,
 }: Partial<GetDefaultConfigProps>) => {
   return {
     basic: {
@@ -30,6 +31,7 @@ const genDefaultConfig = ({
         point: false,
         tooltip: true,
         tooltipBox: typeof legend === 'object' && legend?.type === 'box',
+        showTooltipTitle,
         showCrosshairs: true,
       }),
       legend: false,
@@ -39,6 +41,7 @@ const genDefaultConfig = ({
         point: true,
         tooltip: true,
         tooltipBox: typeof legend === 'object' && legend?.type === 'box',
+        showTooltipTitle,
         showCrosshairs: true,
       }),
       areaStyle: () => {
@@ -56,6 +59,7 @@ const genDefaultConfig = ({
         point: false,
         tooltip: true,
         tooltipBox: typeof legend === 'object' && legend?.type === 'box',
+        showTooltipTitle,
         showCrosshairs: true,
       }),
       areaStyle: () => {
@@ -74,6 +78,7 @@ const genDefaultConfig = ({
         tooltip: true,
         legend: true,
         tooltipBox: typeof legend === 'object' && legend?.type === 'box',
+        showTooltipTitle,
         colorMap,
         seriesField,
         customContentData,
@@ -97,6 +102,7 @@ const Area: FC<AreaConfig> = ({
   className = '',
   empty,
   customContentData,
+  tooltip,
 }) => {
   const { seriesField } = config;
   const originalData = useMemo(
@@ -129,6 +135,7 @@ const Area: FC<AreaConfig> = ({
       seriesField,
       customContentData,
       legend,
+      showTooltipTitle: typeof tooltip === 'object' ? tooltip.showTitle : true,
     })[type],
     config,
     {

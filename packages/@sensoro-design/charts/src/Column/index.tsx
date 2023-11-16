@@ -21,12 +21,14 @@ const genDefaultConfig = ({
   seriesField,
   customContentData,
   legend,
+  showTooltipTitle,
 }: Partial<GetDefaultConfigProps>) => {
   return {
     basic: {
       ...getDefaultConfig({
         tooltip: true,
         tooltipBox: typeof legend === 'object' && legend?.type === 'box',
+        showTooltipTitle,
       }),
       columnWidthRatio: 0.4,
       legend: false,
@@ -35,6 +37,7 @@ const genDefaultConfig = ({
       ...getDefaultConfig({
         tooltip: true,
         tooltipBox: typeof legend === 'object' && legend?.type === 'box',
+        showTooltipTitle,
         colorMap,
         seriesField,
         customContentData,
@@ -46,6 +49,7 @@ const genDefaultConfig = ({
       ...getDefaultConfig({
         tooltip: true,
         tooltipBox: typeof legend === 'object' && legend?.type === 'box',
+        showTooltipTitle,
         colorMap,
         seriesField,
         customContentData,
@@ -69,6 +73,7 @@ const Column: FC<ColumnConfig> = ({
   style = {},
   className = '',
   empty,
+  tooltip,
   customContentData,
 }) => {
   const { seriesField } = config ?? {};
@@ -102,6 +107,7 @@ const Column: FC<ColumnConfig> = ({
       seriesField,
       customContentData,
       legend,
+      showTooltipTitle: typeof tooltip === 'object' ? tooltip.showTitle : true,
     })[type],
     config,
     {

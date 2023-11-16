@@ -28,6 +28,7 @@ const Bar: FC<BarConfig> = ({
   customContentData,
   style = {},
   className = '',
+  tooltip,
 }) => {
   const { seriesField } = config;
 
@@ -59,6 +60,8 @@ const Bar: FC<BarConfig> = ({
       ...getDefaultConfig({
         tooltip: true,
         tooltipBox: typeof legend === 'object' && legend?.type === 'box',
+        showTooltipTitle:
+          typeof tooltip === 'object' ? tooltip.showTitle : true,
       }),
       legend: false,
     },

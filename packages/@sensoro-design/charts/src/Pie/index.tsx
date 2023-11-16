@@ -2,7 +2,7 @@
 import type { PieConfig as BasePieConfig } from '@ant-design/plots';
 import { Pie as BasePie } from '@ant-design/plots';
 import { classNames } from '@pansy/shared';
-import { every, get, groupBy, includes, map, merge, transform } from 'lodash';
+import { every, get, groupBy, isEmpty, map, merge, transform } from 'lodash';
 import React, { useEffect, useMemo, useState, type FC } from 'react';
 import Composite from '../components/Composite';
 import type { GetDefaultConfigProps } from '../config/base';
@@ -10,6 +10,8 @@ import { getDefaultConfig } from '../config/base';
 import type { BaseConfig } from '../types';
 import { generateColorMap } from '../utils';
 import './index.less';
+
+const reg = /left:.+?;/;
 
 export interface PieConfig extends BaseConfig {
   type: 'pie' | 'ring'; // 基础、分组、双向
@@ -30,6 +32,7 @@ const genDefaultConfig = ({
       ...getDefaultConfig({
         pie: true,
         tooltipBox: true,
+        showTooltipTitle: false,
         colorMap,
         colorField,
         customContentData,
@@ -42,6 +45,7 @@ const genDefaultConfig = ({
         pie: true,
         ring: true,
         tooltipBox: true,
+        showTooltipTitle: false,
         colorMap,
         colorField,
         customContentData,
@@ -80,8 +84,9 @@ const Pie: FC<PieConfig> = ({
 
   // 环图如果所有数据都为空，展示一个完整的不换色的环： #F6F7F8;
   const isRingZero = useMemo(() => {
+    if (isEmpty(originalData)) return false;
     // @ts-ignore
-    return type === 'ring' && every(originalData, (data) => !data.value);
+    return type === 'ring' && every(originalData, (data) => data.value === 0);
   }, [originalData]);
 
   const legendMap = useMemo(
@@ -137,11 +142,13 @@ const Pie: FC<PieConfig> = ({
     const width = newConfig.height ?? 154;
 
     if (get(legend, 'direction') === 'left') {
-      const curStyle = document
+      let curStyle = document
         .querySelector(
           `${className ? `.${className} .sen-legend` : '.sen-pie .sen-legend'}`,
         )
         ?.getAttribute('style');
+      curStyle = curStyle?.replace('position: absolute;', '').trim();
+      curStyle = curStyle?.replace(reg, '').trim();
 
       document
         .querySelector(
@@ -149,14 +156,15 @@ const Pie: FC<PieConfig> = ({
         )
         ?.setAttribute(
           'style',
-          `position: absolute; left: 0; ${
-            includes(curStyle, 'position: absolute;') ? '' : curStyle
-          }`,
+          `${'position: absolute; left: 0;' + curStyle || ''}`,
         );
       setLeftPadding(pieWidth - width);
+      setRightPadding(0);
     } else {
       const legendWidth =
-        document.querySelector('.sen-legend')?.clientWidth ?? 0;
+        document.querySelector(
+          `${className ? `.${className} .sen-legend` : '.sen-pie .sen-legend'}`,
+        )?.clientWidth ?? 0;
 
       const { verticalGap } =
         legend === true || !legend
@@ -168,11 +176,13 @@ const Pie: FC<PieConfig> = ({
       const contentPadding = (pieWidth - contentWidth) / 2;
       const left = contentPadding + width + verticalGap;
 
-      const curStyle = document
+      let curStyle = document
         .querySelector(
           `${className ? `.${className} .sen-legend` : '.sen-pie .sen-legend'}`,
         )
         ?.getAttribute('style');
+      curStyle = curStyle?.replace('position: absolute;', '').trim();
+      curStyle = curStyle?.replace(reg, '').trim();
 
       document
         .querySelector(
@@ -180,15 +190,16 @@ const Pie: FC<PieConfig> = ({
         )
         ?.setAttribute(
           'style',
-          `position: absolute; left: ${left}px; ${
-            includes(curStyle, 'position: absolute;') ? '' : curStyle
-          }`,
+          `${`position: absolute; left: ${left}px;${curStyle || ''}`}`,
         );
 
       setRightPadding(legendRightPadding);
+      setLeftPadding(0);
     }
     setWidth(pieWidth);
-    setShowPie(true);
+    setTimeout(() => {
+      setShowPie(true);
+    }, 100);
   }, [newConfig, legend]);
 
   return (

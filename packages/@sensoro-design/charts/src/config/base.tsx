@@ -14,6 +14,8 @@ export interface GetDefaultConfigProps extends BaseConfig {
   tooltip?: boolean;
   /** 自定义 Tooltip */
   tooltipBox?: boolean;
+  /** 是否展示 Tooltip title */
+  showTooltipTitle?: boolean;
   /** 自定义颜色映射值 */
   colorMap?: ColorMap;
   /** 分类字段 */
@@ -32,6 +34,8 @@ export interface GetDefaultConfigProps extends BaseConfig {
   rose?: boolean;
   /** radar 雷达图 */
   radar?: boolean;
+  /** 是否隐藏label */
+  funnel?: boolean;
 }
 
 const prefixCls = 'g2-tooltip';
@@ -48,6 +52,7 @@ export const getDefaultConfig = ({
   point,
   tooltip,
   tooltipBox,
+  showTooltipTitle = true,
   colorMap,
   customsColors,
   seriesField,
@@ -58,6 +63,7 @@ export const getDefaultConfig = ({
   treemap,
   rose,
   radar,
+  funnel,
 }: GetDefaultConfigProps): any => {
   const config = {
     xAxis: rose
@@ -124,11 +130,11 @@ export const getDefaultConfig = ({
   if (point) {
     Object.assign(config, {
       point: {
-        size: 4,
+        size: 2,
         shape: 'circle',
         style: {
           fill: 'white',
-          stroke: '#5591F2',
+          stroke: '#588BEE',
           lineWidth: 1,
           state: {
             active: {
@@ -150,15 +156,15 @@ export const getDefaultConfig = ({
           'g2-tooltip': {
             boxShadow: 'none',
             backgroundColor: 'rgba(10, 27, 57, 0.8)',
+            padding: '12px 12px 8px',
           },
           'g2-tooltip-title': {
             color: '#c2c7ce',
             fontSize: 12,
             lineHeight: '20px',
-            margin: '12px 0 4px',
+            margin: '0 0 4px',
           },
           'g2-tooltip-name': {
-            flex: 1,
             color: '#fff',
             whiteSpace: 'nowrap',
             textOverflow: 'ellipsis',
@@ -166,15 +172,18 @@ export const getDefaultConfig = ({
           },
           'g2-tooltip-value': {
             color: '#fff',
+            fontFamily: 'DIN Alternate',
+            marginLeft: '16px',
           },
           'g2-tooltip-marker': {
             borderRadius: '2px',
             height: 2,
           },
           'g2-tooltip-list-item': {
-            display: 'flex',
-            alignItems: 'center',
+            fontSize: 12,
+            lineHeight: '20px',
             maxWidth: '336px',
+            margin: '0 0 4px',
           },
         },
         customContent: (title: string, original: any[]) => {
@@ -184,7 +193,9 @@ export const getDefaultConfig = ({
 
           return (
             <>
-              <div className={`${prefixCls}-title`}>{title}</div>
+              {showTooltipTitle && (
+                <div className={`${prefixCls}-title`}>{title}</div>
+              )}
               <ul className={`${prefixCls}-list`}>
                 {map(data, (item, idx) => {
                   const color = seriesField
@@ -223,15 +234,15 @@ export const getDefaultConfig = ({
           'g2-tooltip': {
             boxShadow: 'none',
             backgroundColor: 'rgba(10, 27, 57, 0.8)',
+            padding: '12px 12px 8px',
           },
           'g2-tooltip-title': {
             color: '#c2c7ce',
             fontSize: 12,
             lineHeight: '20px',
-            margin: '12px 0 4px',
+            margin: '0 0 4px',
           },
           'g2-tooltip-name': {
-            flex: 1,
             color: '#fff',
             whiteSpace: 'nowrap',
             textOverflow: 'ellipsis',
@@ -239,6 +250,8 @@ export const getDefaultConfig = ({
           },
           'g2-tooltip-value': {
             color: '#fff',
+            fontFamily: 'DIN Alternate',
+            marginLeft: '16px',
           },
           'g2-tooltip-marker': {
             borderRadius: '2px',
@@ -246,9 +259,10 @@ export const getDefaultConfig = ({
             width: 8,
           },
           'g2-tooltip-list-item': {
-            display: 'flex',
-            alignItems: 'center',
+            fontSize: 12,
+            lineHeight: '20px',
             maxWidth: '336px',
+            margin: '0 0 4px',
           },
         },
         customContent: (title: string, original: any[]) => {
@@ -258,6 +272,9 @@ export const getDefaultConfig = ({
 
           return (
             <>
+              {showTooltipTitle && (
+                <div className={`${prefixCls}-title`}>{title}</div>
+              )}
               <ul className={`${prefixCls}-list`}>
                 {map(data, (item, idx) => {
                   const color = item.color ?? COLORS_SMALL[0];
@@ -287,7 +304,7 @@ export const getDefaultConfig = ({
       label: {
         style: {
           fill: '#fff',
-          fontSize: '12px',
+          fontSize: 12,
           opacity: 1,
         },
       },
@@ -407,6 +424,21 @@ export const getDefaultConfig = ({
       // 开启辅助点
       point: {
         size: 4,
+      },
+    });
+  }
+
+  if (funnel) {
+    Object.assign(config, {
+      conversionTag: false,
+      funnelStyle: {
+        stroke: 'white',
+        lineWidth: 2,
+      },
+      label: {
+        style: {
+          opacity: 0,
+        },
       },
     });
   }

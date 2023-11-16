@@ -24,6 +24,7 @@ const genDefaultConfig = ({
     ...getDefaultConfig({
       rose: true,
       tooltipBox: true,
+      showTooltipTitle: false,
       colorMap,
       seriesField,
       customContentData,

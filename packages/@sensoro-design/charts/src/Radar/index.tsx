@@ -19,11 +19,13 @@ const genDefaultConfig = ({
   colorMap,
   seriesField,
   customContentData,
+  showTooltipTitle,
 }: Partial<GetDefaultConfigProps>) => {
   return {
     ...getDefaultConfig({
       radar: true,
       tooltipBox: true,
+      showTooltipTitle,
       colorMap,
       seriesField,
       customContentData,
@@ -44,6 +46,7 @@ const Radar: FC<RadarConfig> = ({
   className = '',
   customContentData,
   empty,
+  tooltip,
 }) => {
   const { seriesField } = config ?? {};
   const originalData = useMemo(
@@ -76,6 +79,7 @@ const Radar: FC<RadarConfig> = ({
       colorMap,
       seriesField,
       customContentData,
+      showTooltipTitle: typeof tooltip === 'object' ? tooltip.showTitle : true,
     }),
     config,
     {

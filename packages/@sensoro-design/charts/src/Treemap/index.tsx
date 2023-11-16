@@ -38,7 +38,11 @@ const Treemap: FC<TreemapConfig> = ({
   empty,
 }) => {
   const defaultConfig = {
-    ...getDefaultConfig({ tooltipBox: true, treemap: true }),
+    ...getDefaultConfig({
+      tooltipBox: true,
+      showTooltipTitle: false,
+      treemap: true,
+    }),
     legend: false,
   };
 
