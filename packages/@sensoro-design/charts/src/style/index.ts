@@ -2,8 +2,8 @@ export const BLUE_1 = '#94c1ff';
 export const BLUE_2 = '#588bee';
 export const BLUE_3 = '#005ab6';
 
-export const GREEN_1 = '#17c28f';
-export const GREEN_2 = '#46dfaa';
+export const GREEN_1 = '#46dfaa';
+export const GREEN_2 = '#17c28f';
 export const GREEN_3 = '#008c5d';
 
 export const YELLOW_1 = '#ffd45f';
