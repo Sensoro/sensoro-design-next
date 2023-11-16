@@ -30,11 +30,13 @@ const Legend: React.FC<LegendProps> = ({ legend, colors }) => {
 
   const gap = useMemo(() => {
     return legend?.legendItemGap
-      ? legend?.legendItemGap
+      ? legend.legendItemGap
       : direction === 'horizontal'
       ? 24
       : 8;
   }, [legend, direction]);
+
+  const textStyle = useMemo(() => get(legend, 'textStyle', {}), [legend]);
 
   return (
     <Space
@@ -42,11 +44,6 @@ const Legend: React.FC<LegendProps> = ({ legend, colors }) => {
       align={direction === 'vertical' ? 'baseline' : 'start'}
       size={gap}
       className={classNames(prefixCls, { [`${prefixCls}-center`]: true })}
-      style={{
-        rowGap: gap,
-        columnGap: gap,
-        flexWrap: 'wrap',
-      }}
     >
       {map(keys(colors), (name, index) => (
         <span className={`${prefixCls}-item`} key={name}>
@@ -66,7 +63,7 @@ const Legend: React.FC<LegendProps> = ({ legend, colors }) => {
               style={{ background: colors[name] }}
             />
           )}
-          <span className={`${prefixCls}-name`}>
+          <span className={`${prefixCls}-name`} style={textStyle}>
             {legend?.processData && isFunction(legend?.processData)
               ? legend.processData(name, index)
               : name}

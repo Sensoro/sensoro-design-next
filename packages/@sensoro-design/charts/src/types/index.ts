@@ -10,10 +10,12 @@ export interface BaseLegend {
   legendItemGap?: number;
   processData?: (name: string, index: number) => string;
   type?: 'svg' | 'box';
+  textStyle?: React.CSSProperties;
 }
 
 export interface BaseTooltip {
   theme?: 'light' | 'dark';
+  showTitle?: boolean;
 }
 
 export interface BaseConfig {
