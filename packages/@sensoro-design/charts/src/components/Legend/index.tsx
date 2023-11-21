@@ -1,7 +1,7 @@
 import { classNames } from '@pansy/shared';
 import { Space } from 'antd';
 import type { SpaceProps } from 'antd/es/space';
-import { get, isFunction, keys, map } from 'lodash';
+import { get, includes, isFunction, keys, map } from 'lodash';
 import React, { useMemo } from 'react';
 import SVG from 'react-inlinesvg';
 import marker from '../../assets/marker.svg';
@@ -15,12 +15,16 @@ interface LegendProps {
 }
 
 const prefixCls = 'sen-legend';
+const hors = ['horizontal', 'alone'];
 
 const Legend: React.FC<LegendProps> = ({ legend, colors }) => {
   const direction = useMemo(
     () =>
-      ((get(legend, 'direction', 'horizontal') as SpaceProps['direction']) ??
-        'horizontal') === 'horizontal'
+      includes(
+        hors,
+        (get(legend, 'direction', 'horizontal') as SpaceProps['direction']) ??
+          'horizontal',
+      )
         ? 'horizontal'
         : 'vertical',
     [legend],

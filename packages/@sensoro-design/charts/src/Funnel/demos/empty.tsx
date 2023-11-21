@@ -1,4 +1,4 @@
-import { Column } from '@sensoro-design/charts';
+import { Funnel } from '@sensoro-design/charts';
 import React from 'react';
 
 export default () => {
@@ -12,12 +12,12 @@ export default () => {
       }}
     >
       <div style={{ width: '50%' }}>
-        <Column title="柱状图" type="basic" empty style={{ height: 200 }} />
+        <Funnel title="漏斗图" type="basic" empty style={{ height: 200 }} />
       </div>
       <div style={{ width: '50%' }}>
-        <Column
-          title="柱状图"
-          type="bidirection"
+        <Funnel
+          title="漏斗图"
+          type="basic"
           empty={
             <div style={{ height: 160, display: 'flex', alignItems: 'center' }}>
               dom形式空状态

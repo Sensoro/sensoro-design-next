@@ -10,7 +10,7 @@ import { generateColorMap } from '../utils';
 import './index.less';
 
 export interface FunnelConfig extends BaseConfig {
-  type: 'basic' | 'compare' | 'series'; // 基础、分组、双向
+  type?: 'basic' | 'compare' | 'series'; // 基础、分组、双向
   title?: string;
   data?: BaseFunnelConfig['data'];
   config?: Omit<BaseFunnelConfig, 'data'> & { data?: BaseFunnelConfig['data'] };
@@ -64,13 +64,13 @@ const genDefaultConfig = ({
   };
 };
 
-const prefixCls = 'sen-column';
+const prefixCls = 'sen-funnel';
 
-const Column: FC<FunnelConfig> = ({
+const Funnel: FC<FunnelConfig> = ({
   config,
   data,
   title,
-  type,
+  type = 'basic',
   legend,
   timeRange,
   style = {},
@@ -79,7 +79,7 @@ const Column: FC<FunnelConfig> = ({
   tooltip,
   customContentData,
 }) => {
-  const { seriesField } = config ?? {};
+  const { seriesField, xField } = config ?? {};
   const originalData = useMemo(
     () =>
       map(data ?? config?.data, (item, idx) => ({ ...item, __index__: idx })),
@@ -87,8 +87,8 @@ const Column: FC<FunnelConfig> = ({
   );
 
   const legendMap = useMemo(
-    () => (seriesField ? groupBy(originalData, seriesField) : {}),
-    [seriesField, originalData],
+    () => (xField ? groupBy(originalData, xField) : {}),
+    [xField, originalData],
   );
 
   const colorMap = useMemo(() => {
@@ -122,7 +122,7 @@ const Column: FC<FunnelConfig> = ({
     <div className={`${prefixCls} ${className}`} style={style}>
       <Composite
         title={title}
-        seriesField={seriesField}
+        seriesField={xField}
         legend={legend}
         colorMap={colorMap}
         timeRange={timeRange}
@@ -139,4 +139,4 @@ const Column: FC<FunnelConfig> = ({
   );
 };
 
-export default Column;
+export default Funnel;
