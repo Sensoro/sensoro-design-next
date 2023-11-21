@@ -6,6 +6,8 @@ export { default as Column } from './Column';
 export type { ColumnConfig } from './Column';
 export { default as Funnel } from './Funnel';
 export type { FunnelConfig } from './Funnel';
+export { default as Gauge } from './Gauge';
+export type { GaugeConfig } from './Gauge';
 export { default as Line } from './Line';
 export type { LineConfig } from './Line';
 export { default as Pie } from './Pie';
