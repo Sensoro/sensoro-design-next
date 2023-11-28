@@ -448,26 +448,60 @@ export const getDefaultConfig = ({
 
   if (gauge) {
     Object.assign(config, {
+      tooltip: false,
+      startAngle: -Math.PI,
+      endAngle: 0,
+      width: 164,
+      height: 96,
       range: {
-        color: 'l(0) 0:#B8E1FF 1:#3D76DD',
+        color: [COLORS_SMALL[0], '#ECEEF0'],
       },
-      indicator: null,
+      indicator: {
+        shape: 'custom-gauge-indicator',
+        pointer: {
+          type: 'line', // 设置指针类型为线性
+          style: {
+            fill: COLORS_SMALL[0],
+            stroke: COLORS_SMALL[0],
+            lineWidth: 2,
+            lineCap: 'round', // 指针线末端形状
+            zIndex: 2,
+          },
+        },
+        pin: {
+          style: {
+            stroke: '#ECEEF0',
+            lineWidth: 1,
+          },
+        },
+      },
       statistic: {
         title: {
-          offsetY: -60,
+          offsetY: -12,
           style: {
-            fontSize: '36px',
-            color: '#4B535E',
+            fontSize: '24px',
+            lineHeight: '32px',
+            color: '#0a1b39',
+            fontFamily: 'DIN Alternate',
+            fontWeight: 'bold',
           },
         },
         content: {
-          offsetY: -60,
+          offsetY: -12,
           style: {
             fontSize: '24px',
-            lineHeight: '44px',
-            color: '#4B535E',
+            lineHeight: '32px',
+            color: '#0a1b39',
+            fontFamily: 'DIN Alternate',
+            fontWeight: 'bold',
           },
         },
+      },
+      // 设置刻度线及刻度值不显示
+      axis: {
+        label: null,
+        tickLine: null,
+        subTickLine: null,
       },
     });
   }

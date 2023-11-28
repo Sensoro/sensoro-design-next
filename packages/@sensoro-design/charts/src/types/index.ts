@@ -11,6 +11,7 @@ export interface BaseLegend {
   processData?: (name: string, index: number) => string;
   type?: 'svg' | 'box';
   textStyle?: React.CSSProperties;
+  labels?: string[];
 }
 
 export interface BaseTooltip {

@@ -6,19 +6,8 @@ import EditorDemo from '../../../docs/components/Editor';
 export default () => {
   const [config, setConfig] = useState<GaugeConfig['config']>({
     percent: 0.78,
-    range: {
-      color: '#30BF78',
-    },
-    indicator: {
-      shape: 'custom-gauge-indicator',
-      pointer: {
-        style: {
-          stroke: '#D0D0D0',
-          lineWidth: 1,
-          fill: '#D0D0D0',
-        },
-      },
-    },
+    width: 164,
+    height: 96,
   });
 
   return (
@@ -40,7 +29,12 @@ export default () => {
         <Gauge
           type="basic"
           title="基础仪表盘"
-          legend={{ type: 'box', direction: 'alone', position: 'bottom' }}
+          legend={{
+            type: 'box',
+            direction: 'alone',
+            position: 'bottom',
+            labels: ['已接通', '未接通'],
+          }}
           config={config}
           tooltip={{ showTitle: false }}
         />
