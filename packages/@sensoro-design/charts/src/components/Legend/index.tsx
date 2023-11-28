@@ -47,7 +47,10 @@ const Legend: React.FC<LegendProps> = ({ legend, colors }) => {
       direction={direction}
       align={direction === 'vertical' ? 'baseline' : 'start'}
       size={gap}
-      className={classNames(prefixCls, { [`${prefixCls}-center`]: true })}
+      className={classNames(prefixCls, {
+        [`${prefixCls}-center`]: direction === 'vertical',
+        [`${prefixCls}-horizontal`]: direction === 'horizontal',
+      })}
     >
       {map(keys(colors), (name, index) => (
         <span className={`${prefixCls}-item`} key={name}>
