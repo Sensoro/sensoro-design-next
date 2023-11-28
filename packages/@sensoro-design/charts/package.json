@@ -1,6 +1,6 @@
 {
   "name": "@sensoro-design/charts",
-  "version": "0.1.0-alpha.1",
+  "version": "0.1.0-alpha.2",
   "description": "图表组件",
   "license": "MIT",
   "module": "dist/index.js",
