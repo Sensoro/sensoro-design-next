@@ -5,6 +5,10 @@ import EditorDemo from '../../../docs/components/Editor';
 
 const data = [
   {
+    stage: '总数',
+    number: 353,
+  },
+  {
     stage: '简历筛选',
     number: 253,
   },

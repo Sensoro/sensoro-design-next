@@ -33,6 +33,7 @@ export default () => {
             type: 'box',
             direction: 'alone',
             position: 'bottom',
+            legendItemGap: 48,
             labels: ['已接通', '未接通'],
           }}
           config={config}
