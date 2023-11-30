@@ -138,10 +138,18 @@ const Pie: FC<PieConfig> = ({
       return;
     }
     const pieWidth =
-      (document.querySelector('.sen-pie')?.clientWidth! ?? 300) - 48;
+      (document.querySelector(
+        `${className ? `.${className}.sen-pie` : '.sen-pie'}`,
+      )?.clientWidth! ?? 300) - 48;
     const width = newConfig.height ?? 154;
 
-    if (get(legend, 'direction') === 'left') {
+    if (
+      typeof legend === 'object' &&
+      (legend?.direction === 'alone' || legend?.direction === 'horizontal')
+    ) {
+      setLeftPadding(pieWidth - width);
+      setRightPadding(0);
+    } else if (get(legend, 'direction') === 'left') {
       let curStyle = document
         .querySelector(
           `${className ? `.${className} .sen-legend` : '.sen-pie .sen-legend'}`,
