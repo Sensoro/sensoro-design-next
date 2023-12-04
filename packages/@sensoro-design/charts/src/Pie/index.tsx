@@ -147,8 +147,8 @@ const Pie: FC<PieConfig> = ({
       typeof legend === 'object' &&
       (legend?.direction === 'alone' || legend?.direction === 'horizontal')
     ) {
-      setLeftPadding(pieWidth - width);
-      setRightPadding(0);
+      // setLeftPadding((pieWidth - width) / 2);
+      // setRightPadding(0);
     } else if (get(legend, 'direction') === 'left') {
       let curStyle = document
         .querySelector(
