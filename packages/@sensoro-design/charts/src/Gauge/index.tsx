@@ -3,14 +3,13 @@ import { Gauge as BaseGauge, G2 } from '@ant-design/plots';
 import { merge } from 'lodash';
 import React, { useMemo, type FC } from 'react';
 import Composite from '../components/Composite';
-import type { GetDefaultConfigProps } from '../config/base';
 import { getDefaultConfig } from '../config/base';
 import { COLORS_SMALL } from '../style';
 import type { BaseConfig, BaseLegend } from '../types';
 import './index.less';
 
 export interface GaugeConfig extends BaseConfig {
-  type?: 'basic' | 'compare' | 'series'; // 基础、分组、双向
+  type?: 'basic';
   title?: string;
   percent?: BaseGaugeConfig['percent'];
   config?: Omit<BaseGaugeConfig, 'percent'> & {
@@ -18,33 +17,11 @@ export interface GaugeConfig extends BaseConfig {
   };
 }
 
-const genDefaultConfig = ({
-  colorMap,
-  seriesField,
-  customContentData,
-}: Partial<GetDefaultConfigProps>) => {
+const genDefaultConfig = () => {
   return {
     basic: {
       ...getDefaultConfig({
         gauge: true,
-      }),
-      legend: false,
-    },
-    compare: {
-      ...getDefaultConfig({
-        gauge: true,
-        colorMap,
-        seriesField,
-        customContentData,
-      }),
-      legend: false,
-    },
-    series: {
-      ...getDefaultConfig({
-        gauge: true,
-        colorMap,
-        seriesField,
-        customContentData,
       }),
       legend: false,
     },
@@ -62,7 +39,6 @@ const Gauge: FC<GaugeConfig> = ({
   style = {},
   className = '',
   empty,
-  customContentData,
 }) => {
   const { registerShape, Util } = G2; // 自定义 Shape 部分
 
@@ -71,8 +47,10 @@ const Gauge: FC<GaugeConfig> = ({
       // 使用 customInfo 传递参数
       const { indicator, defaultColor } = cfg.customInfo;
       const { pointer, pin } = indicator;
+
       const group = container.addGroup(); // 获取极坐标系下画布中心点
 
+      // 获取极坐标系下画布中心点;
       // @ts-ignore
       const center = this.parsePoint({
         x: 0,
@@ -84,21 +62,45 @@ const Gauge: FC<GaugeConfig> = ({
         const { startAngle, endAngle } = Util.getAngle(cfg, this.coordinate);
         // @ts-ignore
         const midAngle = (startAngle + endAngle) / 2;
+        // @ts-ignore
+        const radius = this.coordinate.getRadius();
 
         const { x: x1, y: y1 } = Util.polarToCartesian(
           center.x,
           center.y,
-          (config?.height || 96) * 0.6,
-          midAngle + 0.01,
+          radius / 15,
+          midAngle + 2 / Math.PI,
         );
-
         const { x: x2, y: y2 } = Util.polarToCartesian(
           center.x,
           center.y,
-          (config?.height || 96) * 1.05,
-          midAngle + 0.01,
+          radius / 15,
+          midAngle - 2 / Math.PI,
         );
-        const path = [['M', x1, y1], ['L', x2, y2], ['Z']];
+        const { x, y } = Util.polarToCartesian(
+          center.x,
+          center.y,
+          radius * 0.6,
+          midAngle - 0.0001,
+        );
+
+        const { x: x3, y: y3 } = Util.polarToCartesian(
+          center.x,
+          center.y,
+          radius * 0.6,
+          midAngle + 0.0001,
+        );
+
+        const path = [
+          ['M', center.x - 4, center.y], // 移动到起始点
+          ['A', 4, 4, 0, 1, 1, center.x + 4, center.y], // 绘制一个半径为4的圆弧
+          ['A', 4, 4, 0, 1, 1, center.x - 4, center.y], // 绘制另一个半径为4的圆弧，连接到起始点
+          ['L', x1, y1],
+          ['L', x, y],
+          ['A', 0.1, 0.1, 0, 1, 1, x3, y3], // 绘制一个圆弧
+          ['L', x2, y2],
+          ['Z'],
+        ]; // pointer
 
         group.addShape('path', {
           name: 'pointer',
@@ -111,23 +113,75 @@ const Gauge: FC<GaugeConfig> = ({
       }
 
       if (pin) {
+        // @ts-ignore
+        const { startAngle, endAngle } = Util.getAngle(cfg, this.coordinate);
+        // @ts-ignore
+        const midAngle = (startAngle + endAngle) / 2;
+        // @ts-ignore
+        const radius = this.coordinate.getRadius();
+
+        // @ts-ignore
+        const isBig = (cfg.data.percent * 3) / 4 > 0.5;
+
+        const { x: x1, y: y1 } = Util.polarToCartesian(
+          center.x,
+          center.y,
+          radius * 0.8,
+          -1.25 * Math.PI,
+        );
+        const { x: x2, y: y2 } = Util.polarToCartesian(
+          center.x,
+          center.y,
+          radius * 0.8,
+          midAngle,
+        );
+        const { x: x3, y: y3 } = Util.polarToCartesian(
+          center.x,
+          center.y,
+          radius * 0.8,
+          0.25 * Math.PI,
+        );
+
+        // A rx ry x-axis-rotation large-arc-flag sweep-flag x y
+        // x-axis-rotation 是椭圆相对于 x 轴的旋转角度。
+        // large-arc-flag 是一个布尔值，表示是否绘制大弧。
+        // sweep-flag 也是一个布尔值，表示是否顺时针绘制弧。
+        const path = [
+          ['M', x1, y1], // 移动到起始点
+          ['A', radius * 0.8, radius * 0.8, 0, isBig ? 1 : 0, 1, x2, y2], // 绘制一个半径为 radius * 0.8 的圆弧
+        ];
+
+        const path2 = [
+          ['M', x2, y2], // 移动到起始点
+          ['A', radius * 0.8, radius * 0.8, 0, isBig ? 0 : 1, 1, x3, y3], // 绘制一个半径为 radius * 0.8 的圆弧
+        ];
+
         const pinStyle = pin.style || {};
         const {
-          lineWidth = 1,
+          lineWidth = 8,
           fill = defaultColor,
           stroke = defaultColor,
-          r,
         } = pinStyle;
-        group.addShape('circle', {
+        group.addShape('path', {
           name: 'pin-outer',
           attrs: {
-            x: center.x,
-            y: center.y,
+            path,
             ...pin.style,
             fill: 'transparent',
-            r: (config?.height || 96) * 0.6,
+            lineDash: [1, 2],
             lineWidth,
-            stroke: stroke,
+            stroke: COLORS_SMALL[0],
+          },
+        });
+        group.addShape('path', {
+          name: 'pin-outer',
+          attrs: {
+            path: path2,
+            ...pin.style,
+            fill: 'transparent',
+            lineDash: [1, 2],
+            lineWidth,
+            stroke,
           },
         });
         group.addShape('circle', {
@@ -135,7 +189,7 @@ const Gauge: FC<GaugeConfig> = ({
           attrs: {
             x: center.x,
             y: center.y,
-            r,
+            r: 3.5,
             stroke: 'transparent',
             fill,
           },
@@ -157,18 +211,9 @@ const Gauge: FC<GaugeConfig> = ({
     return colors;
   }, [legend]);
 
-  const newConfig = merge(
-    {},
-    genDefaultConfig({
-      colorMap,
-      customContentData,
-      legend,
-    })[type],
-    config,
-    {
-      data: percent,
-    },
-  ) as BaseGaugeConfig;
+  const newConfig = merge({}, genDefaultConfig()[type], config, {
+    data: percent,
+  }) as BaseGaugeConfig;
 
   return (
     <div className={`${prefixCls} ${className}`} style={style}>

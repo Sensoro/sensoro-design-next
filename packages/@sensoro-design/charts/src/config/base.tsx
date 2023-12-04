@@ -449,10 +449,9 @@ export const getDefaultConfig = ({
   if (gauge) {
     Object.assign(config, {
       tooltip: false,
-      startAngle: -Math.PI,
-      endAngle: 0,
-      width: 164,
-      height: 96,
+      startAngle: -1.25 * Math.PI,
+      endAngle: 0.25 * Math.PI,
+      height: 140,
       range: {
         color: [COLORS_SMALL[0], '#ECEEF0'],
       },
@@ -471,13 +470,16 @@ export const getDefaultConfig = ({
         pin: {
           style: {
             stroke: '#ECEEF0',
-            lineWidth: 1,
+            lineWidth: 8,
           },
         },
       },
       statistic: {
         title: {
-          offsetY: -12,
+          offsetY: -20,
+          formatter: (val: { percent: number }) => {
+            return `${val.percent * 100}%`;
+          },
           style: {
             fontSize: '24px',
             lineHeight: '32px',
@@ -487,7 +489,10 @@ export const getDefaultConfig = ({
           },
         },
         content: {
-          offsetY: -12,
+          offsetY: -20,
+          formatter: (val: { percent: number }) => {
+            return `${val.percent * 100}%`;
+          },
           style: {
             fontSize: '24px',
             lineHeight: '32px',
