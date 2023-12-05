@@ -1,38 +1,57 @@
 import type { LineConfig } from '@sensoro-design/charts';
 import { Line } from '@sensoro-design/charts';
 import { map } from 'lodash';
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import EditorDemo from '../../../docs/components/Editor';
 
 export default () => {
   const [config, setConfig] = useState<LineConfig['config']>({
-    data: [],
+    data: [
+      { year: '2010', value: 3107, category: 'Liquid fuel' },
+      { year: '2010', value: 3812, category: 'Solid fuel' },
+      { year: '2010', value: 1696, category: 'Gas fuel' },
+      { year: '2010', value: 446, category: 'Cement production' },
+      { year: '2010', value: 67, category: 'Gas flarinl' },
+      { year: '2011', value: 3134, category: 'Liquid fuel' },
+      { year: '2011', value: 4055, category: 'Solid fuel' },
+      { year: '2011', value: 1756, category: 'Gas fuel' },
+      { year: '2011', value: 494, category: 'Cement production' },
+      { year: '2011', value: 64, category: 'Gas flarinl' },
+      { year: '2012', value: 3200, category: 'Liquid fuel' },
+      { year: '2012', value: 4106, category: 'Solid fuel' },
+      { year: '2012', value: 1783, category: 'Gas fuel' },
+      { year: '2012', value: 519, category: 'Cement production' },
+      { year: '2012', value: 65, category: 'Gas flarinl' },
+      { year: '2013', value: 3220, category: 'Liquid fuel' },
+      { year: '2013', value: 4126, category: 'Solid fuel' },
+      { year: '2013', value: 1806, category: 'Gas fuel' },
+      { year: '2013', value: 554, category: 'Cement production' },
+      { year: '2013', value: 68, category: 'Gas flarinl' },
+      { year: '2014', value: 3280, category: 'Liquid fuel' },
+      { year: '2014', value: 4117, category: 'Solid fuel' },
+      { year: '2014', value: 1823, category: 'Gas fuel' },
+      { year: '2014', value: 568, category: 'Cement production' },
+      { year: '2014', value: 68, category: 'Gas flarinl' },
+    ],
     xField: 'year',
     yField: 'value',
     seriesField: 'category',
-    // yAxis: {
-    //   label: {
-    //     // 数值格式化为千分位
-    //     formatter: (v) =>
-    //       `${v}`.replace(/\d{1,3}(?=(\d{3})+$)/g, (s) => `${s},`),
-    //   },
-    // },
   });
 
-  const asyncFetch = () => {
-    fetch(
-      'https://gw.alipayobjects.com/os/bmw-prod/55424a73-7cb8-4f79-b60d-3ab627ac5698.json',
-    )
-      .then((response) => response.json())
-      .then((json) => setConfig({ ...config, data: json }))
-      .catch((error) => {
-        console.log('fetch data failed', error);
-      });
-  };
+  // const asyncFetch = () => {
+  //   fetch(
+  //     'https://gw.alipayobjects.com/os/bmw-prod/55424a73-7cb8-4f79-b60d-3ab627ac5698.json',
+  //   )
+  //     .then((response) => response.json())
+  //     .then((json) => setConfig({ ...config, data: json }))
+  //     .catch((error) => {
+  //       console.log('fetch data failed', error);
+  //     });
+  // };
 
-  useEffect(() => {
-    asyncFetch();
-  }, []);
+  // useEffect(() => {
+  //   asyncFetch();
+  // }, []);
 
   return (
     <div
@@ -57,6 +76,7 @@ export default () => {
           title="多条折线图"
           type="multiple"
           config={config}
+          showPoint
           customContentData={(data) => {
             return map(data, (item, idx) => ({
               ...item,
