@@ -62,7 +62,7 @@ export default () => {
       </div>
       <div style={{ width: '60%' }}>
         <Pie
-          title="环图"
+          title="环图 - 自定义颜色"
           type="ring"
           config={config}
           legend={{

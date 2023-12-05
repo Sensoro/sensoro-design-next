@@ -58,8 +58,8 @@ export default () => {
           style={{ width: 284 }}
           legend={{
             direction: 'left',
-            legendItemGap: 16,
-            textStyle: { color: 'blue' },
+            legendItemGap: 8,
+            // textStyle: { color: 'blue' },
           }}
           className="left"
         />
