@@ -111,7 +111,12 @@ export default () => {
         />
       </div>
       <div style={{ width: '50%' }}>
-        <Column title="分组柱状图" type="group" legend config={config} />
+        <Column
+          title="分组柱状图"
+          type="group"
+          legend={{ type: 'box' }}
+          config={config}
+        />
       </div>
     </div>
   );
