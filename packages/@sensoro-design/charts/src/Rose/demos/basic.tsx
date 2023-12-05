@@ -44,26 +44,6 @@ const data = [
     type: '分类十',
     value: 15,
   },
-  {
-    type: '分类十一',
-    value: 10,
-  },
-  {
-    type: '分类十二',
-    value: 5,
-  },
-  {
-    type: '分类十三',
-    value: 5,
-  },
-  {
-    type: '分类十四',
-    value: 5,
-  },
-  {
-    type: '分类十五',
-    value: 5,
-  },
 ];
 
 export default () => {
@@ -72,8 +52,19 @@ export default () => {
     xField: 'type',
     yField: 'value',
     seriesField: 'type',
-    width: 300,
-    height: 300,
+    width: 204,
+    height: 204,
+    // sectorStyle: (item) => {
+    //   return {
+    //     r: 66,
+    //     fill: 'red',
+    //     fillOpacity: 0.5,
+    //     stroke: 'black',
+    //     lineWidth: 1,
+    //     lineDash: [4, 5],
+    //     strokeOpacity: 0.7,
+    //   };
+    // },
   });
 
   return (
@@ -92,7 +83,7 @@ export default () => {
         />
       </div>
       <div style={{ width: '60%' }}>
-        <Rose title="玫瑰图" config={config} />
+        <Rose title="玫瑰图" config={config} legend={{ lineGap: 48 }} />
       </div>
     </div>
   );

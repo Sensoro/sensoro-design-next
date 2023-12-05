@@ -38,6 +38,8 @@ export interface GetDefaultConfigProps extends BaseConfig {
   funnel?: boolean;
   /** 仪表盘 */
   gauge?: boolean;
+  /** 图表高度 */
+  height?: number;
 }
 
 const prefixCls = 'g2-tooltip';
@@ -67,6 +69,7 @@ export const getDefaultConfig = ({
   radar,
   funnel,
   gauge,
+  height,
 }: GetDefaultConfigProps): any => {
   const config = {
     xAxis: rose
@@ -323,11 +326,7 @@ export const getDefaultConfig = ({
             : COLORS_SMALL[index % 8],
         ),
       },
-      interactions: [
-        {
-          type: 'element-active',
-        },
-      ],
+      interactions: [],
       width: 154,
       height: 154,
       autoFit: false,
@@ -368,6 +367,9 @@ export const getDefaultConfig = ({
 
   if (rose) {
     Object.assign(config, {
+      height: 204,
+      interactions: [], // 去掉事件
+      innerRadius: 8 / height!,
       color: Array.from(Array(24), (item, index) => COLORS_LARGE[index % 24]),
       label: {
         style: {
@@ -423,7 +425,7 @@ export const getDefaultConfig = ({
       area: {},
       // 开启辅助点
       point: {
-        size: 4,
+        size: 2,
       },
     });
   }
