@@ -152,7 +152,11 @@ const Pie: FC<PieConfig> = ({
     } else if (get(legend, 'direction') === 'left') {
       let curStyle = document
         .querySelector(
-          `${className ? `.${className} .sen-legend` : '.sen-pie .sen-legend'}`,
+          `${
+            className
+              ? `.${className} .sen-charts-legend`
+              : '.sen-pie .sen-charts-legend'
+          }`,
         )
         ?.getAttribute('style');
       curStyle = curStyle?.replace('position: absolute;', '').trim();
@@ -160,7 +164,11 @@ const Pie: FC<PieConfig> = ({
 
       document
         .querySelector(
-          `${className ? `.${className} .sen-legend` : '.sen-pie .sen-legend'}`,
+          `${
+            className
+              ? `.${className} .sen-charts-legend`
+              : '.sen-pie .sen-charts-legend'
+          }`,
         )
         ?.setAttribute(
           'style',
@@ -171,7 +179,11 @@ const Pie: FC<PieConfig> = ({
     } else {
       const legendWidth =
         document.querySelector(
-          `${className ? `.${className} .sen-legend` : '.sen-pie .sen-legend'}`,
+          `${
+            className
+              ? `.${className} .sen-charts-legend`
+              : '.sen-pie .sen-charts-legend'
+          }`,
         )?.clientWidth ?? 0;
 
       const { verticalGap } =
@@ -186,7 +198,11 @@ const Pie: FC<PieConfig> = ({
 
       let curStyle = document
         .querySelector(
-          `${className ? `.${className} .sen-legend` : '.sen-pie .sen-legend'}`,
+          `${
+            className
+              ? `.${className} .sen-charts-legend`
+              : '.sen-pie .sen-charts-legend'
+          }`,
         )
         ?.getAttribute('style');
       curStyle = curStyle?.replace('position: absolute;', '').trim();
@@ -194,7 +210,11 @@ const Pie: FC<PieConfig> = ({
 
       document
         .querySelector(
-          `${className ? `.${className} .sen-legend` : '.sen-pie .sen-legend'}`,
+          `${
+            className
+              ? `.${className} .sen-charts-legend`
+              : '.sen-pie .sen-charts-legend'
+          }`,
         )
         ?.setAttribute(
           'style',

@@ -8,10 +8,17 @@ export interface BaseLegend {
   verticalGap?: number;
   /** 图例各个项的间距 */
   legendItemGap?: number;
+  /** 换行后的行间距 */
+  lineGap?: number;
   processData?: (name: string, index: number) => string;
+  /** 图例类型 */
   type?: 'svg' | 'box';
+  /** 自定义图例样式 */
   textStyle?: React.CSSProperties;
+  /** 没有分组情况下需要展示多个图例，图例名称 */
   labels?: string[];
+  /** 图例高度 */
+  height?: number;
 }
 
 export interface BaseTooltip {
