@@ -135,17 +135,14 @@ export const getDefaultConfig = ({
       point: {
         size: 2,
         shape: 'circle',
-        style: {
-          fill: 'white',
-          stroke: '#588BEE',
-          lineWidth: 1,
-          state: {
-            active: {
-              style: {
-                stroke: '#588BEE',
-              },
-            },
-          },
+        style: (item: Record<string, any>) => {
+          return {
+            fill: 'white',
+            stroke: seriesField
+              ? colorMap?.[get(item, `${seriesField}`)]
+              : '#588BEE',
+            lineWidth: 1,
+          };
         },
       },
     });
@@ -476,26 +473,26 @@ export const getDefaultConfig = ({
       },
       statistic: {
         title: {
-          offsetY: -20,
+          offsetY: -12,
           formatter: (val: { percent: number }) => {
             return `${val.percent * 100}%`;
           },
           style: {
             fontSize: '24px',
-            lineHeight: '32px',
+            lineHeight: '24px',
             color: '#0a1b39',
             fontFamily: 'DIN Alternate',
             fontWeight: 'bold',
           },
         },
         content: {
-          offsetY: -20,
+          offsetY: -12,
           formatter: (val: { percent: number }) => {
             return `${val.percent * 100}%`;
           },
           style: {
             fontSize: '24px',
-            lineHeight: '32px',
+            lineHeight: '24px',
             color: '#0a1b39',
             fontFamily: 'DIN Alternate',
             fontWeight: 'bold',
