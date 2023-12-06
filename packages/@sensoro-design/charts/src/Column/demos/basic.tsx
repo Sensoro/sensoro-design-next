@@ -51,11 +51,15 @@ export default () => {
         alias: '销售额',
       },
     },
-    interactions: [{ type: 'element-active' }], // 设置 hover 效果
+    // interactions: [{ type: 'element-active' }], // 设置 hover 效果
     columnStyle: {
       radius: [1, 1, 0, 0], // 设置柱状图的圆角，
-      // stroke: 'blue', // 柱状图的边框色
-      // fill: 'lightblue', // 柱状图的填充色
+      // markBackground: {
+      //   style: {
+      //     fill: 'red',
+      //     stroke: 'blue',
+      //   },
+      // },
     },
     // interactions: [{ type: 'element-active' }], // 设置 hover 效果
     // geometryOptions: [
