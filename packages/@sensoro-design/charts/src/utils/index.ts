@@ -1,6 +1,9 @@
 import type { BaseConfig } from '@ant-design/plots';
-import { keys, merge, reduce } from 'lodash';
+import { get, keys, merge, reduce } from 'lodash';
 import { COLORS_LARGE, COLORS_MIDDLE, COLORS_SMALL } from '../style';
+import { BaseLegend } from '../types';
+
+const reg = /left:.+?;/;
 
 const colorObj = {
   small: COLORS_SMALL,
@@ -60,4 +63,114 @@ export const generateColorMap = (
   );
 
   return colors;
+};
+
+interface Calculate {
+  className: string;
+  type: string;
+  newConfig: any;
+  legend: BaseLegend | boolean;
+  defaultHeight: number;
+}
+
+export const calculateOffset = ({
+  className,
+  type,
+  newConfig,
+  legend,
+  defaultHeight,
+}: Calculate) => {
+  let leftPadding = 0,
+    rightPadding = 0;
+
+  const pieWidth =
+    // @ts-ignore
+    (document.querySelector(
+      `${className ? `.${className}.sen-${type}` : `.sen-${type}`}`,
+    )?.clientWidth ?? 300) - 48;
+  const width = newConfig.width ?? defaultHeight;
+
+  if (
+    typeof legend === 'object' &&
+    (legend?.direction === 'alone' || legend?.direction === 'horizontal')
+  ) {
+    // setLeftPadding((pieWidth - width) / 2);
+    // setRightPadding(0);
+  } else if (get(legend, 'direction') === 'left') {
+    let curStyle = document
+      .querySelector(
+        `${
+          className
+            ? `.${className} .sen-charts-legend`
+            : `.sen-${type} .sen-charts-legend`
+        }`,
+      )
+      ?.getAttribute('style');
+    curStyle = curStyle?.replace('position: absolute;', '').trim();
+    curStyle = curStyle?.replace(reg, '').trim();
+
+    document
+      .querySelector(
+        `${
+          className
+            ? `.${className} .sen-charts-legend`
+            : `.sen-${type} .sen-charts-legend`
+        }`,
+      )
+      ?.setAttribute(
+        'style',
+        `${'position: absolute; left: 0;' + curStyle || ''}`,
+      );
+    leftPadding = pieWidth - width;
+    rightPadding = 0;
+  } else {
+    const legendWidth =
+      document.querySelector(
+        `${
+          className
+            ? `.${className} .sen-charts-legend`
+            : `.sen-${type} .sen-charts-legend`
+        }`,
+      )?.clientWidth ?? 0;
+
+    const { verticalGap } =
+      legend === true || !legend
+        ? { verticalGap: 48 }
+        : { verticalGap: 48, ...legend };
+
+    const legendRightPadding = legendWidth + verticalGap;
+    const contentWidth = width + legendRightPadding;
+    const contentPadding = (pieWidth - contentWidth) / 2;
+    const left = contentPadding + width + verticalGap;
+
+    let curStyle = document
+      .querySelector(
+        `${
+          className
+            ? `.${className} .sen-charts-legend`
+            : `.sen-${type} .sen-charts-legend`
+        }`,
+      )
+      ?.getAttribute('style');
+    curStyle = curStyle?.replace('position: absolute;', '').trim();
+    curStyle = curStyle?.replace(reg, '').trim();
+
+    document
+      .querySelector(
+        `${
+          className
+            ? `.${className} .sen-charts-legend`
+            : `.sen-${type} .sen-charts-legend`
+        }`,
+      )
+      ?.setAttribute(
+        'style',
+        `${`position: absolute; left: ${left}px;${curStyle || ''}`}`,
+      );
+
+    leftPadding = 0;
+    rightPadding = legendRightPadding;
+  }
+
+  return { width: pieWidth, leftPadding, rightPadding };
 };
