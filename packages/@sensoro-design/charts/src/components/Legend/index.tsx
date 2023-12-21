@@ -2,9 +2,11 @@ import { classNames } from '@pansy/shared';
 import { Space } from 'antd';
 import type { SpaceProps } from 'antd/es/space';
 import { get, includes, isFunction, keys, map } from 'lodash';
-import React, { useMemo } from 'react';
+import React, { useMemo, useState } from 'react';
 import SVG from 'react-inlinesvg';
+import left from '../../assets/left.svg';
 import marker from '../../assets/marker.svg';
+import right from '../../assets/right.svg';
 import type { BaseLegend } from '../../types';
 
 import './index.less';
@@ -18,6 +20,8 @@ const prefixCls = 'sen-charts-legend';
 const hors = ['horizontal', 'alone'];
 
 const Legend: React.FC<LegendProps> = ({ legend, colors }) => {
+  const [page, setPage] = useState(1);
+
   const direction = useMemo(
     () =>
       includes(
@@ -49,43 +53,121 @@ const Legend: React.FC<LegendProps> = ({ legend, colors }) => {
 
   const textStyle = useMemo(() => get(legend, 'textStyle', {}), [legend]);
 
+  const curtLegend = useMemo(() => {
+    if (legend.pageRow! > 0) {
+      const names = keys(colors).slice(
+        (page - 1) * legend.pageRow!,
+        page * legend.pageRow!,
+      );
+
+      const res: { [key: string]: any } = {};
+      names.forEach((name) => (res[name] = colors[name]));
+
+      return res;
+    } else {
+      return colors;
+    }
+  }, [legend, colors, page]);
+
+  /**
+   * 上一页方法
+   */
+  const handlePrevPage = () => {
+    if (page > 1) {
+      setPage(page - 1);
+    }
+  };
+
+  /**
+   * 下一页方法
+   */
+  const handleNextPage = () => {
+    if (page * legend.pageRow! < keys(colors).length) {
+      setPage(page + 1);
+    }
+  };
+
   return (
-    <Space
-      direction={direction}
-      align={direction === 'vertical' ? 'baseline' : 'start'}
-      size={gap}
+    <div
       className={classNames(prefixCls, {
-        [`${prefixCls}-horizontal`]: direction === 'horizontal',
         [`${prefixCls}-center`]: direction === 'vertical' && !legend?.lineGap,
+        [`${prefixCls}-between`]: !!legend.pageRow,
       })}
       style={legend.height ? { height: legend.height, ...lineGap } : lineGap}
     >
-      {map(keys(colors), (name, index) => (
-        <span className={`${prefixCls}-item`} key={name}>
-          {type === 'svg' ? (
+      <Space
+        direction={direction}
+        align={direction === 'vertical' ? 'baseline' : 'start'}
+        size={gap}
+        className={classNames(`${prefixCls}-main`, {
+          [`${prefixCls}-horizontal`]: direction === 'horizontal',
+          [`${prefixCls}-center`]: direction === 'vertical' && !legend?.lineGap,
+          [`${prefixCls}-between`]: !!legend.pageRow,
+        })}
+        // style={legend.height ? { height: legend.height, ...lineGap } : lineGap}
+      >
+        {map(keys(curtLegend), (name, index) => (
+          <div className={`${prefixCls}-item`} key={name}>
+            {type === 'svg' ? (
+              <SVG
+                src={marker}
+                preProcessor={(code) =>
+                  code.replace(/fill=".*?"/g, `fill="${colors[name]}"`)
+                }
+                style={{ marginRight: 8 }}
+                width={8}
+                height={8}
+              />
+            ) : (
+              <span
+                className={`${prefixCls}-box`}
+                style={{ background: colors[name] }}
+              />
+            )}
+            <span className={`${prefixCls}-name`} style={textStyle}>
+              {legend?.processData && isFunction(legend?.processData)
+                ? legend.processData(name, index)
+                : name}
+            </span>
+          </div>
+        ))}
+      </Space>
+      {!!legend.pageRow && (
+        <div className={`${prefixCls}-page`}>
+          <div
+            className={classNames(`${prefixCls}-page-item`, {
+              [`${prefixCls}-page-item-disabled`]: page === 1,
+            })}
+            onClick={handlePrevPage}
+          >
             <SVG
-              src={marker}
+              src={left}
               preProcessor={(code) =>
-                code.replace(/fill=".*?"/g, `fill="${colors[name]}"`)
+                code.replace(/fill=".*?"/g, `fill="currentColor"`)
               }
-              style={{ marginRight: 8 }}
-              width={8}
-              height={8}
+              width={12}
+              height={12}
             />
-          ) : (
-            <span
-              className={`${prefixCls}-box`}
-              style={{ background: colors[name] }}
+          </div>
+          <div
+            className={classNames(`${prefixCls}-page-item`, {
+              [`${prefixCls}-page-item-disabled`]:
+                page * legend.pageRow! >= keys(colors).length,
+            })}
+            onClick={handleNextPage}
+          >
+            <SVG
+              src={right}
+              preProcessor={(code) =>
+                code.replace(/fill=".*?"/g, `fill="currentColor"`)
+              }
+              width={12}
+              height={12}
             />
-          )}
-          <span className={`${prefixCls}-name`} style={textStyle}>
-            {legend?.processData && isFunction(legend?.processData)
-              ? legend.processData(name, index)
-              : name}
-          </span>
-        </span>
-      ))}
-    </Space>
+          </div>
+        </div>
+      )}
+    </div>
   );
 };
 
