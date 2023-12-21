@@ -31,8 +31,7 @@ export default () => {
     data,
     angleField: 'value',
     colorField: 'type',
-    width: 128,
-    height: 128,
+    height: 144,
   });
 
   return (

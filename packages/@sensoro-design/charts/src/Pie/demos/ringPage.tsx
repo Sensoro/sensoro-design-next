@@ -13,7 +13,7 @@ const data = [
     value: 25,
   },
   {
-    type: '分类三wdfsd',
+    type: '分类三',
     value: 18,
   },
   {
@@ -22,6 +22,18 @@ const data = [
   },
   {
     type: '分类五',
+    value: 10,
+  },
+  {
+    type: '分类六',
+    value: 18,
+  },
+  {
+    type: '分类七',
+    value: 15,
+  },
+  {
+    type: '分类八',
     value: 10,
   },
 ];
@@ -61,32 +73,16 @@ export default () => {
       </div>
       <div style={{ width: '60%' }}>
         <Pie
-          title="环图 - 自定义颜色"
+          title="环图分页"
           type="ring"
           config={config}
           legend={{
             legendItemGap: 8,
             verticalGap: 40,
-            processData: (name: string, index: number) => {
-              return (
-                <span>
-                  {name}
-                  <span
-                    style={{
-                      fontFamily: 'DIN Alternate-Bold',
-                      color: '#0A1B39',
-                      marginLeft: 8,
-                    }}
-                  >
-                    {data[index].value}
-                  </span>
-                </span>
-              );
-            },
+            pageRow: 4,
           }}
-          customsColors={['red', 'orange', 'pink', 'blue']}
           style={{ width: 384 }}
-          className="ring"
+          className="ring3"
         />
       </div>
     </div>

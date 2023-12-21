@@ -16,6 +16,9 @@ export default () => {
         max: 80,
       },
     },
+    width: 226,
+    height: 200,
+    autoFit: false,
   });
 
   const asyncFetch = () => {
@@ -47,7 +50,14 @@ export default () => {
         />
       </div>
       <div style={{ width: '60%' }}>
-        <Radar title="雷达图" config={config} data={data} />
+        <Radar
+          title="雷达图"
+          config={config}
+          data={data}
+          legend={{ legendItemGap: 16, verticalGap: 48 }}
+          className="radar"
+          // style={{ width: 498 }}
+        />
       </div>
     </div>
   );

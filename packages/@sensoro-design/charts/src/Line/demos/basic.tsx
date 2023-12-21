@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import type { AreaConfig } from '@sensoro-design/charts';
 import { Area } from '@sensoro-design/charts';
 import { slice } from 'lodash';
@@ -8,16 +7,6 @@ import EditorDemo from '../../../docs/components/Editor';
 export default () => {
   const [config, setConfig] = useState<AreaConfig['config']>({
     data: [],
-=======
-import type { LineConfig } from '@sensoro-design/charts';
-import { Line } from '@sensoro-design/charts';
-import { map } from 'lodash';
-import React, { useState } from 'react';
-import EditorDemo from '../../../docs/components/Editor';
-
-export default () => {
-  const [config, setConfig] = useState<LineConfig['config']>({
->>>>>>> fdd210b (fix: 折线图UI)
     xField: 'Date',
     yField: 'scales',
     tooltip: {
@@ -25,20 +14,6 @@ export default () => {
         return { name: '销售额', value: data.scales };
       },
     },
-    data: [
-      { Date: '2010-01', scales: 1998 },
-      { Date: '2010-02', scales: 1850 },
-      { Date: '2010-03', scales: 1720 },
-      { Date: '2010-04', scales: 1818 },
-      { Date: '2010-05', scales: 1920 },
-      { Date: '2010-06', scales: 1802 },
-      { Date: '2010-07', scales: 1945 },
-      { Date: '2010-08', scales: 1856 },
-      { Date: '2010-09', scales: 2107 },
-      { Date: '2010-10', scales: 2140 },
-      { Date: '2010-11', scales: 2311 },
-      { Date: '2010-12', scales: 1972 },
-    ],
   });
 
   const asyncFetch = () => {
@@ -52,9 +27,9 @@ export default () => {
       });
   };
 
-  // useEffect(() => {
-  //   asyncFetch();
-  // }, []);
+  useEffect(() => {
+    asyncFetch();
+  }, []);
 
   return (
     <div

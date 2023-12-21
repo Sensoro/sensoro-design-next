@@ -20,9 +20,17 @@ nav:
 
 <code src="./demos/ring.tsx"></code>
 
+### 环图-值为 0
+
+<code src="./demos/ringZero.tsx"></code>
+
 ### 环图
 
 <code src="./demos/ring2.tsx"></code>
+
+### 环图 分页
+
+<code src="./demos/ringPage.tsx"></code>
 
 ### 空状态
 

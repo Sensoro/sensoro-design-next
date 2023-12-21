@@ -5,7 +5,8 @@ import EditorDemo from '../../../docs/components/Editor';
 
 export default () => {
   const [config, setConfig] = useState<GaugeConfig['config']>({
-    percent: 0.75,
+    percent: 0.4,
+    height: 140,
   });
 
   return (

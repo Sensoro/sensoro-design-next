@@ -26,6 +26,12 @@ export default () => {
     asyncFetch();
   }, []);
 
+  console.log(
+    '%c 🚀🚀🚀 config：：',
+    'font-size:20px;background: #33A5FF;color:#fff;',
+    config,
+  );
+
   return (
     <div
       style={{

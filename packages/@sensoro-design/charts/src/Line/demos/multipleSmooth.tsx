@@ -7,28 +7,35 @@ import EditorDemo from '../../../docs/components/Editor';
 export default () => {
   const [config, setConfig] = useState<LineConfig['config']>({
     data: [
-      { year: '2010', value: 510, category: 'Liquid fuel' },
-      { year: '2010', value: 481, category: 'Solid fuel' },
-      { year: '2010', value: 570, category: 'Gas flarinl' },
-      { year: '2011', value: 513, category: 'Liquid fuel' },
-      { year: '2011', value: 405, category: 'Solid fuel' },
+      { year: '2010', value: 110, category: 'Liquid fuel' },
+      { year: '2010', value: 121, category: 'Solid fuel' },
+      { year: '2010', value: 170, category: 'Gas flarinl' },
+      { year: '2011', value: 113, category: 'Liquid fuel' },
+      { year: '2011', value: 105, category: 'Solid fuel' },
       { year: '2011', value: 164, category: 'Gas flarinl' },
-      { year: '2012', value: 320, category: 'Liquid fuel' },
-      { year: '2012', value: 410, category: 'Solid fuel' },
-      { year: '2012', value: 250, category: 'Gas flarinl' },
-      { year: '2013', value: 222, category: 'Liquid fuel' },
-      { year: '2013', value: 512, category: 'Solid fuel' },
-      { year: '2013', value: 408, category: 'Gas flarinl' },
-      { year: '2014', value: 428, category: 'Liquid fuel' },
+      { year: '2012', value: 120, category: 'Liquid fuel' },
+      { year: '2012', value: 110, category: 'Solid fuel' },
+      { year: '2012', value: 150, category: 'Gas flarinl' },
+      { year: '2013', value: 122, category: 'Liquid fuel' },
+      { year: '2013', value: 112, category: 'Solid fuel' },
+      { year: '2013', value: 138, category: 'Gas flarinl' },
+      { year: '2014', value: 128, category: 'Liquid fuel' },
       { year: '2014', value: 111, category: 'Solid fuel' },
-      { year: '2014', value: 568, category: 'Gas flarinl' },
-      { year: '2015', value: 428, category: 'Liquid fuel' },
+      { year: '2014', value: 168, category: 'Gas flarinl' },
+      { year: '2015', value: 128, category: 'Liquid fuel' },
       { year: '2015', value: 111, category: 'Solid fuel' },
-      { year: '2015', value: 568, category: 'Gas flarinl' },
+      { year: '2015', value: 168, category: 'Gas flarinl' },
+      { year: '2016', value: 138, category: 'Liquid fuel' },
+      { year: '2016', value: 151, category: 'Solid fuel' },
+      { year: '2016', value: 168, category: 'Gas flarinl' },
+      { year: '2017', value: 178, category: 'Liquid fuel' },
+      { year: '2017', value: 131, category: 'Solid fuel' },
+      { year: '2017', value: 168, category: 'Gas flarinl' },
     ],
     xField: 'year',
     yField: 'value',
     seriesField: 'category',
+    smooth: true,
   });
 
   // const asyncFetch = () => {
@@ -66,10 +73,10 @@ export default () => {
           legend={{
             processData: (name, index) => `类型${index + 1}`,
           }}
-          title="多条折线图"
+          title="多条曲线图"
           type="multiple"
           config={config}
-          showPoint
+          showPoint={false}
           customContentData={(data) => {
             return map(data, (item, idx) => ({
               ...item,

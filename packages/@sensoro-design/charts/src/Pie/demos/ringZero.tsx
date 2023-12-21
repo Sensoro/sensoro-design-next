@@ -6,23 +6,15 @@ import EditorDemo from '../../../docs/components/Editor';
 const data = [
   {
     type: '分类一',
-    value: 27,
+    value: 0,
   },
   {
     type: '分类二',
-    value: 25,
+    value: 0,
   },
   {
-    type: '分类三wdfsd',
-    value: 18,
-  },
-  {
-    type: '分类四',
-    value: 15,
-  },
-  {
-    type: '分类五',
-    value: 10,
+    type: '分类三',
+    value: 0,
   },
 ];
 
@@ -61,32 +53,12 @@ export default () => {
       </div>
       <div style={{ width: '60%' }}>
         <Pie
-          title="环图 - 自定义颜色"
+          title="环图(值为0)"
           type="ring"
           config={config}
-          legend={{
-            legendItemGap: 8,
-            verticalGap: 40,
-            processData: (name: string, index: number) => {
-              return (
-                <span>
-                  {name}
-                  <span
-                    style={{
-                      fontFamily: 'DIN Alternate-Bold',
-                      color: '#0A1B39',
-                      marginLeft: 8,
-                    }}
-                  >
-                    {data[index].value}
-                  </span>
-                </span>
-              );
-            },
-          }}
-          customsColors={['red', 'orange', 'pink', 'blue']}
+          legend
           style={{ width: 384 }}
-          className="ring"
+          className="ringZero"
         />
       </div>
     </div>
