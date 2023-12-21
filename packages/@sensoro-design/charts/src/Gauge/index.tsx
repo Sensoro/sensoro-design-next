@@ -17,11 +17,12 @@ export interface GaugeConfig extends BaseConfig {
   };
 }
 
-const genDefaultConfig = () => {
+const genDefaultConfig = ({ height }: { height?: number }) => {
   return {
     basic: {
       ...getDefaultConfig({
         gauge: true,
+        height,
       }),
       legend: false,
     },
@@ -92,13 +93,11 @@ const Gauge: FC<GaugeConfig> = ({
         );
 
         const path = [
-          ['M', center.x - 4, center.y], // 移动到起始点
-          ['A', 4, 4, 0, 1, 1, center.x + 4, center.y], // 绘制一个半径为4的圆弧
-          ['A', 4, 4, 0, 1, 1, center.x - 4, center.y], // 绘制另一个半径为4的圆弧，连接到起始点
-          ['L', x1, y1],
+          ['M', x1, y1], // 移动到起始点
+          ['A', 4, 4, 0, 0, 0, x2, y2], // 绘制一个圆弧
+          // ['L', x2, y2],
           ['L', x, y],
-          ['A', 0.1, 0.1, 0, 1, 1, x3, y3], // 绘制一个圆弧
-          ['L', x2, y2],
+          ['L', x3, y3],
           ['Z'],
         ]; // pointer
 
@@ -108,6 +107,17 @@ const Gauge: FC<GaugeConfig> = ({
             path,
             fill: defaultColor,
             ...pointer.style,
+          },
+        });
+
+        group.addShape('circle', {
+          name: 'pin-inner',
+          attrs: {
+            x: center.x,
+            y: center.y,
+            r: 3.5,
+            stroke: defaultColor,
+            fill: 'transparent',
           },
         });
       }
@@ -121,7 +131,9 @@ const Gauge: FC<GaugeConfig> = ({
         const radius = this.coordinate.getRadius();
 
         // @ts-ignore
-        const isBig = (cfg.data.percent * 3) / 4 > 0.5;
+        const isBig = cfg.data.percent > 0.625;
+        // @ts-ignore
+        const isBig2 = cfg.data.percent < 0.375;
 
         const { x: x1, y: y1 } = Util.polarToCartesian(
           center.x,
@@ -152,8 +164,8 @@ const Gauge: FC<GaugeConfig> = ({
         ];
 
         const path2 = [
-          ['M', x2, y2], // 移动到起始点
-          ['A', radius * 0.8, radius * 0.8, 0, isBig ? 0 : 1, 1, x3, y3], // 绘制一个半径为 radius * 0.8 的圆弧
+          ['M', x3, y3], // 移动到起始点
+          ['A', radius * 0.8, radius * 0.8, 0, isBig2 ? 1 : 0, 0, x2, y2], // 绘制一个半径为 radius * 0.8 的圆弧
         ];
 
         const pinStyle = pin.style || {};
@@ -184,16 +196,16 @@ const Gauge: FC<GaugeConfig> = ({
             stroke,
           },
         });
-        group.addShape('circle', {
-          name: 'pin-inner',
-          attrs: {
-            x: center.x,
-            y: center.y,
-            r: 3.5,
-            stroke: 'transparent',
-            fill,
-          },
-        });
+        // group.addShape('circle', {
+        //   name: 'pin-inner',
+        //   attrs: {
+        //     x: center.x,
+        //     y: center.y,
+        //     r: 3.5,
+        //     stroke: 'transparent',
+        //     fill,
+        //   },
+        // });
       }
 
       return group;
@@ -211,9 +223,14 @@ const Gauge: FC<GaugeConfig> = ({
     return colors;
   }, [legend]);
 
-  const newConfig = merge({}, genDefaultConfig()[type], config, {
-    data: percent,
-  }) as BaseGaugeConfig;
+  const newConfig = merge(
+    {},
+    genDefaultConfig({ height: config?.height })[type],
+    config,
+    {
+      data: percent,
+    },
+  ) as BaseGaugeConfig;
 
   return (
     <div className={`${prefixCls} ${className}`} style={style}>
