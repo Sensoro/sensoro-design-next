@@ -19,6 +19,8 @@ export interface BaseLegend {
   labels?: string[];
   /** 图例高度 */
   height?: number;
+  /** 分页图例每页多少行 */
+  pageRow?: number;
 }
 
 export interface BaseTooltip {

@@ -239,6 +239,7 @@ const Pie: FC<PieConfig> = ({
           legend === false
             ? false
             : {
+                height: newConfig.height,
                 direction: 'right',
                 type: 'box',
                 ...(typeof legend === 'object' ? legend : {}),
