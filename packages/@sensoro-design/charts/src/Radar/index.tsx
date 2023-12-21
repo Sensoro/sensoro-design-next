@@ -40,7 +40,7 @@ const Radar: FC<RadarConfig> = ({
   config,
   data,
   title,
-  legend,
+  legend = true,
   timeRange,
   style = {},
   className = '',
@@ -93,7 +93,13 @@ const Radar: FC<RadarConfig> = ({
         title={title}
         seriesField={seriesField}
         legend={
-          legend === false ? false : { direction: 'vertical', verticalGap: 56 }
+          legend === false
+            ? false
+            : {
+                height: newConfig.height,
+                direction: 'right',
+                ...(typeof legend === 'object' ? legend : {}),
+              }
         }
         colorMap={colorMap}
         timeRange={timeRange}
