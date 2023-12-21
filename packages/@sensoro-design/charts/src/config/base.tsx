@@ -348,7 +348,7 @@ export const getDefaultConfig = ({
             lineHeight: '12px',
             height: '12px',
             color: 'rgba(10, 27, 57, 0.35)',
-            transform: 'translate(-50%, 8px)',
+            transform: 'translate(-50%, 10px)',
           },
         },
         content: {
@@ -358,7 +358,7 @@ export const getDefaultConfig = ({
             height: '24px',
             color: '#0a1b39',
             fontFamily: 'DIN Alternate',
-            transform: 'translate(-50%, -100%)',
+            transform: 'translate(-50%, -20px)',
           },
         },
       },
@@ -432,6 +432,13 @@ export const getDefaultConfig = ({
 
   if (funnel) {
     Object.assign(config, {
+      theme: {
+        colors10: Array.from(Array(10), (item, index) =>
+          !!customsColors?.length
+            ? customsColors[index % customsColors.length]
+            : COLORS_SMALL[index % 8],
+        ),
+      },
       conversionTag: false,
       funnelStyle: {
         stroke: 'white',
@@ -451,8 +458,10 @@ export const getDefaultConfig = ({
       startAngle: -1.25 * Math.PI,
       endAngle: 0.25 * Math.PI,
       height: 140,
+      innerRadius: 0.75,
       range: {
         color: [COLORS_SMALL[0], '#ECEEF0'],
+        width: 10,
       },
       indicator: {
         shape: 'custom-gauge-indicator',
@@ -475,9 +484,9 @@ export const getDefaultConfig = ({
       },
       statistic: {
         title: {
-          offsetY: -12,
+          offsetY: -Math.floor((height || 140) / 16),
           formatter: (val: { percent: number }) => {
-            return `${val.percent * 100}%`;
+            return `${Math.round(val.percent * 100)}%`;
           },
           style: {
             fontSize: '24px',
@@ -488,9 +497,9 @@ export const getDefaultConfig = ({
           },
         },
         content: {
-          offsetY: -12,
+          offsetY: -Math.floor((height || 140) / 16),
           formatter: (val: { percent: number }) => {
-            return `${val.percent * 100}%`;
+            return `${Math.round(val.percent * 100)}%`;
           },
           style: {
             fontSize: '24px',
