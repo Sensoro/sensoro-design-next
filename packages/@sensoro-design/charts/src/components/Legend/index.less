@@ -3,7 +3,13 @@
 @legend-prefix-cls: ~'sen-charts-legend';
 
 .@{legend-prefix-cls} {
-  flex-wrap: wrap;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  &-main {
+    flex-wrap: wrap;
+  }
 
   &-center {
     justify-content: center;
@@ -14,14 +20,21 @@
     column-gap: 24px;
   }
 
+  &-between {
+    justify-content: space-between;
+  }
+
   &-item {
     //cursor: pointer;
     white-space: nowrap;
+    height: 20px;
   }
 
   &-name {
+    display: inline-block;
     font-size: @font-size-sm;
-    line-height: 22px;
+    line-height: 20px;
+    height: 20px;
     color: @color-neutral-text-3;
     white-space: nowrap;
   }
@@ -32,5 +45,28 @@
     height: 8px;
     border-radius: 1px;
     margin-right: 8px;
+  }
+
+  &-page {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    &-item {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: @color-neutral-bg-2;
+      width: 24px;
+      height: 24px;
+      border-radius: 2px;
+      color: @grey;
+      cursor: pointer;
+    }
+
+    &-item-disabled {
+      color: #8997b2;
+      cursor: not-allowed;
+    }
   }
 }
