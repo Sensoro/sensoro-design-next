@@ -54,7 +54,7 @@ export default () => {
           title="雷达图"
           config={config}
           data={data}
-          legend={{ legendItemGap: 16, verticalGap: 48 }}
+          legend={{ verticalGap: 48 }}
           className="radar"
           // style={{ width: 498 }}
         />

@@ -31,7 +31,7 @@ export default () => {
           overflow: 'hidden',
           textOverflow: 'ellipsis',
         },
-        content: '100',
+        content: '0',
       },
     },
   });

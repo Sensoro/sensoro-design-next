@@ -16,17 +16,21 @@ nav:
 
 <code src="./demos/leftLegend.tsx"></code> -->
 
-### 环图-自定义颜色
-
-<code src="./demos/ring.tsx"></code>
-
 ### 环图-值为 0
 
 <code src="./demos/ringZero.tsx"></code>
 
-### 环图
+### 环图-自定义颜色
+
+<code src="./demos/ring.tsx"></code>
+
+### 环图-自定义间距
 
 <code src="./demos/ring2.tsx"></code>
+
+### 环图-图例带数据
+
+<code src="./demos/ringLegendWithData.tsx"></code>
 
 ### 环图 分页
 

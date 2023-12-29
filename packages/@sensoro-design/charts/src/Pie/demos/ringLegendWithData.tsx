@@ -12,6 +12,18 @@ const data = [
     type: '分类二',
     value: 25,
   },
+  {
+    type: '分类三wdfsd',
+    value: 18,
+  },
+  {
+    type: '分类四',
+    value: 15,
+  },
+  {
+    type: '分类五',
+    value: 10,
+  },
 ];
 
 export default () => {
@@ -19,7 +31,6 @@ export default () => {
     data,
     angleField: 'value',
     colorField: 'type',
-
     statistic: {
       title: { content: 'title' },
       content: {
@@ -50,13 +61,32 @@ export default () => {
       </div>
       <div style={{ width: '60%' }}>
         <Pie
-          title="环图（自定义间距）"
+          title="环图-图例带数据"
           type="ring"
           config={config}
-          legend={{ legendItemGap: 16, verticalGap: 40 }}
-          customsColors={['red', 'orange', 'pink', 'blue']}
+          legend={{
+            legendItemGap: 8,
+            verticalGap: 40,
+            // @ts-ignore
+            processData: (name: string, index: number) => {
+              return (
+                <span>
+                  {name}
+                  <span
+                    style={{
+                      fontFamily: 'DIN Alternate-Bold',
+                      color: '#0A1B39',
+                      marginLeft: 8,
+                    }}
+                  >
+                    {data[index].value}
+                  </span>
+                </span>
+              );
+            },
+          }}
           style={{ width: 384 }}
-          className="ring2"
+          className="ring-legend-data"
         />
       </div>
     </div>

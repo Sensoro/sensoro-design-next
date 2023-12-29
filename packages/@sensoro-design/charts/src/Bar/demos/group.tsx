@@ -59,32 +59,8 @@ const data = [
 export default () => {
   const [config, setConfig] = useState<BarConfig>({
     data,
-    isGroup: true,
     xField: 'value',
     yField: 'label',
-
-    /** 自定义颜色 */
-    // color: ['#1383ab', '#c52125'],
-    seriesField: 'type',
-    marginRatio: 0,
-    label: {
-      // 可手动配置 label 数据标签位置
-      position: 'middle',
-      // 'left', 'middle', 'right'
-      // 可配置附加的布局方法
-      layout: [
-        // 柱形图数据标签位置自动调整
-        {
-          type: 'interval-adjust-position',
-        }, // 数据标签防遮挡
-        {
-          type: 'interval-hide-overlap',
-        }, // 数据标签文颜色自动调整
-        {
-          type: 'adjust-color',
-        },
-      ],
-    },
   });
 
   return (
@@ -103,7 +79,7 @@ export default () => {
         />
       </div>
       <div style={{ width: '50%' }}>
-        <Bar config={config} />
+        <Bar config={config} type="alone" />
       </div>
     </div>
   );

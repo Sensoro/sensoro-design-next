@@ -56,7 +56,12 @@ export default () => {
         <Funnel
           type="basic"
           title="基础漏斗图"
-          legend={{ type: 'box', direction: 'alone', position: 'bottom' }}
+          legend={{
+            type: 'box',
+            direction: 'alone',
+            position: 'bottom',
+            aloneGap: 24,
+          }}
           config={config}
           tooltip={{ showTitle: false }}
         />
