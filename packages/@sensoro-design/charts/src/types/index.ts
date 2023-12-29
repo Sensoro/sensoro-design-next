@@ -10,6 +10,8 @@ export interface BaseLegend {
   legendItemGap?: number;
   /** 换行后的行间距 */
   lineGap?: number;
+  /** direction === alone 生效,图例距离图表的上\下间距 */
+  aloneGap?: number;
   processData?: (name: string, index: number) => string;
   /** 图例类型 */
   type?: 'svg' | 'box';
