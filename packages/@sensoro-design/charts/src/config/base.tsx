@@ -34,7 +34,7 @@ export interface GetDefaultConfigProps extends BaseConfig {
   rose?: boolean;
   /** radar 雷达图 */
   radar?: boolean;
-  /** 是否隐藏label */
+  /** 漏斗图 */
   funnel?: boolean;
   /** 仪表盘 */
   gauge?: boolean;
@@ -179,7 +179,7 @@ export const getDefaultConfig = ({
             marginLeft: '16px',
           },
           'g2-tooltip-marker': {
-            borderRadius: '2px',
+            borderRadius: '1px',
             height: 2,
           },
           'g2-tooltip-list-item': {
@@ -257,7 +257,7 @@ export const getDefaultConfig = ({
             marginLeft: '16px',
           },
           'g2-tooltip-marker': {
-            borderRadius: '2px',
+            borderRadius: '1px',
             height: 8,
             width: 8,
           },
@@ -347,6 +347,7 @@ export const getDefaultConfig = ({
             fontSize: '12px',
             lineHeight: '12px',
             height: '12px',
+            fontWeight: 400,
             color: 'rgba(10, 27, 57, 0.35)',
             transform: 'translate(-50%, 10px)',
           },
