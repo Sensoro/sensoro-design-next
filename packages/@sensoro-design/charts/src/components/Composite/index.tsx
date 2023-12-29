@@ -1,7 +1,7 @@
 import { classNames } from '@pansy/shared';
 import { Segmented } from 'antd';
 import type { SegmentedProps } from 'antd/es/segmented';
-import { isBoolean } from 'lodash';
+import { get, isBoolean } from 'lodash';
 import React, { useMemo, type FC } from 'react';
 import type { BaseLegend } from '../../types';
 import type { ColorMap } from '../../utils';
@@ -73,6 +73,8 @@ const Composite: FC<CompositeProps> = ({
     return obj;
   }, [legend, timeRange]);
 
+  const aloneGap = get(legend, 'aloneGap', 0);
+
   return (
     <>
       {!title && (!isLegend || legendDirection.vertical) ? null : (
@@ -83,6 +85,11 @@ const Composite: FC<CompositeProps> = ({
               legendDirection.alone && legendDirection.top,
             [`${prefixCls}-timeRange`]: timeRange,
           })}
+          style={
+            legendDirection.alone && legendDirection.top && aloneGap
+              ? { gap: aloneGap }
+              : {}
+          }
         >
           {!!timeRange ? (
             <div className={`${prefixCls}-timeRange-wrap`}>
@@ -126,7 +133,10 @@ const Composite: FC<CompositeProps> = ({
         <div className={`${prefixCls}-canvas`}>{children}</div>
       )}
       {isLegend && legendDirection.alone && legendDirection.bottom && (
-        <div className={`${prefixCls}-alone-bottom`}>
+        <div
+          className={`${prefixCls}-alone-bottom`}
+          style={aloneGap ? { marginTop: aloneGap } : {}}
+        >
           <Legend
             legend={isBoolean(legend) ? {} : (legend as BaseLegend)}
             colors={colorMap as ColorMap}

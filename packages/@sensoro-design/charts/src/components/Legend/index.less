@@ -9,6 +9,7 @@
 
   &-main {
     flex-wrap: wrap;
+    height: 100%;
   }
 
   &-center {
@@ -62,11 +63,27 @@
       border-radius: 2px;
       color: @grey;
       cursor: pointer;
+
+      &:hover {
+        background-color: @color-neutral-line;
+      }
+
+      &:active {
+        background-color: @color-neutral-bg-4;
+      }
     }
 
     &-item-disabled {
-      color: #8997b2;
+      color: @color-neutral-text-4;
       cursor: not-allowed;
+
+      &:hover {
+        background-color: @color-neutral-bg-2;
+      }
+
+      &:active {
+        background-color: @color-neutral-bg-2;
+      }
     }
   }
 }

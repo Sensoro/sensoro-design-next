@@ -93,7 +93,7 @@ const Legend: React.FC<LegendProps> = ({ legend, colors }) => {
         [`${prefixCls}-center`]: direction === 'vertical' && !legend?.lineGap,
         [`${prefixCls}-between`]: !!legend.pageRow,
       })}
-      style={legend.height ? { height: legend.height, ...lineGap } : lineGap}
+      style={legend.height ? { height: legend.height } : {}}
     >
       <Space
         direction={direction}
@@ -104,7 +104,7 @@ const Legend: React.FC<LegendProps> = ({ legend, colors }) => {
           [`${prefixCls}-center`]: direction === 'vertical' && !legend?.lineGap,
           [`${prefixCls}-between`]: !!legend.pageRow,
         })}
-        // style={legend.height ? { height: legend.height, ...lineGap } : lineGap}
+        style={lineGap}
       >
         {map(keys(curtLegend), (name, index) => (
           <div className={`${prefixCls}-item`} key={name}>
