@@ -27,6 +27,11 @@ function getInterval(val: number) {
 }
 
 const CustomBar: FC<CustomBarProps> = memo(function ({ type, data }) {
+  console.log(
+    '%c 🚀🚀🚀 data：：',
+    'font-size:20px;background: #33A5FF;color:#fff;',
+    data,
+  );
   const maxVal = useMemo(() => {
     const val = data.reduce((pre, cur) => {
       return pre > Number(cur.value) ? pre : Number(cur.value);
@@ -34,24 +39,57 @@ const CustomBar: FC<CustomBarProps> = memo(function ({ type, data }) {
     return getInterval(val);
   }, [data]);
 
+  const labels = useMemo(() => {
+    return data.map((item) => item.label);
+  }, [data]);
+
   // 这里可以根据type来决定bar的样式
-  return (
-    <div className={`${prefixCls}-custom-bar`}>
-      {map(data, (item, i) => {
-        return (
-          <div
-            key={`${item.label}${i}`}
-            className={
-              type === 'basic'
-                ? `${prefixCls}-item-row`
-                : `${prefixCls}-item-column`
-            }
-          >
+  return type === 'basic' ? (
+    <div className={classNames(`${prefixCls}-custom-bar`, `${prefixCls}-row`)}>
+      <div className={classNames(`${prefixCls}-flex`, `${prefixCls}-column`)}>
+        {map(labels, (label) => {
+          return (
             <span
               className={classNames(`${prefixCls}-label`, {
                 [`${prefixCls}-label-inline`]: type === 'basic',
               })}
             >
+              {label}
+            </span>
+          );
+        })}
+      </div>
+      <div
+        className={classNames(`${prefixCls}-flex`, `${prefixCls}-column`)}
+        style={{ flex: 1 }}
+      >
+        {map(data, (item, i) => {
+          return (
+            <div key={`${item.label}${i}`} className={`${prefixCls}-item-row`}>
+              <div className={`${prefixCls}-percent`}>
+                <div
+                  style={{
+                    width: `${(Number(item.value) / maxVal) * 100}%`,
+                    height: '100%',
+                    background: '#588BEE',
+                    borderRadius: '1px',
+                  }}
+                />
+              </div>
+              <span className={`${prefixCls}-value`}>{item.value}</span>
+            </div>
+          );
+        })}
+      </div>
+    </div>
+  ) : (
+    <div
+      className={classNames(`${prefixCls}-custom-bar`, `${prefixCls}-column`)}
+    >
+      {map(data, (item, i) => {
+        return (
+          <React.Fragment key={`${item.label}${i}`}>
+            <span className={classNames(`${prefixCls}-label`)}>
               {item.label}
             </span>
             <div className={`${prefixCls}-item-row`}>
@@ -67,7 +105,7 @@ const CustomBar: FC<CustomBarProps> = memo(function ({ type, data }) {
               </div>
               <span className={`${prefixCls}-value`}>{item.value}</span>
             </div>
-          </div>
+          </React.Fragment>
         );
       })}
     </div>

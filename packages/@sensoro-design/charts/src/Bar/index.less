@@ -25,6 +25,18 @@
     width: 100%;
     height: 100%;
     display: flex;
+  }
+
+  &-flex {
+    display: flex;
+  }
+
+  &-row {
+    flex-direction: row;
+    gap: 16px;
+  }
+
+  &-column {
     flex-direction: column;
     gap: 12px;
   }
@@ -37,7 +49,6 @@
   }
 
   &-item-column {
-    display: flex;
     flex-direction: column;
     gap: 4px;
   }
@@ -56,7 +67,7 @@
   }
 
   &-label-inline {
-    width: 110px;
+    max-width: 110px;
     text-align: right;
     white-space: nowrap;
     text-overflow: ellipsis;
