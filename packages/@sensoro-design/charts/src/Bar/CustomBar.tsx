@@ -27,11 +27,6 @@ function getInterval(val: number) {
 }
 
 const CustomBar: FC<CustomBarProps> = memo(function ({ type, data }) {
-  console.log(
-    '%c 🚀🚀🚀 data：：',
-    'font-size:20px;background: #33A5FF;color:#fff;',
-    data,
-  );
   const maxVal = useMemo(() => {
     const val = data.reduce((pre, cur) => {
       return pre > Number(cur.value) ? pre : Number(cur.value);
@@ -88,7 +83,13 @@ const CustomBar: FC<CustomBarProps> = memo(function ({ type, data }) {
     >
       {map(data, (item, i) => {
         return (
-          <React.Fragment key={`${item.label}${i}`}>
+          <div
+            key={`${item.label}${i}`}
+            className={classNames(
+              `${prefixCls}-flex`,
+              `${prefixCls}-item-column`,
+            )}
+          >
             <span className={classNames(`${prefixCls}-label`)}>
               {item.label}
             </span>
@@ -105,7 +106,7 @@ const CustomBar: FC<CustomBarProps> = memo(function ({ type, data }) {
               </div>
               <span className={`${prefixCls}-value`}>{item.value}</span>
             </div>
-          </React.Fragment>
+          </div>
         );
       })}
     </div>
