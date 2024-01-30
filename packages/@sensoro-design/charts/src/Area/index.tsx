@@ -32,6 +32,8 @@ const genDefaultConfig = ({
         tooltip: true,
         tooltipBox: typeof legend === 'object' && legend?.type === 'box',
         showTooltipTitle,
+        colorMap,
+        seriesField,
         showCrosshairs: true,
       }),
       legend: false,
@@ -54,6 +56,7 @@ const genDefaultConfig = ({
       },
       legend: false,
     },
+    // 曲线图
     smooth: {
       ...getDefaultConfig({
         point: false,
@@ -73,6 +76,7 @@ const genDefaultConfig = ({
       smooth: true,
       legend: false,
     },
+    // 堆叠面积图
     stack: {
       ...getDefaultConfig({
         tooltip: true,

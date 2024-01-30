@@ -24,9 +24,9 @@ nav:
 
 <code src="./demos/ring.tsx"></code>
 
-### 环图-自定义间距
+<!-- ### 环图-自定义间距
 
-<code src="./demos/ring2.tsx"></code>
+<code src="./demos/ring2.tsx"></code> -->
 
 ### 环图-图例带数据
 
