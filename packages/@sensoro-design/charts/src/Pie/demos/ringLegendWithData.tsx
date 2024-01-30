@@ -74,7 +74,7 @@ export default () => {
                   {name}
                   <span
                     style={{
-                      fontFamily: 'DIN Alternate-Bold',
+                      fontFamily: 'DIN Alternate',
                       color: '#0A1B39',
                       marginLeft: 8,
                     }}

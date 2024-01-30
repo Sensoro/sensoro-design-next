@@ -1,6 +1,5 @@
 import type { AreaConfig } from '@sensoro-design/charts';
 import { Area } from '@sensoro-design/charts';
-import { slice } from 'lodash';
 import React, { useEffect, useState } from 'react';
 import EditorDemo from '../../../docs/components/Editor';
 
@@ -167,56 +166,56 @@ export default () => {
       //   value: 2.63,
       //   type: 'value',
       // },
-      {
-        timePeriod: '2018 Q2',
-        value: 2.67,
-        type: 'value',
-      },
-      {
-        timePeriod: '2018 Q3',
-        value: 2.64,
-        type: 'value',
-      },
-      {
-        timePeriod: '2018 Q4',
-        value: 2.5,
-        type: 'value',
-      },
-      {
-        timePeriod: '2019 Q1',
-        value: 2.31,
-        type: 'value',
-      },
-      {
-        timePeriod: '2019 Q2',
-        value: 2.04,
-        type: 'value',
-      },
-      {
-        timePeriod: '2018 Q2',
-        value: 2.57,
-        type: 'value2',
-      },
-      {
-        timePeriod: '2018 Q3',
-        value: 2.74,
-        type: 'value2',
-      },
-      {
-        timePeriod: '2018 Q4',
-        value: 2.6,
-        type: 'value2',
-      },
-      {
-        timePeriod: '2019 Q1',
-        value: 2.11,
-        type: 'value2',
-      },
-      {
-        timePeriod: '2019 Q2',
-        value: 2.24,
-        type: 'value2',
-      },
+      // {
+      //   timePeriod: '2018 Q2',
+      //   value: 2.67,
+      //   type: 'value',
+      // },
+      // {
+      //   timePeriod: '2018 Q3',
+      //   value: 2.64,
+      //   type: 'value',
+      // },
+      // {
+      //   timePeriod: '2018 Q4',
+      //   value: 2.5,
+      //   type: 'value',
+      // },
+      // {
+      //   timePeriod: '2019 Q1',
+      //   value: 2.31,
+      //   type: 'value',
+      // },
+      // {
+      //   timePeriod: '2019 Q2',
+      //   value: 2.04,
+      //   type: 'value',
+      // },
+      // {
+      //   timePeriod: '2018 Q2',
+      //   value: 2.57,
+      //   type: 'value2',
+      // },
+      // {
+      //   timePeriod: '2018 Q3',
+      //   value: 2.74,
+      //   type: 'value2',
+      // },
+      // {
+      //   timePeriod: '2018 Q4',
+      //   value: 2.6,
+      //   type: 'value2',
+      // },
+      // {
+      //   timePeriod: '2019 Q1',
+      //   value: 2.11,
+      //   type: 'value2',
+      // },
+      // {
+      //   timePeriod: '2019 Q2',
+      //   value: 2.24,
+      //   type: 'value2',
+      // },
     ],
     xField: 'timePeriod',
     yField: 'value',
@@ -235,7 +234,7 @@ export default () => {
         setConfig({
           ...config,
           data: [
-            ...slice(json, 0).map((item: any) => ({
+            ...json.map((item: any) => ({
               ...item,
               type: 'value',
             })),
@@ -248,7 +247,7 @@ export default () => {
   };
 
   useEffect(() => {
-    // asyncFetch();
+    asyncFetch();
   }, []);
 
   return (

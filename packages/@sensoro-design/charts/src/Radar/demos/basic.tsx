@@ -16,8 +16,7 @@ export default () => {
         max: 80,
       },
     },
-    width: 226,
-    height: 200,
+    width: 520,
     autoFit: false,
   });
 
@@ -40,7 +39,7 @@ export default () => {
         display: 'flex',
         justifyContent: 'space-between',
         columnGap: 16,
-        height: 500,
+        height: 600,
       }}
     >
       <div style={{ width: '40%' }}>
@@ -54,7 +53,7 @@ export default () => {
           title="雷达图"
           config={config}
           data={data}
-          legend={{ verticalGap: 48 }}
+          legend={{ verticalGap: 56 }}
           className="radar"
           // style={{ width: 498 }}
         />

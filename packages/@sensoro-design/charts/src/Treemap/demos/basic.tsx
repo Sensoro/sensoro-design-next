@@ -43,12 +43,9 @@ export default () => {
     colorField: 'name',
     tooltip: {
       formatter: (v: any) => {
-        const root = v.path[v.path.length - 1];
         return {
           name: v.name,
-          value: `${v.value}(总占比${((v.value / root.value) * 100).toFixed(
-            2,
-          )}%)`,
+          value: `${v.value}`,
         };
       },
     },
