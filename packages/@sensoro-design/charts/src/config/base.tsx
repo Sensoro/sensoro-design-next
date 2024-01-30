@@ -178,6 +178,7 @@ export const getDefaultConfig = ({
             color: '#fff',
             fontFamily: 'DIN Alternate',
             marginLeft: '16px',
+            textAlign: 'right',
           },
           'g2-tooltip-marker': {
             borderRadius: '1px',
@@ -187,8 +188,14 @@ export const getDefaultConfig = ({
           'g2-tooltip-list-item': {
             fontSize: 12,
             lineHeight: '20px',
-            maxWidth: '336px',
+            height: '20px',
             margin: '0 0 4px',
+          },
+          'g2-tooltip-list': {
+            display: 'flex',
+            flexDirection: 'row',
+            rowGap: '4px',
+            maxWidth: '360px',
           },
         },
         customContent: (title: string, original: any[]) => {
@@ -202,27 +209,40 @@ export const getDefaultConfig = ({
                 <div className={`${prefixCls}-title`}>{title}</div>
               )}
               <ul className={`${prefixCls}-list`}>
-                {map(data, (item, idx) => {
-                  const color = seriesField
-                    ? colorMap?.[get(item, `data.${seriesField}`)]
-                    : COLORS_SMALL[0];
+                <div>
+                  {map(data, (item, idx) => {
+                    const color = seriesField
+                      ? colorMap?.[get(item, `data.${seriesField}`)]
+                      : COLORS_SMALL[0];
 
-                  return (
-                    <li key={idx} className={`${prefixCls}-list-item`}>
-                      <SVG
-                        src={marker}
-                        preProcessor={(code) =>
-                          code.replace(/fill=".*?"/g, `fill="${color}"`)
-                        }
-                        style={{ marginRight: 8 }}
-                        width={8}
-                        height={8}
-                      />
-                      <span className={`${prefixCls}-name`}>{item.name}</span>
-                      <span className={`${prefixCls}-value`}>{item.value}</span>
-                    </li>
-                  );
-                })}
+                    return (
+                      <li key={idx} className={`${prefixCls}-list-item`}>
+                        <SVG
+                          src={marker}
+                          preProcessor={(code) =>
+                            code.replace(/fill=".*?"/g, `fill="${color}"`)
+                          }
+                          style={{ marginRight: 8 }}
+                          width={8}
+                          height={8}
+                        />
+                        <span className={`${prefixCls}-name`}>{item.name}</span>
+                      </li>
+                    );
+                  })}
+                </div>
+
+                <div>
+                  {map(data, (item, idx) => {
+                    return (
+                      <li key={idx} className={`${prefixCls}-list-item`}>
+                        <span className={`${prefixCls}-value`}>
+                          {item.value}
+                        </span>
+                      </li>
+                    );
+                  })}
+                </div>
               </ul>
             </>
           );
@@ -257,6 +277,7 @@ export const getDefaultConfig = ({
             color: '#fff',
             fontFamily: 'DIN Alternate',
             marginLeft: '16px',
+            textAlign: 'right',
           },
           'g2-tooltip-marker': {
             borderRadius: '1px',
@@ -266,8 +287,14 @@ export const getDefaultConfig = ({
           'g2-tooltip-list-item': {
             fontSize: 12,
             lineHeight: '20px',
-            maxWidth: '336px',
+            height: '20px',
             margin: '0 0 4px',
+          },
+          'g2-tooltip-list': {
+            display: 'flex',
+            flexDirection: 'row',
+            rowGap: '4px',
+            maxWidth: '360px',
           },
         },
         customContent: (title: string, original: any[]) => {
@@ -281,20 +308,39 @@ export const getDefaultConfig = ({
                 <div className={`${prefixCls}-title`}>{title}</div>
               )}
               <ul className={`${prefixCls}-list`}>
-                {map(data, (item, idx) => {
-                  const color = item.color ?? COLORS_SMALL[0];
+                <div>
+                  {map(data, (item, idx) => {
+                    const color = item.color ?? COLORS_SMALL[0];
 
-                  return (
-                    <li key={idx} className={`${prefixCls}-list-item`}>
-                      <span
-                        className={`${prefixCls}-marker`}
-                        style={{ background: color }}
-                      />
-                      <span className={`${prefixCls}-name`}>{item.name}</span>
-                      <span className={`${prefixCls}-value`}>{item.value}</span>
-                    </li>
-                  );
-                })}
+                    return (
+                      <li
+                        key={`left-${idx}`}
+                        className={`${prefixCls}-list-item`}
+                      >
+                        <span
+                          className={`${prefixCls}-marker`}
+                          style={{ background: color }}
+                        />
+                        <span className={`${prefixCls}-name`}>{item.name}</span>
+                      </li>
+                    );
+                  })}
+                </div>
+
+                <div>
+                  {map(data, (item, idx) => {
+                    return (
+                      <li
+                        key={`right-${idx}`}
+                        className={`${prefixCls}-list-item`}
+                      >
+                        <span className={`${prefixCls}-value`}>
+                          {item.value}
+                        </span>
+                      </li>
+                    );
+                  })}
+                </div>
               </ul>
             </>
           );
