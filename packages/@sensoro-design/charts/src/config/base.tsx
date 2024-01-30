@@ -172,6 +172,7 @@ export const getDefaultConfig = ({
             whiteSpace: 'nowrap',
             textOverflow: 'ellipsis',
             overflow: 'hidden',
+            fontWeight: 400,
           },
           'g2-tooltip-value': {
             color: '#fff',
@@ -180,7 +181,8 @@ export const getDefaultConfig = ({
           },
           'g2-tooltip-marker': {
             borderRadius: '1px',
-            height: 2,
+            height: '8px',
+            width: '8px',
           },
           'g2-tooltip-list-item': {
             fontSize: 12,
@@ -258,8 +260,8 @@ export const getDefaultConfig = ({
           },
           'g2-tooltip-marker': {
             borderRadius: '1px',
-            height: 8,
-            width: 8,
+            height: '8px',
+            width: '8px',
           },
           'g2-tooltip-list-item': {
             fontSize: 12,
@@ -284,9 +286,9 @@ export const getDefaultConfig = ({
 
                   return (
                     <li key={idx} className={`${prefixCls}-list-item`}>
-                      <div
+                      <span
                         className={`${prefixCls}-marker`}
-                        style={{ background: color, width: 8, height: 8 }}
+                        style={{ background: color }}
                       />
                       <span className={`${prefixCls}-name`}>{item.name}</span>
                       <span className={`${prefixCls}-value`}>{item.value}</span>
@@ -395,7 +397,7 @@ export const getDefaultConfig = ({
         grid: {
           line: {
             style: {
-              stroke: '#f1f2f4',
+              stroke: 'rgba(10, 27, 57, 0.35)',
               lineWidth: 1,
               lineDash: [3, 2],
             },
@@ -415,7 +417,7 @@ export const getDefaultConfig = ({
           line: {
             type: 'line',
             style: {
-              stroke: '#f1f2f4',
+              stroke: 'rgba(10, 27, 57, 0.35)',
               lineWidth: 1,
               lineDash: [3, 2],
             },

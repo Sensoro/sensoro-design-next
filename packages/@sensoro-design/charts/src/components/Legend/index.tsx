@@ -102,7 +102,7 @@ const Legend: React.FC<LegendProps> = ({ legend, colors }) => {
         className={classNames(`${prefixCls}-main`, {
           [`${prefixCls}-horizontal`]: direction === 'horizontal',
           [`${prefixCls}-center`]: direction === 'vertical' && !legend?.lineGap,
-          [`${prefixCls}-between`]: !!legend.pageRow,
+          [`${prefixCls}-start`]: !!legend.pageRow,
         })}
         style={lineGap}
       >
