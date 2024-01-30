@@ -1,12 +1,12 @@
 import type { RadarConfig as BaseRadarConfig } from '@ant-design/plots';
 import { Radar as BaseRadar } from '@ant-design/plots';
 import { groupBy, map, merge, transform } from 'lodash';
-import React, { useMemo, type FC } from 'react';
+import React, { useEffect, useMemo, useState, type FC } from 'react';
 import Composite from '../components/Composite';
 import type { GetDefaultConfigProps } from '../config/base';
 import { getDefaultConfig } from '../config/base';
 import type { BaseConfig } from '../types';
-import { generateColorMap } from '../utils';
+import { calculateOffset, generateColorMap } from '../utils';
 import './index.less';
 
 export interface RadarConfig extends BaseConfig {
@@ -48,6 +48,9 @@ const Radar: FC<RadarConfig> = ({
   empty,
   tooltip,
 }) => {
+  const [rightPadding, setRightPadding] = useState(0);
+  const [width, setWidth] = useState(154);
+  const [showRadar, setShowRadar] = useState(false);
   const { seriesField } = config ?? {};
   const originalData = useMemo(
     () =>
@@ -87,6 +90,26 @@ const Radar: FC<RadarConfig> = ({
     },
   ) as BaseRadarConfig;
 
+  useEffect(() => {
+    if (legend === false) {
+      setShowRadar(true);
+      return;
+    }
+    const { width, rightPadding } = calculateOffset({
+      className,
+      type: 'radar',
+      legend,
+      newConfig,
+      defaultHeight: 154,
+      extraWidth: 96,
+    });
+    setRightPadding(rightPadding);
+    setWidth(width);
+    setTimeout(() => {
+      setShowRadar(true);
+    }, 100);
+  }, [newConfig, legend]);
+
   return (
     <div className={`${prefixCls} ${className}`} style={style}>
       <Composite
@@ -96,20 +119,25 @@ const Radar: FC<RadarConfig> = ({
           legend === false
             ? false
             : {
-                height: newConfig.height,
                 direction: 'right',
+                type: 'box',
+                height: newConfig.height,
                 ...(typeof legend === 'object' ? legend : {}),
               }
         }
         colorMap={colorMap}
         timeRange={timeRange}
       >
-        {empty ? (
+        {!showRadar ? null : empty ? (
           <div className={`${prefixCls}-empty`}>
             {typeof empty === 'boolean' ? '暂无内容' : empty}
           </div>
         ) : (
-          <BaseRadar {...newConfig} />
+          <BaseRadar
+            {...newConfig}
+            width={width}
+            padding={[24, rightPadding, 24, 0]}
+          />
         )}
       </Composite>
     </div>

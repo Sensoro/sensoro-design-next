@@ -71,6 +71,7 @@ interface Calculate {
   newConfig: any;
   legend: BaseLegend | boolean;
   defaultHeight: number;
+  extraWidth?: number;
 }
 
 export const calculateOffset = ({
@@ -79,6 +80,7 @@ export const calculateOffset = ({
   newConfig,
   legend,
   defaultHeight,
+  extraWidth = 48,
 }: Calculate) => {
   let leftPadding = 0,
     rightPadding = 0;
@@ -87,7 +89,7 @@ export const calculateOffset = ({
     // @ts-ignore
     (document.querySelector(
       `${className ? `.${className}.sen-${type}` : `.sen-${type}`}`,
-    )?.clientWidth ?? 300) - 48;
+    )?.clientWidth ?? 300) - extraWidth;
   const width = newConfig.width ?? defaultHeight;
 
   if (
