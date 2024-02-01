@@ -42,7 +42,7 @@ const genDefaultConfig = ({
         seriesField,
         customContentData,
       }),
-      intervalPadding: 2,
+      dodgePadding: 2,
       columnWidthRatio: 0.5,
       legend: false,
     },

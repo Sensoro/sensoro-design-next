@@ -443,7 +443,7 @@ export const getDefaultConfig = ({
         grid: {
           line: {
             style: {
-              stroke: 'rgba(10, 27, 57, 0.35)',
+              stroke: 'rgba(10, 27, 57, 0.25)',
               lineWidth: 1,
               lineDash: [3, 2],
             },
@@ -455,7 +455,7 @@ export const getDefaultConfig = ({
         tickLine: null,
         label: {
           style: {
-            fill: 'rgba(10, 27, 57, 0.25)',
+            fill: 'rgba(10, 27, 57, 0.35)',
             fontSize: 12,
           },
         },
@@ -463,7 +463,7 @@ export const getDefaultConfig = ({
           line: {
             type: 'line',
             style: {
-              stroke: 'rgba(10, 27, 57, 0.35)',
+              stroke: 'rgba(10, 27, 57, 0.25)',
               lineWidth: 1,
               lineDash: [3, 2],
             },
