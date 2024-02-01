@@ -65,7 +65,7 @@ const CustomBar: FC<CustomBarProps> = memo(function ({ type, data }) {
                 <div
                   style={{
                     width: `${(Number(item.value) / maxVal) * 100}%`,
-                    height: '100%',
+                    height: '8px',
                     background: '#588BEE',
                     borderRadius: '1px',
                   }}
@@ -98,9 +98,10 @@ const CustomBar: FC<CustomBarProps> = memo(function ({ type, data }) {
                 <div
                   style={{
                     width: `${(Number(item.value) / maxVal) * 100}%`,
-                    height: '100%',
+                    height: '8px',
                     background: '#588BEE',
                     borderRadius: '1px',
+                    margin: '3px 0',
                   }}
                 />
               </div>

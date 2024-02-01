@@ -398,6 +398,7 @@ export const getDefaultConfig = ({
             fontWeight: 400,
             color: 'rgba(10, 27, 57, 0.35)',
             transform: 'translate(-50%, 10px)',
+            textShadow: 'unset',
           },
         },
         content: {
@@ -443,7 +444,7 @@ export const getDefaultConfig = ({
         grid: {
           line: {
             style: {
-              stroke: 'rgba(10, 27, 57, 0.25)',
+              stroke: '#F1F2F4',
               lineWidth: 1,
               lineDash: [3, 2],
             },
@@ -463,7 +464,7 @@ export const getDefaultConfig = ({
           line: {
             type: 'line',
             style: {
-              stroke: 'rgba(10, 27, 57, 0.25)',
+              stroke: '#F1F2F4',
               lineWidth: 1,
               lineDash: [3, 2],
             },
