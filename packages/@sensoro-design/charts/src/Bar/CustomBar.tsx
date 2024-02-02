@@ -101,7 +101,6 @@ const CustomBar: FC<CustomBarProps> = memo(function ({ type, data }) {
                     height: '8px',
                     background: '#588BEE',
                     borderRadius: '1px',
-                    margin: '3px 0',
                   }}
                 />
               </div>
