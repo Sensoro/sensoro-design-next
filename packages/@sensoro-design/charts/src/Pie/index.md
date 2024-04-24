@@ -36,6 +36,10 @@ nav:
 
 <code src="./demos/ringPage.tsx"></code>
 
+### 环图 横向布局
+
+<code src="./demos/horizontal.tsx"></code>
+
 ### 空状态
 
 <code src="./demos/empty.tsx"></code>

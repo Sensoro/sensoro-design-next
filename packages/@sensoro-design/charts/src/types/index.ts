@@ -4,6 +4,8 @@ export interface BaseLegend {
   direction?: 'horizontal' | 'left' | 'right' | 'alone';
   /** direction === alone 生效 */
   position?: 'top' | 'bottom';
+  /** 图例布局（横向|纵向）direction===left | direction===right生效 */
+  layout?: 'horizontal' | 'vertical';
   /** direction === left | right 生效，图例距离图表的间距 */
   verticalGap?: number;
   /** 图例各个项的间距 */

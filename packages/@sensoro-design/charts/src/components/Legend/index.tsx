@@ -34,22 +34,25 @@ const Legend: React.FC<LegendProps> = ({ legend, colors }) => {
     [legend],
   );
 
+  const layout = useMemo(() => get(legend, 'layout', 'vertical'), [legend]);
+
   const type = useMemo(() => get(legend, 'type', 'svg') ?? 'svg', [legend]);
 
   const gap = useMemo(() => {
     return legend?.legendItemGap
       ? legend.legendItemGap
-      : direction === 'horizontal'
+      : direction === 'horizontal' || layout === 'horizontal'
       ? 24
       : 8;
-  }, [legend, direction]);
+  }, [legend, direction, layout]);
+
   const lineGap = useMemo(() => {
     return legend?.lineGap
-      ? direction === 'horizontal'
+      ? direction === 'horizontal' || layout === 'horizontal'
         ? { rowGap: legend.lineGap }
         : { columnGap: legend.lineGap }
       : {};
-  }, [legend]);
+  }, [legend, layout, direction]);
 
   const textStyle = useMemo(() => get(legend, 'textStyle', {}), [legend]);
 
@@ -96,11 +99,18 @@ const Legend: React.FC<LegendProps> = ({ legend, colors }) => {
       style={legend.height ? { height: legend.height } : {}}
     >
       <Space
-        direction={direction}
-        align={direction === 'vertical' ? 'baseline' : 'start'}
+        direction={layout === 'horizontal' ? 'horizontal' : direction}
+        align={
+          layout === 'horizontal'
+            ? 'center'
+            : direction === 'vertical'
+            ? 'baseline'
+            : 'start'
+        }
         size={gap}
         className={classNames(`${prefixCls}-main`, {
-          [`${prefixCls}-horizontal`]: direction === 'horizontal',
+          [`${prefixCls}-horizontal`]:
+            direction === 'horizontal' || layout === 'horizontal',
           [`${prefixCls}-center`]: direction === 'vertical' && !legend?.lineGap,
           [`${prefixCls}-start`]: !!legend.pageRow,
         })}
