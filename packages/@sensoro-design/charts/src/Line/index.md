@@ -28,6 +28,10 @@ nav:
 
 <code src="./demos/multipleSmooth.tsx"></code>
 
+<!-- ### 带均线折线图
+
+<code src="./demos/middleLine.tsx"></code> -->
+
 ### 空状态
 
 <code src="./demos/empty.tsx"></code>
