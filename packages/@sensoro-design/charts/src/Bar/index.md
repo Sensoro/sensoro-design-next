@@ -16,6 +16,14 @@ nav:
 
 <code src="./demos/group.tsx"></code>
 
+### 区间条形图
+
+<code src="./demos/range.tsx"></code>
+
+### 多条区间条形图
+
+<code src="./demos/multiRange.tsx"></code>
+
 ### 空状态
 
 <code src="./demos/empty.tsx"></code>
