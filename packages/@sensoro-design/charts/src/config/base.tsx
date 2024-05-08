@@ -40,6 +40,10 @@ export interface GetDefaultConfigProps extends BaseConfig {
   gauge?: boolean;
   /** 图表高度 */
   height?: number;
+  /** 是否是区间条形图 */
+  rangebar?: boolean;
+  /** 是否是多行区间条形图 */
+  multiRange?: boolean;
 }
 
 const prefixCls = 'g2-tooltip';
@@ -70,6 +74,8 @@ export const getDefaultConfig = ({
   funnel,
   gauge,
   height,
+  rangebar = false,
+  multiRange = false,
 }: GetDefaultConfigProps): any => {
   const config = {
     xAxis: rose
@@ -132,6 +138,96 @@ export const getDefaultConfig = ({
       },
     },
   };
+
+  if (rangebar) {
+    Object.assign(config, {
+      xAxis: {
+        // x轴文字
+        label: {
+          style: {
+            textAlign: 'center',
+            fill: 'rgba(10, 27, 57, 0.25)',
+            fontSize: 12,
+          },
+        },
+        // x轴的线
+        line: {
+          style: {
+            stroke: '#eceef0',
+            fill: 'none',
+          },
+        },
+        // 刻度线
+        tickLine: null,
+        grid: {
+          line: {
+            style: {
+              stroke: '#f1f2f4',
+              lineWidth: 1,
+              lineDash: [3, 2],
+            },
+          },
+        },
+      },
+      yAxis: {
+        label: null,
+        line: null,
+        tickLine: null,
+      },
+    });
+  }
+
+  if (multiRange) {
+    Object.assign(config, {
+      xAxis: {
+        line: null,
+        tickLine: null,
+        // x轴文字
+        label: {
+          style: {
+            textAlign: 'center',
+            fill: 'rgba(10, 27, 57, 0.25)',
+            fontSize: 12,
+          },
+        },
+        grid: {
+          line: {
+            style: {
+              stroke: '#f1f2f4',
+              lineWidth: 1,
+              lineDash: [3, 2],
+            },
+          },
+        },
+      },
+      yAxis: {
+        // y轴文字
+        label: {
+          style: {
+            textAlign: 'center',
+            fill: 'rgba(10, 27, 57, 0.25)',
+            fontSize: 12,
+          },
+          offsetX: -12,
+        },
+        // y轴的线
+        line: {
+          style: {
+            stroke: '#eceef0',
+            fill: 'none',
+          },
+        },
+        // 刻度线
+        tickLine: {
+          style: {
+            stroke: '#eceef0',
+            length: 4,
+          },
+          length: -4,
+        },
+      },
+    });
+  }
 
   if (point) {
     Object.assign(config, {
