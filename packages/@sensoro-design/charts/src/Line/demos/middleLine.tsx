@@ -11,6 +11,7 @@ export default () => {
     yField: 'scales',
     width: 540,
     height: 120,
+    appendPadding: [0, 60, 0, 0],
     annotations: [
       {
         type: 'text',
@@ -24,10 +25,10 @@ export default () => {
               ? Math.round((tmp[tmp.length / 2 - 1] + tmp[tmp.length / 2]) / 2)
               : Math.round(tmp[(tmp.length - 1) / 2]);
 
-          return `均值${median}`;
+          return `均值:${median}`;
         },
-        offsetY: -4,
-        offsetX: -48,
+        offsetY: 6,
+        offsetX: 4,
         style: {
           textBaseline: 'bottom',
           color: '#F72231',

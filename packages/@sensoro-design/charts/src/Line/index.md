@@ -28,9 +28,9 @@ nav:
 
 <code src="./demos/multipleSmooth.tsx"></code>
 
-<!-- ### 带均线折线图
+### 带均线折线图
 
-<code src="./demos/middleLine.tsx"></code> -->
+<code src="./demos/middleLine.tsx"></code>
 
 ### 空状态
 
