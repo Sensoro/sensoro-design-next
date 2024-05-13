@@ -94,7 +94,7 @@ const Bar: FC<BarConfig> = ({
             {typeof empty === 'boolean' ? '暂无内容' : empty}
           </div>
         ) : ['basic', 'alone'].includes(type) ? (
-          <CustomBar type={type} data={newConfig.data} />
+          <CustomBar type={type as 'basic' | 'alone'} data={originalData} />
         ) : (
           <BaseBar {...newConfig} />
         )}

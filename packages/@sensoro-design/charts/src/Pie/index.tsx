@@ -124,7 +124,7 @@ const Pie: FC<PieConfig> = ({
   const newData = isRingZero ? newConfig.data.slice(0, 1) : newConfig.data;
   let tootip = newConfig.tooltip;
 
-  if (isRingZero) {
+  if (isRingZero && !config?.theme) {
     // @ts-ignore
     newConfig.theme = {
       colors10: Array.from(Array(10), () => '#F6F7F8'),
