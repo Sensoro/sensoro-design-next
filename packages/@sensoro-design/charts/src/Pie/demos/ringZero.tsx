@@ -34,6 +34,9 @@ export default () => {
         content: '0',
       },
     },
+    // theme: {
+    //   colors10: ['red'],
+    // },
   });
 
   return (

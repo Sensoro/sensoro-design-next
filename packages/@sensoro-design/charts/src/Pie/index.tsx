@@ -124,11 +124,14 @@ const Pie: FC<PieConfig> = ({
   const newData = isRingZero ? newConfig.data.slice(0, 1) : newConfig.data;
   let tootip = newConfig.tooltip;
 
-  if (isRingZero && !config?.theme) {
-    // @ts-ignore
-    newConfig.theme = {
-      colors10: Array.from(Array(10), () => '#F6F7F8'),
-    };
+  if (isRingZero) {
+    // 使用 newConfig 中的theme 覆盖默认的
+    Object.assign({
+      theme: {
+        colors10: Array.from(Array(10), () => '#F6F7F8'),
+      },
+      newConfig,
+    });
     tootip = false;
   }
 
