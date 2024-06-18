@@ -1,0 +1,65 @@
+name: 🧪 Tests
+
+env:
+  NODE_OPTIONS: --max-old-space-size=6144
+  HUSKY: 0
+
+on:
+  workflow_dispatch:
+    inputs:
+      filter:
+        type: choice
+        description: Filter tests
+        default: " "
+        options:
+          - " "
+          - "-t framework"
+          - "-t contrast"
+          - "-t foreground"
+          - "-t variables"
+          - "-t colors"
+  workflow_call:
+    inputs:
+      filter:
+        type: string
+  push:
+    branches:
+      - master
+    paths:
+      - "src/**"
+      - "tests/**"
+jobs:
+  tests:
+    timeout-minutes: 10
+    env:
+      filter: ${{ inputs.filter || ' '}}
+    name: "Tests"
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 10
+          clean: false
+
+      - name: 'Setup Node.js'
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Cache pnpm modules
+        uses: actions/cache@v4
+        with:
+          path: ~/.pnpm-store
+          key: ${{ runner.os }}-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-
+
+      - name: Pnpm action
+        uses: pnpm/action-setup@v2
+        with:
+          version: latest
+          run_install: true
+
+      - name: Test
+        run: pnpm test
