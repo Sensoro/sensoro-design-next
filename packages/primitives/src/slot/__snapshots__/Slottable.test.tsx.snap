@@ -6,7 +6,8 @@ exports[`given a Button with Slottable > without asChild > should render a butto
     <span>
       left
     </span>
-    Button 
+    Button
+     
     <em>
       text
     </em>
@@ -25,7 +26,8 @@ exports[`given a Button with Slottable > without asChild > with asChild > should
     <span>
       left
     </span>
-    Button 
+    Button
+     
     <em>
       text
     </em>
