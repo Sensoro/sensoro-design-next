@@ -24,3 +24,17 @@ export function Basic() {
     </ScrollArea>
   );
 }
+
+export function MaxHeight() {
+  return (
+    <ScrollArea
+      style={{
+        height: 'unset',
+        maxHeight: '18rem',
+      }}
+      className="scroll-area-demo1 scroll-area-demo-max-height"
+    >
+      <Tags />
+    </ScrollArea>
+  );
+}

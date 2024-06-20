@@ -9,3 +9,11 @@
   border-radius: calc(var(--radius) - 2px);
   border-color: hsl(var(--border));
 }
+
+.scroll-area-demo-max-height {
+  height: unset;
+}
+
+.scroll-area-demo-max-height .s-scroll-area-viewport {
+  max-height: 18rem;
+}
