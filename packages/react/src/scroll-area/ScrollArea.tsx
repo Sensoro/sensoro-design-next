@@ -12,6 +12,7 @@ const InternalCompoundedScrollArea = forwardRef<
   {
     className,
     children,
+    viewportProps,
     size = 'default',
     theme = 'light',
     ...props
@@ -35,7 +36,10 @@ const InternalCompoundedScrollArea = forwardRef<
       )}
       {...props}
     >
-      <Viewport className={`${prefixCls}-viewport`}>
+      <Viewport
+        className={clsx(`${prefixCls}-viewport`, viewportProps?.className)}
+        style={viewportProps?.style}
+      >
         {children}
       </Viewport>
       <ScrollBar orientation="vertical" />

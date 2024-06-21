@@ -1,4 +1,4 @@
-.scroll-area-demo1 {
+.demo1 {
   --radius: 0.5rem;
   --border: 240 5.9% 90%;
 
@@ -10,10 +10,13 @@
   border-color: hsl(var(--border));
 }
 
-.scroll-area-demo-max-height {
-  height: unset;
-}
+.demo2 {
+  --radius: 0.5rem;
+  --border: 240 5.9% 90%;
 
-.scroll-area-demo-max-height .s-scroll-area-viewport {
-  max-height: 18rem;
+  width: 12rem;
+  border-width: 1px;
+  border-style: solid;
+  border-radius: calc(var(--radius) - 2px);
+  border-color: hsl(var(--border));
 }

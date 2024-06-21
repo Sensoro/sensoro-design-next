@@ -2,7 +2,7 @@ import React from 'react';
 import type { Meta } from '@storybook/react';
 import { ScrollArea } from '@sensoro-design/react';
 import { Tags } from './components';
-import './demo.css';
+import styles from './demo.module.less';
 
 const meta = {
   title: 'Components/ScrollArea',
@@ -19,7 +19,7 @@ export default meta;
 
 export function Basic() {
   return (
-    <ScrollArea className="scroll-area-demo1">
+    <ScrollArea className={styles.demo1}>
       <Tags />
     </ScrollArea>
   );
@@ -28,11 +28,12 @@ export function Basic() {
 export function MaxHeight() {
   return (
     <ScrollArea
-      style={{
-        height: 'unset',
-        maxHeight: '18rem',
+      viewportProps={{
+        style: {
+          maxHeight: '18rem',
+        },
       }}
-      className="scroll-area-demo1 scroll-area-demo-max-height"
+      className={styles.demo2}
     >
       <Tags />
     </ScrollArea>
