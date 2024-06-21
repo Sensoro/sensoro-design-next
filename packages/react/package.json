@@ -1,7 +1,7 @@
 {
   "name": "@sensoro-design/react",
   "type": "module",
-  "version": "2.0.0-alpha.5",
+  "version": "2.0.0-alpha.6",
   "description": "Sensoro Design React UI Library.",
   "author": "SensoroDesign Team",
   "license": "MIT",
@@ -66,7 +66,7 @@
     }
   },
   "dependencies": {
-    "@lotus-design/react-primitives": "^0.0.2-alpha.2",
+    "@lotus-design/react-primitives": "^0.0.2-alpha.3",
     "@rcuse/core": "^0.19.0",
     "clsx": "^2.1.1",
     "dayjs": "^1.11.11"
