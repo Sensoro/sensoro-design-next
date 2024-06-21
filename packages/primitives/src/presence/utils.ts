@@ -1,4 +1,4 @@
-import React from 'react';
+import type React from 'react';
 
 export function getAnimationName(styles?: CSSStyleDeclaration) {
   return styles?.animationName || 'none';

@@ -6,6 +6,7 @@ import type { ScopedProps } from '../types';
 interface AutoHeightProps {}
 
 export function AutoHeight(props: ScopedProps<AutoHeightProps>) {
+  // eslint-disable-next-line react/prefer-destructuring-assignment
   const context = useScrollAreaContext('ScrollAreaScrollbar', props.__scopeScrollArea);
 
   const onResize = () => {
@@ -30,6 +31,7 @@ export function AutoHeight(props: ScopedProps<AutoHeightProps>) {
         window.removeEventListener('resize', onResize);
       };
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [context.scrollArea]);
 
   return null;
