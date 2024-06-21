@@ -67,7 +67,7 @@
   },
   "dependencies": {
     "@lotus-design/react-primitives": "^0.0.2-alpha.3",
-    "@rcuse/core": "^0.19.0",
+    "@rcuse/core": "^0.21.0",
     "clsx": "^2.1.1",
     "dayjs": "^1.11.11"
   },
