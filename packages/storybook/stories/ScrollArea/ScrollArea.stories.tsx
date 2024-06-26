@@ -1,7 +1,7 @@
 import React from 'react';
 import type { Meta } from '@storybook/react';
 import { ScrollArea } from '@sensoro-design/react';
-import { Tags } from './components';
+import { Box, Tags } from './components';
 import styles from './demo.module.less';
 
 const meta = {
@@ -25,6 +25,17 @@ export function Basic() {
   );
 }
 
+/**
+ * 禁用水平滚动条
+ */
+export function DisableHorizontalScrollbars() {
+  return (
+    <ScrollArea scrollbars="y" className={styles.demo2}>
+      <Box />
+    </ScrollArea>
+  );
+}
+
 export function MaxHeight() {
   return (
     <ScrollArea
@@ -33,7 +44,7 @@ export function MaxHeight() {
           maxHeight: '18rem',
         },
       }}
-      className={styles.demo2}
+      className={styles.demo3}
     >
       <Tags />
     </ScrollArea>

@@ -8,10 +8,9 @@
   },
   "scripts": {
     "bootstrap": "pnpm install",
-    "dev": "storybook dev -p 6006",
+    "dev": "pnpm sb",
     "start": "pnpm --filter=website run start",
-    "build:docs": "storybook build",
-    "build:primitives": "pnpm --filter=@lotus-design/react-primitives run build",
+    "build:docs": "pnpm build:sb",
     "build:react": "pnpm --filter=@sensoro-design/react run build",
     "example:vite": "pnpm --filter=@example/vite run start",
     "release": "pnpm release:build && pnpm release:version && pnpm release:publish",
