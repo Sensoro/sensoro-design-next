@@ -38,8 +38,8 @@ const InternalCompoundedScrollArea = forwardRef<
       {...props}
     >
       <Viewport
+        {...viewportProps}
         className={clsx(`${prefixCls}-viewport`, viewportProps?.className)}
-        style={viewportProps?.style}
       >
         {children}
       </Viewport>
