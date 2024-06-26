@@ -13,6 +13,7 @@ const InternalCompoundedScrollArea = forwardRef<
     className,
     children,
     viewportProps,
+    scrollbars = 'xy',
     size = 'default',
     theme = 'light',
     ...props
@@ -42,8 +43,15 @@ const InternalCompoundedScrollArea = forwardRef<
       >
         {children}
       </Viewport>
-      <ScrollBar orientation="vertical" />
-      <ScrollBar orientation="horizontal" />
+
+      {(scrollbars === 'xy' || scrollbars === 'x') && (
+        <ScrollBar orientation="horizontal" />
+      )}
+
+      {(scrollbars === 'xy' || scrollbars === 'y') && (
+        <ScrollBar orientation="vertical" />
+      )}
+
       <Corner />
     </Root>
   );

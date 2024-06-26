@@ -6,6 +6,7 @@ export interface ScrollAreaProps extends React.ComponentPropsWithoutRef<typeof R
     className?: string;
     style?: React.CSSProperties;
   };
+  scrollbars?: 'x' | 'y' | 'xy' | false;
   size?: 'small' | 'default';
   theme?: 'dark' | 'light';
 }
