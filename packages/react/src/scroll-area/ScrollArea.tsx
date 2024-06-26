@@ -12,6 +12,7 @@ const InternalCompoundedScrollArea = forwardRef<
   {
     className,
     children,
+    viewportRef,
     viewportProps,
     scrollbars = 'xy',
     size = 'default',
@@ -48,6 +49,7 @@ const InternalCompoundedScrollArea = forwardRef<
             y: e.currentTarget.scrollTop,
           });
         }}
+        ref={viewportRef}
       >
         {children}
       </Viewport>
