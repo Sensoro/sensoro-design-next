@@ -6,16 +6,11 @@ import { createStyleImportPlugin } from 'vite-plugin-style-import';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
-const designDir = join(__dirname, './packages/react/src');
-const primitivesDir = join(__dirname, './packages/primitives/src');
+const designDir = join(__dirname, '../react/src');
 
 export default defineConfig({
   resolve: {
     alias: [
-      {
-        find: '@lotus-design/react-primitives/es',
-        replacement: primitivesDir,
-      },
       {
         find: '@sensoro-design/react',
         replacement: designDir,

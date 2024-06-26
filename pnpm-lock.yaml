@@ -14,9 +14,6 @@ importers:
       '@antfu/ni':
         specifier: ^0.21.12
         version: 0.21.12
-      '@chromatic-com/storybook':
-        specifier: ^1.5.0
-        version: 1.5.0(react@18.3.1)
       '@commitlint/cli':
         specifier: ^19.3.0
         version: 19.3.0(@types/node@20.12.12)(typescript@5.4.5)
@@ -38,36 +35,6 @@ importers:
       '@rollup/plugin-replace':
         specifier: ^5.0.7
         version: 5.0.7(rollup@4.18.0)
-      '@storybook/addon-essentials':
-        specifier: ^8.1.10
-        version: 8.1.10(@types/react-dom@18.3.0)(@types/react@18.3.3)(prettier@3.3.1)(react-dom@18.3.1)(react@18.3.1)
-      '@storybook/addon-interactions':
-        specifier: ^8.1.10
-        version: 8.1.10(vitest@1.6.0)
-      '@storybook/addon-links':
-        specifier: ^8.1.10
-        version: 8.1.10(react@18.3.1)
-      '@storybook/addon-onboarding':
-        specifier: ^8.1.10
-        version: 8.1.10(react@18.3.1)
-      '@storybook/blocks':
-        specifier: ^8.1.10
-        version: 8.1.10(@types/react-dom@18.3.0)(@types/react@18.3.3)(prettier@3.3.1)(react-dom@18.3.1)(react@18.3.1)
-      '@storybook/manager-api':
-        specifier: ^8.1.10
-        version: 8.1.10(react-dom@18.3.1)(react@18.3.1)
-      '@storybook/react':
-        specifier: ^8.1.10
-        version: 8.1.10(prettier@3.3.1)(react-dom@18.3.1)(react@18.3.1)(typescript@5.4.5)
-      '@storybook/react-vite':
-        specifier: ^8.1.10
-        version: 8.1.10(prettier@3.3.1)(react-dom@18.3.1)(react@18.3.1)(rollup@4.18.0)(typescript@5.4.5)(vite@5.2.0)
-      '@storybook/test':
-        specifier: ^8.1.10
-        version: 8.1.10(vitest@1.6.0)
-      '@storybook/theming':
-        specifier: ^8.1.10
-        version: 8.1.10(react-dom@18.3.1)(react@18.3.1)
       '@testing-library/cypress':
         specifier: ^10.0.2
         version: 10.0.2(cypress@13.11.0)
@@ -292,29 +259,11 @@ importers:
         specifier: ^4.3.2
         version: 4.3.2(typescript@5.4.5)(vite@5.2.0)
 
-  packages/primitives:
-    dependencies:
-      '@rcuse/core':
-        specifier: ^0.22.0
-        version: 0.22.0
-      '@types/react':
-        specifier: '*'
-        version: 18.3.3
-      '@types/react-dom':
-        specifier: '*'
-        version: 18.3.0
-      react:
-        specifier: '>=16.9.0'
-        version: 18.3.1
-      react-dom:
-        specifier: '>=16.9.0'
-        version: 18.3.1(react@18.3.1)
-
   packages/react:
     dependencies:
       '@lotus-design/react-primitives':
         specifier: ^0.0.2-alpha.3
-        version: link:../primitives
+        version: 0.0.2-alpha.3(@types/react-dom@18.3.0)(@types/react@18.3.3)(react-dom@18.3.1)(react@18.3.1)
       '@rcuse/core':
         specifier: ^0.22.0
         version: 0.22.0
@@ -336,6 +285,61 @@ importers:
       react-dom:
         specifier: '>=16.9.0'
         version: 18.3.1(react@18.3.1)
+
+  packages/storybook:
+    dependencies:
+      '@rcuse/core':
+        specifier: ^0.22.0
+        version: 0.22.0
+      clsx:
+        specifier: ^2.1.1
+        version: 2.1.1
+    devDependencies:
+      '@chromatic-com/storybook':
+        specifier: ^1.5.0
+        version: 1.5.0(react@18.3.1)
+      '@storybook/addon-essentials':
+        specifier: ^8.1.10
+        version: 8.1.10(@types/react-dom@18.3.0)(@types/react@18.3.3)(prettier@3.3.1)(react-dom@18.3.1)(react@18.3.1)
+      '@storybook/addon-interactions':
+        specifier: ^8.1.10
+        version: 8.1.10(vitest@1.6.0)
+      '@storybook/addon-links':
+        specifier: ^8.1.10
+        version: 8.1.10(react@18.3.1)
+      '@storybook/addon-onboarding':
+        specifier: ^8.1.10
+        version: 8.1.10(react@18.3.1)
+      '@storybook/blocks':
+        specifier: ^8.1.10
+        version: 8.1.10(@types/react-dom@18.3.0)(@types/react@18.3.3)(prettier@3.3.1)(react-dom@18.3.1)(react@18.3.1)
+      '@storybook/manager-api':
+        specifier: ^8.1.10
+        version: 8.1.10(react-dom@18.3.1)(react@18.3.1)
+      '@storybook/react':
+        specifier: ^8.1.10
+        version: 8.1.10(prettier@3.3.1)(react-dom@18.3.1)(react@18.3.1)(typescript@5.4.5)
+      '@storybook/react-vite':
+        specifier: ^8.1.10
+        version: 8.1.10(prettier@3.3.1)(react-dom@18.3.1)(react@18.3.1)(rollup@4.18.0)(typescript@5.4.5)(vite@5.2.0)
+      '@storybook/test':
+        specifier: ^8.1.10
+        version: 8.1.10(vitest@1.6.0)
+      '@storybook/theming':
+        specifier: ^8.1.10
+        version: 8.1.10(react-dom@18.3.1)(react@18.3.1)
+      autoprefixer:
+        specifier: ^10.4.19
+        version: 10.4.19(postcss@8.4.38)
+      postcss:
+        specifier: ^8.4.38
+        version: 8.4.38
+      storybook:
+        specifier: ^8.1.10
+        version: 8.1.10(react-dom@18.3.1)(react@18.3.1)
+      vite:
+        specifier: ^5.2.0
+        version: 5.2.0(@types/node@20.12.12)(less@4.2.0)
 
   scripts: {}
 
@@ -3910,6 +3914,26 @@ packages:
       - typescript
     dev: true
 
+  /@lotus-design/react-primitives@0.0.2-alpha.3(@types/react-dom@18.3.0)(@types/react@18.3.3)(react-dom@18.3.1)(react@18.3.1):
+    resolution: {integrity: sha512-mcLdvnDBX9AgxSsr/13FxgcB/49qazHnty1ChcGoqP8yWvCVaso4QOcI/oQMIo8Mlw2P0+prcoEd8+8+gjjoQA==}
+    peerDependencies:
+      '@types/react': '*'
+      '@types/react-dom': '*'
+      react: '>=16.9.0'
+      react-dom: '>=16.9.0'
+    peerDependenciesMeta:
+      '@types/react':
+        optional: true
+      '@types/react-dom':
+        optional: true
+    dependencies:
+      '@rcuse/core': 0.19.0
+      '@types/react': 18.3.3
+      '@types/react-dom': 18.3.0
+      react: 18.3.1
+      react-dom: 18.3.1(react@18.3.1)
+    dev: false
+
   /@mdx-js/mdx@3.0.1:
     resolution: {integrity: sha512-eIQ4QTrOWyL3LWEe/bu6Taqzq2HQvHcyTMaOrI95P2/LmJE7AsfPfgJGuFLPVqBUE1BC1rik3VIhU+s9u72arA==}
     dependencies:
@@ -4287,7 +4311,7 @@ packages:
       '@octokit/request-error': 3.0.3
       '@octokit/types': 9.3.2
       is-plain-object: 5.0.0
-      node-fetch: 2.6.7
+      node-fetch: 2.7.0
       universal-user-agent: 6.0.1
     transitivePeerDependencies:
       - encoding
@@ -4617,10 +4641,24 @@ packages:
       react: 18.3.1
     dev: true
 
+  /@rcuse/core@0.19.0:
+    resolution: {integrity: sha512-KseIuc/YC8jn+MszNFetrkwur5ZzwVNYjGS/8/IRzCPGMQhLEC3qxpWK116MvgDow91dNZMVl5gpbGMMB6DP/A==}
+    dependencies:
+      '@rcuse/shared': 0.19.0
+    dev: false
+
   /@rcuse/core@0.22.0:
     resolution: {integrity: sha512-Ouf7sGbR5ZMuY2P3nZE6f7b/yfV2kyyyb6UdtdU1QKtsnUzOcFEMfqPODMesmnafTB1LMrsn+j3jjw2pb9Xftw==}
     dependencies:
       '@rcuse/shared': 0.22.0
+    dev: false
+
+  /@rcuse/shared@0.19.0:
+    resolution: {integrity: sha512-ylavR80+r/JXBMwg44PpDSqAe9Y2vWnt+f9yMiaQkYqCGNwMU9rUk+190dSdhZdpIDQVJzHEY7ypASElQsPOyQ==}
+    dependencies:
+      radash: 12.1.0
+      type-fest: 4.20.1
+      user-agent-data-types: 0.4.2
     dev: false
 
   /@rcuse/shared@0.22.0:
@@ -6212,7 +6250,7 @@ packages:
   /@types/clean-css@4.2.11:
     resolution: {integrity: sha512-Y8n81lQVTAfP2TOdtJJEsCoYl1AnOkqDqMvXb9/7pfgZZ7r8YrEyurrAvAoAjHOGXKRybay+5CsExqIH6liccw==}
     dependencies:
-      '@types/node': 20.12.12
+      '@types/node': 20.14.7
       source-map: 0.6.1
     dev: true
 
@@ -6231,13 +6269,13 @@ packages:
   /@types/conventional-commits-parser@5.0.0:
     resolution: {integrity: sha512-loB369iXNmAZglwWATL+WRe+CRMmmBPtpolYzIebFaX4YA3x+BEfLqhUAV9WanycKI3TG1IMr5bMJDajDKLlUQ==}
     dependencies:
-      '@types/node': 20.12.12
+      '@types/node': 20.14.7
     dev: true
 
   /@types/cross-spawn@6.0.6:
     resolution: {integrity: sha512-fXRhhUkG4H3TQk5dBhQ7m/JDdSNHKwR2BBia62lhwEIq9xGiQKLxd6LymNhn47SjXhsUEPmxi+PKw2OkW4LLjA==}
     dependencies:
-      '@types/node': 20.12.12
+      '@types/node': 20.14.7
     dev: true
 
   /@types/debug@4.1.12:
@@ -6326,14 +6364,14 @@ packages:
     requiresBuild: true
     dependencies:
       '@types/jsonfile': 6.1.4
-      '@types/node': 20.12.12
+      '@types/node': 20.14.7
     dev: true
     optional: true
 
   /@types/glob-stream@8.0.2:
     resolution: {integrity: sha512-kyuRfGE+yiSJWzSO3t74rXxdZNdYfLcllO0IUha4eX1fl40pm9L02Q/TEc3mykTLjoWz4STBNwYnUWdFu3I0DA==}
     dependencies:
-      '@types/node': 20.12.12
+      '@types/node': 20.14.7
       '@types/picomatch': 2.3.3
       '@types/streamx': 2.9.5
     dev: true
@@ -6342,7 +6380,7 @@ packages:
     resolution: {integrity: sha512-ZUxbzKl0IfJILTS6t7ip5fQQM/J3TJYubDm3nMbgubNNYS62eXeUpoLUC8/7fJNiFYHTrGPQn7hspDUzIHX3UA==}
     dependencies:
       '@types/minimatch': 5.1.2
-      '@types/node': 20.12.12
+      '@types/node': 20.14.7
     dev: true
 
   /@types/gtag.js@0.0.12:
@@ -6427,7 +6465,7 @@ packages:
     resolution: {integrity: sha512-D5qGUYwjvnNNextdU59/+fI+spnwtTFmyQP0h+PfIOSkNfpU6AOICUOkm4i0OnSk+NyjdPJrxCDro0sJsWlRpQ==}
     requiresBuild: true
     dependencies:
-      '@types/node': 20.12.12
+      '@types/node': 20.14.7
     dev: true
     optional: true
 
@@ -6612,7 +6650,7 @@ packages:
   /@types/streamx@2.9.5:
     resolution: {integrity: sha512-IHYsa6jYrck8VEdSwpY141FTTf6D7boPeMq9jy4qazNrFMA4VbRz/sw5LSsfR7jwdDcx0QKWkUexZvsWBC2eIQ==}
     dependencies:
-      '@types/node': 20.12.12
+      '@types/node': 20.14.7
     dev: true
 
   /@types/undertaker-registry@1.0.4:
@@ -6622,7 +6660,7 @@ packages:
   /@types/undertaker@1.2.11:
     resolution: {integrity: sha512-j1Z0V2ByRHr8ZK7eOeGq0LGkkdthNFW0uAZGY22iRkNQNL9/vAV0yFPr1QN3FM/peY5bxs9P+1f0PYJTQVa5iA==}
     dependencies:
-      '@types/node': 20.12.12
+      '@types/node': 20.14.7
       '@types/undertaker-registry': 1.0.4
       async-done: 1.3.2
     dev: true
@@ -6641,7 +6679,7 @@ packages:
     resolution: {integrity: sha512-ckYz9giHgV6U10RFuf9WsDQ3X86EFougapxHmmoxLK7e6ICQqO8CE+4V/3lBN148V5N1pb4nQMmMjyScleVsig==}
     dependencies:
       '@types/glob-stream': 8.0.2
-      '@types/node': 20.12.12
+      '@types/node': 20.14.7
       '@types/vinyl': 2.0.12
     dev: true
 
@@ -6649,7 +6687,7 @@ packages:
     resolution: {integrity: sha512-Sr2fYMBUVGYq8kj3UthXFAu5UN6ZW+rYr4NACjZQJvHvj+c8lYv0CahmZ2P/r7iUkN44gGUBwqxZkrKXYPb7cw==}
     dependencies:
       '@types/expect': 1.20.4
-      '@types/node': 20.12.12
+      '@types/node': 20.14.7
     dev: true
 
   /@types/ws@8.5.10:
@@ -6672,7 +6710,7 @@ packages:
     resolution: {integrity: sha512-oJoftv0LSuaDZE3Le4DbKX+KS9G36NzOeSap90UIK0yMA/NhKJhqlSGtNDORNRaIbQfzjXDrQa0ytJ6mNRGz/Q==}
     requiresBuild: true
     dependencies:
-      '@types/node': 20.12.12
+      '@types/node': 20.14.7
     dev: true
     optional: true
 
@@ -13116,7 +13154,7 @@ packages:
     hasBin: true
     dependencies:
       async: 3.2.5
-      chalk: 4.1.0
+      chalk: 4.1.2
       filelist: 1.0.4
       minimatch: 3.1.2
     dev: true
@@ -13125,7 +13163,7 @@ packages:
     resolution: {integrity: sha512-LMIgiIrhigmPrs03JHpxUh2yISK3vLFPkAodPeo0+BuF7wA2FoQbkEg1u8gBYBThncu7e1oEDUfIXVuTqLRUjw==}
     engines: {node: ^14.15.0 || ^16.10.0 || >=18.0.0}
     dependencies:
-      chalk: 4.1.0
+      chalk: 4.1.2
       diff-sequences: 29.6.3
       jest-get-type: 29.6.3
       pretty-format: 29.7.0
@@ -15323,7 +15361,7 @@ packages:
       '@yarnpkg/parsers': 3.0.0-rc.46
       '@zkochan/js-yaml': 0.0.7
       axios: 1.7.2
-      chalk: 4.1.0
+      chalk: 4.1.2
       cli-cursor: 3.1.0
       cli-spinners: 2.6.1
       cliui: 8.0.1
@@ -15489,7 +15527,7 @@ packages:
     engines: {node: '>=10'}
     dependencies:
       bl: 4.1.0
-      chalk: 4.1.0
+      chalk: 4.1.2
       cli-cursor: 3.1.0
       cli-spinners: 2.6.1
       is-interactive: 1.0.0
@@ -20565,5 +20603,5 @@ packages:
     hasBin: true
     optionalDependencies:
       '@types/fs-extra': 11.0.4
-      '@types/node': 20.12.12
+      '@types/node': 20.14.7
     dev: true
