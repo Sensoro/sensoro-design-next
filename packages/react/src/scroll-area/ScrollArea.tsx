@@ -16,6 +16,7 @@ const InternalCompoundedScrollArea = forwardRef<
     scrollbars = 'xy',
     size = 'default',
     theme = 'light',
+    onScrollPositionChange,
     ...props
   },
   ref,
@@ -40,6 +41,13 @@ const InternalCompoundedScrollArea = forwardRef<
       <Viewport
         {...viewportProps}
         className={clsx(`${prefixCls}-viewport`, viewportProps?.className)}
+        onScroll={(e) => {
+          viewportProps?.onScroll?.(e);
+          onScrollPositionChange?.({
+            x: e.currentTarget.scrollLeft,
+            y: e.currentTarget.scrollTop,
+          });
+        }}
       >
         {children}
       </Viewport>
