@@ -1,23 +1,23 @@
 import React, { forwardRef } from 'react';
-import { ScrollAreaScrollbar, ScrollAreaThumb } from '@lotus-design/react-primitives/es/scroll-area';
+import * as ScrollAreaPrimitive from '@lotus-design/react-primitives/es/scroll-area';
 import { useConfigContext } from '../config-provider';
 
 export const ScrollBar = forwardRef<
-  React.ElementRef<typeof ScrollAreaScrollbar>,
-  React.ComponentPropsWithoutRef<typeof ScrollAreaScrollbar>
+  React.ElementRef<typeof ScrollAreaPrimitive.Scrollbar>,
+  React.ComponentPropsWithoutRef<typeof ScrollAreaPrimitive.Scrollbar>
 >(({ className, ...props }, ref) => {
   const { getPrefixCls } = useConfigContext('ScrollArea');
   const prefixCls = getPrefixCls!('scroll-area');
 
   return (
-    <ScrollAreaScrollbar
+    <ScrollAreaPrimitive.Scrollbar
       ref={ref}
       className={`${prefixCls}-scrollbar`}
       {...props}
     >
-      <ScrollAreaThumb className={`${prefixCls}-thumb`} />
-    </ScrollAreaScrollbar>
+      <ScrollAreaPrimitive.Thumb className={`${prefixCls}-thumb`} />
+    </ScrollAreaPrimitive.Scrollbar>
   );
 });
 
-ScrollBar.displayName = ScrollAreaScrollbar.displayName;
+ScrollBar.displayName = ScrollAreaPrimitive.Scrollbar.displayName;

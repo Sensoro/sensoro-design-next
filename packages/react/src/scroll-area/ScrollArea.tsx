@@ -1,12 +1,12 @@
 import React, { forwardRef } from 'react';
 import { clsx } from 'clsx';
-import { AutoHeight, Corner, Root, Viewport, useScrollAreaContext } from '@lotus-design/react-primitives/es/scroll-area';
+import * as ScrollAreaPrimitive from '@lotus-design/react-primitives/es/scroll-area';
 import { useConfigContext } from '../config-provider';
 import { ScrollBar } from './ScrollBar';
 import type { ScrollAreaProps } from './interface';
 
-const InternalCompoundedScrollArea = forwardRef<
-  React.ElementRef<typeof Root>,
+export const ScrollArea = forwardRef<
+  React.ElementRef<typeof ScrollAreaPrimitive.Root>,
   ScrollAreaProps
 >((
   {
@@ -27,7 +27,7 @@ const InternalCompoundedScrollArea = forwardRef<
   const prefixCls = getPrefixCls!('scroll-area');
 
   return (
-    <Root
+    <ScrollAreaPrimitive.Root
       ref={ref}
       className={clsx(
         prefixCls,
@@ -39,7 +39,7 @@ const InternalCompoundedScrollArea = forwardRef<
       )}
       {...props}
     >
-      <Viewport
+      <ScrollAreaPrimitive.Viewport
         {...viewportProps}
         className={clsx(`${prefixCls}-viewport`, viewportProps?.className)}
         onScroll={(e) => {
@@ -52,7 +52,7 @@ const InternalCompoundedScrollArea = forwardRef<
         ref={viewportRef}
       >
         {children}
-      </Viewport>
+      </ScrollAreaPrimitive.Viewport>
 
       {(scrollbars === 'xy' || scrollbars === 'x') && (
         <ScrollBar orientation="horizontal" />
@@ -62,20 +62,7 @@ const InternalCompoundedScrollArea = forwardRef<
         <ScrollBar orientation="vertical" />
       )}
 
-      <Corner />
-    </Root>
+      <ScrollAreaPrimitive.Corner />
+    </ScrollAreaPrimitive.Root>
   );
 });
-
-type CompoundedComponent = typeof InternalCompoundedScrollArea & {
-  AutoHeight: typeof AutoHeight;
-  useScrollAreaContext: typeof useScrollAreaContext;
-};
-
-const ScrollArea = InternalCompoundedScrollArea as CompoundedComponent;
-
-ScrollArea.AutoHeight = AutoHeight;
-ScrollArea.useScrollAreaContext = useScrollAreaContext;
-ScrollArea.displayName = Root.displayName;
-
-export default ScrollArea;
