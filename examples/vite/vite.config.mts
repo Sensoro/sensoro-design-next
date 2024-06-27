@@ -9,7 +9,6 @@ import react from '@vitejs/plugin-react';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
-const primitivesDir = join(__dirname, '../../packages/primitives/src');
 const lotusDesignDir = join(__dirname, '../../packages/react/src');
 const pathResolve = (pathname: string) => resolve(__dirname, '.', pathname);
 
@@ -17,10 +16,6 @@ const pathResolve = (pathname: string) => resolve(__dirname, '.', pathname);
 export default defineConfig({
   resolve: {
     alias: [
-      {
-        find: '@lotus-design/react-primitives/es',
-        replacement: primitivesDir,
-      },
       {
         find: '@sensoro-design/react',
         replacement: lotusDesignDir,

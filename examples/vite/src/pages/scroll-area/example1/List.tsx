@@ -26,15 +26,11 @@ export function List() {
   }, []);
 
   return (
-    <ScrollArea
-      style={{
-        height: '100%',
-        width: '100%',
-      }}
+    <ScrollArea.Autosize
       type="always"
       theme="dark"
+      style={{ width: '100%' }}
     >
-      <ScrollArea.AutoHeight />
       {list.map((_, index) => {
         return (
           <p key={index}>
@@ -43,6 +39,6 @@ export function List() {
           </p>
         );
       })}
-    </ScrollArea>
+    </ScrollArea.Autosize>
   );
 }

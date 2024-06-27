@@ -2,7 +2,7 @@ import { useState } from 'react';
 import styles from './index.module.css';
 import { List } from './List';
 
-const Example = () => {
+function Example() {
   const [open, setOpen] = useState(false);
 
   return (
@@ -18,7 +18,7 @@ const Example = () => {
             <p>信息占位5</p>
             <button
               onClick={() => {
-                setOpen((prev) => !prev);
+                setOpen(prev => !prev);
               }}
             >
               {open ? '隐藏' : '展开'}
@@ -40,6 +40,6 @@ const Example = () => {
       </div>
     </div>
   );
-};
+}
 
 export default Example;
