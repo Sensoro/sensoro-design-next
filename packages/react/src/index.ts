@@ -6,3 +6,6 @@ export type { WatermarkProps } from './watermark';
 
 export { default as Divider } from './divider';
 export { default as AspectRatio } from './aspect-ratio';
+
+export { NumberFormatter } from './number-formatter';
+export type { NumberFormatterProps } from './number-formatter';
