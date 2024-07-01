@@ -1,14 +1,13 @@
-import React, { forwardRef } from 'react';
+import React from 'react';
 import { clsx } from 'clsx';
 import * as ScrollAreaPrimitive from '@lotus-design/react-primitives/es/scroll-area';
 import { useConfigContext } from '../config-provider';
+import { factory } from '../helpers/factory';
 import { ScrollBar } from './ScrollBar';
-import type { ScrollAreaProps } from './interface';
 
-export const ScrollArea = forwardRef<
-  React.ElementRef<typeof ScrollAreaPrimitive.Root>,
-  ScrollAreaProps
->((
+import type { ScrollAreaFactory } from './interface';
+
+export const ScrollArea = factory<ScrollAreaFactory>((
   {
     className,
     children,
