@@ -6,6 +6,7 @@
     "build": "storybook build"
   },
   "dependencies": {
+    "@arco-design/web-react": "^2.63.0",
     "@rcuse/core": "^0.24.0",
     "clsx": "^2.1.1"
   },
