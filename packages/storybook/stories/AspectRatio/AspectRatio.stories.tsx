@@ -1,8 +1,10 @@
 import '@lotus-design/react-primitives/es/context';
 import React from 'react';
+import { Space } from '@arco-design/web-react';
 import { Map } from '@pansy/react-amap';
 import type { Meta } from '@storybook/react';
 import { AspectRatio } from '@sensoro-design/react';
+import { Player as PlayerCom } from './components';
 import styles from './demo.module.less';
 
 const meta = {
@@ -34,10 +36,34 @@ export function Basic() {
 
 export function AMap() {
   return (
-    <div className={styles.container} style={{ width: 500 }}>
-      <AspectRatio ratio={16 / 9}>
-        <Map />
-      </AspectRatio>
-    </div>
+    <Space direction="vertical">
+      <div className={styles.container} style={{ width: 500 }}>
+        <AspectRatio ratio={16 / 9}>
+          <Map />
+        </AspectRatio>
+      </div>
+      <div className={styles.container} style={{ width: 500 }}>
+        <AspectRatio ratio={4 / 3}>
+          <Map />
+        </AspectRatio>
+      </div>
+    </Space>
+  );
+}
+
+export function Player() {
+  return (
+    <Space direction="vertical">
+      <div className={styles.container} style={{ width: 500 }}>
+        <AspectRatio ratio={16 / 9}>
+          <PlayerCom />
+        </AspectRatio>
+      </div>
+      <div className={styles.container} style={{ width: 500 }}>
+        <AspectRatio ratio={4 / 3}>
+          <PlayerCom />
+        </AspectRatio>
+      </div>
+    </Space>
   );
 }
