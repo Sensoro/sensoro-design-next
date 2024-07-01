@@ -1,8 +1,9 @@
 import React from 'react';
 import { NumericFormat } from 'react-number-format';
-import type { NumberFormatterProps } from './interface';
+import { factory } from '../helpers/factory';
+import type { NumberFormatterFactory } from './interface';
 
-export function NumberFormatter(props: NumberFormatterProps) {
+export const NumberFormatter = factory<NumberFormatterFactory>((props) => {
   const { value, defaultValue, ...others } = props;
 
   if (value === undefined) {
@@ -10,4 +11,4 @@ export function NumberFormatter(props: NumberFormatterProps) {
   }
 
   return <NumericFormat displayType="text" value={value} {...others} />;
-}
+});

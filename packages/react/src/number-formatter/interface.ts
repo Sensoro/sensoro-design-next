@@ -1,4 +1,5 @@
 import type React from 'react';
+import type { Factory } from '../helpers/factory';
 
 export interface NumberFormatterProps extends React.ComponentPropsWithoutRef<'span'> {
   value?: number | string;
@@ -11,3 +12,7 @@ export interface NumberFormatterProps extends React.ComponentPropsWithoutRef<'sp
   thousandsGroupStyle?: 'thousand' | 'lakh' | 'wan' | 'none';
   thousandSeparator?: string | boolean;
 }
+
+export type NumberFormatterFactory = Factory<{
+  props: NumberFormatterProps;
+}>;
