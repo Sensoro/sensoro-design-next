@@ -1,5 +1,11 @@
-import * as AspectRatioPrimitive from '@lotus-design/react-primitives/es/aspect-ratio'
+import { AspectRatio } from './AspectRatio';
+import type { AspectRatioProps } from './interface';
 
-const AspectRatio = AspectRatioPrimitive.Root
+export {
+  AspectRatio,
+};
+export type {
+  AspectRatioProps,
+};
 
-export default AspectRatio
+export default AspectRatio;
