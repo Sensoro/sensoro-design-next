@@ -27,19 +27,35 @@ export function Basic() {
   );
 }
 
+/**
+ * 大小示例
+ */
 export function Size() {
   return (
-    <Space>
-      <ScrollArea className={styles.demo1}>
-        <Tags />
-      </ScrollArea>
-      <ScrollArea size="small" className={styles.demo1}>
-        <Tags />
-      </ScrollArea>
+    <Space direction="vertical">
+      <Space>
+        <ScrollArea className={styles.demo1}>
+          <Tags />
+        </ScrollArea>
+        <ScrollArea size="small" className={styles.demo1}>
+          <Tags />
+        </ScrollArea>
+      </Space>
+      <Space>
+        <ScrollArea type="always" className={styles.demo1}>
+          <Tags />
+        </ScrollArea>
+        <ScrollArea type="always" size="small" className={styles.demo1}>
+          <Tags />
+        </ScrollArea>
+      </Space>
     </Space>
   );
 }
 
+/**
+ * 类型示例，设置滚动条的显示策略
+ */
 export function Type() {
   return (
     <Space>
@@ -62,19 +78,37 @@ export function Type() {
   );
 }
 
+/**
+ * 主题示例、目前仅支持暗黑主题及明亮主题
+ */
 export function Theme() {
   return (
-    <Space>
-      <ScrollArea className={styles.demo1}>
-        <Tags />
-      </ScrollArea>
-      <ScrollArea
-        theme="dark"
-        className={styles.demo1}
-        style={{ background: 'rgb(26, 38, 61)' }}
-      >
-        <Tags />
-      </ScrollArea>
+    <Space direction="vertical">
+      <Space>
+        <ScrollArea className={styles.demo1}>
+          <Tags />
+        </ScrollArea>
+        <ScrollArea
+          theme="dark"
+          className={styles.demo1}
+          style={{ background: 'rgb(26, 38, 61)' }}
+        >
+          <Tags />
+        </ScrollArea>
+      </Space>
+      <Space>
+        <ScrollArea type="always" className={styles.demo1}>
+          <Tags />
+        </ScrollArea>
+        <ScrollArea
+          type="always"
+          theme="dark"
+          className={styles.demo1}
+          style={{ background: 'rgb(26, 38, 61)' }}
+        >
+          <Tags />
+        </ScrollArea>
+      </Space>
     </Space>
   );
 }
