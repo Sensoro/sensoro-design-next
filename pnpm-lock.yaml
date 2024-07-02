@@ -53,6 +53,9 @@ importers:
       '@total-typescript/ts-reset':
         specifier: ^0.5.1
         version: 0.5.1
+      '@types/fs-extra':
+        specifier: ^11.0.4
+        version: 11.0.4
       '@types/gulp':
         specifier: ^4.0.17
         version: 4.0.17
@@ -74,6 +77,12 @@ importers:
       '@types/react-dom':
         specifier: ^18.3.0
         version: 18.3.0
+      '@types/signale':
+        specifier: ^1.4.7
+        version: 1.4.7
+      '@types/yargs':
+        specifier: ^17.0.32
+        version: 17.0.32
       '@vitest/ui':
         specifier: ^1.6.0
         version: 1.6.0(vitest@1.6.0)
@@ -119,6 +128,9 @@ importers:
       fast-glob:
         specifier: ^3.3.2
         version: 3.3.2
+      fs-extra:
+        specifier: ^11.2.0
+        version: 11.2.0
       gulp:
         specifier: ^5.0.0
         version: 5.0.0
@@ -152,6 +164,9 @@ importers:
       lint-staged:
         specifier: ^15.2.7
         version: 15.2.7
+      new-github-release-url:
+        specifier: ^2.0.0
+        version: 2.0.0
       ora:
         specifier: ^8.0.1
         version: 8.0.1
@@ -191,6 +206,12 @@ importers:
       rollup-plugin-preserve-directives:
         specifier: ^0.4.0
         version: 0.4.0(rollup@4.18.0)
+      signale:
+        specifier: ^1.4.0
+        version: 1.4.0
+      simple-git:
+        specifier: ^3.25.0
+        version: 3.25.0
       stylelint:
         specifier: ^16.6.1
         version: 16.6.1(typescript@5.5.3)
@@ -215,6 +236,9 @@ importers:
       typescript:
         specifier: ^5.4.5
         version: 5.5.3
+      version-next:
+        specifier: ^1.0.2
+        version: 1.0.2
       vite:
         specifier: ^5.3.2
         version: 5.3.2(@types/node@20.14.9)(less@4.2.0)(sugarss@4.0.1(postcss@8.4.39))(terser@5.31.1)
@@ -227,6 +251,9 @@ importers:
       walrus:
         specifier: workspace:*
         version: link:scripts
+      yargs:
+        specifier: ^17.7.2
+        version: 17.7.2
       zx:
         specifier: ^8.1.3
         version: 8.1.3
@@ -235,7 +262,7 @@ importers:
     dependencies:
       '@sensoro-design/react':
         specifier: workspace:*
-        version: link:../../packages/react
+        version: link:../../packages/@sensoro-design/react
       '@unocss/reset':
         specifier: ^0.60.3
         version: 0.60.4
@@ -259,7 +286,7 @@ importers:
         specifier: ^4.3.2
         version: 4.3.2(typescript@5.5.3)(vite@5.3.2(@types/node@20.14.9)(less@4.2.0)(sugarss@4.0.1(postcss@8.4.39))(terser@5.31.1))
 
-  packages/react:
+  packages/@sensoro-design/react:
     dependencies:
       '@floating-ui/react':
         specifier: ^0.26.19
@@ -389,7 +416,7 @@ importers:
         version: 3.0.1(@types/react@18.3.3)(react@18.3.1)
       '@sensoro-design/react':
         specifier: workspace:*
-        version: link:../packages/react
+        version: link:../packages/@sensoro-design/react
       clsx:
         specifier: ^2.0.0
         version: 2.1.1
@@ -1990,6 +2017,12 @@ packages:
     resolution: {integrity: sha512-f5DRIOZf7wxogefH03RjMPMdBF7ADTWUMoOs9kaJo06EfwF+aFhMZMDZxHg/Xe12hptN9xoZjGso2fdjapBRIA==}
     engines: {node: '>=10'}
 
+  '@kwsites/file-exists@1.1.1':
+    resolution: {integrity: sha512-m9/5YGR18lIwxSFDwfE3oA7bWuq9kdau6ugN4H2rJeyhFQZcG9AgSHkQtSD15a8WvTgfz9aikZMrKPHvbpqFiw==}
+
+  '@kwsites/promise-deferred@1.1.1':
+    resolution: {integrity: sha512-GaHYm+c0O9MjZRu0ongGBRbinu8gVAMd2UZjji6jVmqKtZluZnptXGWhz1E8j8D2HJ3f/yMxKAUC0b+57wncIw==}
+
   '@leichtgewicht/ip-codec@2.0.5':
     resolution: {integrity: sha512-Vo+PSpZG2/fmgmiNzYK9qWRh8h/CHrwD0mo1h1DzL4yzHNSfWYujGTYsWGreD000gcgmZ7K4Ys6Tx9TxtsKdDw==}
 
@@ -3292,6 +3325,9 @@ packages:
 
   '@types/serve-static@1.15.7':
     resolution: {integrity: sha512-W8Ym+h8nhuRwaKPaDw34QUkwsGi6Rc4yYqvKFo5rm2FUEhCFbzVWrxXUxuKK8TASjWsysJY0nsmNCGhCOIsrOw==}
+
+  '@types/signale@1.4.7':
+    resolution: {integrity: sha512-nc0j37QupTT7OcYeH3gRE1ZfzUalEUsDKJsJ3IsJr0pjjFZTjtrX1Bsn6Kv56YXI/H9rNSwAkIPRxNlZI8GyQw==}
 
   '@types/sinonjs__fake-timers@8.1.1':
     resolution: {integrity: sha512-0kSuKjAS0TrGLJ0M/+8MaFkGsQhZpB6pxOmvS3K8FYI72K//YmdfoW9X2qPsAKh1mkwxGD5zib9s1FIFed6E8g==}
@@ -5589,6 +5625,10 @@ packages:
   fflate@0.8.2:
     resolution: {integrity: sha512-cPJU47OaAoCbg0pBvzsgpTPhmhqI5eJjh/JIu8tPj5q+T7iLvW/JAYUqmE7KOB4R1ZyEhzBaIQpQpardBF5z8A==}
 
+  figures@2.0.0:
+    resolution: {integrity: sha512-Oa2M9atig69ZkfwiApY8F2Yy+tzMbazyvqv21R0NsSC8floSOC09BbT1ITWAdoMGQvJ/aZnR1KMwdx9tvHnTNA==}
+    engines: {node: '>=4'}
+
   figures@3.2.0:
     resolution: {integrity: sha512-yaduQFRKLXYOGgEn6AZau90j3ggSOyiqXU0F9JZfeXYhNa+Jk4X+s45A2zg5jns87GAFa34BBm2kXw4XpNcbdg==}
     engines: {node: '>=8'}
@@ -7639,6 +7679,10 @@ packages:
   neo-async@2.6.2:
     resolution: {integrity: sha512-Yd3UES5mWCSqR+qNT93S3UoYUkqAZ9lLg8a7g9rimsWmYGK8cVToA4/sF3RrshdyV3sAGMXVUmpMYOw+dLpOuw==}
 
+  new-github-release-url@2.0.0:
+    resolution: {integrity: sha512-NHDDGYudnvRutt/VhKFlX26IotXe1w0cmkDm6JGquh5bz/bDTw0LufSmH/GxTjEdpHEO+bVKFTwdrcGa/9XlKQ==}
+    engines: {node: ^12.20.0 || ^14.13.1 || >=16.0.0}
+
   next-tick@1.1.0:
     resolution: {integrity: sha512-CXdUiJembsNjuToQvxayPZF9Vqht7hewsvy2sOWafLvi2awflj9mOC6bHIg50orX8IJvWKY9wYQ/zB2kogPslQ==}
 
@@ -8183,6 +8227,10 @@ packages:
   pirates@4.0.6:
     resolution: {integrity: sha512-saLsH7WeYYPiD25LDuLRRY/i+6HaPYr6G1OUlN39otzkSTxKnubR9RTxS3/Kk50s1g2JTgFwWQDQyplC5/SHZg==}
     engines: {node: '>= 6'}
+
+  pkg-conf@2.1.0:
+    resolution: {integrity: sha512-C+VUP+8jis7EsQZIhDYmS5qlNtjv2yP4SNtjXK9AP1ZcTRlnSfuumaTnRfYZnYgUUYVIKqL0fRvmUGDV2fmp6g==}
+    engines: {node: '>=4'}
 
   pkg-dir@3.0.0:
     resolution: {integrity: sha512-/E57AYkoeQ25qkxMj5PBOVgF8Kiu/h7cYS30Z5+R7WaiCCBfLq58ZI/dSeaEKb9WVJV5n/03QwrN3IeWIFllvw==}
@@ -9402,9 +9450,16 @@ packages:
     resolution: {integrity: sha512-bzyZ1e88w9O1iNJbKnOlvYTrWPDl46O1bG0D3XInv+9tkPrxrN8jUUTiFlDkkmKWgn1M6CfIA13SuGqOa9Korw==}
     engines: {node: '>=14'}
 
+  signale@1.4.0:
+    resolution: {integrity: sha512-iuh+gPf28RkltuJC7W5MRi6XAjTDCAPC/prJUpQoG4vIP3MJZ+GTydVnodXA7pwvTKb2cA0m9OFZW/cdWy/I/w==}
+    engines: {node: '>=6'}
+
   sigstore@2.3.1:
     resolution: {integrity: sha512-8G+/XDU8wNsJOQS5ysDVO0Etg9/2uA5gR9l4ZwijjlwxBcrU6RPfwi2+jJmbP+Ap1Hlp/nVAaEO4Fj22/SL2gQ==}
     engines: {node: ^16.14.0 || >=18.0.0}
+
+  simple-git@3.25.0:
+    resolution: {integrity: sha512-KIY5sBnzc4yEcJXW7Tdv4viEz8KyG+nU0hay+DWZasvdFOYKeUZ6Xc25LUHHjw0tinPT7O1eY6pzX7pRT1K8rw==}
 
   simple-swizzle@0.2.2:
     resolution: {integrity: sha512-JA//kQgZtbuY83m+xT+tXJkmJncGMTFT+C+g2h2R9uxkYIrE2yy9sgmcLhCnw57/WSD+Eh3J97FPEDFnbXnDUg==}
@@ -10364,6 +10419,10 @@ packages:
   verror@1.10.0:
     resolution: {integrity: sha512-ZZKSmDAEFOijERBLkmYfJ+vmk3w+7hOLYDNkRCuRuMJGEmqYNCNLyBBFwWKVMhfwaEF3WOd0Zlw86U/WC/+nYw==}
     engines: {'0': node >=0.6.0}
+
+  version-next@1.0.2:
+    resolution: {integrity: sha512-usGZc9nJ9Xp5uOYRV8O4ppND0+0rKj82zOIsj4CJPX/yDXlzF5gi+tjq4Mbo7Wcnj48shrUTAFLit/XyCNvlcQ==}
+    engines: {node: '>=16.6.0'}
 
   vfile-location@5.0.2:
     resolution: {integrity: sha512-NXPYyxyBSH7zB5U6+3uDdd6Nybz6o6/od9rk8bp9H8GR3L+cm/fC0uUTbqBmUTnMCUDslAGBOIKNfvvb+gGlDg==}
@@ -13138,6 +13197,14 @@ snapshots:
       string-argv: 0.3.2
       type-detect: 4.0.8
 
+  '@kwsites/file-exists@1.1.1':
+    dependencies:
+      debug: 4.3.5(supports-color@8.1.1)
+    transitivePeerDependencies:
+      - supports-color
+
+  '@kwsites/promise-deferred@1.1.1': {}
+
   '@leichtgewicht/ip-codec@2.0.5': {}
 
   '@lerna/create@8.1.5(encoding@0.1.13)(typescript@5.5.3)':
@@ -14902,7 +14969,6 @@ snapshots:
     dependencies:
       '@types/jsonfile': 6.1.4
       '@types/node': 20.14.9
-    optional: true
 
   '@types/glob-stream@8.0.2':
     dependencies:
@@ -14970,7 +15036,6 @@ snapshots:
   '@types/jsonfile@6.1.4':
     dependencies:
       '@types/node': 20.14.9
-    optional: true
 
   '@types/lodash@4.17.6': {}
 
@@ -15076,6 +15141,10 @@ snapshots:
       '@types/http-errors': 2.0.4
       '@types/node': 20.14.9
       '@types/send': 0.17.4
+
+  '@types/signale@1.4.7':
+    dependencies:
+      '@types/node': 20.14.9
 
   '@types/sinonjs__fake-timers@8.1.1': {}
 
@@ -17808,6 +17877,10 @@ snapshots:
 
   fflate@0.8.2: {}
 
+  figures@2.0.0:
+    dependencies:
+      escape-string-regexp: 1.0.5
+
   figures@3.2.0:
     dependencies:
       escape-string-regexp: 1.0.5
@@ -19102,7 +19175,7 @@ snapshots:
   jake@10.9.1:
     dependencies:
       async: 3.2.5
-      chalk: 4.1.0
+      chalk: 4.1.2
       filelist: 1.0.4
       minimatch: 3.1.2
 
@@ -20407,6 +20480,10 @@ snapshots:
 
   neo-async@2.6.2: {}
 
+  new-github-release-url@2.0.0:
+    dependencies:
+      type-fest: 2.19.0
+
   next-tick@1.1.0: {}
 
   no-case@3.0.4:
@@ -21028,6 +21105,11 @@ snapshots:
   pify@5.0.0: {}
 
   pirates@4.0.6: {}
+
+  pkg-conf@2.1.0:
+    dependencies:
+      find-up: 2.1.0
+      load-json-file: 4.0.0
 
   pkg-dir@3.0.0:
     dependencies:
@@ -22356,6 +22438,12 @@ snapshots:
 
   signal-exit@4.1.0: {}
 
+  signale@1.4.0:
+    dependencies:
+      chalk: 2.4.2
+      figures: 2.0.0
+      pkg-conf: 2.1.0
+
   sigstore@2.3.1:
     dependencies:
       '@sigstore/bundle': 2.3.2
@@ -22364,6 +22452,14 @@ snapshots:
       '@sigstore/sign': 2.3.2
       '@sigstore/tuf': 2.3.4
       '@sigstore/verify': 1.2.1
+    transitivePeerDependencies:
+      - supports-color
+
+  simple-git@3.25.0:
+    dependencies:
+      '@kwsites/file-exists': 1.1.1
+      '@kwsites/promise-deferred': 1.1.1
+      debug: 4.3.5(supports-color@8.1.1)
     transitivePeerDependencies:
       - supports-color
 
@@ -23362,6 +23458,8 @@ snapshots:
       assert-plus: 1.0.0
       core-util-is: 1.0.2
       extsprintf: 1.3.0
+
+  version-next@1.0.2: {}
 
   vfile-location@5.0.2:
     dependencies:
