@@ -1,6 +1,6 @@
 import React, { forwardRef, useEffect, useState } from 'react';
-import * as AvatarPrimitive from '@lotus-design/react-primitives/es/avatar'
-import type { AvatarProps } from './interface'
+import * as AvatarPrimitive from '@lotus-design/react-primitives/es/avatar';
+import type { AvatarProps } from './interface';
 
 const Avatar = forwardRef<React.ElementRef<typeof AvatarPrimitive.Root>, AvatarProps>(
   (props: AvatarProps, forwardedRef) => {
@@ -13,8 +13,8 @@ const Avatar = forwardRef<React.ElementRef<typeof AvatarPrimitive.Root>, AvatarP
         setIsImgExist(true);
         setScale(1);
       },
-      [src]
-    )
+      [src],
+    );
 
     let childrenToRender: React.ReactNode;
     if (typeof src === 'string' && isImgExist) {
@@ -27,9 +27,9 @@ const Avatar = forwardRef<React.ElementRef<typeof AvatarPrimitive.Root>, AvatarP
       <AvatarPrimitive.Root ref={forwardedRef}>
         {childrenToRender}
       </AvatarPrimitive.Root>
-    )
-  }
-)
+    );
+  },
+);
 
 Avatar.displayName = AvatarPrimitive.Root.displayName;
 

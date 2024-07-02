@@ -6,7 +6,7 @@ import { createStyleImportPlugin } from 'vite-plugin-style-import';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
-const designDir = join(__dirname, '../react/src');
+const designDir = join(__dirname, '../@sensoro-design/react/src');
 
 export default defineConfig({
   resolve: {
