@@ -1,14 +1,14 @@
 {
   "name": "@sensoro-design/react",
   "type": "module",
-  "version": "2.0.0-alpha.9",
+  "version": "2.0.0",
   "description": "Sensoro Design React UI Library.",
   "author": "SensoroDesign Team",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/lotusjs/lotus-design.git",
-    "directory": "packages/lotus-design"
+    "url": "https://github.com/sensoro/sensoro-design-next.git",
+    "directory": "packages/react"
   },
   "keywords": [
     "react",
