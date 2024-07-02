@@ -1,7 +1,7 @@
 {
   "name": "@sensoro-design/monorepo",
   "private": true,
-  "packageManager": "pnpm@8.15.8",
+  "packageManager": "pnpm@9.4.0",
   "license": "MIT",
   "engines": {
     "node": "^18.0.0 || >=20.0.0"
@@ -87,7 +87,7 @@
     "less": "^4.2.0",
     "lint-staged": "^15.2.5",
     "ora": "^8.0.1",
-    "pnpm": "^8.15.8",
+    "pnpm": "^9.4.0",
     "postcss": "^8.4.38",
     "postcss-html": "^1.7.0",
     "postcss-less": "^6.0.0",
