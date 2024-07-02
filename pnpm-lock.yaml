@@ -144,7 +144,7 @@ importers:
         specifier: ^24.1.0
         version: 24.1.0
       lerna:
-        specifier: ^8.1.3
+        specifier: ^8.1.5
         version: 8.1.5(encoding@0.1.13)
       less:
         specifier: ^4.2.0
