@@ -9,7 +9,7 @@ importers:
   .:
     devDependencies:
       '@antfu/eslint-config':
-        specifier: ^2.21.0
+        specifier: ^2.21.2
         version: 2.21.2(@eslint-react/eslint-plugin@1.5.20(eslint@8.57.0)(typescript@5.5.3))(@vue/compiler-sfc@3.4.31)(eslint-plugin-react-hooks@4.6.2(eslint@8.57.0))(eslint-plugin-react-refresh@0.4.7(eslint@8.57.0))(eslint@8.57.0)(typescript@5.5.3)(vitest@1.6.0(@types/node@20.14.9)(@vitest/ui@1.6.0)(jsdom@24.1.0)(less@4.2.0)(sugarss@4.0.1(postcss@8.4.39))(terser@5.31.1))
       '@antfu/ni':
         specifier: ^0.21.12
@@ -90,10 +90,10 @@ importers:
         specifier: ^7.0.3
         version: 7.0.3
       cypress:
-        specifier: ^13.11.0
+        specifier: ^13.13.0
         version: 13.13.0
       cypress-real-events:
-        specifier: ^1.12.0
+        specifier: ^1.13.0
         version: 1.13.0(cypress@13.13.0)
       cypress-vite:
         specifier: ^1.5.0
@@ -114,7 +114,7 @@ importers:
         specifier: ^0.8.0
         version: 0.8.0(eslint@8.57.0)(typescript@5.5.3)
       execa:
-        specifier: ^9.2.0
+        specifier: ^9.3.0
         version: 9.3.0
       fast-glob:
         specifier: ^3.3.2
@@ -150,7 +150,7 @@ importers:
         specifier: ^4.2.0
         version: 4.2.0
       lint-staged:
-        specifier: ^15.2.5
+        specifier: ^15.2.7
         version: 15.2.7
       ora:
         specifier: ^8.0.1
@@ -171,7 +171,7 @@ importers:
         specifier: ^6.1.0
         version: 6.1.0(postcss@8.4.39)
       prettier:
-        specifier: ^3.3.1
+        specifier: ^3.3.2
         version: 3.3.2
       react:
         specifier: ^18.3.1
@@ -207,16 +207,16 @@ importers:
         specifier: ^5.0.0
         version: 5.0.0(prettier@3.3.2)(stylelint@16.6.1(typescript@5.5.3))
       taze:
-        specifier: ^0.13.8
-        version: 0.13.9
+        specifier: ^0.14.0
+        version: 0.14.0
       tsx:
-        specifier: ^4.15.2
+        specifier: ^4.16.0
         version: 4.16.0
       typescript:
         specifier: ^5.4.5
         version: 5.5.3
       vite:
-        specifier: ^5.2.0
+        specifier: ^5.3.2
         version: 5.3.2(@types/node@20.14.9)(less@4.2.0)(sugarss@4.0.1(postcss@8.4.39))(terser@5.31.1)
       vite-plugin-style-import:
         specifier: ^2.0.0
@@ -228,7 +228,7 @@ importers:
         specifier: workspace:*
         version: link:scripts
       zx:
-        specifier: ^8.1.2
+        specifier: ^8.1.3
         version: 8.1.3
 
   examples/vite:
@@ -4847,6 +4847,9 @@ packages:
     resolution: {integrity: sha512-0je+qPKHEMohvfRTCEo3CrPG6cAzAYgmzKyxRiYSSDkS6eGJdyVJm7WaYA5ECaAD9wLB2T4EEeymA5aFVcYXCA==}
     engines: {node: '>=6'}
 
+  destr@2.0.3:
+    resolution: {integrity: sha512-2N3BOUU4gYMpTP24s5rF5iP7BDr7uNTCs4ozw3kf/eKfvWSIu93GEBi5m427YoyJoeOzQ5smuu4nNAPGb8idSQ==}
+
   destroy@1.2.0:
     resolution: {integrity: sha512-2sJGJTaXIIaR1w4iJSNoN0hnMY7Gpc/n8D4qSCJw8QqFWXf7cuAgnEHxBpweaVcPevC2l3KpjYCx3NypQQgaJg==}
     engines: {node: '>= 0.8', npm: 1.2.8000 || >= 1.4.16}
@@ -5552,6 +5555,9 @@ packages:
 
   fast-levenshtein@3.0.0:
     resolution: {integrity: sha512-hKKNajm46uNmTlhHSyZkmToAc56uZJwYq7yrciZjqOxnlfQwERDQJmHPUp7m1m9wx8vgOe8IaCKZ5Kv2k1DdCQ==}
+
+  fast-npm-meta@0.0.1:
+    resolution: {integrity: sha512-Uh4wg3/3v8I+6kC9zeSfqXa5jmZQrnZ44X3mx0jPtSlRdsqfolBgsmZ81ktHfwFd5ObCUhL2eRSslI/AYojzLw==}
 
   fast-url-parser@1.1.3:
     resolution: {integrity: sha512-5jOCVXADYNuRkKFzNJ0dCCewsZiYo0dz8QNYljkOpFC6r2U4OBmKtvm/Tsuh4w1YYdDqDb31a8TVhBJ2OJKdqQ==}
@@ -7819,6 +7825,9 @@ packages:
   obuf@1.1.2:
     resolution: {integrity: sha512-PX1wu0AmAdPqOL1mWhqmlOd8kOIZQwGZw6rh7uby9fTc5lhaOWFLX3I6R1hrF9k3zUY40e6igsLGkDXK92LJNg==}
 
+  ofetch@1.3.4:
+    resolution: {integrity: sha512-KLIET85ik3vhEfS+3fDlc/BAZiAp+43QEC/yCo5zkNoY2YaKvNkOaFr/6wCFgFH1kuYQM5pMNi0Tg8koiIemtw==}
+
   ohash@1.1.3:
     resolution: {integrity: sha512-zuHHiGTYTA1sYJ/wZN+t5HKZaH23i4yI1HMwbuXm24Nid7Dv0KcuRlKoNKS9UNfAVSBlnGLcuQrnOKWOZoEGaw==}
 
@@ -9806,8 +9815,8 @@ packages:
     resolution: {integrity: sha512-DZ4yORTwrbTj/7MZYq2w+/ZFdI6OZ/f9SFHR+71gIVUZhOQPHzVCLpvRnPgyaMpfWxxk/4ONva3GQSyNIKRv6A==}
     engines: {node: '>=10'}
 
-  taze@0.13.9:
-    resolution: {integrity: sha512-qBKfViatIEkw7GNlHU8wV28MtRbdrpwxjcZbcqtCi6gHv2X0JAZ9+K8cp4O5UfVjEvFiafw5iSosBlKM7Fb4XA==}
+  taze@0.14.0:
+    resolution: {integrity: sha512-MdF9gQGmVwfXIe0SOkdikg4EhM84H/sHdRYi1ozorMuL/SDtd3t9s63PR83MZgP+S+O3mMz1yTAGJ5PBu/fXRA==}
     hasBin: true
 
   teex@1.0.1:
@@ -16813,6 +16822,8 @@ snapshots:
 
   dequal@2.0.3: {}
 
+  destr@2.0.3: {}
+
   destroy@1.2.0: {}
 
   detect-file@1.0.0: {}
@@ -17762,6 +17773,10 @@ snapshots:
   fast-levenshtein@3.0.0:
     dependencies:
       fastest-levenshtein: 1.0.16
+
+  fast-npm-meta@0.0.1:
+    dependencies:
+      ofetch: 1.3.4
 
   fast-url-parser@1.1.3:
     dependencies:
@@ -20636,6 +20651,12 @@ snapshots:
 
   obuf@1.1.2: {}
 
+  ofetch@1.3.4:
+    dependencies:
+      destr: 2.0.3
+      node-fetch-native: 1.6.4
+      ufo: 1.5.3
+
   ohash@1.1.3: {}
 
   on-finished@2.4.1:
@@ -20676,7 +20697,7 @@ snapshots:
   ora@5.3.0:
     dependencies:
       bl: 4.1.0
-      chalk: 4.1.0
+      chalk: 4.1.2
       cli-cursor: 3.1.0
       cli-spinners: 2.6.1
       is-interactive: 1.0.0
@@ -22837,13 +22858,15 @@ snapshots:
       mkdirp: 1.0.4
       yallist: 4.0.0
 
-  taze@0.13.9:
+  taze@0.14.0:
     dependencies:
       '@antfu/ni': 0.21.12
       '@jsdevtools/ez-spawn': 3.0.4
       cli-progress: 3.12.0
       deepmerge: 4.3.1
       detect-indent: 7.0.1
+      fast-npm-meta: 0.0.1
+      ofetch: 1.3.4
       picocolors: 1.0.1
       prompts: 2.4.2
       ufo: 1.5.3
