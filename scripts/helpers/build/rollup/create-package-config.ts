@@ -61,6 +61,7 @@ export async function createPackageConfig(packagePath: string): Promise<RollupOp
     plugins,
     onLog(level, log, handler) {
       if (log.code === 'EMPTY_BUNDLE') return
+      if (log.code === 'UNRESOLVED_IMPORT') return
       return handler(level, log)
     },
     onwarn(warning, warn) {

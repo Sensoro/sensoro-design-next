@@ -14,9 +14,6 @@ ScrollArea.Autosize = Autosize;
 ScrollArea.useScrollAreaContext = ScrollAreaPrimitive.useScrollAreaContext;
 ScrollArea.displayName = ScrollAreaPrimitive.Root.displayName;
 
-export {
-  ScrollArea,
-};
 export type {
   ScrollAreaProps,
 };

@@ -7,6 +7,28 @@ settings:
 importers:
 
   .:
+    dependencies:
+      '@floating-ui/react':
+        specifier: ^0.26.9
+        version: 0.26.19(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      '@lotus-design/react-primitives':
+        specifier: ^1.0.0-alpha.3
+        version: 1.0.0-alpha.3(@types/react-dom@18.3.0)(@types/react@18.3.3)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      '@rcuse/core':
+        specifier: ^0.24.0
+        version: 0.24.0
+      clsx:
+        specifier: ^2.1.1
+        version: 2.1.1
+      dayjs:
+        specifier: ^1.11.10
+        version: 1.11.11
+      react-number-format:
+        specifier: ^5.4.0
+        version: 5.4.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      react-remove-scroll:
+        specifier: ^2.5.10
+        version: 2.5.10(@types/react@18.3.3)(react@18.3.1)
     devDependencies:
       '@antfu/eslint-config':
         specifier: ^2.21.2
@@ -23,9 +45,6 @@ importers:
       '@eslint-react/eslint-plugin':
         specifier: ^1.5.15
         version: 1.5.20(eslint@8.57.0)(typescript@5.5.3)
-      '@lotus-design/react-primitives':
-        specifier: alpha
-        version: 1.0.0-alpha.3(@types/react-dom@18.3.0)(@types/react@18.3.3)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@rollup/plugin-alias':
         specifier: ^5.1.0
         version: 5.1.0(rollup@4.18.0)
@@ -316,10 +335,10 @@ importers:
         specifier: ^1.11.11
         version: 1.11.11
       react:
-        specifier: '>=16.9.0'
+        specifier: ^18.2.0
         version: 18.3.1
       react-dom:
-        specifier: '>=16.9.0'
+        specifier: ^18.2.0
         version: 18.3.1(react@18.3.1)
       react-number-format:
         specifier: ^5.4.0
