@@ -44,6 +44,7 @@ export async function buildPackage(_packageName: string) {
 
     await compile(config);
 
+    logger.log(`Build ${formattedPackageName} style files...`);
     await generateCss(packagePath);
     await generateCssTs(packagePath);
 
