@@ -6,6 +6,8 @@ import { locatePackage } from '../packages/locate-package';
 import { createLogger } from '../utils/signale';
 import { compile } from './compile';
 import { generateDts } from './generate-dts';
+import { generateCss } from './generate-css';
+import { generateCssTs } from './generate-css-ts';
 import { getBuildTime } from './get-build-time';
 import { createPackageConfig } from './rollup/create-package-config';
 
@@ -28,8 +30,7 @@ export async function buildPackage(_packageName: string) {
 
     await Promise.all([[
       path.join(packagePath, 'dist'),
-      path.join(packagePath, 'esm'),
-      path.join(packagePath, 'cjs'),
+      path.join(packagePath, 'es'),
       path.join(packagePath, 'lib'),
     ].map(dir => fs.rmSync(dir, { recursive: true, force: true }))])
 
@@ -42,6 +43,9 @@ export async function buildPackage(_packageName: string) {
     logger.log(`Compiling ${formattedPackageName} package with rollup...`);
 
     await compile(config);
+
+    await generateCss(packagePath);
+    await generateCssTs(packagePath);
 
     logger.success(
       `Package ${formattedPackageName} has been built in ${chalk.green(getBuildTime(startTime))}`

@@ -44,14 +44,14 @@ export async function createPackageConfig(packagePath: string): Promise<RollupOp
       {
         format: 'es',
         entryFileNames: '[name].mjs',
-        dir: path.resolve(packagePath, 'esm'),
+        dir: path.resolve(packagePath, 'es'),
         preserveModules: true,
         sourcemap: true,
       },
       {
         format: 'cjs',
         entryFileNames: '[name].cjs',
-        dir: path.resolve(packagePath, 'cjs'),
+        dir: path.resolve(packagePath, 'lib'),
         preserveModules: true,
         sourcemap: true,
         interop: 'auto',
