@@ -4,8 +4,9 @@ import { hideBin } from 'yargs/helpers';
 import yargs from 'yargs/yargs';
 import { getNextVersion } from 'version-next';
 import simpleGit from 'simple-git';
-import { createLogger } from './helpers/signale';
-import { setPackagesVersion } from './helpers/set-packages-version'
+import { createLogger } from './helpers/utils/signale';
+import { setDesignPackagesVersion } from './helpers/release/set-packages-version'
+import { buildAllPackages } from './helpers/build/build-all-packages'
 import packageJson from '../package.json';
 
 const git = simpleGit();
@@ -39,7 +40,15 @@ async function release() {
   });
 
   logger.log(`New version: ${chalk.cyan(incrementedVersion)}`);
-  await setPackagesVersion(incrementedVersion);
+  await setDesignPackagesVersion(incrementedVersion);
+
+  await buildAllPackages();
+  logger.success('All packages have been built successfully');
+
+  logger.log('Publishing packages to npm');
+  if (argv.stage && argv.tag === 'latest') {
+    argv.tag = 'next';
+  }
 }
 
 release();

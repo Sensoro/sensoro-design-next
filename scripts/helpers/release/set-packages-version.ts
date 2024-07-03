@@ -1,6 +1,6 @@
 import path from 'node:path';
 import fs from 'fs-extra';
-import { getPath } from './utils';
+import { getPath } from '../utils/get-path';
 
 async function writeVersionToPackageJson(filePath: string, version: string) {
   const current = await fs.readJSON(filePath);
@@ -25,7 +25,7 @@ async function writeVersionToPackageJson(filePath: string, version: string) {
   await fs.writeJSON(filePath, current, { spaces: 2 });
 }
 
-export async function setPackagesVersion(version: string) {
+export async function setDesignPackagesVersion(version: string) {
   const src = getPath('packages/@sensoro-design');
 
   const folders = (await fs.readdir(src)).filter((folder: string) =>
