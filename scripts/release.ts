@@ -5,8 +5,11 @@ import yargs from 'yargs/yargs';
 import { getNextVersion } from 'version-next';
 import simpleGit from 'simple-git';
 import { createLogger } from './helpers/utils/signale';
+import { publishPackage } from './helpers/publish/publish-package';
+import { getDesignPackagesList } from './helpers/packages/get-packages-list';
 import { setDesignPackagesVersion } from './helpers/release/set-packages-version'
 import { buildAllPackages } from './helpers/build/build-all-packages'
+import { getPath } from './helpers/utils/get-path';
 import packageJson from '../package.json';
 
 const git = simpleGit();
@@ -27,10 +30,10 @@ const { argv }: { argv: any } = yargs(hideBin(process.argv))
 async function release() {
   const status = await git.status();
 
-  // if (status.files.length !== 0) {
-  //   logger.error('Working tree is not clean');
-  //   process.exit(1);
-  // }
+  if (status.files.length !== 0) {
+    logger.error('Working tree is not clean');
+    process.exit(1);
+  }
 
   logger.log('Releasing all packages');
 
@@ -49,6 +52,24 @@ async function release() {
   if (argv.stage && argv.tag === 'latest') {
     argv.tag = 'next';
   }
+
+  const designPackages = await getDesignPackagesList();
+  await Promise.all(
+    designPackages.map((p) =>
+      publishPackage({ packagePath: p!.path, name: p!.packageJson.name!, tag: argv.tag })
+    )
+  );
+
+  logger.success('All packages have been published successfully');
+
+  await execa('pnpm');
+  await git.add([
+    getPath('packages'),
+    getPath('package.json'),
+    getPath('pnpm-lock.yaml')
+  ]);
+  await git.commit(`chore(release): version ${incrementedVersion}`);
+  await git.push();
 }
 
 release();
