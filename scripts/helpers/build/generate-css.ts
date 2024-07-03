@@ -3,32 +3,31 @@ import postcss from 'postcss';
 import autoprefixer from 'autoprefixer';
 import fs from 'fs-extra';
 import glob from 'fast-glob';
+import { rename } from '../utils/rename'
 
-async function copyLessFile(lessPath: string) {
-  await fs.copy(lessPath, lessPath.replace('/src/', '/es/'), {
+async function build(filePath: string) {
+  const esFilePath = filePath.replace('/src/', '/es/');
+  const libFilePath = filePath.replace('/src/', '/lib/');
+
+  await fs.copy(filePath, esFilePath, {
+    errorOnExist: false,
+  });
+  await fs.copy(filePath, libFilePath, {
     errorOnExist: false,
   });
 
-  await fs.copy(lessPath, lessPath.replace('/src/', '/lib/'), {
-    errorOnExist: false,
-  });
-}
+  const lessToCss = await $`lessc ${filePath}`;
 
-async function lessToCss(lessPath: string) {
-  const lessToCss = await $`lessc ${lessPath}`;
-
-  const { css } = await postcss([autoprefixer, ]).process(lessToCss, {
-    from: lessPath
+  const { css } = await postcss([autoprefixer]).process(lessToCss, {
+    from: filePath
   })
 
-  await fs.writeFile(lessPath.replace('/src/', '/es/').replace('.less', '.css'), css);
-  await fs.writeFile(lessPath.replace('/src/', '/lib/').replace('.less', '.css'), css);
+  await fs.writeFile(rename(esFilePath, { extname: '.css' }), css);
+  await fs.writeFile(rename(libFilePath, { extname: '.css' }), css);
 }
 
 export async function generateCss(packagePath: string) {
   const files = await glob(`${packagePath}/src/**/*.less`);
 
-  files.forEach((file) => copyLessFile(file));
-
-  files.forEach((file) => lessToCss(file));
+  files.forEach((file) => build(file));
 }

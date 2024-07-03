@@ -7,8 +7,8 @@ import { rename } from '../utils/rename'
 async function build(filePath: string) {
   const fileContent = fs.readFileSync(filePath, 'utf8');
 
-  const esDir = filePath.replace('/src/', '/es/');
-  const libDir = filePath.replace('/src/', '/lib/');
+  const esFilePath = filePath.replace('/src/', '/es/');
+  const libFilePath = filePath.replace('/src/', '/lib/');
 
   const { outputText } = ts.transpileModule(fileContent, {
     compilerOptions: {
@@ -17,10 +17,23 @@ async function build(filePath: string) {
     }
   })
 
-  await fs.writeFile(rename(esDir, { extname: '.mjs' }), fileContent);
-  await fs.writeFile(rename(esDir, { extname: '.mjs', basename: 'css' }), fileContent.toString().replaceAll('.less', '.css'));
-  await fs.writeFile(rename(libDir, { extname: '.cjs' }), outputText);
-  await fs.writeFile(rename(libDir, { extname: '.cjs', basename: 'css' }), fileContent.toString().replaceAll('.less', '.css'));
+  await fs.writeFile(rename(esFilePath, { extname: '.mjs' }), `'use client';\n${fileContent}`);
+  await fs.writeFile(
+    rename(esFilePath, {
+      extname: '.mjs',
+      basename: 'css'
+    }),
+    `'use client';\n${fileContent.toString().replaceAll('.less', '.css')}`
+  );
+
+  await fs.writeFile(rename(libFilePath, { extname: '.cjs' }), outputText);
+  await fs.writeFile(
+    rename(libFilePath, {
+      extname: '.cjs',
+      basename: 'css'
+    }),
+    fileContent.toString().replaceAll('.less', '.css')
+  );
 }
 
 export async function generateCssTs(packagePath: string) {
