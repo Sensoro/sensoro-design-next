@@ -24,6 +24,15 @@ export async function buildPackage(_packageName: string) {
   logger.log(`Building package ${formattedPackageName}`);
 
   try {
+    logger.log(`Clean up ${formattedPackageName} previous builds`);
+
+    await Promise.all([[
+      path.join(packagePath, 'dist'),
+      path.join(packagePath, 'esm'),
+      path.join(packagePath, 'cjs'),
+      path.join(packagePath, 'lib'),
+    ].map(dir => fs.rmSync(dir, { recursive: true, force: true }))])
+
     const startTime = Date.now();
 
     logger.log(`Generating ${formattedPackageName} *.d.ts files...`);
