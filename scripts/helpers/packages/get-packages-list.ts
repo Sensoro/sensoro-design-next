@@ -1,7 +1,7 @@
 import path from 'node:path';
 import fs from 'fs-extra';
 import type { PackageJson } from 'type-fest';
-import { getPath } from '../utils';
+import { getPath } from '../utils/get-path';
 
 export interface Package {
   path: string;
@@ -44,5 +44,5 @@ export function getPackagesList() {
 
 export function getDesignPackagesList() {
   const packages = getPackagesList();
-  return packages.filter((pkg) => pkg.packageJson.name?.startsWith('@mantine/'));
+  return packages.filter((pkg) => pkg.packageJson.name?.startsWith('@sensoro-design/'));
 }

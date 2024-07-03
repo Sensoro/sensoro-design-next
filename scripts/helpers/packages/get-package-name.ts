@@ -3,5 +3,5 @@ export function getPackageName(input: string) {
     return input;
   }
 
-  return `@mantine/${input}`;
+  return `@sensoro-design/${input}`;
 }

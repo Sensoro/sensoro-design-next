@@ -1,11 +1,29 @@
 {
-  "extends": "./tsconfig.base.json",
   "compilerOptions": {
+    "target": "ES2015",
+    "jsx": "react-jsx",
+    "lib": ["DOM", "ESNext"],
     "baseUrl": ".",
+    "module": "ESNext",
+    "moduleResolution": "Node",
     "paths": {
-      "@sensoro-design/react": [
-        "./packages/react/src/index.ts"
-      ]
-    }
-  }
+      "@sensoro-design/*": ["./packages/@sensoro-design/*/src"]
+    },
+    "resolveJsonModule": true,
+    "allowJs": true,
+    "strict": true,
+    "noEmitOnError": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true
+  },
+  "include": [
+    "./scripts",
+    "./packages/@sensoro-design/*/src"
+  ],
+  "exclude": [
+    "node_modules",
+    "./packages/@sensoro-design/*/cjs/**/*",
+    "./packages/@sensoro-design/*/esm/**/*",
+    "./packages/@sensoro-design/*/lib/**/*"
+  ]
 }

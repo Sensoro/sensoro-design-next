@@ -6,12 +6,15 @@ import { nodeResolve } from '@rollup/plugin-node-resolve';
 import replace from '@rollup/plugin-replace';
 import { RollupOptions } from 'rollup';
 import { getPackagesList } from '../../packages/get-packages-list';
-import { getPath } from '../../utils'
+import { getPath } from '../../utils/get-path'
+import { getEntryFile } from '../../utils/getEntryFile'
 import { ROLLUP_EXCLUDE_USE_CLIENT } from './rollup-exclude-use-client';
 import { ROLLUP_EXTERNALS } from './rollup-externals';
 
 export async function createPackageConfig(packagePath: string): Promise<RollupOptions> {
   const packagesList = getPackagesList();
+
+  const entry = `${getEntryFile(packagePath)}`;
 
   const aliasEntries: Alias[] = packagesList.map((pkg) => ({
     find: new RegExp(`^${pkg.packageJson.name}`),
@@ -22,7 +25,7 @@ export async function createPackageConfig(packagePath: string): Promise<RollupOp
     nodeResolve({ extensions: ['.ts', '.tsx', '.js', '.jsx'] }),
     esbuild({
       sourceMap: false,
-      tsconfig: getPath('tsconfig.json'),
+      tsconfig: getPath(`tsconfig.json`),
     }),
     alias({ entries: aliasEntries }),
     replace({ preventAssignment: true }),
@@ -36,7 +39,7 @@ export async function createPackageConfig(packagePath: string): Promise<RollupOp
   ]
 
   return {
-    input: path.resolve(packagePath, 'src/index.ts'),
+    input: path.resolve(packagePath, entry),
     output: [
       {
         format: 'es',
@@ -56,5 +59,14 @@ export async function createPackageConfig(packagePath: string): Promise<RollupOp
     ],
     external: ROLLUP_EXTERNALS,
     plugins,
+    onLog(level, log, handler) {
+      if (log.code === 'EMPTY_BUNDLE') return
+      return handler(level, log)
+    },
+    onwarn(warning, warn) {
+      if (warning.code === 'SOURCEMAP_ERROR') return
+      if (warning.code === 'MODULE_LEVEL_DIRECTIVE') return
+      warn(warning)
+    },
   };
 }

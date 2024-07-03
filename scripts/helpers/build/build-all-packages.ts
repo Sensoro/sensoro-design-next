@@ -10,9 +10,6 @@ const logger = createLogger('build-all-packages');
 export async function buildAllPackages() {
   const packages = await getPackagesBuildOrder();
 
-  console.log(packages)
-  return;
-
   const startTime = Date.now();
   logger.log('Building all packages...');
 

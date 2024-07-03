@@ -31,18 +31,16 @@
   "unpkg": "./dist/sensoro.production.min.js",
   "types": "es/index.d.ts",
   "files": [
+    "cjs",
     "dist",
-    "es",
+    "esm",
     "lib"
   ],
-  "scripts": {
-    "build": "walrus build-react"
-  },
   "peerDependencies": {
     "@types/react": "*",
     "@types/react-dom": "*",
-    "react": ">=16.9.0",
-    "react-dom": ">=16.9.0"
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
   },
   "peerDependenciesMeta": {
     "@types/react": {

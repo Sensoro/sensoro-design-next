@@ -1,4 +1,3 @@
-import React from 'react';
 import * as AspectRatioPrimitive from '@lotus-design/react-primitives/es/aspect-ratio';
 import { factory } from '../helpers/factory';
 import type { AspectRatioFactory } from './interface';

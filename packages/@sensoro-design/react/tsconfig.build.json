@@ -1,10 +1,13 @@
 {
-  "extends": "../../tsconfig.base.json",
+  "extends": "./tsconfig.json",
   "compilerOptions": {
-    "declaration": true,
-    "emitDeclarationOnly": true,
-    "noEmit": false,
-    "outDir": "types"
+    "declarationDir": "./lib"
   },
-  "include": ["src"]
+  "exclude": [
+    "./esm",
+    "./cjs",
+    "**/*.test.tsx",
+    "**/*.test.ts",
+    "**/*.story.tsx"
+  ]
 }

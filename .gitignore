@@ -10,8 +10,13 @@ node_modules
 dist
 es
 lib
+cjs
+esm
 
 .eslintcache
+
+# typescript
+*.tsbuildinfo
 
 # Misc
 .DS_Store

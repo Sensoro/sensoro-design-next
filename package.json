@@ -11,6 +11,8 @@
     "bootstrap": "pnpm install",
     "dev": "pnpm sb",
     "start": "pnpm --filter=website run start",
+    "build": "walrus build",
+    "build:all": "walrus build all",
     "build:docs": "pnpm build:sb",
     "build:react": "pnpm --filter=@sensoro-design/react run build",
     "example:vite": "pnpm --filter=@example/vite run start",
@@ -40,8 +42,12 @@
   },
   "dependencies": {
     "@floating-ui/react": "^0.26.9",
+    "@lotus-design/react-primitives": "^1.0.0-alpha.3",
+    "@rcuse/core": "^0.24.0",
     "clsx": "^2.1.1",
-    "dayjs": "^1.11.10"
+    "dayjs": "^1.11.10",
+    "react-number-format": "^5.4.0",
+    "react-remove-scroll": "^2.5.10"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^2.21.2",

@@ -34,16 +34,6 @@ export async function buildPackage(_packageName: string) {
 
     await compile(config);
 
-    if (await fs.pathExists(path.join(packagePath, 'esm/index.css'))) {
-      await fs.copyFile(
-        path.join(packagePath, 'esm/index.css'),
-        path.join(packagePath, 'styles.css')
-      );
-
-      await fs.remove(path.join(packagePath, 'esm/index.css'));
-      await fs.remove(path.join(packagePath, 'cjs/index.css'));
-    }
-
     logger.success(
       `Package ${formattedPackageName} has been built in ${chalk.green(getBuildTime(startTime))}`
     );
