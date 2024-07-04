@@ -22,6 +22,7 @@
   ],
   "exclude": [
     "node_modules",
+    "./scripts/bin/cli.mjs",
     "./packages/@sensoro-design/*/cjs/**/*",
     "./packages/@sensoro-design/*/esm/**/*",
     "./packages/@sensoro-design/*/lib/**/*"
