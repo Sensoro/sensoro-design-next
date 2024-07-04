@@ -1,7 +1,7 @@
 import path from 'node:path';
 import fs from 'fs-extra';
 import type { PackageJson } from 'type-fest';
-import { getPath } from '../utils/get-path';
+import { getPath } from '../utils/getPath';
 
 export interface Package {
   path: string;

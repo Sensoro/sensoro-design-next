@@ -4,11 +4,11 @@ import esbuild from 'rollup-plugin-esbuild';
 import banner from 'rollup-plugin-banner2';
 import { nodeResolve } from '@rollup/plugin-node-resolve';
 import replace from '@rollup/plugin-replace';
-import { getPackagesList } from '../../packages/get-packages-list';
-import { getPath } from '../../utils/get-path'
+import { getPackagesList } from '../../packages/getPackagesList';
+import { getPath } from '../../utils/getPath'
 import { getEntryFile } from '../../utils/getEntryFile'
-import { ROLLUP_EXCLUDE_USE_CLIENT } from './rollup-exclude-use-client';
-import { ROLLUP_EXTERNALS } from './rollup-externals';
+import { ROLLUP_EXCLUDE_USE_CLIENT } from './rollupExcludeUseClient';
+import { ROLLUP_EXTERNALS } from './rollupExternals';
 import glob from 'fast-glob'
 
 import type { Plugin, RollupOptions } from 'rollup'

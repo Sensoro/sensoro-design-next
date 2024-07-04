@@ -1,6 +1,6 @@
 import path from 'node:path';
 import fs from 'fs-extra';
-import { getPath } from '../utils/get-path';
+import { getPath } from '../utils/getPath';
 
 async function writeVersionToPackageJson(filePath: string, version: string) {
   const current = await fs.readJSON(filePath);

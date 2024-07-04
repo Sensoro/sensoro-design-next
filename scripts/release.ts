@@ -5,11 +5,11 @@ import yargs from 'yargs/yargs';
 import { getNextVersion } from 'version-next';
 import simpleGit from 'simple-git';
 import { createLogger } from './helpers/utils/signale';
-import { publishPackage } from './helpers/publish/publish-package';
-import { getDesignPackagesList } from './helpers/packages/get-packages-list';
-import { setDesignPackagesVersion } from './helpers/release/set-packages-version'
-import { buildAllPackages } from './helpers/build/build-all-packages'
-import { getPath } from './helpers/utils/get-path';
+import { publishPackage } from './helpers/publish/publishPackage';
+import { getDesignPackagesList } from './helpers/packages/getPackagesList';
+import { setDesignPackagesVersion } from './helpers/release/setPackagesVersion'
+import { buildAllPackages } from './helpers/build/buildAllPackages'
+import { getPath } from './helpers/utils/getPath';
 import packageJson from '../package.json';
 
 const git = simpleGit();

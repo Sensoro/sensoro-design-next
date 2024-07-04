@@ -1,4 +1,4 @@
-import { getPackagesList, Package } from '../packages/get-packages-list';
+import { getPackagesList, Package } from '../packages/getPackagesList';
 
 export async function getPackageBuildOrder(
   packages: Package[],

@@ -1,16 +1,16 @@
 import path from 'node:path';
 import chalk from 'chalk';
 import fs from 'fs-extra';
-import { getPackageName } from '../packages/get-package-name';
-import { locatePackage } from '../packages/locate-package';
+import { getPackageName } from '../packages/getPackageName';
+import { locatePackage } from '../packages/locatePackage';
 import { createLogger } from '../utils/signale';
 import { compile } from './compile';
-import { generateDts } from './generate-dts';
-import { generateCss } from './generate-css';
-import { generateCssTs } from './generate-css-ts';
-import { getBuildTime } from './get-build-time';
+import { generateDts } from './generateDts';
+import { generateCss } from './generateCss';
+import { generateCssTs } from './generateCssTs';
+import { getBuildTime } from './getBuildTime';
 import { viteBuild } from './vite'
-import { createPackageConfig } from './rollup/create-package-config';
+import { createPackageConfig } from './rollup/createPackageConfig';
 
 const logger = createLogger('build-package');
 

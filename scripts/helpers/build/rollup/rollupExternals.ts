@@ -1,5 +1,5 @@
 import packageJson from '../../../../package.json';
-import { getPackagesList } from '../../packages/get-packages-list';
+import { getPackagesList } from '../../packages/getPackagesList';
 
 export const ROLLUP_EXTERNALS = [
   'dayjs/locale/ru',
