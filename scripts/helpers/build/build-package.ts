@@ -9,9 +9,12 @@ import { generateDts } from './generate-dts';
 import { generateCss } from './generate-css';
 import { generateCssTs } from './generate-css-ts';
 import { getBuildTime } from './get-build-time';
+import { viteBuild } from './vite'
 import { createPackageConfig } from './rollup/create-package-config';
 
 const logger = createLogger('build-package');
+
+const distDir = 'dist';
 
 export async function buildPackage(_packageName: string) {
   const packageName = getPackageName(_packageName);
@@ -47,6 +50,21 @@ export async function buildPackage(_packageName: string) {
     logger.log(`Build ${formattedPackageName} style files...`);
     await generateCss(packagePath);
     await generateCssTs(packagePath);
+
+    logger.log(`Build ${formattedPackageName} umd format`);
+
+    // 编译 Umd
+    await viteBuild({
+      cwd: packagePath,
+      distDir,
+      minify: false,
+    })
+
+    await viteBuild({
+      cwd: packagePath,
+      distDir,
+      minify: true,
+    })
 
     logger.success(
       `Package ${formattedPackageName} has been built in ${chalk.green(getBuildTime(startTime))}`
