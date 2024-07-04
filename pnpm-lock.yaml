@@ -192,9 +192,6 @@ importers:
       rollup-plugin-esbuild:
         specifier: ^6.1.1
         version: 6.1.1(esbuild@0.20.2)(rollup@4.18.0)
-      rollup-plugin-preserve-directives:
-        specifier: ^0.4.0
-        version: 0.4.0(rollup@4.18.0)
       signale:
         specifier: ^1.4.0
         version: 1.4.0
@@ -8993,11 +8990,6 @@ packages:
     peerDependencies:
       esbuild: '>=0.18.0'
       rollup: ^1.20.0 || ^2.0.0 || ^3.0.0 || ^4.0.0
-
-  rollup-plugin-preserve-directives@0.4.0:
-    resolution: {integrity: sha512-gx4nBxYm5BysmEQS+e2tAMrtFxrGvk+Pe5ppafRibQi0zlW7VYAbEGk6IKDw9sJGPdFWgVTE0o4BU4cdG0Fylg==}
-    peerDependencies:
-      rollup: 2.x || 3.x || 4.x
 
   rollup@4.18.0:
     resolution: {integrity: sha512-QmJz14PX3rzbJCN1SG4Xe/bAAX2a6NpCP8ab2vfu2GiUr8AQcr2nCV/oEO3yneFarB67zk8ShlIyWb2LGTb3Sg==}
@@ -21512,12 +21504,6 @@ snapshots:
       rollup: 4.18.0
     transitivePeerDependencies:
       - supports-color
-
-  rollup-plugin-preserve-directives@0.4.0(rollup@4.18.0):
-    dependencies:
-      '@rollup/pluginutils': 5.1.0(rollup@4.18.0)
-      magic-string: 0.30.10
-      rollup: 4.18.0
 
   rollup@4.18.0:
     dependencies:
