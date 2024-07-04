@@ -23,8 +23,6 @@ export async function viteBuild(options: Options = {}) {
     minify = false,
   } = options;
 
-  console.log(cwd)
-
   const entry = `${getEntryFile(join(cwd))}`;
 
   build({

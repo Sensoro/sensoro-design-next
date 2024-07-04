@@ -4,15 +4,38 @@ import esbuild from 'rollup-plugin-esbuild';
 import banner from 'rollup-plugin-banner2';
 import { nodeResolve } from '@rollup/plugin-node-resolve';
 import replace from '@rollup/plugin-replace';
-import { RollupOptions } from 'rollup';
 import { getPackagesList } from '../../packages/get-packages-list';
 import { getPath } from '../../utils/get-path'
 import { getEntryFile } from '../../utils/getEntryFile'
 import { ROLLUP_EXCLUDE_USE_CLIENT } from './rollup-exclude-use-client';
 import { ROLLUP_EXTERNALS } from './rollup-externals';
+import glob from 'fast-glob'
 
-export async function createPackageConfig(packagePath: string): Promise<RollupOptions> {
+import type { Plugin, RollupOptions } from 'rollup'
+
+interface Options {
+  cwd?: string
+  esDir?: string;
+  libDir?: string;
+  aliases?: Alias[],
+  source?: glob.Pattern | glob.Pattern[]
+}
+
+export async function createPackageConfig(options: Options): Promise<RollupOptions> {
+  const {
+    cwd = process.cwd(),
+    esDir = 'es',
+    libDir = 'lib',
+    aliases = [],
+    source = [
+      'src/**/*.{ts,tsx}'
+    ]
+  } = options;
+  const packagePath = cwd;
   const packagesList = getPackagesList();
+
+  const packageJson = await import(path.resolve(packagePath, 'package.json'))
+  const isCli = packageJson.bin !== undefined
 
   const entry = `${getEntryFile(packagePath)}`;
 
@@ -21,11 +44,12 @@ export async function createPackageConfig(packagePath: string): Promise<RollupOp
     replacement: path.resolve(pkg.path, 'src'),
   }));
 
-  const plugins = [
+  const plugins: Plugin[] = [
     nodeResolve({ extensions: ['.ts', '.tsx', '.js', '.jsx'] }),
     esbuild({
       sourceMap: false,
       tsconfig: getPath(`tsconfig.json`),
+      platform: isCli ? 'node' : 'browser',
     }),
     alias({ entries: aliasEntries }),
     replace({ preventAssignment: true }),
@@ -36,22 +60,50 @@ export async function createPackageConfig(packagePath: string): Promise<RollupOp
 
       return undefined;
     }),
+    {
+      name: '@rollup-plugin/remove-empty-chunks',
+      generateBundle(_, bundle) {
+        for (const [name, chunk] of Object.entries(bundle)) {
+          if (chunk.type === 'chunk' && chunk.code.length === 0) {
+            delete bundle[name]
+          }
+        }
+      },
+    },
   ]
 
-  return {
-    input: path.resolve(packagePath, entry),
+  const deps = [
+    ...Object.keys(packageJson.dependencies ?? {}),
+    ...Object.keys(packageJson.peerDependencies ?? {}),
+  ]
+
+  const external = new RegExp(`^(${deps.join('|')})`)
+
+  const entries = await glob(source, {
+    cwd: packagePath,
+    ignore: [
+      'src/**/style/*.ts',
+      'src/**/*.test.ts',
+      'src/**/*.test.tsx'
+    ]
+  })
+
+  const rollupOptions: RollupOptions = {
+    input: entries.map(filePath => {
+      return path.resolve(packagePath, filePath)
+    }),
     output: [
       {
         format: 'es',
         entryFileNames: '[name].mjs',
-        dir: path.resolve(packagePath, 'es'),
+        dir: path.resolve(packagePath, esDir),
         preserveModules: true,
         sourcemap: true,
       },
       {
         format: 'cjs',
         entryFileNames: '[name].cjs',
-        dir: path.resolve(packagePath, 'lib'),
+        dir: path.resolve(packagePath, libDir),
         preserveModules: true,
         sourcemap: true,
         interop: 'auto',
@@ -70,4 +122,6 @@ export async function createPackageConfig(packagePath: string): Promise<RollupOp
       warn(warning)
     },
   };
+
+  return rollupOptions;
 }
