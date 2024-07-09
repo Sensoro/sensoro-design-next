@@ -31,9 +31,8 @@
   "unpkg": "./dist/sensoro.production.min.js",
   "types": "es/index.d.ts",
   "files": [
-    "cjs",
     "dist",
-    "esm",
+    "es",
     "lib"
   ],
   "peerDependencies": {

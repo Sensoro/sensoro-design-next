@@ -1,3 +1,5 @@
+import path from 'node:path'
+
 interface Options {
   basename?: string;
   extname?: string;
