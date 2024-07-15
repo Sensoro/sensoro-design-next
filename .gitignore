@@ -33,3 +33,7 @@ lerna-debug.log
 
 *storybook.log
 storybook-static
+
+.dumi/tmp
+.dumi/tmp-test
+.dumi/tmp-production

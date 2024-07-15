@@ -9,18 +9,8 @@
     "dist"
   ],
   "scripts": {
-    "build": "father build",
-    "build:watch": "father dev",
-    "deploy": "gh-pages -d docs-dist -b gh-pages -f",
-    "dev": "dumi dev",
-    "docs:build": "dumi build",
-    "doctor": "father doctor",
-    "lint": "npm run lint:es && npm run lint:css",
-    "lint:css": "stylelint \"{src,test}/**/*.{css,less}\"",
-    "lint:es": "eslint \"{src,test}/**/*.{js,jsx,ts,tsx}\"",
-    "prepare": "husky install && dumi setup",
-    "prepublishOnly": "father doctor && npm run build",
-    "start": "npm run dev"
+    "dev": "father dev",
+    "build": "father build"
   },
   "peerDependencies": {
     "react": "^17.0.0 || ^18.0.0",

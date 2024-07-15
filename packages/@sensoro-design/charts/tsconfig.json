@@ -1,16 +1,17 @@
 {
   "compilerOptions": {
+    "target": "ES2015",
+    "jsx": "react",
+    "lib": ["DOM", "ESNext"],
+    "rootDir": "src",
+    "moduleResolution": "Node",
+    "resolveJsonModule": true,
     "strict": true,
     "declaration": true,
-    "skipLibCheck": true,
+    "emitDeclarationOnly": true,
     "esModuleInterop": true,
-    "jsx": "react",
-    "baseUrl": "./",
-    "paths": {
-      "@@/*": [".dumi/tmp/*"],
-      "@sensoro-design/charts": ["src"],
-      "@sensoro-design/charts/*": ["src/*", "*"]
-    }
+    "skipLibCheck": true
   },
-  "include": [".dumirc.ts", "src/**/*"]
+  "include": ["./src", "reset.d.ts"],
+  "exclude": ["./lib", "./es"]
 }
