@@ -7,13 +7,22 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
 const designDir = join(__dirname, '../@sensoro-design/react/src');
+const chartsDir = join(__dirname, '../@sensoro-design/charts/src');
 
 export default defineConfig({
   resolve: {
     alias: [
       {
+        find: /^~/,
+        replacement: '',
+      },
+      {
         find: '@sensoro-design/react',
         replacement: designDir,
+      },
+      {
+        find: '@sensoro-design/charts',
+        replacement: chartsDir,
       },
     ],
   },
