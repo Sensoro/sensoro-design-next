@@ -1,9 +1,9 @@
 /* eslint-disable @typescript-eslint/no-non-null-asserted-optional-chain */
 import type { PieConfig as BasePieConfig } from '@ant-design/plots';
 import { Pie as BasePie } from '@ant-design/plots';
-import { classNames } from '@pansy/shared';
+import { clsx as classNames } from 'clsx';
 import { every, get, groupBy, isEmpty, map, merge, transform } from 'lodash';
-import React, { useEffect, useMemo, useState, type FC } from 'react';
+import React, { type FC, useEffect, useMemo, useState } from 'react';
 import Composite from '../components/Composite';
 import type { GetDefaultConfigProps } from '../config/base';
 import { getDefaultConfig } from '../config/base';
@@ -21,12 +21,12 @@ export interface PieConfig extends BaseConfig {
   config?: Omit<BasePieConfig, 'data'> & { data?: BasePieConfig['data'] };
 }
 
-const genDefaultConfig = ({
+function genDefaultConfig({
   colorMap,
   colorField,
   customContentData,
   customsColors,
-}: Partial<GetDefaultConfigProps>) => {
+}: Partial<GetDefaultConfigProps>) {
   return {
     pie: {
       ...getDefaultConfig({
@@ -54,7 +54,7 @@ const genDefaultConfig = ({
       legend: false,
     },
   };
-};
+}
 
 const prefixCls = 'sen-pie';
 
@@ -84,9 +84,10 @@ const Pie: FC<PieConfig> = ({
 
   // 环图如果所有数据都为空，展示一个完整的不换色的环： #F6F7F8;
   const isRingZero = useMemo(() => {
-    if (isEmpty(originalData)) return false;
-    // @ts-ignore
-    return type === 'ring' && every(originalData, (data) => data.value === 0);
+    if (isEmpty(originalData))
+      return false;
+    // @ts-expect-error
+    return type === 'ring' && every(originalData, data => data.value === 0);
   }, [originalData]);
 
   const legendMap = useMemo(
@@ -140,19 +141,20 @@ const Pie: FC<PieConfig> = ({
       setShowPie(true);
       return;
     }
-    const pieWidth =
-      (document.querySelector(
+    const pieWidth
+      = (document.querySelector(
         `${className ? `.${className}.sen-pie` : '.sen-pie'}`,
       )?.clientWidth! ?? 300) - 48;
     const width = newConfig.height ?? 154;
 
     if (
-      typeof legend === 'object' &&
-      (legend?.direction === 'alone' || legend?.direction === 'horizontal')
+      typeof legend === 'object'
+      && (legend?.direction === 'alone' || legend?.direction === 'horizontal')
     ) {
       // setLeftPadding((pieWidth - width) / 2);
       // setRightPadding(0);
-    } else if (get(legend, 'direction') === 'left') {
+    }
+    else if (get(legend, 'direction') === 'left') {
       let curStyle = document
         .querySelector(
           `${
@@ -175,13 +177,14 @@ const Pie: FC<PieConfig> = ({
         )
         ?.setAttribute(
           'style',
-          `${'position: absolute; left: 0;' + curStyle || ''}`,
+          `${`position: absolute; left: 0;${curStyle}` || ''}`,
         );
       setLeftPadding(pieWidth - width);
       setRightPadding(0);
-    } else {
-      const legendWidth =
-        document.querySelector(
+    }
+    else {
+      const legendWidth
+        = document.querySelector(
           `${
             className
               ? `.${className} .sen-charts-legend`
@@ -189,8 +192,8 @@ const Pie: FC<PieConfig> = ({
           }`,
         )?.clientWidth ?? 0;
 
-      const { verticalGap } =
-        legend === true || !legend
+      const { verticalGap }
+        = legend === true || !legend
           ? { verticalGap: 48 }
           : { verticalGap: 48, ...legend };
 
@@ -251,20 +254,24 @@ const Pie: FC<PieConfig> = ({
         colorMap={colorMap}
         timeRange={timeRange}
       >
-        {!showPie ? null : empty ? (
-          <div className={`${prefixCls}-empty`}>
-            {typeof empty === 'boolean' ? '暂无内容' : empty}
-          </div>
-        ) : (
-          <BasePie
-            {...newConfig}
-            width={width}
-            padding={[0, rightPadding, 0, leftPadding]}
-            data={newData}
-            tooltip={tootip}
-            interactions={[]}
-          />
-        )}
+        {!showPie
+          ? null
+          : empty
+            ? (
+                <div className={`${prefixCls}-empty`}>
+                  {typeof empty === 'boolean' ? '暂无内容' : empty}
+                </div>
+              )
+            : (
+                <BasePie
+                  {...newConfig}
+                  width={width}
+                  padding={[0, rightPadding, 0, leftPadding]}
+                  data={newData}
+                  tooltip={tootip}
+                  interactions={[]}
+                />
+              )}
       </Composite>
     </div>
   );

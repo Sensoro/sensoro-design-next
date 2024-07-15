@@ -1,4 +1,4 @@
-import { classNames } from '@pansy/shared';
+import { clsx as classNames } from 'clsx';
 import { Space } from 'antd';
 import type { SpaceProps } from 'antd/es/space';
 import { get, includes, isFunction, keys, map } from 'lodash';
@@ -26,8 +26,8 @@ const Legend: React.FC<LegendProps> = ({ legend, colors }) => {
     () =>
       includes(
         hors,
-        (get(legend, 'direction', 'horizontal') as SpaceProps['direction']) ??
-          'horizontal',
+        (get(legend, 'direction', 'horizontal') as SpaceProps['direction'])
+        ?? 'horizontal',
       )
         ? 'horizontal'
         : 'vertical',
@@ -42,8 +42,8 @@ const Legend: React.FC<LegendProps> = ({ legend, colors }) => {
     return legend?.legendItemGap
       ? legend.legendItemGap
       : direction === 'horizontal' || layout === 'horizontal'
-      ? 24
-      : 8;
+        ? 24
+        : 8;
   }, [legend, direction, layout]);
 
   const lineGap = useMemo(() => {
@@ -64,10 +64,11 @@ const Legend: React.FC<LegendProps> = ({ legend, colors }) => {
       );
 
       const res: { [key: string]: any } = {};
-      names.forEach((name) => (res[name] = colors[name]));
+      names.forEach(name => (res[name] = colors[name]));
 
       return res;
-    } else {
+    }
+    else {
       return colors;
     }
   }, [legend, colors, page]);
@@ -104,8 +105,8 @@ const Legend: React.FC<LegendProps> = ({ legend, colors }) => {
           layout === 'horizontal'
             ? 'center'
             : direction === 'vertical'
-            ? 'baseline'
-            : 'start'
+              ? 'baseline'
+              : 'start'
         }
         size={gap}
         className={classNames(`${prefixCls}-main`, {
@@ -118,22 +119,23 @@ const Legend: React.FC<LegendProps> = ({ legend, colors }) => {
       >
         {map(keys(curtLegend), (name, index) => (
           <div className={`${prefixCls}-item`} key={name}>
-            {type === 'svg' ? (
-              <SVG
-                src={marker}
-                preProcessor={(code) =>
-                  code.replace(/fill=".*?"/g, `fill="${colors[name]}"`)
-                }
-                style={{ marginRight: 8 }}
-                width={8}
-                height={8}
-              />
-            ) : (
-              <span
-                className={`${prefixCls}-box`}
-                style={{ background: colors[name] }}
-              />
-            )}
+            {type === 'svg'
+              ? (
+                  <SVG
+                    src={marker}
+                    preProcessor={code =>
+                      code.replace(/fill=".*?"/g, `fill="${colors[name]}"`)}
+                    style={{ marginRight: 8 }}
+                    width={8}
+                    height={8}
+                  />
+                )
+              : (
+                  <span
+                    className={`${prefixCls}-box`}
+                    style={{ background: colors[name] }}
+                  />
+                )}
             <span className={`${prefixCls}-name`} style={textStyle}>
               {legend?.processData && isFunction(legend?.processData)
                 ? legend.processData(name, index)
@@ -152,9 +154,8 @@ const Legend: React.FC<LegendProps> = ({ legend, colors }) => {
           >
             <SVG
               src={left}
-              preProcessor={(code) =>
-                code.replace(/fill=".*?"/g, `fill="currentColor"`)
-              }
+              preProcessor={code =>
+                code.replace(/fill=".*?"/g, `fill="currentColor"`)}
               width={12}
               height={12}
             />
@@ -168,9 +169,8 @@ const Legend: React.FC<LegendProps> = ({ legend, colors }) => {
           >
             <SVG
               src={right}
-              preProcessor={(code) =>
-                code.replace(/fill=".*?"/g, `fill="currentColor"`)
-              }
+              preProcessor={code =>
+                code.replace(/fill=".*?"/g, `fill="currentColor"`)}
               width={12}
               height={12}
             />

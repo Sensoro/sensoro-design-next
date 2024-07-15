@@ -1,8 +1,8 @@
-import { classNames } from '@pansy/shared';
+import { clsx as classNames } from 'clsx';
 import { Segmented } from 'antd';
 import type { SegmentedProps } from 'antd/es/segmented';
 import { get, isBoolean } from 'lodash';
-import React, { useMemo, type FC } from 'react';
+import React, { type FC, useMemo } from 'react';
 import type { BaseLegend } from '../../types';
 import type { ColorMap } from '../../utils';
 import Legend from '../Legend';
@@ -59,7 +59,7 @@ const Composite: FC<CompositeProps> = ({
       obj[direction] = true;
       obj[position] = true;
       if (type === 'box') {
-        obj['box'] = true;
+        obj.box = true;
       }
 
       obj.vertical = obj.left || obj.right;
@@ -91,29 +91,29 @@ const Composite: FC<CompositeProps> = ({
               : {}
           }
         >
-          {!!timeRange ? (
+          {timeRange ? (
             <div className={`${prefixCls}-timeRange-wrap`}>
               <Title text={title} />
-              {/* @ts-ignore */}
+              {/* @ts-expect-error */}
               <Segmented {...timeRange} />
             </div>
           ) : (
             <Title text={title} />
           )}
-          {isLegend &&
-            (legendDirection.horizontal ||
-              (legendDirection.alone && legendDirection.top)) && (
-              <Legend
-                legend={isBoolean(legend) ? {} : (legend as BaseLegend)}
-                colors={colorMap as ColorMap}
-              />
-            )}
+          {isLegend
+          && (legendDirection.horizontal
+          || (legendDirection.alone && legendDirection.top)) && (
+            <Legend
+              legend={isBoolean(legend) ? {} : (legend as BaseLegend)}
+              colors={colorMap as ColorMap}
+            />
+          )}
         </div>
       )}
       {isLegend && legendDirection.vertical ? (
         <div
           style={{
-            // @ts-ignore
+            // @ts-expect-error
             gap:
               legendDirection.vertical && !isBoolean(legend)
                 ? legend?.verticalGap
