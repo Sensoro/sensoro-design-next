@@ -15,14 +15,14 @@ importers:
         specifier: ^3.3.5
         version: 3.3.7
       '@floating-ui/react':
-        specifier: ^0.26.9
+        specifier: ^0.26.19
         version: 0.26.19(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@lotus-design/react-primitives':
         specifier: ^1.0.0-alpha.3
         version: 1.0.0-alpha.3(@types/react-dom@18.3.0)(@types/react@18.3.3)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@rcuse/core':
-        specifier: ^0.24.0
-        version: 0.24.0
+        specifier: ^0.25.0
+        version: 0.25.0
       '@sensoro-design/styles':
         specifier: 1.27.1
         version: 1.27.1
@@ -344,8 +344,8 @@ importers:
         specifier: ^1.0.0-alpha.3
         version: 1.0.0-alpha.3(@types/react-dom@18.3.0)(@types/react@18.3.3)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@rcuse/core':
-        specifier: ^0.24.0
-        version: 0.24.0
+        specifier: ^0.25.0
+        version: 0.25.0
       '@types/react':
         specifier: '*'
         version: 18.3.3
@@ -2973,11 +2973,17 @@ packages:
   '@rcuse/core@0.24.0':
     resolution: {integrity: sha512-D2ySX2Tdy5jeeZkW90zFDHOSkZ7ceCEPiXgbAfpCdKOcnOreUAfMcs/vBgWw8UiuD7Hn4Om2EB8oLyg+2uk6bw==}
 
+  '@rcuse/core@0.25.0':
+    resolution: {integrity: sha512-m5yZ6e91tKf7B+lR7WEHnCEw0uUI5bm5Je2QTfZPOgeissZEOaR5F1iuNMCOSRgXTfV5CvAE8q0PBhUX9prSMg==}
+
   '@rcuse/shared@0.22.0':
     resolution: {integrity: sha512-qr5DMhMG1Rlf5kMrlU/4e8bZiWGRRo64cZcGieDRxMaJSfo09tUr6UxWuTYDFGqW7jnJYV2fFtqkNIvCy7X7TA==}
 
   '@rcuse/shared@0.24.0':
     resolution: {integrity: sha512-koTxm75Dbn3s/HVNjHioxOf743UXlsG3LsEth9BjxN1Lpp6TMLXYnV5x+bt/QMVYVvoVzA13STnCHQWALpD7nA==}
+
+  '@rcuse/shared@0.25.0':
+    resolution: {integrity: sha512-xFtTzoZyXuky/zg/FH+BPrE0vyvm9QIGU8TeKyb2VSfMctFfMMs/Ep57KNvWiVDV3LxPuiNBfOqHv8ZTlWZvcg==}
 
   '@remix-run/router@1.17.1':
     resolution: {integrity: sha512-mCOMec4BKd6BRGBZeSnGiIgwsbLGp3yhVqAD8H+PxiRNEHgDpZb8J1TnrSDlg97t0ySKMQJTHCWBCmBpSmkF6Q==}
@@ -4516,6 +4522,9 @@ packages:
   '@yarnpkg/parsers@3.0.0-rc.46':
     resolution: {integrity: sha512-aiATs7pSutzda/rq8fnuPwTglyVwjM22bNnK2ZgjrpAjQHSSl3lztd2f9evst1W/qnC58DRz7T7QndUDumAR4Q==}
     engines: {node: '>=14.15.0'}
+
+  '@zag-js/element-size@0.61.0':
+    resolution: {integrity: sha512-88anI+906NG81o+jB3oz4vqZZ5JrOsmvXv5PE+L49o6LF5lPpPKq5JOf4Hi1NYH7nhu4R5qkLwBHvtUnjQ196g==}
 
   '@zkochan/js-yaml@0.0.7':
     resolution: {integrity: sha512-nrUSn7hzt7J6JWgWGz78ZYI8wj+gdIJdk0Ynjpp8l+trkn58Uqsf6RYrYkEK+3X18EX+TNdtJI0WxAtc+L84SQ==}
@@ -18106,6 +18115,11 @@ snapshots:
     dependencies:
       '@rcuse/shared': 0.24.0
 
+  '@rcuse/core@0.25.0':
+    dependencies:
+      '@rcuse/shared': 0.25.0
+      '@zag-js/element-size': 0.61.0
+
   '@rcuse/shared@0.22.0':
     dependencies:
       radash: 12.1.0
@@ -18113,6 +18127,12 @@ snapshots:
       user-agent-data-types: 0.4.2
 
   '@rcuse/shared@0.24.0':
+    dependencies:
+      radash: 12.1.0
+      type-fest: 4.21.0
+      user-agent-data-types: 0.4.2
+
+  '@rcuse/shared@0.25.0':
     dependencies:
       radash: 12.1.0
       type-fest: 4.21.0
@@ -20108,6 +20128,8 @@ snapshots:
     dependencies:
       js-yaml: 3.14.1
       tslib: 2.6.3
+
+  '@zag-js/element-size@0.61.0': {}
 
   '@zkochan/js-yaml@0.0.7':
     dependencies:
