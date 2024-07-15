@@ -18,6 +18,7 @@
   },
   "dependencies": {
     "@ant-design/plots": "1.2.5",
+    "@antv/util": "^3.3.5",
     "@sensoro-design/styles": "1.27.1",
     "antd": "4.23.2",
     "clsx": "^2.1.1",
