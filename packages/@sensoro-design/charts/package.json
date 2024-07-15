@@ -1,7 +1,7 @@
 {
   "name": "@sensoro-design/charts",
-  "version": "0.1.5",
-  "description": "图表组件",
+  "version": "3.0.0",
+  "description": "Sensoro Design Chart Library.",
   "license": "MIT",
   "module": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -22,27 +22,9 @@
     "prepublishOnly": "father doctor && npm run build",
     "start": "npm run dev"
   },
-  "commitlint": {
-    "extends": [
-      "@commitlint/config-conventional"
-    ]
-  },
-  "lint-staged": {
-    "*.{md,json}": [
-      "prettier --write --no-error-on-unmatched-pattern"
-    ],
-    "*.{css,less}": [
-      "stylelint --fix",
-      "prettier --write"
-    ],
-    "*.{js,jsx}": [
-      "eslint --fix",
-      "prettier --write"
-    ],
-    "*.{ts,tsx}": [
-      "eslint --fix",
-      "prettier --parser=typescript --write"
-    ]
+  "peerDependencies": {
+    "react": "^17.0.0 || ^18.0.0",
+    "react-dom": "^17.0.0 || ^18.0.0"
   },
   "dependencies": {
     "@ant-design/plots": "1.2.5",
@@ -51,32 +33,6 @@
     "antd": "4.23.2",
     "lodash": "4.17.21",
     "react-inlinesvg": "3.0.2"
-  },
-  "devDependencies": {
-    "@commitlint/cli": "^17.6.5",
-    "@commitlint/config-conventional": "^17.6.5",
-    "@lowcode/monaco-editor": "^1.0.1",
-    "@types/lodash": "^4.14.195",
-    "@types/react": "^18.2.12",
-    "@types/react-dom": "^18.2.5",
-    "@umijs/lint": "^4.0.71",
-    "dayjs": "1.8.30",
-    "dumi": "^2.2.14",
-    "eslint": "^8.42.0",
-    "father": "^4.2.3",
-    "gh-pages": "^5.0.0",
-    "husky": "^8.0.3",
-    "lint-staged": "^13.2.2",
-    "prettier": "^2.8.8",
-    "prettier-plugin-organize-imports": "^3.2.2",
-    "prettier-plugin-packagejson": "^2.4.3",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "stylelint": "^15.7.0"
-  },
-  "peerDependencies": {
-    "react": ">=16.9.0",
-    "react-dom": ">=16.9.0"
   },
   "publishConfig": {
     "access": "public"
