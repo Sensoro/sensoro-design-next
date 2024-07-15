@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       '@ant-design/plots':
-        specifier: 1.2.5
-        version: 1.2.5(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+        specifier: ^2.2.5
+        version: 2.2.5(lodash-es@4.17.21)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@floating-ui/react':
         specifier: ^0.26.9
         version: 0.26.19(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -302,17 +302,17 @@ importers:
   packages/@sensoro-design/charts:
     dependencies:
       '@ant-design/plots':
-        specifier: 1.2.5
-        version: 1.2.5(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      '@pansy/shared':
-        specifier: 1.13.0
-        version: 1.13.0
+        specifier: ^2.2.5
+        version: 2.2.5(lodash-es@4.17.21)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@sensoro-design/styles':
         specifier: 1.27.1
         version: 1.27.1
       antd:
         specifier: 4.23.2
         version: 4.23.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      clsx:
+        specifier: ^2.1.1
+        version: 2.1.1
       lodash:
         specifier: 4.17.21
         version: 4.17.21
@@ -566,6 +566,12 @@ packages:
     resolution: {integrity: sha512-30iZtAPgz+LTIYoeivqYo853f02jBYSd5uGnGpkFV0M3xOt9aN73erkgYAmZU43x4VfqcnLxW9Kpg3R5LC4YYw==}
     engines: {node: '>=6.0.0'}
 
+  '@ant-design/charts-util@0.0.1-alpha.5':
+    resolution: {integrity: sha512-EwTUjRPhU2CUyI2e11pAi9aOQg9oEWdFEWxv1f4j+Ta4doYXd1yTl94Zy9JvigiEj4qv8dPGl0PUd3r+qMVrAg==}
+    peerDependencies:
+      react: '>=16.8.4'
+      react-dom: '>=16.8.4'
+
   '@ant-design/colors@6.0.0':
     resolution: {integrity: sha512-qAZRvPzfdWHtfameEGP2Qvuf838NhergR35o+EuVyB5XvSA98xod5r4utvi4TJ3ywmevm290g9nsCG5MryrdWQ==}
 
@@ -579,9 +585,10 @@ packages:
       react: '>=16.0.0'
       react-dom: '>=16.0.0'
 
-  '@ant-design/plots@1.2.5':
-    resolution: {integrity: sha512-8Jvu2xC5y5/B38/9Qr6CBiXCZopsGEA3IR4pjLFlkLoT4OHIKr4y8oIvhahM9mh9ZATyjkrZLWJBI8yETrReGg==}
+  '@ant-design/plots@2.2.5':
+    resolution: {integrity: sha512-SyF4p7xJJCB8c6z96OYMWlBg14GD9BYCpfHY5aaXbC/WpETN9ErJH9w2TCGA+bkwpoufjyvnN5CQp+PkYlsO8w==}
     peerDependencies:
+      lodash-es: ^4.17.21
       react: '>=16.8.4'
       react-dom: '>=16.8.4'
 
@@ -658,62 +665,74 @@ packages:
   '@antfu/utils@0.7.10':
     resolution: {integrity: sha512-+562v9k4aI80m1+VuMHehNJWLOFjBnXn3tdOitzD0il5b7smkSBal4+a3oKiQTbrwMmN/TBUMDvbdoWDehgOww==}
 
-  '@antv/adjust@0.2.5':
-    resolution: {integrity: sha512-MfWZOkD9CqXRES6MBGRNe27Q577a72EIwyMnE29wIlPliFvJfWwsrONddpGU7lilMpVKecS3WAzOoip3RfPTRQ==}
+  '@antv/component@2.0.1':
+    resolution: {integrity: sha512-VldsSv2O/JNjZYenFIzmtLeC+KD2RcpNARsCLKpi04Iz26joQ3uMtnwxM5W4bd/SCJYKp+eeQeMHMAbwaNR1pw==}
 
-  '@antv/attr@0.3.5':
-    resolution: {integrity: sha512-wuj2gUo6C8Q2ASSMrVBuTcb5LcV+Tc0Egiy6bC42D0vxcQ+ta13CLxgMmHz8mjD0FxTPJDXSciyszRSC5TdLsg==}
-
-  '@antv/color-util@2.0.6':
-    resolution: {integrity: sha512-KnPEaAH+XNJMjax9U35W67nzPI+QQ2x27pYlzmSIWrbj4/k8PGrARXfzDTjwoozHJY8qG62Z+Ww6Alhu2FctXQ==}
-
-  '@antv/component@0.8.35':
-    resolution: {integrity: sha512-VnRa5X77nBPI952o2xePEEMSNZ6g2mcUDrQY8mVL2kino/8TFhqDq5fTRmDXZyWyIYd4ulJTz5zgeSwAnX/INQ==}
-
-  '@antv/coord@0.3.1':
-    resolution: {integrity: sha512-rFE94C8Xzbx4xmZnHh2AnlB3Qm1n5x0VT3OROy257IH6Rm4cuzv1+tZaUBATviwZd99S+rOY9telw/+6C9GbRw==}
-
-  '@antv/dom-util@2.0.4':
-    resolution: {integrity: sha512-2shXUl504fKwt82T3GkuT4Uoc6p9qjCKnJ8gXGLSW4T1W37dqf9AV28aCfoVPHp2BUXpSsB+PAJX2rG/jLHsLQ==}
+  '@antv/coord@0.4.7':
+    resolution: {integrity: sha512-UTbrMLhwJUkKzqJx5KFnSRpU3BqrdLORJbwUbHK2zHSCT3q3bjcFA//ZYLVfIlwqFDXp/hzfMyRtp0c77A9ZVA==}
 
   '@antv/event-emitter@0.1.3':
     resolution: {integrity: sha512-4ddpsiHN9Pd4UIlWuKVK1C4IiZIdbwQvy9i7DUSI3xNJ89FPUFt8lxDYj8GzzfdllV0NkJTRxnG+FvLk0llidg==}
 
-  '@antv/g-base@0.5.16':
-    resolution: {integrity: sha512-jP06wggTubDPHXoKwFg3/f1lyxBX9ywwN3E/HG74Nd7DXqOXQis8tsIWW+O6dS/h9vyuXLd1/wDWkMMm3ZzXdg==}
+  '@antv/g-camera-api@2.0.9':
+    resolution: {integrity: sha512-ixeF5lypyNqZ6Btua6FC7w3YvGi+WnmtDIAalByaM8lGDlYroZNYQTsOeVE4JsS15kjQwEe+GYs+e0jWgdXpeg==}
 
-  '@antv/g-canvas@0.5.17':
-    resolution: {integrity: sha512-sXYJMWTOlb/Ycb6sTKu00LcJqInXJY4t99+kSM40u2OfqrXYmaXDjHR7D2V0roMkbK/QWiWS9UnEidCR1VtMOA==}
+  '@antv/g-canvas@2.0.8':
+    resolution: {integrity: sha512-XyzFGq3xqIRxEnIIU310FyOyuNAuUKyh93plgkRkF2dOCpS3RAVQRRxD1vnG47NShwjfo3Pn0qiIKTSyxGXQZg==}
 
-  '@antv/g-math@0.1.9':
-    resolution: {integrity: sha512-KHMSfPfZ5XHM1PZnG42Q2gxXfOitYveNTA7L61lR6mhZ8Y/aExsYmHqaKBsSarU0z+6WLrl9C07PQJZaw0uljQ==}
+  '@antv/g-dom-mutation-observer-api@2.0.6':
+    resolution: {integrity: sha512-VIdXYxaIa82oqxLu2si+zaMq+UCU4CZS1sdtE4oROEe9uhA4vlZsynfnoOD+nw5RcTwKWx9nu1IxI/xsjFXUvw==}
 
-  '@antv/g-svg@0.5.7':
-    resolution: {integrity: sha512-jUbWoPgr4YNsOat2Y/rGAouNQYGpw4R0cvlN0YafwOyacFFYy2zC8RslNd6KkPhhR3XHNSqJOuCYZj/YmLUwYw==}
+  '@antv/g-lite@2.0.6':
+    resolution: {integrity: sha512-7lYAtxrNHqtQIsBYCub6HLrMNm0828dzBed9Kge1hZtLbTL0weCmZBq/te/0lpdNDVeP/XqwYmT6toIi3sc0Ew==}
 
-  '@antv/g2@4.2.11':
-    resolution: {integrity: sha512-QiqxLLYDWkv9c4oTcXscs6NMxBuWZ1JCarHPZ27J43IN2BV+qUKw8yce0A8CBR8fCILEFqQAfS00Szqpye036Q==}
+  '@antv/g-math@3.0.0':
+    resolution: {integrity: sha512-AkmiNIEL1vgqTPeGY2wtsMdBBqKFwF7SKSgs+D1iOS/rqYMsXdhp/HvtuQ5tx/HdawE/ZzTiicIYopc520ADZw==}
 
-  '@antv/g2plot@2.4.31':
-    resolution: {integrity: sha512-SlWHYVsJgRN7E1Oe5Qk6yWBrSWmctmloknFmklaqe9vEeK+YB9ZLUffZvtAHT10mA2NZ+VjGUhlnMNgR9M1PQg==}
+  '@antv/g-plugin-canvas-path-generator@2.0.6':
+    resolution: {integrity: sha512-wMRUPowlyp1t7u3aalBZM0gQXCrOVNqNpodOOwFPqe+M0qBpHmh9gUF1AtXyg3m84i4HCUFgmupJ9YZVCnZ2lg==}
 
-  '@antv/matrix-util@3.0.4':
-    resolution: {integrity: sha512-BAPyu6dUliHcQ7fm9hZSGKqkwcjEDVLVAstlHULLvcMZvANHeLXgHEgV7JqcAV/GIhIz8aZChIlzM1ZboiXpYQ==}
+  '@antv/g-plugin-canvas-picker@2.0.7':
+    resolution: {integrity: sha512-c1igCBXG4ZBvzxrTQ9DNxhYdA1gkzNv6JbTmT2ZDIBMxkLi1sD9jjEF00vc1+d2OHS3bpqmfpLkIniZCtAN3kA==}
 
-  '@antv/matrix-util@3.1.0-beta.3':
-    resolution: {integrity: sha512-W2R6Za3A6CmG51Y/4jZUM/tFgYSq7vTqJL1VD9dKrvwxS4sE0ZcXINtkp55CdyBwJ6Cwm8pfoRpnD4FnHahN0A==}
+  '@antv/g-plugin-canvas-renderer@2.0.7':
+    resolution: {integrity: sha512-GcfAyCXrsBCOUWPx8MnyMN3TJ/ocb9APg6gO1LeN5F8YN0fpkKqxuhfHTtc5D1dCG0+8VQWSyI3HdkbOOhA3vA==}
 
-  '@antv/path-util@2.0.15':
-    resolution: {integrity: sha512-R2VLZ5C8PLPtr3VciNyxtjKqJ0XlANzpFb5sE9GE61UQqSRuSVSzIakMxjEPrpqbgc+s+y8i+fmc89Snu7qbNw==}
+  '@antv/g-plugin-dom-interaction@2.0.6':
+    resolution: {integrity: sha512-tu9+PNPSc7JOO+rZ/Q7tTuPMbMXRsXg9AVVaB+PzwGuYYQmCfRuudtPa5+lVWzXaFc6wlThb4v9qeA2AerqeNw==}
+
+  '@antv/g-plugin-dragndrop@2.0.6':
+    resolution: {integrity: sha512-qMrDbrGEnM66Qg/vwI+zNdhFNoN+pjzyZtO3MD+CjNQnEGpQqy1W9PNLpWcFE43BU5Z/JkoUtu6Oy5C/WKHBbQ==}
+
+  '@antv/g-plugin-html-renderer@2.0.7':
+    resolution: {integrity: sha512-j5zuVJ3cBm0VfJBTAtMa5GB159HSInBBXO3Nup4UVaKjl7JSL0Qkz5vZCvRX6rv6UD19+vH483v7JtQ+JXcgHA==}
+
+  '@antv/g-plugin-image-loader@2.0.6':
+    resolution: {integrity: sha512-lyJ157fDqH0iFBYwFGUxZNUOxN0vRV5hF7e0iK9ElvSEc2ovqpLi0UVwjAbA67eJwpd5Y771Go1sRfx0XJo87Q==}
+
+  '@antv/g-web-animations-api@2.0.7':
+    resolution: {integrity: sha512-BpP86sTRAgNAWHDNajOhoM0YC2eL95iUFGcRftulrZ/8sqnTXF/M/I319vcznylwKNS37tzVmEppn76vS35UmQ==}
+
+  '@antv/g2-extension-plot@0.2.1':
+    resolution: {integrity: sha512-WNv/LIUNJLwlfG8XXmKUbje9PbImtJqh36UDvuOk/uu+kmP/uMyHAXsBuu0yCOWdQgBVTVwoxszxJOCnY4mVfg==}
+
+  '@antv/g2@5.2.1':
+    resolution: {integrity: sha512-Kb3e1ohkLxGEd0+yjc/2ff2hAzIUzUoSR+PP0riI1Pp+c6CobLiK68ji6aoCmfndQMDknvLYAZHSOL8OXc7ChA==}
+
+  '@antv/g@6.0.10':
+    resolution: {integrity: sha512-VH45ddgHQhEzWZ4aDpHHcu6f77vIVKhfEMgHZzUL9bnMTmJ2P4qf0DtarhP6BKvxcHlFFpJcSyYSxTurNHvW5w==}
 
   '@antv/path-util@3.0.1':
     resolution: {integrity: sha512-tpvAzMpF9Qm6ik2YSMqICNU5tco5POOW7S4XoxZAI/B0L26adU+Md/SmO0BBo2SpuywKvzPH3hPT3xmoyhr04Q==}
 
-  '@antv/scale@0.3.18':
-    resolution: {integrity: sha512-GHwE6Lo7S/Q5fgaLPaCsW+CH+3zl4aXpnN1skOiEY0Ue9/u+s2EySv6aDXYkAqs//i0uilMDD/0/4n8caX9U9w==}
+  '@antv/scale@0.4.16':
+    resolution: {integrity: sha512-5wg/zB5kXHxpTV5OYwJD3ja6R8yTiqIOkjOhmpEJiowkzRlbEC/BOyMvNUq5fqFIHnMCE9woO7+c3zxEQCKPjw==}
 
   '@antv/util@2.0.17':
     resolution: {integrity: sha512-o6I9hi5CIUvLGDhth0RxNSFDRwXeywmt6ExR4+RmVAzIi48ps6HUy+svxOCayvrPBN37uE6TAc2KDofRo0nK9Q==}
+
+  '@antv/util@3.3.7':
+    resolution: {integrity: sha512-qqPg7rIPCsJyl7N56jAC25v/99mJ3ApVkgBsGijhiWrEeKvzXBPk1r5P77Pm9nCljpnn+hH8Z3t5AivbEoTJMg==}
 
   '@arco-design/color@0.4.0':
     resolution: {integrity: sha512-s7p9MSwJgHeL8DwcATaXvWT3m2SigKpxx4JA1BGPHL4gfvaQsmQfrLBDpjOJFJuJ2jG2dMt3R3P8Pm9E65q18g==}
@@ -2889,9 +2908,6 @@ packages:
   '@pansy/react-amap@2.21.0':
     resolution: {integrity: sha512-n8DZlV3EKJU3HUmh5VXIfgHnMOhS/Zr6fpt//+g/JqaMu1WlpwvZE/2OuZ3+Q5nnRE5XgpXrF7UBmS2V7zQ+uA==}
 
-  '@pansy/shared@1.13.0':
-    resolution: {integrity: sha512-lxbbIJz33CpxHsvuwmg+b2wAbRmEjNFWs6z8RoI6eMX/jEhqrIGGXgnRuuSV2Cc8uvxfhOWysBnmDg5gdfyMGg==}
-
   '@pansy/use-portal@0.2.2':
     resolution: {integrity: sha512-UQjFI9lC43kyUbO9nFUHCSo0qK4228KQUww+4lYR5ySEVqtKsbBvq/4soKjj2O9otUVEopYpV9J03J7bpsMpKQ==}
     peerDependencies:
@@ -3748,9 +3764,6 @@ packages:
 
   '@types/cross-spawn@6.0.6':
     resolution: {integrity: sha512-fXRhhUkG4H3TQk5dBhQ7m/JDdSNHKwR2BBia62lhwEIq9xGiQKLxd6LymNhn47SjXhsUEPmxi+PKw2OkW4LLjA==}
-
-  '@types/d3-timer@2.0.3':
-    resolution: {integrity: sha512-jhAJzaanK5LqyLQ50jJNIrB8fjL9gwWZTgYjevPvkDLMU+kTAZkYsobI59nYoeSrH1PucuyJEi247Pb90t6XUg==}
 
   '@types/debug@4.1.12':
     resolution: {integrity: sha512-vIChWdVG3LG1SMxEvI/AK+FWJthlrqlTu7fbrlywTkkaONwk/UAGaULXRlf8vkzFBLVm0zkMdCquhL5aOjhXPQ==}
@@ -5997,25 +6010,64 @@ packages:
     engines: {node: ^16.0.0 || ^18.0.0 || >=20.0.0}
     hasBin: true
 
+  d3-array@3.2.4:
+    resolution: {integrity: sha512-tdQAmyA18i4J7wprpYq8ClcxZy3SC31QMeByyCFyRt7BVHdREQZ5lpzoe5mFEYZUWe+oq8HBvk9JjpibyEV4Jg==}
+    engines: {node: '>=12'}
+
   d3-color@3.1.0:
     resolution: {integrity: sha512-zg/chbXyeBtMQ1LbD/WSoW2DpC3I0mpmPdW+ynRTj/x2DAWYrIY7qeZIHidozwV24m4iavr15lNwIwLxRmOxhA==}
     engines: {node: '>=12'}
 
-  d3-ease@1.0.7:
-    resolution: {integrity: sha512-lx14ZPYkhNx0s/2HX5sLFUI3mbasHjSSpwO/KaaNACweVwxUruKyWVcb293wMv1RqTPZyZ8kSZ2NogUZNcLOFQ==}
+  d3-dispatch@3.0.1:
+    resolution: {integrity: sha512-rzUyPU/S7rwUflMyLc1ETDeBj0NRuHKKAcvukozwhshr6g6c5d8zh4c2gQjY2bZ0dXeGLWc1PF174P2tVvKhfg==}
+    engines: {node: '>=12'}
 
-  d3-hierarchy@2.0.0:
-    resolution: {integrity: sha512-SwIdqM3HxQX2214EG9GTjgmCc/mbSx4mQBn+DuEETubhOw6/U3fmnji4uCVrmzOydMHSO1nZle5gh6HB/wdOzw==}
+  d3-dsv@3.0.1:
+    resolution: {integrity: sha512-UG6OvdI5afDIFP9w4G0mNq50dSOsXHJaRE8arAS5o9ApWnIElp8GZw1Dun8vP8OyHOZ/QJUKUJwxiiCCnUwm+Q==}
+    engines: {node: '>=12'}
+    hasBin: true
+
+  d3-force@3.0.0:
+    resolution: {integrity: sha512-zxV/SsA+U4yte8051P4ECydjD/S+qeYtnaIyAs9tgHCqfguma/aAQDjo85A9Z6EKhBirHRJHXIgJUlffT4wdLg==}
+    engines: {node: '>=12'}
+
+  d3-format@3.1.0:
+    resolution: {integrity: sha512-YyUI6AEuY/Wpt8KWLgZHsIU86atmikuoOmCfommt0LYHiQSPjvX2AcFc38PX0CBpr2RCyZhjex+NS/LPOv6YqA==}
+    engines: {node: '>=12'}
+
+  d3-geo@3.1.1:
+    resolution: {integrity: sha512-637ln3gXKXOwhalDzinUgY83KzNWZRKbYubaG+fGVuc/dxO64RRljtCTnf5ecMyE1RIdtqpkVcq0IbtU2S8j2Q==}
+    engines: {node: '>=12'}
+
+  d3-hierarchy@3.1.2:
+    resolution: {integrity: sha512-FX/9frcub54beBdugHjDCdikxThEqjnR93Qt7PvQTOHxyiNCAlvMrHhclk3cD5VeAaq9fxmfRp+CnWw9rEMBuA==}
+    engines: {node: '>=12'}
 
   d3-interpolate@3.0.1:
     resolution: {integrity: sha512-3bYs1rOD33uo8aqJfKP3JWPAibgw8Zm2+L9vBKEHJ2Rg+viTR7o5Mmv5mZcieN+FRYaAOWX5SJATX6k1PWz72g==}
     engines: {node: '>=12'}
 
-  d3-regression@1.3.10:
-    resolution: {integrity: sha512-PF8GWEL70cHHWpx2jUQXc68r1pyPHIA+St16muk/XRokETzlegj5LriNKg7o4LR0TySug4nHYPJNNRz/W+/Niw==}
+  d3-path@3.1.0:
+    resolution: {integrity: sha512-p3KP5HCf/bvjBSSKuXid6Zqijx7wIfNW+J/maPs+iwR35at5JCbLUT0LzF1cnjbCHWhqzQTIN2Jpe8pRebIEFQ==}
+    engines: {node: '>=12'}
+
+  d3-quadtree@3.0.1:
+    resolution: {integrity: sha512-04xDrxQTDTCFwP5H6hRhsRcb9xxv2RzkcsygFzmkSIOJy3PeRJP7sNk3VRIbKXcog561P9oU0/rVH6vDROAgUw==}
+    engines: {node: '>=12'}
+
+  d3-scale-chromatic@3.1.0:
+    resolution: {integrity: sha512-A3s5PWiZ9YCXFye1o246KoscMWqf8BsD9eRiJ3He7C9OBaxKhAd5TFCdEx/7VbKtxxTsu//1mMJFrEt572cEyQ==}
+    engines: {node: '>=12'}
+
+  d3-shape@3.2.0:
+    resolution: {integrity: sha512-SaLBuwGm3MOViRq2ABk3eLoxwZELpH6zhl3FbAoJ7Vm1gofKx6El1Ib5z23NUEhF9AsGl7y+dzLe5Cw2AArGTA==}
+    engines: {node: '>=12'}
 
   d3-timer@1.0.10:
     resolution: {integrity: sha512-B1JDm0XDaQC+uvo4DT79H0XmBskgS3l6Ve+1SBCfxgmtIb1AVrPIoqd+nPSv+loMX8szQ0sVUhGngL7D5QPiXw==}
+
+  d3-voronoi@1.1.4:
+    resolution: {integrity: sha512-dArJ32hchFsrQ8uMiTBLq256MpnZjeuBtdHpaDlYuQyjU0CVzCJl/BVW+SkszaAeH95D/8gxqAhgx0ouAWAfRg==}
 
   d@1.0.2:
     resolution: {integrity: sha512-MOqHvMWF9/9MX6nza0KgvFH4HpMU0EF5uUDXqX/BtxtU8NfB0QzRtJ8Oe/6SuS4kbhyzVJwjd97EA4PKrzJ8bw==}
@@ -6243,9 +6295,6 @@ packages:
   destroy@1.2.0:
     resolution: {integrity: sha512-2sJGJTaXIIaR1w4iJSNoN0hnMY7Gpc/n8D4qSCJw8QqFWXf7cuAgnEHxBpweaVcPevC2l3KpjYCx3NypQQgaJg==}
     engines: {node: '>= 0.8', npm: 1.2.8000 || >= 1.4.16}
-
-  detect-browser@5.3.0:
-    resolution: {integrity: sha512-53rsFbGdwMwlF7qvCt0ypLM5V5/Mbl0szB7GPN8y9NCcbknYOeVVXdrXEq+90IwAfrrzt6Hd+u2E2ntakICU8w==}
 
   detect-indent@5.0.0:
     resolution: {integrity: sha512-rlpvsxUtM0PQvy9iZe640/IWwWYyBsTApREbA1pHOpmOUIl9MkP/U4z7vTtg4Oaojvqhxt7sdufnT0EzGaR31g==}
@@ -7290,6 +7339,10 @@ packages:
     resolution: {integrity: sha512-topOrETNxJ6T2gAnQiWqAlzGPj8uI2wtmNOlDIMNB+qyvGJZ6R++STbUOTAYmvPhOMz2gXnXPH0hOvURYmrBow==}
     engines: {node: '>=0.4.0'}
 
+  flru@1.0.2:
+    resolution: {integrity: sha512-kWyh8ADvHBFz6ua5xYOPnUroZTT/bwWfrCeL0Wj1dzG4/YOmOcfJ99W8dOVyyynJN35rZ9aCOtHChqQovV7yog==}
+    engines: {node: '>=6'}
+
   flush-write-stream@1.1.1:
     resolution: {integrity: sha512-3Z4XhFZ3992uIq0XOqb9AreonueSYphE6oYbpt5+3u06JWklbsPkNv3ZKkP9Bz/r+1MWCaMoSQ28P85+1Yc77w==}
 
@@ -8208,6 +8261,10 @@ packages:
   internal-slot@1.0.7:
     resolution: {integrity: sha512-NGnrKwXzSms2qUUih/ILZ5JBqNTSa1+ZmP6flaIp6KmSElgE9qdndzS3cqjrDovwFdmwsGsLdeFgB6suw+1e9g==}
     engines: {node: '>= 0.4'}
+
+  internmap@2.0.3:
+    resolution: {integrity: sha512-5Hh7Y1wQbvY5ooGgPbDaL5iYLAPzMTUrjMulskHLH6wnv/A+1q5rgEaiuqEjB+oxGXIVZs1FF+R/KPN3ZSQYYg==}
+    engines: {node: '>=12'}
 
   interpret@1.4.0:
     resolution: {integrity: sha512-agE4QfB2Lkp9uICn7BAqoscw4SZP9kTE2hxiFI3jBPmXJfdqiahTbUuKGsMoN2GtqL9AxhYioAcVvgsb1HvRbA==}
@@ -11484,6 +11541,9 @@ packages:
     resolution: {integrity: sha512-WuyALRjWPDGtt/wzJiadO5AXY+8hZ80hVpe6MyivgraREW751X3SbhRvG3eLKOYN+8VEvqLcf3wdnt44Z4S4SA==}
     engines: {node: '>=10'}
 
+  quickselect@2.0.0:
+    resolution: {integrity: sha512-RKJ22hX8mHe3Y6wH/N3wCM6BWtjaxIyyUIkpHOvfFnxdI4yD4tBXEBKSbriGujF6jnSVkJrffuo6vxACiSSxIw==}
+
   radash@12.1.0:
     resolution: {integrity: sha512-b0Zcf09AhqKS83btmUeYBS8tFK7XL2e3RvLmZcm0sTdF1/UUlHSsjXdCcWNxe7yfmAlPve5ym0DmKGtTzP6kVQ==}
     engines: {node: '>=14.18.0'}
@@ -11514,6 +11574,9 @@ packages:
     engines: {node: '>= 10.13.0'}
     peerDependencies:
       webpack: ^4.0.0 || ^5.0.0
+
+  rbush@3.0.1:
+    resolution: {integrity: sha512-XRaVO0YecOpEuIvbhbpTrZgoiI6xBlz6hnlr6EHhd+0x9ase6EmeN+hdwwUaJvLcsFFQ8iWVF1GAK1yB0BWi0w==}
 
   rc-align@4.0.15:
     resolution: {integrity: sha512-wqJtVH60pka/nOX7/IspElA8gjPNQKIx/ZqJ6heATCkXpe1Zg4cPVrMD2vC96wjsFFL8WsmhPbx9tdMo1qqlIA==}
@@ -11889,12 +11952,6 @@ packages:
     engines: {node: '>=10.18'}
     peerDependencies:
       react: ^16.3.0 || ^17.0.1 || ^18.0.0
-
-  react-content-loader@5.1.4:
-    resolution: {integrity: sha512-hTq7pZi2GKCK6a9d3u6XStozm0QGCEjw8cSqQReiWnh2up6IwCha5R5TF0o6SY5qUDpByloEZEZtnFxpJyENFw==}
-    engines: {node: '>=10'}
-    peerDependencies:
-      react: '>=16.0.0'
 
   react-copy-to-clipboard@5.1.0:
     resolution: {integrity: sha512-k61RsNgAayIJNoy9yDsYzDe/yAZAzEbEgcz3DZMhF686LEyukcE1hzurxe85JandPUG+yTfGVFzuEw3xt8WP/A==}
@@ -12754,9 +12811,6 @@ packages:
     engines: {node: '>=12.0.0', npm: '>=5.6.0'}
     hasBin: true
 
-  size-sensor@1.0.2:
-    resolution: {integrity: sha512-2NCmWxY7A9pYKGXNBfteo4hy14gWu47rg5692peVMst6lQLPKrVjhY+UTEsPI5ceFRJSl3gVgMYaUi/hKuaiKw==}
-
   skin-tone@2.0.0:
     resolution: {integrity: sha512-kUMbT1oBJCpgrnKoSr0o6wPtvRWT9W9UKvGLwfJYO2WuahZRHOpEyL1ckyMGgMWh0UdpmaoFqKKD29WTomNEGA==}
     engines: {node: '>=8'}
@@ -13223,6 +13277,9 @@ packages:
   svg-parser@2.0.4:
     resolution: {integrity: sha512-e4hG1hRwoOdRb37cIMSgzNsxyzKfayW6VOflrwvR+/bzrkyxY/31WkbgnQpgtrNp1SdpJvpUAGTa/ZoiPNDuRQ==}
 
+  svg-path-parser@1.1.0:
+    resolution: {integrity: sha512-jGCUqcQyXpfe38R7RFfhrMyfXcBmpMNJI/B+4CE9/Unkh98UporAc461GTthv+TVDuZXsBx7/WiwJb1Oh4tt4A==}
+
   svg-pathdata@5.0.5:
     resolution: {integrity: sha512-TAAvLNSE3fEhyl/Da19JWfMAdhSXTYeviXsLSoDT1UM76ADj5ndwAPX1FKQEgB/gFMPavOy6tOqfalXKUiXrow==}
     engines: {node: '>=6.9.5'}
@@ -13483,9 +13540,6 @@ packages:
 
   transformation-matrix@2.16.1:
     resolution: {integrity: sha512-tdtC3wxVEuzU7X/ydL131Q3JU5cPMEn37oqVLITjRDSDsnSHVFzW2JiCLfZLIQEgWzZHdSy3J6bZzvKEN24jGA==}
-
-  tree-lodash@0.3.1:
-    resolution: {integrity: sha512-wu3kZ+dA5M3cJ31FbYw2z225KpGgeLcZ1JQQ2Cp6h/Q1YVKjNFMuJFFtmsR6acujFufHk34ycWMhKidLkQS2CQ==}
 
   treeverse@3.0.0:
     resolution: {integrity: sha512-gcANaAnd2QDZFmHFEOF4k7uc1J/6a6z3DJMd/QwEyxLoKGiptJRwid582r7QIsFlFMIZ3SnxfS52S4hm2DHkuQ==}
@@ -14614,6 +14668,11 @@ snapshots:
       '@jridgewell/gen-mapping': 0.3.5
       '@jridgewell/trace-mapping': 0.3.25
 
+  '@ant-design/charts-util@0.0.1-alpha.5(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
+    dependencies:
+      react: 18.3.1
+      react-dom: 18.3.1(react@18.3.1)
+
   '@ant-design/colors@6.0.0':
     dependencies:
       '@ctrl/tinycolor': 3.6.1
@@ -14631,12 +14690,15 @@ snapshots:
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
 
-  '@ant-design/plots@1.2.5(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
+  '@ant-design/plots@2.2.5(lodash-es@4.17.21)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
     dependencies:
-      '@antv/g2plot': 2.4.31
-      '@antv/util': 2.0.17
+      '@ant-design/charts-util': 0.0.1-alpha.5(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      '@antv/event-emitter': 0.1.3
+      '@antv/g': 6.0.10
+      '@antv/g2': 5.2.1
+      '@antv/g2-extension-plot': 0.2.1
+      lodash-es: 4.17.21
       react: 18.3.1
-      react-content-loader: 5.1.4(react@18.3.1)
       react-dom: 18.3.1(react@18.3.1)
 
   '@ant-design/react-slick@0.29.2(react@18.3.1)':
@@ -14721,136 +14783,156 @@ snapshots:
 
   '@antfu/utils@0.7.10': {}
 
-  '@antv/adjust@0.2.5':
+  '@antv/component@2.0.1':
     dependencies:
-      '@antv/util': 2.0.17
-      tslib: 1.14.1
+      '@antv/g': 6.0.10
+      '@antv/scale': 0.4.16
+      '@antv/util': 3.3.7
+      svg-path-parser: 1.1.0
 
-  '@antv/attr@0.3.5':
+  '@antv/coord@0.4.7':
     dependencies:
-      '@antv/color-util': 2.0.6
-      '@antv/scale': 0.3.18
+      '@antv/scale': 0.4.16
       '@antv/util': 2.0.17
-      tslib: 2.6.3
-
-  '@antv/color-util@2.0.6':
-    dependencies:
-      '@antv/util': 2.0.17
-      tslib: 2.6.3
-
-  '@antv/component@0.8.35':
-    dependencies:
-      '@antv/color-util': 2.0.6
-      '@antv/dom-util': 2.0.4
-      '@antv/g-base': 0.5.16
-      '@antv/matrix-util': 3.1.0-beta.3
-      '@antv/path-util': 2.0.15
-      '@antv/scale': 0.3.18
-      '@antv/util': 2.0.17
-      fecha: 4.2.3
-      tslib: 2.6.3
-
-  '@antv/coord@0.3.1':
-    dependencies:
-      '@antv/matrix-util': 3.1.0-beta.3
-      '@antv/util': 2.0.17
-      tslib: 2.6.3
-
-  '@antv/dom-util@2.0.4':
-    dependencies:
-      tslib: 2.6.3
+      gl-matrix: 3.4.3
 
   '@antv/event-emitter@0.1.3': {}
 
-  '@antv/g-base@0.5.16':
+  '@antv/g-camera-api@2.0.9':
     dependencies:
-      '@antv/event-emitter': 0.1.3
-      '@antv/g-math': 0.1.9
-      '@antv/matrix-util': 3.1.0-beta.3
-      '@antv/path-util': 2.0.15
-      '@antv/util': 2.0.17
-      '@types/d3-timer': 2.0.3
-      d3-ease: 1.0.7
-      d3-interpolate: 3.0.1
-      d3-timer: 1.0.10
-      detect-browser: 5.3.0
-      tslib: 2.6.3
-
-  '@antv/g-canvas@0.5.17':
-    dependencies:
-      '@antv/g-base': 0.5.16
-      '@antv/g-math': 0.1.9
-      '@antv/matrix-util': 3.1.0-beta.3
-      '@antv/path-util': 2.0.15
-      '@antv/util': 2.0.17
+      '@antv/g-lite': 2.0.6
+      '@antv/util': 3.3.7
       gl-matrix: 3.4.3
       tslib: 2.6.3
 
-  '@antv/g-math@0.1.9':
+  '@antv/g-canvas@2.0.8':
     dependencies:
-      '@antv/util': 2.0.17
+      '@antv/g-lite': 2.0.6
+      '@antv/g-plugin-canvas-path-generator': 2.0.6
+      '@antv/g-plugin-canvas-picker': 2.0.7
+      '@antv/g-plugin-canvas-renderer': 2.0.7
+      '@antv/g-plugin-dom-interaction': 2.0.6
+      '@antv/g-plugin-html-renderer': 2.0.7
+      '@antv/g-plugin-image-loader': 2.0.6
+      '@antv/util': 3.3.7
+      tslib: 2.6.3
+
+  '@antv/g-dom-mutation-observer-api@2.0.6':
+    dependencies:
+      '@antv/g-lite': 2.0.6
+
+  '@antv/g-lite@2.0.6':
+    dependencies:
+      '@antv/g-math': 3.0.0
+      '@antv/util': 3.3.7
+      d3-color: 3.1.0
+      eventemitter3: 5.0.1
       gl-matrix: 3.4.3
-
-  '@antv/g-svg@0.5.7':
-    dependencies:
-      '@antv/g-base': 0.5.16
-      '@antv/g-math': 0.1.9
-      '@antv/util': 2.0.17
-      detect-browser: 5.3.0
+      rbush: 3.0.1
       tslib: 2.6.3
 
-  '@antv/g2@4.2.11':
+  '@antv/g-math@3.0.0':
     dependencies:
-      '@antv/adjust': 0.2.5
-      '@antv/attr': 0.3.5
-      '@antv/color-util': 2.0.6
-      '@antv/component': 0.8.35
-      '@antv/coord': 0.3.1
-      '@antv/dom-util': 2.0.4
-      '@antv/event-emitter': 0.1.3
-      '@antv/g-base': 0.5.16
-      '@antv/g-canvas': 0.5.17
-      '@antv/g-svg': 0.5.7
-      '@antv/matrix-util': 3.1.0-beta.3
-      '@antv/path-util': 2.0.15
-      '@antv/scale': 0.3.18
-      '@antv/util': 2.0.17
+      '@antv/util': 3.3.7
+      gl-matrix: 3.4.3
       tslib: 2.6.3
 
-  '@antv/g2plot@2.4.31':
+  '@antv/g-plugin-canvas-path-generator@2.0.6':
     dependencies:
-      '@antv/color-util': 2.0.6
+      '@antv/g-lite': 2.0.6
+      '@antv/g-math': 3.0.0
+      '@antv/util': 3.3.7
+      tslib: 2.6.3
+
+  '@antv/g-plugin-canvas-picker@2.0.7':
+    dependencies:
+      '@antv/g-lite': 2.0.6
+      '@antv/g-math': 3.0.0
+      '@antv/g-plugin-canvas-path-generator': 2.0.6
+      '@antv/g-plugin-canvas-renderer': 2.0.7
+      '@antv/util': 3.3.7
+      gl-matrix: 3.4.3
+      tslib: 2.6.3
+
+  '@antv/g-plugin-canvas-renderer@2.0.7':
+    dependencies:
+      '@antv/g-lite': 2.0.6
+      '@antv/g-math': 3.0.0
+      '@antv/g-plugin-canvas-path-generator': 2.0.6
+      '@antv/g-plugin-image-loader': 2.0.6
+      '@antv/util': 3.3.7
+      gl-matrix: 3.4.3
+      tslib: 2.6.3
+
+  '@antv/g-plugin-dom-interaction@2.0.6':
+    dependencies:
+      '@antv/g-lite': 2.0.6
+      tslib: 2.6.3
+
+  '@antv/g-plugin-dragndrop@2.0.6':
+    dependencies:
+      '@antv/g-lite': 2.0.6
+      '@antv/util': 3.3.7
+      tslib: 2.6.3
+
+  '@antv/g-plugin-html-renderer@2.0.7':
+    dependencies:
+      '@antv/g-lite': 2.0.6
+      '@antv/util': 3.3.7
+      gl-matrix: 3.4.3
+      tslib: 2.6.3
+
+  '@antv/g-plugin-image-loader@2.0.6':
+    dependencies:
+      '@antv/g-lite': 2.0.6
+      '@antv/util': 3.3.7
+      gl-matrix: 3.4.3
+      tslib: 2.6.3
+
+  '@antv/g-web-animations-api@2.0.7':
+    dependencies:
+      '@antv/g-lite': 2.0.6
+      '@antv/util': 3.3.7
+      tslib: 2.6.3
+
+  '@antv/g2-extension-plot@0.2.1':
+    dependencies:
+      '@antv/g2': 5.2.1
+      '@antv/util': 3.3.7
+      d3-array: 3.2.4
+      d3-hierarchy: 3.1.2
+
+  '@antv/g2@5.2.1':
+    dependencies:
+      '@antv/component': 2.0.1
+      '@antv/coord': 0.4.7
       '@antv/event-emitter': 0.1.3
-      '@antv/g-base': 0.5.16
-      '@antv/g2': 4.2.11
-      '@antv/matrix-util': 3.1.0-beta.3
+      '@antv/g': 6.0.10
+      '@antv/g-canvas': 2.0.8
+      '@antv/g-plugin-dragndrop': 2.0.6
       '@antv/path-util': 3.0.1
-      '@antv/scale': 0.3.18
-      '@antv/util': 2.0.17
-      d3-hierarchy: 2.0.0
-      d3-regression: 1.3.10
+      '@antv/scale': 0.4.16
+      '@antv/util': 3.3.7
+      d3-array: 3.2.4
+      d3-dsv: 3.0.1
+      d3-force: 3.0.0
+      d3-format: 3.1.0
+      d3-geo: 3.1.1
+      d3-hierarchy: 3.1.2
+      d3-path: 3.1.0
+      d3-scale-chromatic: 3.1.0
+      d3-shape: 3.2.0
+      d3-voronoi: 1.1.4
+      flru: 1.0.2
       fmin: 0.0.2
       pdfast: 0.2.0
-      size-sensor: 1.0.2
-      tslib: 2.6.3
 
-  '@antv/matrix-util@3.0.4':
+  '@antv/g@6.0.10':
     dependencies:
-      '@antv/util': 2.0.17
-      gl-matrix: 3.4.3
-      tslib: 2.6.3
-
-  '@antv/matrix-util@3.1.0-beta.3':
-    dependencies:
-      '@antv/util': 2.0.17
-      gl-matrix: 3.4.3
-      tslib: 2.6.3
-
-  '@antv/path-util@2.0.15':
-    dependencies:
-      '@antv/matrix-util': 3.0.4
-      '@antv/util': 2.0.17
-      tslib: 2.6.3
+      '@antv/g-camera-api': 2.0.9
+      '@antv/g-dom-mutation-observer-api': 2.0.6
+      '@antv/g-lite': 2.0.6
+      '@antv/g-web-animations-api': 2.0.7
 
   '@antv/path-util@3.0.1':
     dependencies:
@@ -14858,15 +14940,21 @@ snapshots:
       lodash-es: 4.17.21
       tslib: 2.6.3
 
-  '@antv/scale@0.3.18':
+  '@antv/scale@0.4.16':
     dependencies:
-      '@antv/util': 2.0.17
+      '@antv/util': 3.3.7
+      color-string: 1.9.1
       fecha: 4.2.3
-      tslib: 2.6.3
 
   '@antv/util@2.0.17':
     dependencies:
       csstype: 3.1.3
+      tslib: 2.6.3
+
+  '@antv/util@3.3.7':
+    dependencies:
+      fast-deep-equal: 3.1.3
+      gl-matrix: 3.4.3
       tslib: 2.6.3
 
   '@arco-design/color@0.4.0':
@@ -17955,11 +18043,6 @@ snapshots:
     transitivePeerDependencies:
       - react
 
-  '@pansy/shared@1.13.0':
-    dependencies:
-      react-is: 18.3.1
-      tree-lodash: 0.3.1
-
   '@pansy/use-portal@0.2.2(react@18.3.1)':
     dependencies:
       react: 18.3.1
@@ -18933,8 +19016,6 @@ snapshots:
   '@types/cross-spawn@6.0.6':
     dependencies:
       '@types/node': 20.14.10
-
-  '@types/d3-timer@2.0.3': {}
 
   '@types/debug@4.1.12':
     dependencies:
@@ -21935,19 +22016,54 @@ snapshots:
       untildify: 4.0.0
       yauzl: 2.10.0
 
+  d3-array@3.2.4:
+    dependencies:
+      internmap: 2.0.3
+
   d3-color@3.1.0: {}
 
-  d3-ease@1.0.7: {}
+  d3-dispatch@3.0.1: {}
 
-  d3-hierarchy@2.0.0: {}
+  d3-dsv@3.0.1:
+    dependencies:
+      commander: 7.2.0
+      iconv-lite: 0.6.3
+      rw: 1.3.3
+
+  d3-force@3.0.0:
+    dependencies:
+      d3-dispatch: 3.0.1
+      d3-quadtree: 3.0.1
+      d3-timer: 1.0.10
+
+  d3-format@3.1.0: {}
+
+  d3-geo@3.1.1:
+    dependencies:
+      d3-array: 3.2.4
+
+  d3-hierarchy@3.1.2: {}
 
   d3-interpolate@3.0.1:
     dependencies:
       d3-color: 3.1.0
 
-  d3-regression@1.3.10: {}
+  d3-path@3.1.0: {}
+
+  d3-quadtree@3.0.1: {}
+
+  d3-scale-chromatic@3.1.0:
+    dependencies:
+      d3-color: 3.1.0
+      d3-interpolate: 3.0.1
+
+  d3-shape@3.2.0:
+    dependencies:
+      d3-path: 3.1.0
 
   d3-timer@1.0.10: {}
+
+  d3-voronoi@1.1.4: {}
 
   d@1.0.2:
     dependencies:
@@ -22148,8 +22264,6 @@ snapshots:
   destr@2.0.3: {}
 
   destroy@1.2.0: {}
-
-  detect-browser@5.3.0: {}
 
   detect-indent@5.0.0: {}
 
@@ -23706,6 +23820,8 @@ snapshots:
 
   flow-parser@0.239.1: {}
 
+  flru@1.0.2: {}
+
   flush-write-stream@1.1.1:
     dependencies:
       inherits: 2.0.4
@@ -24898,6 +25014,8 @@ snapshots:
       es-errors: 1.3.0
       hasown: 2.0.2
       side-channel: 1.0.6
+
+  internmap@2.0.3: {}
 
   interpret@1.4.0: {}
 
@@ -28907,6 +29025,8 @@ snapshots:
 
   quick-lru@5.1.1: {}
 
+  quickselect@2.0.0: {}
+
   radash@12.1.0: {}
 
   ramda@0.29.0: {}
@@ -28936,6 +29056,10 @@ snapshots:
       loader-utils: 2.0.4
       schema-utils: 3.3.0
       webpack: 5.93.0(@swc/core@1.4.2(@swc/helpers@0.5.1))(esbuild@0.20.2)
+
+  rbush@3.0.1:
+    dependencies:
+      quickselect: 2.0.0
 
   rc-align@4.0.15(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
     dependencies:
@@ -29486,10 +29610,6 @@ snapshots:
     dependencies:
       react: 18.3.1
       tween-functions: 1.2.0
-
-  react-content-loader@5.1.4(react@18.3.1):
-    dependencies:
-      react: 18.3.1
 
   react-copy-to-clipboard@5.1.0(react@18.3.1):
     dependencies:
@@ -30592,8 +30712,6 @@ snapshots:
       arg: 5.0.2
       sax: 1.4.1
 
-  size-sensor@1.0.2: {}
-
   skin-tone@2.0.0:
     dependencies:
       unicode-emoji-modifier-base: 1.0.0
@@ -31170,6 +31288,8 @@ snapshots:
 
   svg-parser@2.0.4: {}
 
+  svg-path-parser@1.1.0: {}
+
   svg-pathdata@5.0.5: {}
 
   svg-tags@1.0.0: {}
@@ -31457,8 +31577,6 @@ snapshots:
       punycode: 2.3.1
 
   transformation-matrix@2.16.1: {}
-
-  tree-lodash@0.3.1: {}
 
   treeverse@3.0.0: {}
 

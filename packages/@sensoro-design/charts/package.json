@@ -17,7 +17,7 @@
     "react-dom": "^17.0.0 || ^18.0.0"
   },
   "dependencies": {
-    "@ant-design/plots": "1.2.5",
+    "@ant-design/plots": "^2.2.5",
     "@sensoro-design/styles": "1.27.1",
     "antd": "4.23.2",
     "clsx": "^2.1.1",
