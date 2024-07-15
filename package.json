@@ -10,7 +10,7 @@
   "scripts": {
     "bootstrap": "pnpm install",
     "dev": "pnpm sb",
-    "start": "pnpm --filter=website run start",
+    "start": "dumi dev",
     "build": "walrus build",
     "build:all": "walrus build all",
     "build:docs": "pnpm build:sb",
@@ -44,6 +44,7 @@
     "@floating-ui/react": "^0.26.9",
     "@lotus-design/react-primitives": "^1.0.0-alpha.3",
     "@rcuse/core": "^0.24.0",
+    "@sensoro-design/styles": "1.27.1",
     "clsx": "^2.1.1",
     "dayjs": "^1.11.10",
     "react-number-format": "^5.4.0",
