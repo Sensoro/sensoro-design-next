@@ -1,3 +1,5 @@
+import './theme';
+
 export { default as Area } from './Area';
 export type { AreaConfig } from './Area';
 export { default as Bar } from './Bar';
