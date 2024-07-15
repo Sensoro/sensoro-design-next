@@ -16,5 +16,3 @@ features:
     emoji: 🚀
     description: Put ! description here
 ---
-
-@sensoro-design/charts

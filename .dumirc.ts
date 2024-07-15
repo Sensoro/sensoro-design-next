@@ -1,12 +1,19 @@
+import path from 'node:path';
 import { defineConfig } from 'dumi';
 
-const base = '/charts/';
-
 export default defineConfig({
-  outputPath: 'docs-dist',
-  base,
-  publicPath: base,
   hash: true,
+  alias: {
+    '@sensoro-design/charts': path.join(__dirname, 'packages/@sensoro-design/charts/src'),
+  },
+  resolve: {
+    atomDirs: [
+      {
+        type: 'component',
+        dir: 'packages/@sensoro-design/charts/src',
+      },
+    ],
+  },
   themeConfig: {
     title: '图表',
     nav: [],
