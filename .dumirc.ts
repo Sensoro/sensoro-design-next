@@ -10,6 +10,6 @@ export default defineConfig({
   themeConfig: {
     title: '图表',
     nav: [],
-    name: 'Charts',
+    name: 'Sensoro Design',
   },
 });
