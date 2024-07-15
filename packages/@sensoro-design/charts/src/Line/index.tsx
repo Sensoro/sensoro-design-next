@@ -1,7 +1,7 @@
 import type { LineConfig as BaseLineConfig } from '@ant-design/plots';
 import { Line as BaseLine } from '@ant-design/plots';
+import { clsx } from 'clsx';
 import { groupBy, merge, transform } from 'lodash';
-import type { FC } from 'react';
 import React, { useMemo } from 'react';
 import Composite from '../components/Composite';
 import type { GetDefaultConfigProps } from '../config/base';
@@ -18,14 +18,14 @@ export interface LineConfig extends BaseConfig {
   config?: Omit<BaseLineConfig, 'data'> & { data?: BaseLineConfig['data'] };
 }
 
-const genDefaultConfig = ({
+function genDefaultConfig({
   colorMap,
   seriesField,
   customContentData,
   legend,
   point,
   showTooltipTitle,
-}: Partial<GetDefaultConfigProps>) => {
+}: Partial<GetDefaultConfigProps>) {
   return {
     basic: {
       ...getDefaultConfig({
@@ -66,11 +66,11 @@ const genDefaultConfig = ({
       legend: false,
     },
   };
-};
+}
 
 const prefixCls = 'sen-line';
 
-const Line: FC<LineConfig> = ({
+function Line({
   config = {},
   type = 'basic',
   data,
@@ -83,7 +83,7 @@ const Line: FC<LineConfig> = ({
   empty,
   showPoint = false,
   tooltip,
-}) => {
+}: LineConfig) {
   const { seriesField } = config;
   const originalData = useMemo(
     () => data ?? config?.data,
@@ -129,7 +129,7 @@ const Line: FC<LineConfig> = ({
   );
 
   return (
-    <div className={`${prefixCls} ${className}`} style={style}>
+    <div className={clsx(prefixCls, className)} style={style}>
       <Composite
         title={title}
         seriesField={seriesField}
@@ -137,16 +137,18 @@ const Line: FC<LineConfig> = ({
         colorMap={colorMap}
         timeRange={timeRange}
       >
-        {empty ? (
-          <div className={`${prefixCls}-empty`}>
-            {typeof empty === 'boolean' ? '暂无内容' : empty}
-          </div>
-        ) : (
-          <BaseLine {...newConfig} />
-        )}
+        {empty
+          ? (
+              <div className={`${prefixCls}-empty`}>
+                {typeof empty === 'boolean' ? '暂无内容' : empty}
+              </div>
+            )
+          : (
+              <BaseLine {...newConfig} />
+            )}
       </Composite>
     </div>
   );
-};
+}
 
 export default Line;
