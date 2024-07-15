@@ -7,7 +7,7 @@ export function Light() {
 
   const customTheme: G2Theme = {
     view: {
-      viewFill: 'red',
+      viewFill: 'green',
     },
   };
 

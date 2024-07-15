@@ -37,7 +37,7 @@ export function Basic() {
     <Line
       {...config}
       theme={{
-        type: 'sDark',
+        type: 'light',
       }}
     />
   );
