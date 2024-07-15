@@ -1,0 +1,1 @@
+import{r as e,R as f}from"./index-uubelm5h.js";function c(o){const r=e.forwardRef(o);return r.withProps=a=>{const t=e.forwardRef((n,s)=>f.createElement(r,{...a,...n,ref:s}));return t.displayName=`WithProps(${r.displayName})`,t},r}export{c as f};
