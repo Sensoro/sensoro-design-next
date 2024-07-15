@@ -1,9 +1,9 @@
 import React from 'react';
+import { get, map } from 'lodash';
+import SVG from 'react-inlinesvg';
 import type { BaseConfig } from '../types';
 import type { ColorMap } from '../utils';
 
-import { get, map } from 'lodash';
-import SVG from 'react-inlinesvg';
 import marker from '../assets/marker.svg';
 import { COLORS_LARGE, COLORS_SMALL } from '../style';
 
@@ -56,7 +56,7 @@ const prefixCls = 'g2-tooltip';
  * @param seriesField 分类字段
  * @param customContentData 修改tooltip render数据
  */
-export const getDefaultConfig = ({
+export function getDefaultConfig({
   point,
   tooltip,
   tooltipBox,
@@ -76,7 +76,7 @@ export const getDefaultConfig = ({
   height,
   rangebar = false,
   multiRange = false,
-}: GetDefaultConfigProps): any => {
+}: GetDefaultConfigProps): any {
   const config = {
     xAxis: rose
       ? null
@@ -315,9 +315,8 @@ export const getDefaultConfig = ({
                       <li key={idx} className={`${prefixCls}-list-item`}>
                         <SVG
                           src={marker}
-                          preProcessor={(code) =>
-                            code.replace(/fill=".*?"/g, `fill="${color}"`)
-                          }
+                          preProcessor={code =>
+                            code.replace(/fill=".*?"/g, `fill="${color}"`)}
                           style={{ marginRight: 8 }}
                           width={8}
                           height={8}
@@ -465,10 +464,9 @@ export const getDefaultConfig = ({
     Object.assign(config, {
       theme: {
         colors10: Array.from(Array(10), (item, index) =>
-          !!customsColors?.length
+          customsColors?.length
             ? customsColors[index % customsColors.length]
-            : COLORS_SMALL[index % 8],
-        ),
+            : COLORS_SMALL[index % 8]),
       },
       interactions: [],
       width: 154,
@@ -580,10 +578,9 @@ export const getDefaultConfig = ({
     Object.assign(config, {
       theme: {
         colors10: Array.from(Array(10), (item, index) =>
-          !!customsColors?.length
+          customsColors?.length
             ? customsColors[index % customsColors.length]
-            : COLORS_SMALL[index % 8],
-        ),
+            : COLORS_SMALL[index % 8]),
       },
       conversionTag: false,
       funnelStyle: {
@@ -666,4 +663,4 @@ export const getDefaultConfig = ({
   }
 
   return config;
-};
+}
