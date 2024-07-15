@@ -41,7 +41,8 @@
     "major": "taze minor -wIr"
   },
   "dependencies": {
-    "@ant-design/plots": "1.2.5",
+    "@ant-design/plots": "^2.2.5",
+    "@antv/util": "^3.3.5",
     "@floating-ui/react": "^0.26.9",
     "@lotus-design/react-primitives": "^1.0.0-alpha.3",
     "@rcuse/core": "^0.24.0",

@@ -6,6 +6,5 @@ export function Dark(): G2Theme {
 
   return {
     ...theme,
-    color: 'red',
   };
 }
