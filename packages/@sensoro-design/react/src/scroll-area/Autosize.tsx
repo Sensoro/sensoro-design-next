@@ -1,3 +1,4 @@
+import * as React from 'react';
 import { clsx } from 'clsx';
 import { Primitive } from '@lotus-design/react-primitives/es/primitive';
 import { useConfigContext } from '../config-provider';

@@ -1,5 +1,6 @@
-import { clsx } from 'clsx';
+import * as React from 'react';
 import * as ScrollAreaPrimitive from '@lotus-design/react-primitives/es/scroll-area';
+import { clsx } from 'clsx';
 import { useConfigContext } from '../config-provider';
 import { factory } from '../helpers/factory';
 import { ScrollBar } from './ScrollBar';

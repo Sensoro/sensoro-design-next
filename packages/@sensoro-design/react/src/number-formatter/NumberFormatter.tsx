@@ -1,3 +1,4 @@
+import * as React from 'react';
 import { NumericFormat } from 'react-number-format';
 import { factory } from '../helpers/factory';
 import type { NumberFormatterFactory } from './interface';
