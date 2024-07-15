@@ -8,6 +8,7 @@
     "moduleResolution": "Node",
     "paths": {
       "@sensoro-design/*": ["./packages/@sensoro-design/*/src"]
+
     },
     "resolveJsonModule": true,
     "allowJs": true,
@@ -18,13 +19,15 @@
   },
   "include": [
     "./scripts",
-    "./packages/@sensoro-design/*/src"
+    "packages"
   ],
   "exclude": [
     "node_modules",
     "./scripts/bin/cli.mjs",
-    "./packages/@sensoro-design/*/cjs/**/*",
-    "./packages/@sensoro-design/*/esm/**/*",
+    "./packages/storybook/storybook-static",
+    "./packages/storybook/postcss.config.cjs",
+    "./packages/@sensoro-design/*/dist/**/*",
+    "./packages/@sensoro-design/*/es/**/*",
     "./packages/@sensoro-design/*/lib/**/*"
   ]
 }

@@ -20,10 +20,10 @@ export function Basic() {
     },
     data: [
       { Date: '2010-01', scales: 0 },
-      { Date: '2010-02', scales: 0 },
+      { Date: '2010-02', scales: 2 },
       { Date: '2010-03', scales: 0 },
       { Date: '2010-04', scales: 0 },
-      { Date: '2010-05', scales: 0 },
+      { Date: '2010-05', scales: 10 },
       { Date: '2010-06', scales: 0 },
       { Date: '2010-07', scales: 0 },
       { Date: '2010-08', scales: 0 },
@@ -35,12 +35,9 @@ export function Basic() {
   };
   return (
     <Line
-      title="基础折线图"
-      type="basic"
-      showPoint
-      config={config}
-      legend={{
-        processData: (name, index) => `类型${name}${index + 1}`,
+      {...config}
+      theme={{
+        type: 'sDark',
       }}
     />
   );

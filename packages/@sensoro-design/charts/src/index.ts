@@ -10,7 +10,7 @@ export { default as Funnel } from './Funnel';
 export type { FunnelConfig } from './Funnel';
 export { default as Gauge } from './Gauge';
 export type { GaugeConfig } from './Gauge';
-export { default as Line } from './Line';
+// export { default as Line } from './Line';
 export type { LineConfig } from './Line';
 export { default as Pie } from './Pie';
 export type { PieConfig } from './Pie';
@@ -20,3 +20,5 @@ export { default as Rose } from './Rose';
 export type { RoseConfig } from './Rose';
 export { default as Treemap } from './Treemap';
 export type { TreemapConfig } from './Treemap';
+
+export { Line } from '@ant-design/plots';
