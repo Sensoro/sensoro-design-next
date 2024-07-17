@@ -40,6 +40,11 @@ export function Light() {
       gridStroke: '#f1f2f4',
       gridStrokeOpacity: 1,
       gridLineDash: [3, 2],
+
+      // Label
+      labelFontSize: 12,
+      labelFill: '#c2c7ce',
+      labelOpacity: 1,
     },
   };
 
