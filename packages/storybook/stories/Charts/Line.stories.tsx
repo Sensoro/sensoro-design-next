@@ -9,7 +9,8 @@ export default meta;
 
 export function Basic() {
   const config: LineConfig = {
-    padding: 'auto',
+    insetLeft: 24,
+    insetRight: 24,
     title: {
       title: '基础折线图',
       subtitle: '我是副标题',
@@ -44,12 +45,8 @@ export function Basic() {
       },
       tooltip: false,
     },
-    style: {
-      lineWidth: 2,
-    },
     axis: {
       x: {
-        // Line
         line: true,
       },
     },

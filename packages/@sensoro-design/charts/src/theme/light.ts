@@ -21,6 +21,11 @@ export function Light() {
       /** 副标题字体颜色 */
       subtitleFill: '#6d7789',
     },
+    line: {
+      line: {
+        lineWidth: 2,
+      },
+    },
     axis: {
       // Line
       lineStroke: '#eceef0',
