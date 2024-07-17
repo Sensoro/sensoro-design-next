@@ -1,13 +1,9 @@
 import React from 'react';
-import type { Meta } from '@storybook/react';
 import { Line } from '@sensoro-design/charts';
 
 const meta = {
   title: 'Charts/Line',
-  component: Line,
-  argTypes: {},
-  args: { },
-} satisfies Meta<typeof Line>;
+};
 
 export default meta;
 
@@ -32,6 +28,25 @@ export function Basic() {
       { Date: '2010-11', scales: 0 },
       { Date: '2010-12', scales: 0 },
     ],
+
+    area: {
+      style: {
+        fill: 'l(270) 0:#fff 1:rgba(43, 109, 229, 0.15)',
+      },
+    },
+
+    point: {
+      size: 2,
+      shape: 'circle',
+      style: {
+        fill: 'white',
+        lineWidth: 1,
+      },
+    },
+
+    style: {
+      lineWidth: 2,
+    },
   };
   return (
     <Line
