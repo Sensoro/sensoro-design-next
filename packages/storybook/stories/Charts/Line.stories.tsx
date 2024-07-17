@@ -1,5 +1,5 @@
 import React from 'react';
-import { Line } from '@sensoro-design/charts';
+import { Line, type LineConfig } from '@sensoro-design/charts';
 
 const meta = {
   title: 'Charts/Line',
@@ -8,12 +8,14 @@ const meta = {
 export default meta;
 
 export function Basic() {
-  const config = {
+  const config: LineConfig = {
+    padding: 'auto',
+    title: {
+      title: '基础折线图',
+      subtitle: '我是副标题',
+    },
     xField: 'time',
     yField: 'scales',
-    xAxis: {
-      tickCount: 5,
-    },
     data: [
       { time: '2010-01', scales: 1998 },
       { time: '2010-02', scales: 1850 },
@@ -45,25 +47,10 @@ export function Basic() {
     style: {
       lineWidth: 2,
     },
-
     axis: {
       x: {
         // Line
         line: true,
-        lineStroke: '#eceef0',
-        lineStrokeOpacity: 1,
-
-        // Tick
-        tickLength: 4,
-        tickStroke: '#eceef0',
-
-        // Grid
-        gridStroke: '#f1f2f4',
-        gridLineDash: [3, 2],
-      },
-      y: {
-        tickLength: 4,
-        tickStroke: '#eceef0',
       },
     },
     interaction: {
@@ -75,8 +62,6 @@ export function Basic() {
     },
   };
   return (
-    <Line
-      {...config}
-    />
+    <Line {...config} />
   );
 }
