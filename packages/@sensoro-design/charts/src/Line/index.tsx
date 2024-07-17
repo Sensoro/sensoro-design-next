@@ -2,6 +2,7 @@ import React from 'react';
 import { Line as AntLine } from '@ant-design/plots';
 import type { LineConfig as AntLineConfig } from '@ant-design/plots';
 import { getItemConfig } from '../helpers/utils';
+import { DEFAULT_INSET_LEFT, DEFAULT_INSET_RIGHT } from '../config';
 import { DEFAULT_AREA_CONFIG, DEFAULT_POINT_CONFIG } from './config';
 import type { AreaConfig, PointConfig } from './types';
 
@@ -12,8 +13,8 @@ export interface LineConfig extends Omit<AntLineConfig, 'area' | 'point'> {
 
 export function Line(props: LineConfig) {
   const {
-    insetLeft = 24,
-    insetRight = 24,
+    insetLeft = DEFAULT_INSET_LEFT,
+    insetRight = DEFAULT_INSET_RIGHT,
     area = true,
     point = true,
     ...rest
