@@ -9,8 +9,6 @@ export default meta;
 
 export function Basic() {
   const config: LineConfig = {
-    insetLeft: 24,
-    insetRight: 24,
     title: {
       title: '基础折线图',
       subtitle: '我是副标题',
@@ -29,22 +27,6 @@ export function Basic() {
       { time: '2010-09', scales: 2107 },
       { time: '2010-10', scales: 2140 },
     ],
-    area: {
-      style: {
-        opacity: 0.15,
-        fill: 'linear-gradient(-90deg, white 0%, rgba(43,109,229,.15) 100%)',
-      },
-      tooltip: false,
-    },
-    point: {
-      size: 2,
-      shape: 'circle',
-      style: {
-        fill: 'white',
-        lineWidth: 1,
-      },
-      tooltip: false,
-    },
     axis: {
       x: {
         line: true,

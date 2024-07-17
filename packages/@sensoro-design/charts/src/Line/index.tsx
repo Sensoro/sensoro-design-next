@@ -1,154 +1,34 @@
-import type { LineConfig as BaseLineConfig } from '@ant-design/plots';
-import { Line as BaseLine } from '@ant-design/plots';
-import { clsx } from 'clsx';
-import { groupBy, merge, transform } from 'lodash';
-import React, { useMemo } from 'react';
-import Composite from '../components/Composite';
-import type { GetDefaultConfigProps } from '../config/base';
-import { getDefaultConfig } from '../config/base';
-import { COLORS_SMALL } from '../style';
-import type { BaseConfig } from '../types';
-import { generateColorMap } from '../utils';
-import './index.less';
+import React from 'react';
+import { Line as AntLine } from '@ant-design/plots';
+import type { LineConfig as AntLineConfig } from '@ant-design/plots';
+import { getItemConfig } from '../helpers/utils';
+import { DEFAULT_AREA_CONFIG, DEFAULT_POINT_CONFIG } from './config';
+import type { AreaConfig, PointConfig } from './types';
 
-export interface LineConfig extends BaseConfig {
-  type?: 'basic' | 'multiple';
-  showPoint?: boolean;
-  data?: BaseLineConfig['data'];
-  config?: Omit<BaseLineConfig, 'data'> & { data?: BaseLineConfig['data'] };
+export interface LineConfig extends Omit<AntLineConfig, 'area' | 'point'> {
+  area?: AntLineConfig['area'] | boolean;
+  point?: AntLineConfig['point'] | boolean;
 }
 
-function genDefaultConfig({
-  colorMap,
-  seriesField,
-  customContentData,
-  legend,
-  point,
-  showTooltipTitle,
-}: Partial<GetDefaultConfigProps>) {
-  return {
-    basic: {
-      ...getDefaultConfig({
-        point,
-        tooltip: true,
-        tooltipBox: typeof legend === 'object' && legend?.type === 'box',
-        showTooltipTitle,
-        colorMap,
-        seriesField,
-        customContentData,
-        showCrosshairs: true,
-      }),
-      color: (data: Record<string, string>) => {
-        if (seriesField) {
-          return colorMap?.[data[seriesField]];
-        }
-        return COLORS_SMALL[0];
-      },
-      legend: false,
-    },
-    multiple: {
-      ...getDefaultConfig({
-        point,
-        tooltip: true,
-        tooltipBox: typeof legend === 'object' && legend?.type === 'box',
-        showTooltipTitle,
-        colorMap,
-        seriesField,
-        customContentData,
-        showCrosshairs: true,
-      }),
-      color: (data: Record<string, string>) => {
-        if (seriesField) {
-          return colorMap?.[data[seriesField]];
-        }
-        return COLORS_SMALL[0];
-      },
-      legend: false,
-    },
-  };
-}
+export function Line(props: LineConfig) {
+  const {
+    insetLeft = 24,
+    insetRight = 24,
+    area = true,
+    point = true,
+    ...rest
+  } = props;
 
-const prefixCls = 'sen-line';
-
-function Line({
-  config = {},
-  type = 'basic',
-  data,
-  title,
-  legend,
-  timeRange,
-  customContentData,
-  style = {},
-  className = '',
-  empty,
-  showPoint = false,
-  tooltip,
-}: LineConfig) {
-  const { seriesField } = config;
-  const originalData = useMemo(
-    () => data ?? config?.data,
-    [data, config?.data],
-  );
-
-  const legendMap = useMemo(
-    () => (seriesField ? groupBy(originalData, seriesField) : {}),
-    [seriesField, originalData],
-  );
-
-  const colorMap = useMemo(() => {
-    const data = transform(
-      legendMap,
-      (result: Record<string, ''>, value, key) => {
-        result[key] = '';
-        return result;
-      },
-      {},
-    );
-    return generateColorMap(data);
-  }, [legendMap]);
-
-  const newConfig = useMemo(
-    () =>
-      merge(
-        {},
-        genDefaultConfig({
-          colorMap,
-          seriesField,
-          customContentData,
-          legend,
-          point: showPoint,
-          showTooltipTitle:
-            typeof tooltip === 'object' ? tooltip.showTitle : true,
-        })[type],
-        config,
-        {
-          data: originalData,
-        },
-      ) as BaseLineConfig,
-    [colorMap, seriesField],
-  );
+  const areaConfig = getItemConfig<AreaConfig>(area, DEFAULT_AREA_CONFIG);
+  const pointConfig = getItemConfig<PointConfig>(point, DEFAULT_POINT_CONFIG);
 
   return (
-    <div className={clsx(prefixCls, className)} style={style}>
-      <Composite
-        title={title}
-        seriesField={seriesField}
-        legend={legend}
-        colorMap={colorMap}
-        timeRange={timeRange}
-      >
-        {empty
-          ? (
-              <div className={`${prefixCls}-empty`}>
-                {typeof empty === 'boolean' ? '暂无内容' : empty}
-              </div>
-            )
-          : (
-              <BaseLine {...newConfig} />
-            )}
-      </Composite>
-    </div>
+    <AntLine
+      insetLeft={insetLeft}
+      insetRight={insetRight}
+      area={areaConfig}
+      point={pointConfig}
+      {...rest}
+    />
   );
 }
-
-export default Line;

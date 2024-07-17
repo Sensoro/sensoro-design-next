@@ -1,6 +1,7 @@
 import { G2 } from '@ant-design/plots';
 import { deepMix } from '@antv/util';
 import type { G2Theme } from '@antv/g2/esm/runtime/types/theme';
+import { Grey03, Grey04, Grey06, Grey08, Grey10 } from '../config';
 
 export function Light() {
   const defaultTheme = G2.Light();
@@ -15,11 +16,11 @@ export function Light() {
       /** 标题字体粗细 */
       titleFontWeight: 500,
       /** 标题字体颜色 */
-      titleFill: '#0a1b39',
+      titleFill: Grey10,
       /** 副标题文字大小 */
       subtitleFontSize: 12,
       /** 副标题字体颜色 */
-      subtitleFill: '#6d7789',
+      subtitleFill: Grey08,
     },
     line: {
       line: {
@@ -28,22 +29,22 @@ export function Light() {
     },
     axis: {
       // Line
-      lineStroke: '#eceef0',
+      lineStroke: Grey04,
       lineStrokeOpacity: 1,
 
       // Tick
       tickLength: 4,
-      tickStroke: '#eceef0',
+      tickStroke: Grey04,
       tickOpacity: 1,
 
       // Grid
-      gridStroke: '#f1f2f4',
+      gridStroke: Grey03,
       gridStrokeOpacity: 1,
       gridLineDash: [3, 2],
 
       // Label
       labelFontSize: 12,
-      labelFill: '#c2c7ce',
+      labelFill: Grey06,
       labelOpacity: 1,
     },
   };
