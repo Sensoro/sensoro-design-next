@@ -56,3 +56,5 @@ export const Line = forwardRef<Chart, LineConfig>(
     );
   },
 );
+
+export default Line;
