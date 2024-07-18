@@ -1,11 +1,11 @@
 import { rgb2arr } from '@antv/util';
-import { Blue02 } from '../config';
+import { Blue2 } from '../config';
 import type { AreaConfig, PointConfig } from './types';
 
 export const DEFAULT_AREA_CONFIG: AreaConfig = {
   style: {
     opacity: 0.2,
-    fill: `linear-gradient(-90deg, white 0%, rgba(${rgb2arr(Blue02).join(',')},.15) 100%)`,
+    fill: `linear-gradient(-90deg, white 0%, rgba(${rgb2arr(Blue2).join(',')},.15) 100%)`,
   },
   tooltip: false,
 };
