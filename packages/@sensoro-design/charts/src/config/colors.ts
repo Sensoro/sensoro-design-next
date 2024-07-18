@@ -19,6 +19,17 @@ export const Grey09 = '#3C4961';
 /** Opacity 100% */
 export const Grey10 = '#0A1B39';
 
+export const Blue01 = '#F0F8FF';
+export const Blue02 = '#D4E9FF';
+export const Blue03 = '#ABD1FF';
+export const Blue04 = '#82B6FF';
+export const Blue05 = '#5591F2';
+export const Blue06 = '#2B6DE5';
+export const Blue07 = '#1B4FBF';
+export const Blue08 = '#0E3599';
+export const Blue09 = '#052073';
+export const Blue10 = '#02124D';
+
 export const Blue1 = '#94C1FF';
 export const Blue2 = '#588BEE';
 export const Blue3 = '#005AB6';

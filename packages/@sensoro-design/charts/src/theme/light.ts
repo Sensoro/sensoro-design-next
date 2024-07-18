@@ -1,7 +1,17 @@
 import { G2 } from '@ant-design/plots';
 import { deepMix } from '@antv/util';
 import type { G2Theme } from '@antv/g2/esm/runtime/types/theme';
-import { Category1, Category2, Grey03, Grey04, Grey06, Grey08, Grey10 } from '../config';
+import {
+  Blue04,
+  Category1,
+  Category2,
+  Grey03,
+  Grey04,
+  Grey06,
+  Grey08,
+  Grey09,
+  Grey10,
+} from '../config';
 
 export function Light() {
   const defaultTheme = G2.Light();
@@ -10,6 +20,7 @@ export function Light() {
     margin: 24,
     category10: Category1,
     category20: Category2,
+    /** 分类图例 */
     legendCategory: {
       itemLabelFill: Grey08,
       itemLabelFillOpacity: 1,
@@ -54,6 +65,37 @@ export function Light() {
       labelFill: Grey06,
       labelOpacity: 1,
       labelSpacing: 8,
+    },
+    tooltip: {
+      crosshairsStroke: Blue04,
+      crosshairsLineDash: [3, 2],
+      css: {
+        '.g2-tooltip': {
+          boxShadow: 'none',
+          background: Grey09,
+          opacity: 1,
+          padding: '12px 12px 8px',
+        },
+        '.g2-tooltip-title': {
+          color: Grey06,
+          fontSize: 12,
+          lineHeight: '20px',
+          margin: '0 0 4px',
+        },
+        '.g2-tooltip-list-item-name-label': {
+          color: '#fff',
+          whiteSpace: 'nowrap',
+          textOverflow: 'ellipsis',
+          overflow: 'hidden',
+          fontWeight: 400,
+        },
+        '.g2-tooltip-list-item-value': {
+          color: '#fff',
+          fontFamily: 'DIN Alternate',
+          marginLeft: '16px',
+          textAlign: 'right',
+        },
+      },
     },
   };
 
