@@ -10,6 +10,11 @@ export function Light() {
     margin: 24,
     category10: Category1,
     category20: Category2,
+    legendCategory: {
+      itemLabelFill: Grey08,
+      itemLabelFillOpacity: 1,
+      itemLabelFontSize: 12,
+    },
     title: {
       /** 主标题、副标题之间的上下间距 */
       spacing: 16,

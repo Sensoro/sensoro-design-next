@@ -1,6 +1,6 @@
 import { rgb2arr } from '@antv/util';
 import { Blue2 } from '../config';
-import type { AreaConfig, PointConfig } from './types';
+import type { AreaConfig, AxisConfig, PointConfig } from './types';
 
 export const DEFAULT_AREA_CONFIG: AreaConfig = {
   style: {
@@ -18,4 +18,18 @@ export const DEFAULT_POINT_CONFIG: PointConfig = {
     lineWidth: 1,
   },
   tooltip: false,
+};
+
+export const DEFAULT_AXIS_CONFIG: AxisConfig = {
+  x: {
+    line: true,
+  },
+};
+
+export const DEFAULT_INTERACTION_CONFIG: AxisConfig = {
+  tooltip: {
+    crosshairs: true,
+    crosshairsStroke: '#82b6ff',
+    crosshairsLineDash: [3, 2],
+  },
 };

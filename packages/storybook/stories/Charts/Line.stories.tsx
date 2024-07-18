@@ -12,8 +12,6 @@ export function Basic() {
     // TODO: 标题底部间距无法实现
     title: {
       title: '基础折线图',
-      subtitle: ' ',
-      subtitleFontSize: 0,
     },
     xField: 'time',
     yField: 'scales',
@@ -29,19 +27,8 @@ export function Basic() {
       { time: '2010-09', scales: 2107 },
       { time: '2010-10', scales: 2140 },
     ],
-    axis: {
-      x: {
-        line: true,
-      },
-    },
-    interaction: {
-      tooltip: {
-        crosshairs: true,
-        crosshairsStroke: '#82b6ff',
-        crosshairsLineDash: [3, 2],
-      },
-    },
   };
+
   return (
     <Line {...config} />
   );
@@ -49,16 +36,18 @@ export function Basic() {
 
 export function Middle() {
   const config: LineConfig = {
-    // TODO: 标题底部间距无法实现
-    title: {
-      title: '基础折线图',
-      subtitle: ' ',
-      subtitleFontSize: 0,
-    },
+    title: '多条折线图',
     xField: 'year',
     yField: 'value',
     colorField: 'category',
-    area: false,
+    legend: {
+      color: {
+        itemMarker: 'hyphen',
+        layout: {
+          justifyContent: 'flex-end',
+        },
+      },
+    },
     data: [
       { year: '2010', value: 510, category: 'Liquid fuel' },
       { year: '2010', value: 481, category: 'Solid fuel' },
@@ -79,19 +68,8 @@ export function Middle() {
       { year: '2015', value: 111, category: 'Solid fuel' },
       { year: '2015', value: 568, category: 'Gas flarinl' },
     ],
-    axis: {
-      x: {
-        line: true,
-      },
-    },
-    interaction: {
-      tooltip: {
-        crosshairs: true,
-        crosshairsStroke: '#82b6ff',
-        crosshairsLineDash: [3, 2],
-      },
-    },
   };
+
   return (
     <Line {...config} />
   );
