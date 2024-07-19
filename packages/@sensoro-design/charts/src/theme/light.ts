@@ -11,6 +11,7 @@ import {
   Grey08,
   Grey09,
   Grey10,
+  Red06,
 } from '../config';
 
 export function Light() {
@@ -95,6 +96,15 @@ export function Light() {
           marginLeft: '16px',
           textAlign: 'right',
         },
+      },
+    },
+
+    lineY: {
+      line: {
+        stroke: Red06,
+        strokeOpacity: 1,
+        lineWidth: 1,
+        lineDash: [3, 2],
       },
     },
   };

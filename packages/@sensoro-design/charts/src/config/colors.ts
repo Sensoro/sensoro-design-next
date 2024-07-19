@@ -30,6 +30,8 @@ export const Blue08 = '#0E3599';
 export const Blue09 = '#052073';
 export const Blue10 = '#02124D';
 
+export const Red06 = '#F72231';
+
 export const Blue1 = '#94C1FF';
 export const Blue2 = '#588BEE';
 export const Blue3 = '#005AB6';
