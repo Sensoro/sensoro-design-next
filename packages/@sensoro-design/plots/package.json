@@ -43,6 +43,8 @@
           "default": "./lib/index.js"
         }
       },
+      "./es/*": "./es/*",
+      "./lib/*": "./lib/*",
       "./package.json": "./package.json"
     }
   }
