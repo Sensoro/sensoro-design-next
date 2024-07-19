@@ -8,6 +8,7 @@ const __dirname = dirname(__filename);
 
 const designDir = join(__dirname, '../@sensoro-design/react/src');
 const chartsDir = join(__dirname, '../@sensoro-design/charts/src');
+const plotsDir = join(__dirname, '../@sensoro-design/plots/src');
 
 export default defineConfig({
   resolve: {
@@ -23,6 +24,10 @@ export default defineConfig({
       {
         find: '@sensoro-design/charts',
         replacement: chartsDir,
+      },
+      {
+        find: '@sensoro-design/plots',
+        replacement: plotsDir,
       },
     ],
   },

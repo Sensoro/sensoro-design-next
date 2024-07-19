@@ -1,5 +1,5 @@
 import React from 'react';
-import { Line, type LineConfig } from '@sensoro-design/charts';
+import { Line, type LineConfig } from '@sensoro-design/plots';
 
 const meta = {
   title: 'Charts/Line',
