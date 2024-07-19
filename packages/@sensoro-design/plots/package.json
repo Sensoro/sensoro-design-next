@@ -1,0 +1,33 @@
+{
+  "name": "@sensoro-design/plots",
+  "version": "2.0.0",
+  "description": "Sensoro Design G2 Plots.",
+  "license": "MIT",
+  "sideEffects": false,
+  "module": "src/index.ts",
+  "files": [
+    "dist",
+    "src"
+  ],
+  "scripts": {
+    "dev": "father dev",
+    "build": "father build"
+  },
+  "peerDependencies": {
+    "lodash-es": "^4.17.21",
+    "react": ">=16.9.0",
+    "react-dom": ">=16.9.0"
+  },
+  "dependencies": {
+    "@ant-design/plots": "^2.2.5",
+    "@antv/g2": "*",
+    "@antv/util": "^3.3.5",
+    "@rcuse/shared": "^0.25.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "authors": [
+    "zhangfuhao@sensoro.com"
+  ]
+}
