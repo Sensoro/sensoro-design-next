@@ -8,7 +8,6 @@
     "resolveJsonModule": true,
     "strict": true,
     "declaration": true,
-    "emitDeclarationOnly": true,
     "esModuleInterop": true,
     "skipLibCheck": true
   },
