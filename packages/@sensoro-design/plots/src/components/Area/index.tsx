@@ -8,8 +8,9 @@ import {
   DEFAULT_AXIS_CONFIG,
   DEFAULT_INTERACTION_CONFIG,
   DEFAULT_Line_CONFIG,
-} from './config';
-import type { AxisConfig, InteractionConfig, LineConfig } from './types';
+  DEFAULT_Style_CONFIG,
+} from "./config";
+import type { AxisConfig, InteractionConfig, LineConfig, StyleConfig } from './types';
 
 export interface AreaConfig
   extends Omit<AntAreaConfig, 'line' | 'axis' | 'interaction'> {
@@ -26,9 +27,11 @@ export const Area = forwardRef<Chart, AreaConfig>(
       line = true,
       axis = true,
       interaction = true,
+      style = {},
       ...rest
     } = props;
 
+    const styleConfig = getItemConfig<StyleConfig>(style, DEFAULT_Style_CONFIG);
     const lineConfig = getItemConfig<LineConfig>(line, DEFAULT_Line_CONFIG);
     const axisConfig = getItemConfig<AxisConfig>(axis, DEFAULT_AXIS_CONFIG);
     const interactionConfig = getItemConfig<InteractionConfig>(interaction, DEFAULT_INTERACTION_CONFIG);
@@ -38,11 +41,9 @@ export const Area = forwardRef<Chart, AreaConfig>(
         insetLeft={insetLeft}
         insetRight={insetRight}
         axis={axisConfig}
-        style={{
-          fillOpacity: 0.2,
-        }}
         line={lineConfig}
         interaction={interactionConfig}
+        style={styleConfig}
         {...rest}
         ref={ref}
       />

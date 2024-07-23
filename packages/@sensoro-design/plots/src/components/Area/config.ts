@@ -1,4 +1,13 @@
-import type { AxisConfig, InteractionConfig, LineConfig } from './types';
+import type {
+  AxisConfig,
+  InteractionConfig,
+  LineConfig,
+  StyleConfig,
+} from './types';
+
+export const DEFAULT_Style_CONFIG: StyleConfig = {
+  fillOpacity: 0.15,
+};
 
 export const DEFAULT_Line_CONFIG: LineConfig = {};
 
