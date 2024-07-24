@@ -25,9 +25,3 @@ export const DEFAULT_AXIS_CONFIG: AxisConfig = {
     line: true,
   },
 };
-
-export const DEFAULT_INTERACTION_CONFIG: AxisConfig = {
-  tooltip: {
-    crosshairsY: true,
-  },
-};

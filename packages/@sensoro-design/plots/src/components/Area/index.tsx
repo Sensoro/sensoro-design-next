@@ -6,11 +6,10 @@ import { getItemConfig } from '../../helpers/utils';
 import { DEFAULT_INSET_LEFT, DEFAULT_INSET_RIGHT } from '../../config';
 import {
   DEFAULT_AXIS_CONFIG,
-  DEFAULT_INTERACTION_CONFIG,
-  DEFAULT_Line_CONFIG,
-  DEFAULT_Style_CONFIG,
-} from "./config";
-import type { AxisConfig, InteractionConfig, LineConfig, StyleConfig } from './types';
+  DEFAULT_LINE_CONFIG,
+  DEFAULT_STYLE_CONFIG,
+} from './config';
+import type { AxisConfig, LineConfig, StyleConfig } from './types';
 
 export interface AreaConfig
   extends Omit<AntAreaConfig, 'line' | 'axis' | 'interaction'> {
@@ -26,15 +25,13 @@ export const Area = forwardRef<Chart, AreaConfig>(
       insetRight = DEFAULT_INSET_RIGHT,
       line = true,
       axis = true,
-      interaction = true,
-      style = {},
+      style,
       ...rest
     } = props;
 
-    const styleConfig = getItemConfig<StyleConfig>(style, DEFAULT_Style_CONFIG);
-    const lineConfig = getItemConfig<LineConfig>(line, DEFAULT_Line_CONFIG);
+    const styleConfig = getItemConfig<StyleConfig>(style, DEFAULT_STYLE_CONFIG);
+    const lineConfig = getItemConfig<LineConfig>(line, DEFAULT_LINE_CONFIG);
     const axisConfig = getItemConfig<AxisConfig>(axis, DEFAULT_AXIS_CONFIG);
-    const interactionConfig = getItemConfig<InteractionConfig>(interaction, DEFAULT_INTERACTION_CONFIG);
 
     return (
       <AntArea
@@ -42,7 +39,6 @@ export const Area = forwardRef<Chart, AreaConfig>(
         insetRight={insetRight}
         axis={axisConfig}
         line={lineConfig}
-        interaction={interactionConfig}
         style={styleConfig}
         {...rest}
         ref={ref}
