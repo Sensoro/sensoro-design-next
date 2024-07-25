@@ -6,3 +6,5 @@ export { Column } from './Column';
 export type { ColumnConfig } from './Column';
 export { Bar } from './Bar';
 export type { BarConfig } from './Bar';
+export { Pie } from './Pie';
+export type { PieConfig } from './Pie';
