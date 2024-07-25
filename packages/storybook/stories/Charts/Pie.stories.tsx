@@ -26,21 +26,6 @@ export function Basic() {
     angleField: 'value',
     colorField: 'type',
     innerRadius: 0,
-    axis: {
-      x: {
-        grid: true,
-        gridLineWidth: 4,
-        gridStroke: 'red',
-      },
-      y: {
-        grid: true,
-        gridLineWidth: 4,
-        gridStroke: 'red',
-      },
-    },
-    style: {
-      // inset: 1,
-    },
   };
 
   return <Pie {...config} />;
@@ -58,52 +43,6 @@ export function Ring() {
     innerRadius: 0.6,
     statisticCount: 232,
     statisticText: 'AntV',
-    annotations: [
-      {
-        type: 'text',
-        style: {
-          text: '111',
-          x: '50%',
-          y: '50%',
-          dy: -10,
-          textAlign: 'center',
-          fontSize: 24,
-          lineHeight: 24,
-          fontFamily: 'DINAlternate-Bold',
-          fontStyle: 'bold',
-          fill: '#0A1B39',
-        },
-      },
-      {
-        type: 'text',
-        style: {
-          text: 'Charts',
-          x: '50%',
-          y: '50%',
-          dy: 10,
-          textAlign: 'center',
-          fontSize: 12,
-          lineHeight: 12,
-          fontStyle: 'bold',
-          fill: 'rgba(10,27,57,0.35)',
-        },
-      },
-    ],
-    axis: {
-      x: {
-        grid: true,
-        gridLineWidth: 4,
-        gridStroke: 'red',
-      },
-      y: {
-        grid: true,
-        gridLineWidth: 4,
-        gridStroke: 'red',
-      },
-    },
-    style: {
-      // inset: 1,
-    },
   };
 
   return <Pie {...config} />;
