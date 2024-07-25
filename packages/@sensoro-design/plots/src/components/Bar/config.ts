@@ -1,8 +1,7 @@
-import { colorGrey02, colorGrey10 } from '../../config/colors';
+import { colorGrey10 } from '../../config/colors';
 import type {
   AxisConfig,
   InteractionConfig,
-  MarkBackgroundConfig,
   ScaleConfig,
   StyleConfig,
 } from './types';
@@ -30,28 +29,6 @@ export const DEFAULT_AXIS_CONFIG: AxisConfig = {
     title: false,
   },
 };
-
-export const GET_DEFAULT_MARK_BACKGROUND_CONFIG: (yField: string) => MarkBackgroundConfig = (
-  yField: string,
-) => ({
-  label: {
-    text: ({ originData }: { originData: any }) => {
-      return `${originData[yField]}`;
-    },
-    position: 'right',
-    dx: 30,
-    style: {
-      fill: '#0A1B39',
-      fillOpacity: 1,
-      fontSize: 14,
-      fontFamily: 'DINAlternate-Bold',
-      lineHeight: 14,
-    },
-  },
-  style: {
-    fill: colorGrey02,
-  },
-});
 
 export const DEFAULT_INTERACTION_CONFIG: InteractionConfig = {
   elementHighlight: false,

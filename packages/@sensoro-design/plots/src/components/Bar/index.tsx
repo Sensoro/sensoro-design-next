@@ -9,8 +9,8 @@ import {
   DEFAULT_INTERACTION_CONFIG,
   DEFAULT_SCALE_CONFIG,
   DEFAULT_STYLE_CONFIG,
-  GET_DEFAULT_MARK_BACKGROUND_CONFIG,
 } from './config';
+import { getDefaultMarkBackgroundConfig } from './utils';
 import type { AxisConfig, InteractionConfig, MarkBackgroundConfig, ScaleConfig, StyleConfig } from './types';
 
 export interface BarConfig
@@ -42,7 +42,7 @@ export const Bar = forwardRef<Chart, BarConfig>(
     const axisConfig = getItemConfig<AxisConfig>(axis, DEFAULT_AXIS_CONFIG);
     const markBackgroundConfig = getItemConfig<MarkBackgroundConfig>(
       markBackground,
-      GET_DEFAULT_MARK_BACKGROUND_CONFIG(rest.yField as string),
+      getDefaultMarkBackgroundConfig(rest.yField as string),
     );
     const interactionConfig = getItemConfig<InteractionConfig>(
       interaction,
