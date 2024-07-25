@@ -67,9 +67,13 @@ export function Light() {
       labelOpacity: 1,
       labelSpacing: 8,
     },
+    axisY: {
+      tick: false,
+    },
     tooltip: {
       crosshairsStroke: colorBlue04,
       crosshairsLineDash: [3, 2],
+      crosshairsStrokeOpacity: 1,
       css: {
         '.g2-tooltip': {
           boxShadow: 'none',
@@ -98,7 +102,6 @@ export function Light() {
         },
       },
     },
-
     lineY: {
       line: {
         stroke: colorRed06,
