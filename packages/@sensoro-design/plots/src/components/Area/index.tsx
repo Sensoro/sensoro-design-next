@@ -12,10 +12,10 @@ import {
 import type { AxisConfig, LineConfig, StyleConfig } from './types';
 
 export interface AreaConfig
-  extends Omit<AntAreaConfig, 'line' | 'axis' | 'interaction'> {
+  extends Omit<AntAreaConfig, 'line' | 'axis' | 'style'> {
   line?: AntAreaConfig['line'] | boolean;
   axis?: AntAreaConfig['axis'] | boolean;
-  interaction?: AntAreaConfig['interaction'] | boolean;
+  style?: AntAreaConfig['style'] | boolean;
 }
 
 export const Area = forwardRef<Chart, AreaConfig>(
@@ -25,13 +25,13 @@ export const Area = forwardRef<Chart, AreaConfig>(
       insetRight = DEFAULT_INSET_RIGHT,
       line = true,
       axis = true,
-      style,
+      style = true,
       ...rest
     } = props;
 
-    const styleConfig = getItemConfig<StyleConfig>(style, DEFAULT_STYLE_CONFIG);
     const lineConfig = getItemConfig<LineConfig>(line, DEFAULT_LINE_CONFIG);
     const axisConfig = getItemConfig<AxisConfig>(axis, DEFAULT_AXIS_CONFIG);
+    const styleConfig = getItemConfig<StyleConfig>(style, DEFAULT_STYLE_CONFIG);
 
     return (
       <AntArea
