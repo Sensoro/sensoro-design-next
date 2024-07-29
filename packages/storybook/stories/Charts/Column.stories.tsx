@@ -92,10 +92,7 @@ export default meta;
 
 export function Basic() {
   const config: ColumnConfig = {
-    // TODO: 标题底部间距无法实现
-    title: {
-      title: '基础柱状图',
-    },
+    title: '基础柱状图',
     data: [
       { letter: 'A', frequency: 67 },
       { letter: 'B', frequency: 92 },
@@ -117,9 +114,7 @@ export function Basic() {
 
 export function Group() {
   const config: ColumnConfig = {
-    title: {
-      title: '分组柱状图',
-    },
+    title: '分组柱状图',
     data: {
       type: 'fetch',
       value:
@@ -136,9 +131,7 @@ export function Group() {
 
 export function BothwayGroup() {
   const config: ColumnConfig = {
-    title: {
-      title: '分组柱状图',
-    },
+    title: '双向柱状图',
     data,
     xField: '月份',
     yField: '月均降雨量',

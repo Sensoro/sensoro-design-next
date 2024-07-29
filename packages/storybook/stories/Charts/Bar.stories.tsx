@@ -28,10 +28,7 @@ export default meta;
 
 export function Basic() {
   const config: BarConfig = {
-    // TODO: 标题底部间距无法实现
-    title: {
-      title: '基础柱状图',
-    },
+    title: '基础条形图',
     data,
     xField: 'labelName',
     yField: 'value',

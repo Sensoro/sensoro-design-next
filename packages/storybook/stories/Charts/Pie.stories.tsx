@@ -18,10 +18,7 @@ export default meta;
 
 export function Basic() {
   const config: PieConfig = {
-    // TODO: 标题底部间距无法实现
-    title: {
-      title: '饼图',
-    },
+    title: '饼图',
     data,
     angleField: 'value',
     colorField: 'type',
@@ -33,10 +30,7 @@ export function Basic() {
 
 export function Ring() {
   const config: PieConfig = {
-    // TODO: 标题底部间距无法实现
-    title: {
-      title: '环图',
-    },
+    title: '环图',
     data,
     angleField: 'value',
     colorField: 'type',

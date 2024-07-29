@@ -123,10 +123,7 @@ export default meta;
 
 export function Basic() {
   const config: AreaConfig = {
-    // TODO: 标题底部间距无法实现
-    title: {
-      title: '基础面积图',
-    },
+    title: '基础面积图',
     data: basicData,
     xField: 'date',
     yField: 'value',
@@ -140,9 +137,7 @@ export function Basic() {
 
 export function Stack() {
   const config: AreaConfig = {
-    title: {
-      title: '堆叠面积图',
-    },
+    title: '堆叠面积图',
     data: stackData,
     xField: 'date',
     yField: 'value',
