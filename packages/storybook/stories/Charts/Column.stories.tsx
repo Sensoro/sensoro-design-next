@@ -142,8 +142,7 @@ export function BothwayGroup() {
     data,
     xField: '月份',
     yField: '月均降雨量',
-    seriesField: 'name',
-    group: true,
+    colorField: 'name',
   };
 
   return <Column {...config} />;
