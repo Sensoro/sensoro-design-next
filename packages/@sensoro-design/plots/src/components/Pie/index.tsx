@@ -2,6 +2,7 @@ import React, { forwardRef } from 'react';
 import { Pie as AntPie } from '@ant-design/plots';
 import type { Chart } from '@ant-design/plots/es/interface';
 import type { PieConfig as AntPieConfig } from '@ant-design/plots';
+import { Renderer as SVGRenderer } from '@antv/g-svg';
 import { DEFAULT_INSET_LEFT, DEFAULT_INSET_RIGHT } from '../../config';
 import { getAnnotations } from './utils';
 
@@ -32,6 +33,7 @@ export const Pie = forwardRef<Chart, PieConfig>(
         annotations={annotationsConfig}
         {...rest}
         ref={ref}
+        renderer={new SVGRenderer()}
       />
     );
   },
