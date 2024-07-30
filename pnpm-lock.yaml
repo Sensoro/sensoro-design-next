@@ -48,6 +48,9 @@ importers:
       '@antfu/ni':
         specifier: ^0.21.12
         version: 0.21.12
+      '@antv/g-svg':
+        specifier: ^2.0.9
+        version: 2.0.9
       '@commitlint/cli':
         specifier: ^19.3.0
         version: 19.3.0(@types/node@20.14.10)(typescript@5.5.3)
@@ -719,6 +722,9 @@ packages:
   '@antv/g-lite@2.0.6':
     resolution: {integrity: sha512-7lYAtxrNHqtQIsBYCub6HLrMNm0828dzBed9Kge1hZtLbTL0weCmZBq/te/0lpdNDVeP/XqwYmT6toIi3sc0Ew==}
 
+  '@antv/g-lite@2.0.7':
+    resolution: {integrity: sha512-PqweHYwZz1oQDRDAmpceoOz1Wzxs7mhldaIkRnvox+3XJB1SehB0sperFcQoQgy0xKlQ0l7ydLOO7zZPZmhWcA==}
+
   '@antv/g-math@3.0.0':
     resolution: {integrity: sha512-AkmiNIEL1vgqTPeGY2wtsMdBBqKFwF7SKSgs+D1iOS/rqYMsXdhp/HvtuQ5tx/HdawE/ZzTiicIYopc520ADZw==}
 
@@ -734,6 +740,9 @@ packages:
   '@antv/g-plugin-dom-interaction@2.0.6':
     resolution: {integrity: sha512-tu9+PNPSc7JOO+rZ/Q7tTuPMbMXRsXg9AVVaB+PzwGuYYQmCfRuudtPa5+lVWzXaFc6wlThb4v9qeA2AerqeNw==}
 
+  '@antv/g-plugin-dom-interaction@2.0.7':
+    resolution: {integrity: sha512-THIZuPV3B7AMNRv8qAzR1aB/tAO/ueRYJ6w/aYyVnIR3JRh0Ngxm+nclqFBuau4Xq5gx8cEkZWxmMsvEwZIGUg==}
+
   '@antv/g-plugin-dragndrop@2.0.6':
     resolution: {integrity: sha512-qMrDbrGEnM66Qg/vwI+zNdhFNoN+pjzyZtO3MD+CjNQnEGpQqy1W9PNLpWcFE43BU5Z/JkoUtu6Oy5C/WKHBbQ==}
 
@@ -742,6 +751,15 @@ packages:
 
   '@antv/g-plugin-image-loader@2.0.6':
     resolution: {integrity: sha512-lyJ157fDqH0iFBYwFGUxZNUOxN0vRV5hF7e0iK9ElvSEc2ovqpLi0UVwjAbA67eJwpd5Y771Go1sRfx0XJo87Q==}
+
+  '@antv/g-plugin-svg-picker@2.0.9':
+    resolution: {integrity: sha512-GH2ov8dlTu+h3/VEIrVe4qn5/QiSpRlob2QbyYx2GQ6t2Pd5zoGYMZ5BHUDEtZQ3SC1NUsPUnot93KXWEDM/7A==}
+
+  '@antv/g-plugin-svg-renderer@2.0.9':
+    resolution: {integrity: sha512-23jNLrnuTmRVIQgW0mcTeHDPk8qLZV/aCdgJ1yuNDdD0rRfyjj/LbXhA04x//HDpx+3+5WprHaiM47HH6pkHFA==}
+
+  '@antv/g-svg@2.0.9':
+    resolution: {integrity: sha512-LhCCnGnlFB5NItfEhxZgKREohvZ7dQPs6RLz9sNn9zq7vIcop+M59GCYgG2rNKff8Dkc5f55N0pT6lPrKFLESA==}
 
   '@antv/g-web-animations-api@2.0.7':
     resolution: {integrity: sha512-BpP86sTRAgNAWHDNajOhoM0YC2eL95iUFGcRftulrZ/8sqnTXF/M/I319vcznylwKNS37tzVmEppn76vS35UmQ==}
@@ -14857,6 +14875,16 @@ snapshots:
       rbush: 3.0.1
       tslib: 2.6.3
 
+  '@antv/g-lite@2.0.7':
+    dependencies:
+      '@antv/g-math': 3.0.0
+      '@antv/util': 3.3.7
+      d3-color: 3.1.0
+      eventemitter3: 5.0.1
+      gl-matrix: 3.4.3
+      rbush: 3.0.1
+      tslib: 2.6.3
+
   '@antv/g-math@3.0.0':
     dependencies:
       '@antv/util': 3.3.7
@@ -14895,6 +14923,11 @@ snapshots:
       '@antv/g-lite': 2.0.6
       tslib: 2.6.3
 
+  '@antv/g-plugin-dom-interaction@2.0.7':
+    dependencies:
+      '@antv/g-lite': 2.0.7
+      tslib: 2.6.3
+
   '@antv/g-plugin-dragndrop@2.0.6':
     dependencies:
       '@antv/g-lite': 2.0.6
@@ -14913,6 +14946,28 @@ snapshots:
       '@antv/g-lite': 2.0.6
       '@antv/util': 3.3.7
       gl-matrix: 3.4.3
+      tslib: 2.6.3
+
+  '@antv/g-plugin-svg-picker@2.0.9':
+    dependencies:
+      '@antv/g-lite': 2.0.7
+      '@antv/g-plugin-svg-renderer': 2.0.9
+      tslib: 2.6.3
+
+  '@antv/g-plugin-svg-renderer@2.0.9':
+    dependencies:
+      '@antv/g-lite': 2.0.7
+      '@antv/util': 3.3.7
+      gl-matrix: 3.4.3
+      tslib: 2.6.3
+
+  '@antv/g-svg@2.0.9':
+    dependencies:
+      '@antv/g-lite': 2.0.7
+      '@antv/g-plugin-dom-interaction': 2.0.7
+      '@antv/g-plugin-svg-picker': 2.0.9
+      '@antv/g-plugin-svg-renderer': 2.0.9
+      '@antv/util': 3.3.7
       tslib: 2.6.3
 
   '@antv/g-web-animations-api@2.0.7':
