@@ -2,6 +2,7 @@ import React, { forwardRef } from 'react';
 import { isUndefined } from '@rcuse/shared';
 import { Line as AntLine } from '@ant-design/plots';
 import type { Chart } from '@ant-design/plots/es/interface';
+import { Renderer as SVGRenderer } from '@antv/g-svg';
 import type { LineConfig as AntLineConfig } from '@ant-design/plots';
 import { getItemConfig } from '../../helpers/utils';
 import { DEFAULT_INSET_LEFT, DEFAULT_INSET_RIGHT } from '../../config';
@@ -26,7 +27,6 @@ export const Line = forwardRef<Chart, LineConfig>(
       area = true,
       point = true,
       axis = true,
-
       ...rest
     } = props;
 
@@ -48,6 +48,7 @@ export const Line = forwardRef<Chart, LineConfig>(
         axis={axisConfig}
         {...rest}
         ref={ref}
+        renderer={new SVGRenderer()}
       />
     );
   },
