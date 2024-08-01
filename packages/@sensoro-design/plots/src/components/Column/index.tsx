@@ -2,6 +2,7 @@ import React, { forwardRef } from 'react';
 import { Column as AntColumn } from '@ant-design/plots';
 import type { Chart } from '@ant-design/plots/es/interface';
 import type { ColumnConfig as AntColumnConfig } from '@ant-design/plots';
+import { Renderer as SVGRenderer } from '@antv/g-svg';
 import { getItemConfig } from '../../helpers/utils';
 import { DEFAULT_INSET_LEFT, DEFAULT_INSET_RIGHT } from '../../config';
 import {
@@ -56,6 +57,7 @@ export const Column = forwardRef<Chart, ColumnConfig>(
         interaction={interactionConfig}
         {...rest}
         ref={ref}
+        renderer={new SVGRenderer()}
       />
     );
   },

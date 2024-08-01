@@ -13,7 +13,7 @@ import {
 } from './config';
 import type { AreaConfig, PointConfig } from './types';
 
-export interface LineConfig extends Omit<AntLineConfig, 'area' | 'point' | 'axis' | 'interaction'> {
+export interface LineConfig extends Omit<AntLineConfig, 'area' | 'point' | 'axis'> {
   area?: AntLineConfig['area'] | boolean;
   point?: AntLineConfig['point'] | boolean;
   axis?: AntLineConfig['axis'] | boolean;

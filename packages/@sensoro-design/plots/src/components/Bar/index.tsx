@@ -2,6 +2,7 @@ import React, { forwardRef } from 'react';
 import { Bar as AntBar } from '@ant-design/plots';
 import type { Chart } from '@ant-design/plots/es/interface';
 import type { BarConfig as AntBarConfig } from '@ant-design/plots';
+import { Renderer as SVGRenderer } from "@antv/g-svg";
 import { getItemConfig } from '../../helpers/utils';
 import { DEFAULT_INSET_LEFT, DEFAULT_INSET_RIGHT } from '../../config';
 import {
@@ -62,6 +63,7 @@ export const Bar = forwardRef<Chart, BarConfig>(
         scale={scaleConfig}
         {...rest}
         ref={ref}
+        renderer={new SVGRenderer()}
       />
     );
   },

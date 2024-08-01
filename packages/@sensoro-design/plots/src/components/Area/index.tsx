@@ -2,6 +2,7 @@ import React, { forwardRef } from 'react';
 import { Area as AntArea } from '@ant-design/plots';
 import type { Chart } from '@ant-design/plots/es/interface';
 import type { AreaConfig as AntAreaConfig } from '@ant-design/plots';
+import { Renderer as SVGRenderer } from '@antv/g-svg';
 import { getItemConfig } from '../../helpers/utils';
 import { DEFAULT_INSET_LEFT, DEFAULT_INSET_RIGHT } from '../../config';
 import {
@@ -42,6 +43,7 @@ export const Area = forwardRef<Chart, AreaConfig>(
         style={styleConfig}
         {...rest}
         ref={ref}
+        renderer={new SVGRenderer()}
       />
     );
   },
