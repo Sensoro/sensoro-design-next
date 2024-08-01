@@ -8,3 +8,5 @@ export { Bar } from './Bar';
 export type { BarConfig } from './Bar';
 export { Pie } from './Pie';
 export type { PieConfig } from './Pie';
+export { Treemap } from './Treemap';
+export type { TreemapConfig } from './Treemap';
