@@ -78,9 +78,7 @@ export function Middle() {
 export function Smooth() {
   const config: LineConfig = {
     title: '曲线图',
-    style: {
-      shape: 'smooth',
-    },
+    shapeField: 'smooth',
     xField: 'time',
     yField: 'scales',
     data: [
@@ -105,9 +103,7 @@ export function Smooth() {
 export function MiddleSmooth() {
   const config: LineConfig = {
     title: '多条曲线图',
-    style: {
-      shape: 'smooth',
-    },
+    shapeField: 'smooth',
     xField: 'year',
     yField: 'value',
     colorField: 'category',
@@ -142,9 +138,7 @@ export function MiddleSmooth() {
 export function Baseline() {
   const config: LineConfig = {
     title: '辅助线',
-    style: {
-      shape: 'smooth',
-    },
+    shapeField: 'smooth',
     xField: 'time',
     yField: 'scales',
     data: [
