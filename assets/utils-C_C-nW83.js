@@ -1,1 +1,0 @@
-import{d as e}from"./index-BozI7CP4.js";const i=t=>!!t&&t.constructor===Object;function s(t){return t===void 0}const c=t=>typeof t=="boolean";function d(t,n={}){let o;return c(t)&&t&&(o=e({},n)),i(t)&&(o=e({},n,t)),o}export{d as g,s as i};

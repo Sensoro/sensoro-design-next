@@ -1,9 +1,0 @@
-import{r as i,R as s}from"./index-RYns6xqu.js";import{d as p,R as g,D as _,a as T}from"./index-DIRfuV7X.js";import{g as E}from"./utils-C_C-nW83.js";import{B as h}from"./index-BozI7CP4.js";import"./index-DvSUCdeO.js";import"./index-BQ5IbGbl.js";var m=function(){return m=Object.assign||function(e){for(var a,n=1,o=arguments.length;n<o;n++){a=arguments[n];for(var r in a)Object.prototype.hasOwnProperty.call(a,r)&&(e[r]=a[r])}return e},m.apply(this,arguments)},F=i.forwardRef(function(e,a){return s.createElement(h,m({},e,{chartType:"Treemap",ref:a}))});const C={color:{range:p}},d=i.forwardRef((e,a)=>{const{insetLeft:n=_,insetRight:o=T,scale:r=!0,...v}=e,f=E(r,C);return s.createElement(F,{insetLeft:n,insetRight:o,scale:f,...v,ref:a,renderer:new g})});d.__docgenInfo={description:"",methods:[],displayName:"Treemap"};const w={title:"Charts/Treemap"},R={name:"root",children:[{name:"分类 1",value:560},{name:"分类 2",value:500},{name:"分类 3",value:150},{name:"分类 4",value:140},{name:"分类 5",value:115},{name:"分类 6",value:95},{name:"分类 7",value:90},{name:"分类 8",value:75},{name:"分类 9",value:98},{name:"分类 10",value:60},{name:"分类 11",value:45},{name:"分类 12",value:40},{name:"分类 13",value:40},{name:"分类 14",value:35},{name:"分类 15",value:40},{name:"分类 16",value:40},{name:"分类 17",value:40},{name:"分类 18",value:30},{name:"分类 19",value:28},{name:"分类 20",value:16}]};function t(){const e={title:"矩形树图",data:R,colorField:"value",valueField:"value"};return s.createElement(d,{...e})}t.__docgenInfo={description:"",methods:[],displayName:"Basic"};var l,c,u;t.parameters={...t.parameters,docs:{...(l=t.parameters)==null?void 0:l.docs,source:{originalSource:`function Basic() {
-  const config: TreemapConfig = {
-    title: '矩形树图',
-    data,
-    colorField: 'value',
-    valueField: 'value'
-  };
-  return <Treemap {...config} />;
-}`,...(u=(c=t.parameters)==null?void 0:c.docs)==null?void 0:u.source}}};const A=["Basic"];export{t as Basic,A as __namedExportsOrder,w as default};
