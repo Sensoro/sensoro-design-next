@@ -16,5 +16,5 @@ export type { PieConfig } from './Pie';
 export { Treemap } from './Treemap';
 export type { TreemapConfig } from './Treemap';
 
-export { CirclePacking } from './CirclePacking';
-export type { CirclePackingConfig } from './CirclePacking';
+export { Bubble } from './Bubble';
+export type { BubbleConfig } from './Bubble';
