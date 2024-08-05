@@ -286,11 +286,71 @@ importers:
         specifier: ^8.1.4
         version: 8.1.4
 
+  '@sensoro-design/plots':
+    dependencies:
+      '@ant-design/plots':
+        specifier: ^2.2.6
+        version: 2.2.6(lodash-es@4.17.21)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      '@antv/g2':
+        specifier: ^5.1.18
+        version: 5.2.2
+      '@antv/util':
+        specifier: ^3.3.5
+        version: 3.3.7
+      '@rcuse/shared':
+        specifier: ^0.25.0
+        version: 0.25.0
+      lodash-es:
+        specifier: ^4.17.21
+        version: 4.17.21
+      react:
+        specifier: '>=16.9.0'
+        version: 18.3.1
+      react-dom:
+        specifier: '>=16.9.0'
+        version: 18.3.1(react@18.3.1)
+
+  '@sensoro-design/react':
+    dependencies:
+      '@floating-ui/react':
+        specifier: ^0.26.19
+        version: 0.26.20(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      '@lotus-design/react-primitives':
+        specifier: ^1.0.0-alpha.3
+        version: 1.0.0-alpha.3(@types/react-dom@18.3.0)(@types/react@18.3.3)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      '@rcuse/core':
+        specifier: ^0.25.0
+        version: 0.25.0
+      '@types/react':
+        specifier: '*'
+        version: 18.3.3
+      '@types/react-dom':
+        specifier: '*'
+        version: 18.3.0
+      clsx:
+        specifier: ^2.1.1
+        version: 2.1.1
+      dayjs:
+        specifier: ^1.11.11
+        version: 1.11.12
+      react:
+        specifier: ^17.0.0 || ^18.0.0
+        version: 18.3.1
+      react-dom:
+        specifier: ^17.0.0 || ^18.0.0
+        version: 18.3.1(react@18.3.1)
+      react-number-format:
+        specifier: ^5.4.0
+        version: 5.4.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      react-remove-scroll:
+        specifier: ^2.5.10
+        version: 2.5.10(@types/react@18.3.3)(react@18.3.1)
+
   examples/vite:
     dependencies:
       '@sensoro-design/react':
         specifier: workspace:*
-        version: link:../../packages/@sensoro-design/react
+        version: link:../../@sensoro-design/react
       '@unocss/reset':
         specifier: ^0.60.3
         version: 0.60.4
@@ -346,66 +406,6 @@ importers:
       react-inlinesvg:
         specifier: 3.0.2
         version: 3.0.2(react@18.3.1)
-
-  packages/@sensoro-design/plots:
-    dependencies:
-      '@ant-design/plots':
-        specifier: ^2.2.6
-        version: 2.2.6(lodash-es@4.17.21)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      '@antv/g2':
-        specifier: ^5.1.18
-        version: 5.2.2
-      '@antv/util':
-        specifier: ^3.3.5
-        version: 3.3.7
-      '@rcuse/shared':
-        specifier: ^0.25.0
-        version: 0.25.0
-      lodash-es:
-        specifier: ^4.17.21
-        version: 4.17.21
-      react:
-        specifier: '>=16.9.0'
-        version: 18.3.1
-      react-dom:
-        specifier: '>=16.9.0'
-        version: 18.3.1(react@18.3.1)
-
-  packages/@sensoro-design/react:
-    dependencies:
-      '@floating-ui/react':
-        specifier: ^0.26.19
-        version: 0.26.20(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      '@lotus-design/react-primitives':
-        specifier: ^1.0.0-alpha.3
-        version: 1.0.0-alpha.3(@types/react-dom@18.3.0)(@types/react@18.3.3)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      '@rcuse/core':
-        specifier: ^0.25.0
-        version: 0.25.0
-      '@types/react':
-        specifier: '*'
-        version: 18.3.3
-      '@types/react-dom':
-        specifier: '*'
-        version: 18.3.0
-      clsx:
-        specifier: ^2.1.1
-        version: 2.1.1
-      dayjs:
-        specifier: ^1.11.11
-        version: 1.11.12
-      react:
-        specifier: ^17.0.0 || ^18.0.0
-        version: 18.3.1
-      react-dom:
-        specifier: ^17.0.0 || ^18.0.0
-        version: 18.3.1(react@18.3.1)
-      react-number-format:
-        specifier: ^5.4.0
-        version: 5.4.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      react-remove-scroll:
-        specifier: ^2.5.10
-        version: 2.5.10(@types/react@18.3.3)(react@18.3.1)
 
   packages/storybook:
     dependencies:
@@ -501,7 +501,7 @@ importers:
         version: 3.0.1(@types/react@18.3.3)(react@18.3.1)
       '@sensoro-design/react':
         specifier: workspace:*
-        version: link:../packages/@sensoro-design/react
+        version: link:../@sensoro-design/react
       clsx:
         specifier: ^2.0.0
         version: 2.1.1

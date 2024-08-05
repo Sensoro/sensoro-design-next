@@ -7,7 +7,7 @@
     "module": "ESNext",
     "moduleResolution": "Node",
     "paths": {
-      "@sensoro-design/*": ["./packages/@sensoro-design/*/src"]
+      "@sensoro-design/*": ["./@sensoro-design/*/src"]
     },
     "resolveJsonModule": true,
     "allowJs": true,
