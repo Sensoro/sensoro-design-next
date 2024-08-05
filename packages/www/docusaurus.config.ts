@@ -1,8 +1,8 @@
-import {themes as prismThemes} from 'prism-react-renderer';
-import aliasPlugin from './plugins/alias'
-import lessPlugin from './plugins/less'
-import type {Config} from '@docusaurus/types';
+import { themes as prismThemes } from 'prism-react-renderer';
+import type { Config } from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
+import aliasPlugin from './plugins/alias';
+import lessPlugin from './plugins/less';
 
 const config: Config = {
   title: 'Sensoro Design',
@@ -18,7 +18,7 @@ const config: Config = {
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
   organizationName: 'facebook', // Usually your GitHub org/user name.
-  projectName: 'docusaurus', // Usually your repo name.
+  projectName: 'sensoro-design', // Usually your repo name.
 
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
@@ -73,13 +73,19 @@ const config: Config = {
       items: [
         {
           type: 'docSidebar',
-          sidebarId: 'tutorialSidebar',
+          sidebarId: 'plotsSidebar',
           position: 'left',
-          label: 'Tutorial',
+          label: 'Plots',
         },
-        {to: '/blog', label: 'Blog', position: 'left'},
         {
-          href: 'https://github.com/facebook/docusaurus',
+          type: 'docSidebar',
+          sidebarId: 'chartsSidebar',
+          position: 'left',
+          label: 'Charts',
+        },
+        { to: '/blog', label: 'Blog', position: 'left' },
+        {
+          href: 'https://github.com/Sensoro/sensoro-design-next',
           label: 'GitHub',
           position: 'right',
         },

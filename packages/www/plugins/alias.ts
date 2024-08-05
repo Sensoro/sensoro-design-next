@@ -1,4 +1,5 @@
-import path from 'node:path'
+import path from 'node:path';
+import { PATHS } from '../../../scripts/.internal/constants';
 
 function aliasPlugin() {
   return {
@@ -7,13 +8,12 @@ function aliasPlugin() {
       return {
         resolve: {
           alias: {
-            '@sensoro-design/react': path.resolve(__dirname, '../../packages/react'),
-            '@lotus-design/react-primitives': path.resolve(__dirname, '../../packages/primitives'),
-          }
-        }
-      }
-    }
-  }
+            '@sensoro-design/react': path.resolve(PATHS.DESIGN, 'react'),
+          },
+        },
+      };
+    },
+  };
 }
 
 export default aliasPlugin;
