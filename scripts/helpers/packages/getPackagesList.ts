@@ -10,7 +10,7 @@ export interface Package {
 }
 
 export function getPackagesList() {
-  const basePath = getPath('packages');
+  const basePath = getPath('@sensoro-design');
   const namespacesPaths = fs.readdirSync(basePath);
   const srcPaths: string[] = [];
 
