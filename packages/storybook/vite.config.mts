@@ -1,14 +1,11 @@
-import { dirname, join } from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { join } from 'node:path';
 import { defineConfig } from 'vite';
 import { createStyleImportPlugin } from 'vite-plugin-style-import';
+import { PATHS } from '../../scripts/.internal/constants';
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
-
-const designDir = join(__dirname, '../@sensoro-design/react/src');
-const chartsDir = join(__dirname, '../@sensoro-design/charts/src');
-const plotsDir = join(__dirname, '../@sensoro-design/plots/src');
+const designDir = join(PATHS.DESIGN, 'react/src');
+const chartsDir = join(PATHS.DESIGN, 'charts/src');
+const plotsDir = join(PATHS.DESIGN, 'plots/src');
 
 export default defineConfig({
   resolve: {
