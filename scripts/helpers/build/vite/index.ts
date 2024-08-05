@@ -43,7 +43,7 @@ export async function viteBuild(options: Options = {}) {
         entry,
         name: 'sensoro',
         fileName: () => {
-          return !minify ? 'sensoro.development.js' : 'sensoro.production.min.js';
+          return !minify ? 'sensoro.development.js' : 'sensoro.min.js';
         },
         formats: ['umd'],
       },
