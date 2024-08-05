@@ -7,5 +7,5 @@ const ROOT = join(__dirname, '../../')
 export const PATHS = {
   ROOT,
   PACKAGES: join(ROOT, 'packages'),
-  DESIGN: join(ROOT, 'packages', '@sensoro-design/react'),
+  DESIGN: join(ROOT, '@sensoro-design'),
 } as const
