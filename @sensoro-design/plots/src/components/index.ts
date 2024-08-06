@@ -21,3 +21,6 @@ export type { BubbleConfig } from './Bubble';
 
 export { Radar } from './Radar';
 export type { RadarConfig } from './Radar';
+
+export { Rose } from './Rose';
+export type { RoseConfig } from './Rose';
