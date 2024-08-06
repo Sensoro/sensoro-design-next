@@ -10,7 +10,6 @@
   "scripts": {
     "bootstrap": "pnpm install",
     "dev": "pnpm storybook",
-    "start": "dumi dev",
     "build": "walrus build",
     "build:all": "walrus build all",
     "build:docs": "pnpm build:sb",
@@ -31,7 +30,7 @@
     "typecheck": "tsc --noEmit",
     "lint": "eslint --cache .",
     "lint:fix": "nr lint --fix",
-    "prepare": "husky || true && dumi setup",
+    "prepare": "husky || true",
     "clean:node-modules": "rm -rf node_modules && rm -rf packages/*/node_modules",
     "clean:lock": "rm -rf pnpm-lock.yaml && rm -rf package.lock.json",
     "clean:dist": "rm -rf packages/*/es && rm -rf packages/*/lib",
@@ -54,7 +53,7 @@
     "react-remove-scroll": "^2.5.10"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "^2.21.2",
+    "@antfu/eslint-config": "2.21.2",
     "@antfu/ni": "^0.21.12",
     "@antv/g-svg": "^2.0.9",
     "@antv/g2": "^5.2.2",
@@ -90,7 +89,6 @@
     "cypress-real-events": "^1.13.0",
     "cypress-vite": "^1.5.0",
     "d3-interpolate": "^3.0.1",
-    "dumi": "^2.4.5",
     "eslint": "^8.57.0",
     "eslint-plugin-cypress": "^3.3.0",
     "eslint-plugin-react-hooks": "^4.6.2",
