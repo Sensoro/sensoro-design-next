@@ -18,3 +18,6 @@ export type { TreemapConfig } from './Treemap';
 
 export { Bubble } from './Bubble';
 export type { BubbleConfig } from './Bubble';
+
+export { Radar } from './Radar';
+export type { RadarConfig } from './Radar';

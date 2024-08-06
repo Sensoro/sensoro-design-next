@@ -1,0 +1,27 @@
+import { rgb2arr } from '@antv/util';
+import { colorBlue2 } from '../../config';
+import type { AreaConfig, AxisConfig, PointConfig } from './types';
+
+export const DEFAULT_AREA_CONFIG: AreaConfig = {
+  style: {
+    fillOpacity: 0.15,
+  },
+};
+
+export const DEFAULT_POINT_CONFIG: PointConfig = {
+  size: 2,
+  style: {
+    // TODO: 黑色主题下怎么处理？
+    fill: 'white',
+  },
+};
+
+export const DEFAULT_AXIS_CONFIG: AxisConfig = {
+  x: {
+    tick: null,
+    labelSpacing: 12,
+  },
+  y: {
+    labelSpacing: 4,
+  },
+};
