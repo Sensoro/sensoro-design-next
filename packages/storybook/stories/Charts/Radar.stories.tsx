@@ -40,16 +40,6 @@ export function Basic() {
     scale: {
       y: { domainMax: 80 },
     },
-    axis: {
-      x: {
-        line: false,
-      },
-      y: {
-        gridConnect: 'line',
-        gridLineWidth: 1,
-        gridLineDash: [3, 2],
-      },
-    },
   };
 
   return (
