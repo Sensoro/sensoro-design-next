@@ -24,3 +24,6 @@ export type { RadarConfig } from './Radar';
 
 export { Rose } from './Rose';
 export type { RoseConfig } from './Rose';
+
+export { Funnel } from './Funnel';
+export type { FunnelConfig } from './Funnel';
