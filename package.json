@@ -12,7 +12,7 @@
     "dev": "pnpm storybook",
     "build": "walrus build",
     "build:all": "walrus build all",
-    "build:docs": "pnpm build:sb",
+    "build:docs": "pnpm build:storybook",
     "build:react": "pnpm --filter=@sensoro-design/react run build",
     "example:vite": "pnpm --filter=@example/vite run start",
     "release": "walrus release",
