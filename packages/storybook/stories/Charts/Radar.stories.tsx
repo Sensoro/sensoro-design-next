@@ -40,8 +40,16 @@ export function Basic() {
     scale: {
       y: { domainMax: 80 },
     },
-    // TODO: radar坐标系问题处理
-    // coordinateType: 'radar',
+    axis: {
+      x: {
+        line: false,
+      },
+      y: {
+        gridConnect: 'line',
+        gridLineWidth: 1,
+        gridLineDash: [3, 2],
+      },
+    },
   };
 
   return (
