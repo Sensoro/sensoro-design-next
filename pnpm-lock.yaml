@@ -294,6 +294,9 @@ importers:
       '@antv/util':
         specifier: ^3.3.5
         version: 3.3.7
+      '@sensoro-design/react':
+        specifier: workspace:*
+        version: link:../react
       '@sensoro-design/styles':
         specifier: 1.27.1
         version: 1.27.1

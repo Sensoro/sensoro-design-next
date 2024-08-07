@@ -3,6 +3,11 @@
   "version": "2.0.0",
   "description": "Sensoro Design Chart Library.",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sensoro/sensoro-design-next.git",
+    "directory": "@sensoro-design/charts"
+  },
   "module": "dist/index.js",
   "types": "dist/index.d.ts",
   "files": [
@@ -20,6 +25,7 @@
     "@ant-design/plots": "^2.2.6",
     "@antv/g2": "^5.1.18",
     "@antv/util": "^3.3.5",
+    "@sensoro-design/react": "workspace:*",
     "@sensoro-design/styles": "1.27.1",
     "antd": "4.23.2",
     "clsx": "^2.1.1",
