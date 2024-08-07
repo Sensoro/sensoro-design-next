@@ -18,10 +18,14 @@ export const DEFAULT_POINT_CONFIG: PointConfig = {
 
 export const DEFAULT_AXIS_CONFIG: AxisConfig = {
   x: {
+    line: false,
     tick: null,
     labelSpacing: 12,
   },
   y: {
     labelSpacing: 4,
+    gridConnect: 'line',
+    gridLineWidth: 1,
+    gridLineDash: [3, 2],
   },
 };
