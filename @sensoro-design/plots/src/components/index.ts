@@ -27,3 +27,6 @@ export type { RoseConfig } from './Rose';
 
 export { Funnel } from './Funnel';
 export type { FunnelConfig } from './Funnel';
+
+export { Gauge } from './Gauge';
+export type { GaugeConfig } from './Gauge';
