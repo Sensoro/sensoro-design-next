@@ -13,6 +13,7 @@ import type { ScaleConfig } from './types';
 export interface RoseConfig extends Omit<AntRoseConfig, 'scale' | 'axis'> {
   scale?: AntRoseConfig['scale'] | boolean;
   axis?: AntRoseConfig['axis'] | boolean;
+  innerRadius?: number;
 }
 
 export const Rose = forwardRef<Chart, RoseConfig>(
@@ -22,17 +23,22 @@ export const Rose = forwardRef<Chart, RoseConfig>(
       insetRight = DEFAULT_INSET_RIGHT,
       scale = true,
       axis = false,
+      innerRadius,
+      height,
       ...rest
     } = props;
 
     const scaleConfig = getItemConfig<ScaleConfig>(scale, DEFAULT_SCALE_CONFIG);
+    const radiusConfig = innerRadius ?? 8 / (height || 320);
 
     return (
       <AntRose
+        height={height}
         insetLeft={insetLeft}
         insetRight={insetRight}
         scale={scaleConfig}
         axis={axis}
+        innerRadius={radiusConfig}
         {...rest}
         ref={ref}
         renderer={new SVGRenderer()}

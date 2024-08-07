@@ -1,5 +1,4 @@
 import React, { forwardRef } from 'react';
-import { isUndefined } from '@rcuse/shared';
 import { Radar as AntRadar } from '@ant-design/plots';
 import type { Chart } from '@ant-design/plots/es/interface';
 import { Renderer as SVGRenderer } from '@antv/g-svg';

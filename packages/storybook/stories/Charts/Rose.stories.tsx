@@ -18,7 +18,6 @@ export function Basic() {
     xField: 'year',
     yField: 'people',
     colorField: 'year',
-    axis: false,
   };
 
   return (
