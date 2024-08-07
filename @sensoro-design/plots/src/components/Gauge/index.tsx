@@ -8,9 +8,10 @@ import { DEFAULT_INSET_LEFT, DEFAULT_INSET_RIGHT, colorBlue2, colorGrey04 } from
 import { DEFAULT_AXIS_CONFIG, DEFAULT_SCALE_CONFIG, DEFAULT_STYLE_CONFIG } from './config';
 import type { AxisConfig, ScaleConfig, StyleConfig } from './types';
 
-export interface GaugeConfig extends Omit<AntGaugeConfig, 'axis' | 'scale'> {
+export interface GaugeConfig extends Omit<AntGaugeConfig, 'axis' | 'scale' | 'style'> {
   axis?: AntGaugeConfig['axis'] | boolean;
   scale?: AntGaugeConfig['scale'] | boolean;
+  style?: AntGaugeConfig['style'] | boolean;
   startAngle?: number;
   endAngle?: number;
 }
@@ -25,6 +26,7 @@ export const Gauge = forwardRef<Chart, GaugeConfig>(
       endAngle = 0.25 * Math.PI,
       axis = true,
       scale = true,
+      style = true,
       ...rest
     } = props;
 
@@ -32,7 +34,7 @@ export const Gauge = forwardRef<Chart, GaugeConfig>(
     const dataConfig = Object.assign({}, data, { name: '' });
     const axisConfig = getItemConfig<AxisConfig>(axis, DEFAULT_AXIS_CONFIG);
     const scaleConfig = getItemConfig<ScaleConfig>(scale, DEFAULT_SCALE_CONFIG);
-    const styleConfig = getItemConfig<StyleConfig>(scale, DEFAULT_STYLE_CONFIG);
+    const styleConfig = getItemConfig<StyleConfig>(style, DEFAULT_STYLE_CONFIG);
 
     return (
       <AntGauge
