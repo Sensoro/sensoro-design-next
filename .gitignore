@@ -41,3 +41,5 @@ storybook-static
 # next.js
 .next
 out
+
+.contentlayer
