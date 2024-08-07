@@ -37,3 +37,7 @@ storybook-static
 .dumi/tmp
 .dumi/tmp-test
 .dumi/tmp-production
+
+# next.js
+.next
+out
