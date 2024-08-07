@@ -14,6 +14,15 @@ const data = [
   { type: '其他', value: 5 },
 ];
 
+const zeroData = [
+  { type: '分类一', value: 0 },
+  { type: '分类二', value: 0 },
+  { type: '分类三', value: 0 },
+  { type: '分类四', value: 0 },
+  { type: '分类五', value: 0 },
+  { type: '其他', value: 0 },
+];
+
 export default meta;
 
 export function Basic() {
@@ -36,6 +45,19 @@ export function Ring() {
     colorField: 'type',
     innerRadius: 0.6,
     statisticCount: 232,
+    statisticText: 'AntV',
+  };
+
+  return <Pie {...config} />;
+}
+
+export function ZeroRing() {
+  const config: PieConfig = {
+    title: '无数据环图',
+    data: zeroData,
+    angleField: 'value',
+    colorField: 'type',
+    statisticCount: 0,
     statisticText: 'AntV',
   };
 
