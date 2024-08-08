@@ -23,6 +23,7 @@
   "exclude": [
     "node_modules",
     "./scripts/bin/cli.mjs",
+    "./packages/www/*.js",
     "./packages/storybook/storybook-static",
     "./packages/storybook/postcss.config.cjs",
     "./packages/@sensoro-design/*/dist/**/*",
