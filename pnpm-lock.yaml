@@ -349,7 +349,7 @@ importers:
   '@sensoro-design/react':
     dependencies:
       '@floating-ui/react':
-        specifier: ^0.26.19
+        specifier: ^0.26.22
         version: 0.26.22(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@lotus-design/react-primitives':
         specifier: ^1.0.0-alpha.3
@@ -554,12 +554,6 @@ importers:
       next-themes:
         specifier: ^0.3.0
         version: 0.3.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      react:
-        specifier: ^18
-        version: 18.3.1
-      react-dom:
-        specifier: ^18
-        version: 18.3.1(react@18.3.1)
       rehype-autolink-headings:
         specifier: ^7.1.0
         version: 7.1.0
@@ -585,12 +579,6 @@ importers:
       '@types/node':
         specifier: ^20
         version: 20.14.14
-      '@types/react':
-        specifier: ^18
-        version: 18.3.3
-      '@types/react-dom':
-        specifier: ^18
-        version: 18.3.0
       autoprefixer:
         specifier: ^10.4.19
         version: 10.4.20(postcss@8.4.41)
