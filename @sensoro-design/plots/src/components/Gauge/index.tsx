@@ -4,7 +4,7 @@ import type { Chart } from '@ant-design/plots/es/interface';
 import { Renderer as SVGRenderer } from '@antv/g-svg';
 import type { GaugeConfig as AntGaugeConfig } from '@ant-design/plots';
 import { getItemConfig } from '../../helpers/utils';
-import { DEFAULT_INSET_LEFT, DEFAULT_INSET_RIGHT, colorBlue2, colorGrey04 } from '../../config';
+import { DEFAULT_INSET_LEFT, DEFAULT_INSET_RIGHT } from '../../config';
 import { DEFAULT_AXIS_CONFIG, DEFAULT_SCALE_CONFIG, DEFAULT_STYLE_CONFIG } from './config';
 import type { AxisConfig, ScaleConfig, StyleConfig } from './types';
 
