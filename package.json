@@ -9,6 +9,7 @@
   },
   "scripts": {
     "bootstrap": "pnpm install",
+    "website": "pnpm --filter website dev",
     "dev": "pnpm storybook",
     "build": "walrus build",
     "build:all": "walrus build all",
