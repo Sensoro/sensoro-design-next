@@ -1,9 +1,9 @@
-import { colorBlue2, colorGrey04, colorGrey10 } from '../../config';
-import type { AxisConfig, ScaleConfig, StyleConfig } from './types';
+import { colorGrey10 } from '../../config';
+import type { AxisConfig, StyleConfig } from './types';
 
 export const DEFAULT_STYLE_CONFIG: StyleConfig = {
   textContent: (target: number, total: number) => {
-    return `${Math.round((target / total) * 100)}%`;
+    return `${!total ? 0 : Math.round((target / total) * 100)}%`;
   },
   textFill: colorGrey10,
   textFontSize: '24px',
@@ -20,11 +20,5 @@ export const DEFAULT_AXIS_CONFIG: AxisConfig = {
   y: {
     tick: false,
     label: false,
-  },
-};
-
-export const DEFAULT_SCALE_CONFIG: ScaleConfig = {
-  color: {
-    range: [colorBlue2, colorGrey04],
   },
 };

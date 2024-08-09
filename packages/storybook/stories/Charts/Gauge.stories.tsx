@@ -24,3 +24,20 @@ export function Basic() {
     <Gauge {...config} />
   );
 }
+
+export function ZeroGauge() {
+  const config: GaugeConfig = {
+    title: '无数据仪表盘',
+    // data 格式为 { target: number, total: number } | { percent: number }
+    // 如果比例为 0 时，只传入percent: 0会导致没有圆环，此时需要传入target和total的方式
+    // 建议所有数据都是用 target 和 total 的方式传入
+    data: {
+      target: 0,
+      total: 400,
+      percent: 0,
+    },
+    width: 720,
+  };
+
+  return <Gauge {...config} />;
+}

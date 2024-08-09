@@ -3,9 +3,11 @@ import { Gauge as AntGauge } from '@ant-design/plots';
 import type { Chart } from '@ant-design/plots/es/interface';
 import { Renderer as SVGRenderer } from '@antv/g-svg';
 import type { GaugeConfig as AntGaugeConfig } from '@ant-design/plots';
+import { deepMix } from '@antv/util';
 import { getItemConfig } from '../../helpers/utils';
 import { DEFAULT_INSET_LEFT, DEFAULT_INSET_RIGHT } from '../../config';
-import { DEFAULT_AXIS_CONFIG, DEFAULT_SCALE_CONFIG, DEFAULT_STYLE_CONFIG } from './config';
+import { getScaleConfig } from './utils';
+import { DEFAULT_AXIS_CONFIG, DEFAULT_STYLE_CONFIG } from './config';
 import type { AxisConfig, ScaleConfig, StyleConfig } from './types';
 
 export interface GaugeConfig extends Omit<AntGaugeConfig, 'axis' | 'scale' | 'style'> {
@@ -31,9 +33,9 @@ export const Gauge = forwardRef<Chart, GaugeConfig>(
     } = props;
 
     // 需要给data的name赋值为空字符串，否则会显示默认值 scale
-    const dataConfig = Object.assign({}, data, { name: '' });
+    const dataConfig = deepMix({}, data, { name: '' }, {});
     const axisConfig = getItemConfig<AxisConfig>(axis, DEFAULT_AXIS_CONFIG);
-    const scaleConfig = getItemConfig<ScaleConfig>(scale, DEFAULT_SCALE_CONFIG);
+    const scaleConfig = getItemConfig<ScaleConfig>(scale, getScaleConfig(data.target === 0 || data.percent === 0));
     const styleConfig = getItemConfig<StyleConfig>(style, DEFAULT_STYLE_CONFIG);
 
     return (
