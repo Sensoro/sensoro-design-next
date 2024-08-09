@@ -39,6 +39,9 @@ export function Basic() {
     data,
     colorField: 'value',
     valueField: 'value',
+    tooltip: {
+      title: d => d.data.name,
+    },
   };
 
   return (

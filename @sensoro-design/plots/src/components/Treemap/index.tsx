@@ -10,6 +10,7 @@ import type { ScaleConfig } from './types';
 
 export interface TreemapConfig extends Omit<AntTreemapConfig, 'scale'> {
   scale?: AntTreemapConfig['scale'] | boolean;
+  valueField?: string;
 }
 
 export const Treemap = forwardRef<Chart, TreemapConfig>(
