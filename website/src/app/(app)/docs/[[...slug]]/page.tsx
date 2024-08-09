@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { allDocs } from 'contentlayer/generated';
+import type { Metadata } from 'next';
 
 interface DocPageProps {
   params: {
@@ -16,6 +17,21 @@ async function getDocFromParams({ params }: DocPageProps) {
   }
 
   return doc;
+}
+
+export async function generateMetadata({
+  params,
+}: DocPageProps): Promise<Metadata> {
+  const doc = await getDocFromParams({ params });
+
+  if (!doc) {
+    return {};
+  }
+
+  return {
+    title: doc.title,
+    description: doc.description,
+  };
 }
 
 export async function generateStaticParams(): Promise<
