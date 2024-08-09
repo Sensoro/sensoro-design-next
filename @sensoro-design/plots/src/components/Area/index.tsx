@@ -36,6 +36,7 @@ export const Area = forwardRef<Chart, Partial<AreaConfig>>((props, ref) => {
       style={styleConfig}
       {...rest}
       ref={ref}
+      // @ts-expect-error 暂时忽略
       renderer={new SVGRenderer()}
     />
   );
