@@ -3,14 +3,12 @@ import { Pie as AntPie } from '@ant-design/plots';
 import type { Chart } from '@ant-design/plots/es/interface';
 import type { PieConfig as AntPieConfig } from '@ant-design/plots';
 import { Renderer as SVGRenderer } from '@antv/g-svg';
+import { deepMix } from '@antv/util';
 import { DEFAULT_INSET_LEFT, DEFAULT_INSET_RIGHT } from '../../config';
-import { getItemConfig } from '../../helpers/utils';
 import { DEFAULT_ZERO_STYLE_CONFIG } from './config';
 import { getAnnotations } from './utils';
-import type { StyleConfig } from './types';
 
-export interface PieConfig extends Omit<AntPieConfig, 'style'> {
-  style?: AntPieConfig['style'] | boolean;
+export interface PieConfig extends Omit<AntPieConfig, ''> {
   statisticCount?: number | string;
   statisticText?: string;
 };
@@ -29,9 +27,10 @@ export const Pie = forwardRef<Chart, PieConfig>(
     } = props;
 
     const annotationsConfig = innerRadius === 0 ? undefined : annotations || statisticCount && statisticText && getAnnotations(statisticCount!, statisticText!);
-    const styleConfig = getItemConfig<StyleConfig>(
-      style,
+    const styleConfig = deepMix(
+      {},
       statisticCount === 0 ? DEFAULT_ZERO_STYLE_CONFIG : {},
+      style,
     );
 
     return (
