@@ -1,5 +1,5 @@
 import React, { forwardRef } from 'react';
-import { Pie as AntPie } from '@ant-design/plots';
+import AntPie from '@ant-design/plots/es/components/pie';
 import type { Chart } from '@ant-design/plots/es/interface';
 import type { PieConfig as AntPieConfig } from '@ant-design/plots';
 import { Renderer as SVGRenderer } from '@antv/g-svg';

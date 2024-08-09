@@ -1,6 +1,6 @@
 import React, { forwardRef } from 'react';
 import { isUndefined } from '@rcuse/shared';
-import { Line as AntLine } from '@ant-design/plots';
+import AntLine from '@ant-design/plots/es/components/line';
 import type { Chart } from '@ant-design/plots/es/interface';
 import { Renderer as SVGRenderer } from '@antv/g-svg';
 import type { LineConfig as AntLineConfig } from '@ant-design/plots';

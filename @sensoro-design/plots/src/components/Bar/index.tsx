@@ -1,5 +1,5 @@
 import React, { forwardRef } from 'react';
-import { Bar as AntBar } from '@ant-design/plots';
+import AntBar from '@ant-design/plots/es/components/bar';
 import type { Chart } from '@ant-design/plots/es/interface';
 import type { BarConfig as AntBarConfig } from '@ant-design/plots';
 import { Renderer as SVGRenderer } from '@antv/g-svg';

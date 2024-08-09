@@ -1,4 +1,4 @@
-import { G2 } from '@ant-design/plots';
+import { Light as G2Light } from '@antv/g2';
 import { deepMix } from '@antv/util';
 import type { G2Theme } from '@antv/g2/esm/runtime/types/theme';
 import {
@@ -15,7 +15,7 @@ import {
 } from '../config';
 
 export function Light() {
-  const defaultTheme = G2.Light();
+  const defaultTheme = G2Light();
 
   const customTheme: G2Theme = {
     margin: 24,
