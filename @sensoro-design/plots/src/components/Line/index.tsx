@@ -4,35 +4,30 @@ import { Line as AntLine } from '@ant-design/plots';
 import type { Chart } from '@ant-design/plots/es/interface';
 import { Renderer as SVGRenderer } from '@antv/g-svg';
 import type { LineConfig as AntLineConfig } from '@ant-design/plots';
-import { getItemConfig } from '../../helpers/utils';
+import { deepMix } from '@antv/util';
 import { DEFAULT_INSET_LEFT, DEFAULT_INSET_RIGHT } from '../../config';
 import {
   DEFAULT_AREA_CONFIG,
   DEFAULT_AXIS_CONFIG,
   DEFAULT_POINT_CONFIG,
 } from './config';
-import type { AreaConfig, PointConfig } from './types';
 
-export interface LineConfig extends Omit<AntLineConfig, 'area' | 'point' | 'axis'> {
-  area?: AntLineConfig['area'] | boolean;
-  point?: AntLineConfig['point'] | boolean;
-  axis?: AntLineConfig['axis'] | boolean;
-}
+export interface LineConfig extends Omit<AntLineConfig, ''> {}
 
 export const Line = forwardRef<Chart, LineConfig>(
   (props, ref) => {
     const {
       insetLeft = DEFAULT_INSET_LEFT,
       insetRight = DEFAULT_INSET_RIGHT,
-      area = true,
-      point = true,
-      axis = true,
+      area,
+      point,
+      axis,
       ...rest
     } = props;
 
-    const pointConfig = getItemConfig<PointConfig>(point, DEFAULT_POINT_CONFIG);
-    const axisConfig = getItemConfig<PointConfig>(axis, DEFAULT_AXIS_CONFIG);
-    let areaConfig = getItemConfig<AreaConfig>(area, DEFAULT_AREA_CONFIG);
+    const pointConfig = deepMix({}, DEFAULT_POINT_CONFIG, point);
+    const axisConfig = deepMix({}, DEFAULT_AXIS_CONFIG, axis);
+    let areaConfig = deepMix({}, DEFAULT_AREA_CONFIG, area);
 
     // 多折线图默认不展示阴影
     if (props.colorField && isUndefined(props.axis)) {

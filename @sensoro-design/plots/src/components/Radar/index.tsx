@@ -3,35 +3,30 @@ import { Radar as AntRadar } from '@ant-design/plots';
 import type { Chart } from '@ant-design/plots/es/interface';
 import { Renderer as SVGRenderer } from '@antv/g-svg';
 import type { RadarConfig as AntRadarConfig } from '@ant-design/plots';
-import { getItemConfig } from '../../helpers/utils';
+import { deepMix } from '@antv/util';
 import { DEFAULT_INSET_LEFT, DEFAULT_INSET_RIGHT } from '../../config';
 import {
   DEFAULT_AREA_CONFIG,
   DEFAULT_AXIS_CONFIG,
   DEFAULT_POINT_CONFIG,
 } from './config';
-import type { AreaConfig, PointConfig } from './types';
 
-export interface RadarConfig extends Omit<AntRadarConfig, 'area' | 'point' | 'axis'> {
-  area?: AntRadarConfig['area'] | boolean;
-  point?: AntRadarConfig['point'] | boolean;
-  axis?: AntRadarConfig['axis'] | boolean;
-}
+export interface RadarConfig extends Omit<AntRadarConfig, ''> {}
 
 export const Radar = forwardRef<Chart, RadarConfig>(
   (props, ref) => {
     const {
       insetLeft = DEFAULT_INSET_LEFT,
       insetRight = DEFAULT_INSET_RIGHT,
-      area = true,
-      point = true,
-      axis = true,
+      area,
+      point,
+      axis,
       ...rest
     } = props;
 
-    const pointConfig = getItemConfig<PointConfig>(point, DEFAULT_POINT_CONFIG);
-    const axisConfig = getItemConfig<PointConfig>(axis, DEFAULT_AXIS_CONFIG);
-    const areaConfig = getItemConfig<AreaConfig>(area, DEFAULT_AREA_CONFIG);
+    const pointConfig = deepMix({}, DEFAULT_POINT_CONFIG, point);
+    const axisConfig = deepMix({}, DEFAULT_AXIS_CONFIG, axis);
+    const areaConfig = deepMix({}, DEFAULT_AREA_CONFIG, area);
 
     return (
       <AntRadar
