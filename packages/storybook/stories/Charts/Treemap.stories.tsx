@@ -42,6 +42,7 @@ export function Basic() {
     tooltip: {
       title: d => d.data.name,
     },
+    legend: false,
   };
 
   return (
