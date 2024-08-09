@@ -7,7 +7,9 @@ import { deepMix } from '@antv/util';
 import { DEFAULT_INSET_LEFT, DEFAULT_INSET_RIGHT } from '../../config';
 import { DEFAULT_SCALE_CONFIG } from './config';
 
-export interface TreemapConfig extends Omit<AntTreemapConfig, ''> {}
+export interface TreemapConfig extends Omit<AntTreemapConfig, ''> {
+  valueField?: string;
+}
 
 export const Treemap = forwardRef<Chart, TreemapConfig>(
   (props, ref) => {

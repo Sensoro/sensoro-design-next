@@ -3,6 +3,11 @@
   "version": "2.0.0",
   "description": "Sensoro Design G2 Plots.",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sensoro/sensoro-design-next.git",
+    "directory": "@sensoro-design/plots"
+  },
   "sideEffects": false,
   "main": "src/index.ts",
   "files": [
@@ -22,9 +27,10 @@
     "react-dom": ">=16.9.0"
   },
   "dependencies": {
-    "@ant-design/plots": "^2.2.6",
+    "@ant-design/plots": "^2.2.8",
+    "@antv/g": "^6.0.0",
     "@antv/g2": "^5.1.18",
-    "@antv/util": "^3.3.5",
+    "@antv/util": "^3.3.8",
     "@rcuse/shared": "^0.25.0"
   },
   "publishConfig": {

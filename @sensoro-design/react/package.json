@@ -8,7 +8,7 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/sensoro/sensoro-design-next.git",
-    "directory": "packages/@sensoro-design/react"
+    "directory": "@sensoro-design/react"
   },
   "keywords": [
     "react",
@@ -48,7 +48,7 @@
     }
   },
   "dependencies": {
-    "@floating-ui/react": "^0.26.19",
+    "@floating-ui/react": "^0.26.22",
     "@lotus-design/react-primitives": "^1.0.0-alpha.3",
     "@rcuse/core": "^0.25.0",
     "clsx": "^2.1.1",

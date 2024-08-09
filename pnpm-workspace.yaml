@@ -2,5 +2,5 @@ packages:
   - examples/*
   - '@sensoro-design/*'
   - packages/**/*
-  - www
+  - website
   - scripts
