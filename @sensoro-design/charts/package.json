@@ -26,7 +26,6 @@
     "@antv/g2": "^5.1.18",
     "@antv/util": "^3.3.8",
     "@sensoro-design/react": "workspace:*",
-    "@sensoro-design/styles": "1.27.1",
     "antd": "4.23.2",
     "clsx": "^2.1.1",
     "lodash": "4.17.21",
