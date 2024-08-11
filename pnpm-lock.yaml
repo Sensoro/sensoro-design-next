@@ -93,9 +93,6 @@ importers:
       '@types/fs-extra':
         specifier: ^11.0.4
         version: 11.0.4
-      '@types/lodash':
-        specifier: ^4.17.6
-        version: 4.17.7
       '@types/lodash-es':
         specifier: ^4.17.12
         version: 4.17.12
@@ -297,9 +294,6 @@ importers:
       clsx:
         specifier: ^2.1.1
         version: 2.1.1
-      lodash:
-        specifier: 4.17.21
-        version: 4.17.21
       react:
         specifier: ^17.0.0 || ^18.0.0
         version: 18.3.1
