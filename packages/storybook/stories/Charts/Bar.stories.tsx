@@ -33,7 +33,7 @@ export function Basic() {
     data,
     xField: 'name',
     yField: 'value',
-    paddingRight: -110,
+    paddingRight: -160,
     scale: {
       y: {
         domain: [0, 2200],
