@@ -18,6 +18,7 @@
     "remark": "^15.0.1",
     "remark-code-import": "^1.2.0",
     "remark-gfm": "^4.0.0",
+    "tailwind-merge": "^2.5.0",
     "unist-util-visit": "^5.0.0",
     "zod": "^3.23.8"
   },
