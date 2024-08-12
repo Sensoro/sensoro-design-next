@@ -1,6 +1,5 @@
 import React from 'react';
 import { Bar, type BarConfig } from '@sensoro-design/plots';
-import { backgroundColorNames } from 'chalk';
 
 const meta = {
   title: 'Charts/Bar',
@@ -9,11 +8,11 @@ const meta = {
 const data = [
   {
     name: '蓝领',
-    value: 110,
+    value: 1100,
   },
   {
     name: '白领',
-    value: 220,
+    value: 2200,
   },
   {
     name: '制造业蓝领哈久啊禄口街道发了卡萨丁激发',
@@ -34,6 +33,12 @@ export function Basic() {
     data,
     xField: 'name',
     yField: 'value',
+    paddingRight: -110,
+    scale: {
+      y: {
+        domain: [0, 2200],
+      },
+    },
   };
 
   return <Bar {...config} />;
