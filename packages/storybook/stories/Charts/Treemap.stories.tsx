@@ -1,4 +1,5 @@
 import React from 'react';
+import { Renderer as SVGRenderer } from '@antv/g-svg';
 import { Treemap, type TreemapConfig } from '@sensoro-design/plots';
 
 const meta = {
@@ -45,7 +46,6 @@ export function Basic() {
     legend: false,
   };
 
-  return (
-    <Treemap {...config} />
-  );
+  // @ts-expect-error 暂时忽略
+  return <Treemap {...config} renderer={new SVGRenderer()} />;
 }

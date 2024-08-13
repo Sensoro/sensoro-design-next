@@ -1,4 +1,5 @@
 import React from 'react';
+import { Renderer as SVGRenderer } from '@antv/g-svg';
 import { Bar, type BarConfig } from '@sensoro-design/plots';
 
 const meta = {
@@ -53,5 +54,6 @@ export function Basic() {
     },
   };
 
-  return <Bar {...config} />;
+  // @ts-expect-error 暂时忽略
+  return <Bar {...config} renderer={new SVGRenderer()} />;
 }

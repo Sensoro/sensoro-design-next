@@ -2,7 +2,6 @@ import React, { forwardRef } from 'react';
 import AntColumn from '@ant-design/plots/es/components/column';
 import type { Chart } from '@ant-design/plots/es/interface';
 import type { ColumnConfig as AntColumnConfig } from '@ant-design/plots';
-import { Renderer as SVGRenderer } from '@antv/g-svg';
 import { deepMix } from '@antv/util';
 import { DEFAULT_INSET_LEFT, DEFAULT_INSET_RIGHT } from '../../config';
 import {
@@ -45,7 +44,6 @@ export const Column = forwardRef<Chart, ColumnConfig>((props, ref) => {
       interaction={interactionConfig}
       {...rest}
       ref={ref}
-      renderer={new SVGRenderer()}
     />
   );
 });

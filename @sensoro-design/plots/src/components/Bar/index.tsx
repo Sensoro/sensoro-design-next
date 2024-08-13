@@ -2,7 +2,6 @@ import React, { forwardRef } from 'react';
 import AntBar from '@ant-design/plots/es/components/bar';
 import type { Chart } from '@ant-design/plots/es/interface';
 import type { BarConfig as AntBarConfig } from '@ant-design/plots';
-import { Renderer as SVGRenderer } from '@antv/g-svg';
 import { deepMix } from '@antv/util';
 import { DEFAULT_INSET_RIGHT } from '../../config';
 import {
@@ -51,7 +50,6 @@ export const Bar = forwardRef<Chart, BarConfig>((props, ref) => {
       scale={scaleConfig}
       {...rest}
       ref={ref}
-      renderer={new SVGRenderer()}
     />
   );
 });

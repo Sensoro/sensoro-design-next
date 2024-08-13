@@ -1,7 +1,6 @@
 import React, { forwardRef } from 'react';
 import AntRose from '@ant-design/plots/es/components/rose';
 import type { Chart } from '@ant-design/plots/es/interface';
-import { Renderer as SVGRenderer } from '@antv/g-svg';
 import type { RoseConfig as AntRoseConfig } from '@ant-design/plots';
 import { deepMix } from '@antv/util';
 import { DEFAULT_INSET_LEFT, DEFAULT_INSET_RIGHT } from '../../config';
@@ -38,7 +37,6 @@ export const Rose = forwardRef<Chart, RoseConfig>(
         innerRadius={radiusConfig}
         {...rest}
         ref={ref}
-        renderer={new SVGRenderer()}
       />
     );
   },

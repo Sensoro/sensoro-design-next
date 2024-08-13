@@ -1,7 +1,6 @@
 import React, { forwardRef } from 'react';
 import AntGauge from '@ant-design/plots/es/components/gauge';
 import type { Chart } from '@ant-design/plots/es/interface';
-import { Renderer as SVGRenderer } from '@antv/g-svg';
 import type { GaugeConfig as AntGaugeConfig } from '@ant-design/plots';
 import { deepMix } from '@antv/util';
 import { DEFAULT_INSET_LEFT, DEFAULT_INSET_RIGHT } from '../../config';
@@ -49,7 +48,6 @@ export const Gauge = forwardRef<Chart, GaugeConfig>(
         style={styleConfig}
         {...rest}
         ref={ref}
-        renderer={new SVGRenderer()}
       />
     );
   },

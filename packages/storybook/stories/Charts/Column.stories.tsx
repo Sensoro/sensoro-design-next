@@ -1,4 +1,5 @@
 import React from 'react';
+import { Renderer as SVGRenderer } from '@antv/g-svg';
 import { Column, type ColumnConfig } from '@sensoro-design/plots';
 
 const meta = {
@@ -109,7 +110,8 @@ export function Basic() {
     yField: 'frequency',
   };
 
-  return <Column {...config} />;
+  // @ts-expect-error 暂时忽略
+  return <Column {...config} renderer={new SVGRenderer()} />;
 }
 
 export function Group() {
@@ -126,7 +128,8 @@ export function Group() {
     group: true,
   };
 
-  return <Column {...config} />;
+  // @ts-expect-error 暂时忽略
+  return <Column {...config} renderer={new SVGRenderer()} />;
 }
 
 export function BothwayGroup() {
@@ -138,5 +141,6 @@ export function BothwayGroup() {
     colorField: 'name',
   };
 
-  return <Column {...config} />;
+  // @ts-expect-error 暂时忽略
+  return <Column {...config} renderer={new SVGRenderer()} />;
 }
