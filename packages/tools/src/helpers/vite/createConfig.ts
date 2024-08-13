@@ -1,5 +1,6 @@
 import process from 'node:process';
 import { type BuildOptions, defineConfig } from 'vite';
+import { viteExternalsPlugin } from 'vite-plugin-externals';
 import { getEntryFile } from '../../utils';
 import type { ToolsConfig } from '../../types';
 
@@ -14,14 +15,21 @@ export function createConfig(options: Options = {}) {
     umd = {},
     minify = true,
   } = options;
-  const { name, outDir = 'dist', externals } = umd;
+  const {
+    name,
+    outDir = 'dist',
+    fileName = 'index',
+    externals,
+  } = umd;
 
   const entry = getEntryFile(cwd);
 
   return defineConfig({
     root: cwd,
     mode: 'production',
-    plugins: [],
+    plugins: [
+      viteExternalsPlugin(externals),
+    ],
     css: {
       preprocessorOptions: {
         less: {
@@ -35,16 +43,11 @@ export function createConfig(options: Options = {}) {
         entry,
         name,
         fileName: () => {
-          return !minify ? 'sensoro.development.js' : 'sensoro.min.js';
+          return !minify ? `${fileName}.development.js` : `${fileName}.min.js`;
         },
         formats: ['umd'],
       },
       outDir,
-      rollupOptions: {
-        output: {
-          globals: externals,
-        },
-      },
       minify,
     },
   });

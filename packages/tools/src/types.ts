@@ -52,5 +52,9 @@ export interface ToolsConfig {
      * 外部依赖
      */
     externals?: Record<string, string>;
+    /**
+     * 文件名
+     */
+    fileName?: string;
   };
 }

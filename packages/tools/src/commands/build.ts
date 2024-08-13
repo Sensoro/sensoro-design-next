@@ -12,12 +12,8 @@ async function runCli() {
   });
 
   if (config.umd) {
-    const viteConfig = createConfig({
-      ...config,
-      minify: false,
-    });
-
-    build(viteConfig);
+    build(createConfig({ ...config, minify: true }));
+    build(createConfig({ ...config, minify: false }));
   }
 }
 
