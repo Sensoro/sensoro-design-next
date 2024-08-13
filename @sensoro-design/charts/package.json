@@ -8,29 +8,52 @@
     "url": "https://github.com/sensoro/sensoro-design-next.git",
     "directory": "@sensoro-design/charts"
   },
-  "module": "dist/index.js",
-  "types": "dist/index.d.ts",
+  "sideEffects": [
+    "dist/*",
+    "es/**/style/*",
+    "lib/**/style/*",
+    "*.less"
+  ],
+  "main": "src/index.ts",
   "files": [
-    "dist"
+    "dist",
+    "es",
+    "lib"
   ],
   "scripts": {
-    "dev": "father dev",
-    "build": "father build"
+    "clean": "rimraf lib es dist",
+    "build": "pnpm clean && pnpm build:cjs && pnpm build:esm",
+    "build:cjs": "tsc --target ES5 --module commonjs --outDir lib",
+    "build:esm": "tsc --target ES5 --module ESNext --outDir es"
   },
   "peerDependencies": {
-    "react": "^17.0.0 || ^18.0.0",
-    "react-dom": "^17.0.0 || ^18.0.0"
+    "react": ">=16.9.0",
+    "react-dom": ">=16.9.0"
   },
   "dependencies": {
-    "@antv/g2": "^5.1.18",
-    "@antv/util": "^3.3.8",
     "@sensoro-design/react": "workspace:*",
-    "antd": "4.23.2",
-    "clsx": "^2.1.1",
-    "react-inlinesvg": "3.0.2"
+    "clsx": "^2.1.1"
   },
   "publishConfig": {
-    "access": "public"
+    "access": "public",
+    "main": "./lib/index.js",
+    "module": "./es/index.js",
+    "types": "./es/index.d.ts",
+    "exports": {
+      ".": {
+        "import": {
+          "types": "./es/index.d.ts",
+          "default": "./es/index.js"
+        },
+        "require": {
+          "types": "./lib/index.d.ts",
+          "default": "./lib/index.js"
+        }
+      },
+      "./es/*": "./es/*",
+      "./lib/*": "./lib/*",
+      "./package.json": "./package.json"
+    }
   },
   "authors": [
     "zhangfuhao@sensoro.com"
