@@ -14,7 +14,7 @@ export function createConfig(options: Options = {}) {
     umd = {},
     minify = true,
   } = options;
-  const { name, externals } = umd;
+  const { name, outDir = 'dist', externals } = umd;
 
   const entry = getEntryFile(cwd);
 
@@ -34,8 +34,12 @@ export function createConfig(options: Options = {}) {
       lib: {
         entry,
         name,
+        fileName: () => {
+          return !minify ? 'sensoro.development.js' : 'sensoro.min.js';
+        },
         formats: ['umd'],
       },
+      outDir,
       rollupOptions: {
         output: {
           globals: externals,

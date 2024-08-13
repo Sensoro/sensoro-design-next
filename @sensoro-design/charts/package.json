@@ -22,7 +22,7 @@
   ],
   "scripts": {
     "clean": "rimraf lib es dist",
-    "build": "pnpm clean && pnpm build:cjs && pnpm build:esm",
+    "build": "sensoro-tools",
     "build:cjs": "tsc --target ES5 --module commonjs --outDir lib",
     "build:esm": "tsc --target ES5 --module ESNext --outDir es"
   },
@@ -31,7 +31,7 @@
     "react-dom": ">=16.9.0"
   },
   "dependencies": {
-    "@sensoro-design/react": "workspace:*",
+    "@sensoro-design/plots": "workspace:*",
     "clsx": "^2.1.1"
   },
   "publishConfig": {

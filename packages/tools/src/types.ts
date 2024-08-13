@@ -47,7 +47,7 @@ export interface ToolsConfig {
      * 输出目录
      * @default dist
      */
-    output?: string | { path?: string; filename?: string };
+    outDir?: string;
     /**
      * 外部依赖
      */
