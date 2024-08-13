@@ -1,5 +1,5 @@
 import React, { forwardRef } from 'react';
-import { Column as AntColumn } from '@ant-design/plots';
+import AntColumn from '@ant-design/plots/es/components/column';
 import type { Chart } from '@ant-design/plots/es/interface';
 import type { ColumnConfig as AntColumnConfig } from '@ant-design/plots';
 import { Renderer as SVGRenderer } from '@antv/g-svg';

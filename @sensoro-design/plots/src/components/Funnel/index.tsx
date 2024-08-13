@@ -1,5 +1,5 @@
 import React, { forwardRef } from 'react';
-import { Funnel as AntFunnel } from '@ant-design/plots';
+import AntFunnel from '@ant-design/plots/es/components/funnel';
 import type { Chart } from '@ant-design/plots/es/interface';
 import { Renderer as SVGRenderer } from '@antv/g-svg';
 import { deepMix } from '@antv/util';

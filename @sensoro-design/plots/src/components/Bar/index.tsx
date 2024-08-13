@@ -1,10 +1,10 @@
 import React, { forwardRef } from 'react';
-import { Bar as AntBar } from '@ant-design/plots';
+import AntBar from '@ant-design/plots/es/components/bar';
 import type { Chart } from '@ant-design/plots/es/interface';
 import type { BarConfig as AntBarConfig } from '@ant-design/plots';
 import { Renderer as SVGRenderer } from '@antv/g-svg';
 import { deepMix } from '@antv/util';
-import { DEFAULT_INSET_LEFT, DEFAULT_INSET_RIGHT } from '../../config';
+import { DEFAULT_INSET_RIGHT } from '../../config';
 import {
   DEFAULT_AXIS_CONFIG,
   DEFAULT_INTERACTION_CONFIG,
@@ -17,13 +17,12 @@ export interface BarConfig extends Omit<AntBarConfig, ''> {}
 
 export const Bar = forwardRef<Chart, BarConfig>((props, ref) => {
   const {
-    insetLeft = DEFAULT_INSET_LEFT,
-    insetRight = DEFAULT_INSET_RIGHT,
     axis,
     style,
     scale,
     interaction,
     markBackground,
+    insetRight = DEFAULT_INSET_RIGHT,
     ...rest
   } = props;
 
@@ -44,7 +43,6 @@ export const Bar = forwardRef<Chart, BarConfig>((props, ref) => {
   // TODO: 条形图占比（图间距）
   return (
     <AntBar
-      insetLeft={insetLeft}
       insetRight={insetRight}
       axis={axisConfig}
       style={styleConfig}

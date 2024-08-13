@@ -1,5 +1,5 @@
 import React, { forwardRef } from 'react';
-import { Radar as AntRadar } from '@ant-design/plots';
+import AntRadar from '@ant-design/plots/es/components/radar';
 import type { Chart } from '@ant-design/plots/es/interface';
 import { Renderer as SVGRenderer } from '@antv/g-svg';
 import type { RadarConfig as AntRadarConfig } from '@ant-design/plots';

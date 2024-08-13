@@ -1,11 +1,10 @@
-import { G2 } from '@ant-design/plots';
-
+import { register } from '@antv/g2';
 import { Dark } from './theme/dark';
 import { Light } from './theme/light';
 
-G2.register('theme.dark', Dark);
-G2.register('theme.light', Light);
+register('theme.dark', Dark);
+register('theme.light', Light);
 
-export { G2 };
+export { Dark, Light };
 export * from './components';
 export * from './config/colors';

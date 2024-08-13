@@ -1,5 +1,5 @@
 import React, { forwardRef } from 'react';
-import { Area as AntArea } from '@ant-design/plots';
+import AntArea from '@ant-design/plots/es/components/area';
 import type { Chart } from '@ant-design/plots/es/interface';
 import { Renderer as SVGRenderer } from '@antv/g-svg';
 import { deepMix } from '@antv/util';
@@ -36,6 +36,7 @@ export const Area = forwardRef<Chart, Partial<AreaConfig>>((props, ref) => {
       style={styleConfig}
       {...rest}
       ref={ref}
+      // @ts-expect-error 暂时忽略
       renderer={new SVGRenderer()}
     />
   );

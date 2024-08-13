@@ -1,5 +1,5 @@
 import React, { forwardRef } from 'react';
-import { Treemap as AntTreemap } from '@ant-design/plots';
+import AntTreemap from '@ant-design/plots/es/components/treemap';
 import type { Chart } from '@ant-design/plots/es/interface';
 import { Renderer as SVGRenderer } from '@antv/g-svg';
 import type { TreemapConfig as AntTreemapConfig } from '@ant-design/plots';

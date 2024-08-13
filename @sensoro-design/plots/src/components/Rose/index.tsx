@@ -1,5 +1,5 @@
 import React, { forwardRef } from 'react';
-import { Rose as AntRose } from '@ant-design/plots';
+import AntRose from '@ant-design/plots/es/components/rose';
 import type { Chart } from '@ant-design/plots/es/interface';
 import { Renderer as SVGRenderer } from '@antv/g-svg';
 import type { RoseConfig as AntRoseConfig } from '@ant-design/plots';

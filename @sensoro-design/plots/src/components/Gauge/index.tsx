@@ -1,5 +1,5 @@
 import React, { forwardRef } from 'react';
-import { Gauge as AntGauge } from '@ant-design/plots';
+import AntGauge from '@ant-design/plots/es/components/gauge';
 import type { Chart } from '@ant-design/plots/es/interface';
 import { Renderer as SVGRenderer } from '@antv/g-svg';
 import type { GaugeConfig as AntGaugeConfig } from '@ant-design/plots';
