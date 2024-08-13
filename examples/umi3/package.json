@@ -6,6 +6,8 @@
     "build": "NODE_OPTIONS=--openssl-legacy-provider umi build"
   },
   "dependencies": {
+    "@sensoro-design/charts": "workspace:*",
+    "@sensoro-design/react": "workspace:*",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "umi": "^3.5.42"
