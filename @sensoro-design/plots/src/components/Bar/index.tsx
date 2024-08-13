@@ -3,7 +3,6 @@ import AntBar from '@ant-design/plots/es/components/bar';
 import type { Chart } from '@ant-design/plots/es/interface';
 import type { BarConfig as AntBarConfig } from '@ant-design/plots';
 import { deepMix } from '@antv/util';
-import { DEFAULT_INSET_RIGHT } from '../../config';
 import {
   DEFAULT_AXIS_CONFIG,
   DEFAULT_INTERACTION_CONFIG,
@@ -21,7 +20,7 @@ export const Bar = forwardRef<Chart, BarConfig>((props, ref) => {
     scale,
     interaction,
     markBackground,
-    insetRight = DEFAULT_INSET_RIGHT,
+    paddingRight = 44,
     ...rest
   } = props;
 
@@ -39,10 +38,9 @@ export const Bar = forwardRef<Chart, BarConfig>((props, ref) => {
   );
   const scaleConfig = deepMix({}, DEFAULT_SCALE_CONFIG, scale);
 
-  // TODO: 条形图占比（图间距）
   return (
     <AntBar
-      insetRight={insetRight}
+      paddingRight={paddingRight}
       axis={axisConfig}
       style={styleConfig}
       markBackground={markBackgroundConfig}

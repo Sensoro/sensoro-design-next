@@ -11,19 +11,19 @@ export default meta;
 const data = [
   {
     name: '蓝领',
-    value: 1100,
+    value: 10,
   },
   {
     name: '白领',
-    value: 2200,
+    value: 220,
   },
   {
-    name: '制造业蓝领哈久啊禄口街道发了卡萨丁激发',
-    value: 330,
+    name: '制造业蓝领阿卡丽地方改哦施工图啊饿哦i让他跟你说',
+    value: 320,
   },
   {
     name: '退休人员',
-    value: 400,
+    value: 440,
   },
 ];
 
@@ -34,10 +34,9 @@ export function Basic() {
     data,
     xField: 'name',
     yField: 'value',
-    paddingRight: -160,
     scale: {
       y: {
-        domain: [0, 2200],
+        domain: [0, 800],
       },
     },
     axis: {
@@ -56,4 +55,34 @@ export function Basic() {
 
   // @ts-expect-error 暂时忽略
   return <Bar {...config} renderer={new SVGRenderer()} />;
+}
+
+export function AloneTitle() {
+  const config: BarConfig = {
+    title: '独立标题行条形图',
+    height: data.length * 8 + (data.length - 1) * 24 + 92 + 48,
+    data,
+    xField: 'name',
+    yField: 'value',
+    scale: {
+      y: {
+        domain: [0, 800],
+      },
+    },
+    axis: {
+      x: {
+        size: 0,
+        label: false,
+      },
+    },
+    label: {
+      text: 'name',
+      position: 'left',
+      transform: [{ type: 'overlapDodgeY' }],
+      dy: -18,
+      lineHeight: 20,
+    },
+  };
+
+  return <Bar {...config} />;
 }

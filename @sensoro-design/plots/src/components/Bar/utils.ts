@@ -9,7 +9,8 @@ export const getDefaultMarkBackgroundConfig: (
       return `${originData[yField]}`;
     },
     position: 'right',
-    dx: 30,
+    dx: 44,
+    dy: 0,
     style: {
       fill: colorGrey10,
       fillOpacity: 1,
