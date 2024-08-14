@@ -3,8 +3,10 @@ import { Renderer as SVGRenderer } from '@antv/g-svg';
 import { Treemap, type TreemapConfig } from '@sensoro-design/plots';
 
 const meta = {
-  title: 'Charts/Treemap',
+  title: 'Plots/Treemap',
 };
+
+export default meta;
 
 const data = {
   name: 'root',
@@ -31,8 +33,6 @@ const data = {
     { name: '分类 20', value: 16 },
   ],
 };
-
-export default meta;
 
 export function Basic() {
   const config: TreemapConfig = {

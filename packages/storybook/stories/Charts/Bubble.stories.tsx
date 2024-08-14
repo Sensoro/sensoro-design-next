@@ -3,7 +3,7 @@ import { Renderer as SVGRenderer } from '@antv/g-svg';
 import { Bubble, type BubbleConfig } from '@sensoro-design/plots';
 
 const meta = {
-  title: 'Charts/Bubble',
+  title: 'Plots/Bubble',
 };
 
 export default meta;

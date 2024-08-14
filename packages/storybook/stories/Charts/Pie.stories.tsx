@@ -3,8 +3,10 @@ import { Renderer as SVGRenderer } from '@antv/g-svg';
 import { Pie, type PieConfig } from '@sensoro-design/plots';
 
 const meta = {
-  title: 'Charts/Pie',
+  title: 'Plots/Pie',
 };
+
+export default meta;
 
 const data = [
   { type: '分类一', value: 27 },
@@ -23,8 +25,6 @@ const zeroData = [
   { type: '分类五', value: 0 },
   { type: '其他', value: 0 },
 ];
-
-export default meta;
 
 export function Basic() {
   const config: PieConfig = {

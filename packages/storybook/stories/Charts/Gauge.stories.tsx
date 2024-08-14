@@ -3,7 +3,7 @@ import { Renderer as SVGRenderer } from '@antv/g-svg';
 import { Gauge, type GaugeConfig } from '@sensoro-design/plots';
 
 const meta = {
-  title: 'Charts/Gauge',
+  title: 'Plots/Gauge',
 };
 
 export default meta;

@@ -3,8 +3,10 @@ import { Renderer as SVGRenderer } from '@antv/g-svg';
 import { Bar, type BarConfig } from '@sensoro-design/plots';
 
 const meta = {
-  title: 'Charts/Bar',
+  title: 'Plots/Bar',
 };
+
+export default meta;
 
 const data = [
   {
@@ -24,8 +26,6 @@ const data = [
     value: 400,
   },
 ];
-
-export default meta;
 
 export function Basic() {
   const config: BarConfig = {

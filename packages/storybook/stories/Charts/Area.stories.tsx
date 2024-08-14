@@ -3,8 +3,10 @@ import { Renderer as SVGRenderer } from '@antv/g-svg';
 import { Area, type AreaConfig } from '@sensoro-design/plots';
 
 const meta = {
-  title: 'Charts/Area',
+  title: 'Plots/Area',
 };
+
+export default meta;
 
 const basicData = [
   { country: '北美', date: 2000, value: 2699.4 },
@@ -119,8 +121,6 @@ const stackData = [
   { country: '亚太地区', date: 2016, value: 5585.5 },
   { country: '亚太地区', date: 2017, value: 5743.6 },
 ];
-
-export default meta;
 
 export function Basic() {
   const config: AreaConfig = {

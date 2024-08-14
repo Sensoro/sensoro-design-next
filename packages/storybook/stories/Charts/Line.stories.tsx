@@ -3,7 +3,7 @@ import { Renderer as SVGRenderer } from '@antv/g-svg';
 import { Line, type LineConfig } from '@sensoro-design/plots';
 
 const meta = {
-  title: 'Charts/Line',
+  title: 'Plots/Line',
 };
 
 export default meta;

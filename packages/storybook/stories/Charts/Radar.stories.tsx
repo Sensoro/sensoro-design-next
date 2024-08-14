@@ -2,6 +2,12 @@ import React from 'react';
 import { Renderer as SVGRenderer } from '@antv/g-svg';
 import { Radar, type RadarConfig } from '@sensoro-design/plots';
 
+const meta = {
+  title: 'Plots/Radar',
+};
+
+export default meta;
+
 const data = [
   { item: 'Design', type: 'a', score: 70 },
   { item: 'Design', type: 'b', score: 30 },
@@ -24,12 +30,6 @@ const data = [
   { item: 'UX', type: 'a', score: 50 },
   { item: 'UX', type: 'b', score: 60 },
 ];
-
-const meta = {
-  title: 'Charts/Radar',
-};
-
-export default meta;
 
 export function Basic() {
   const config: RadarConfig = {

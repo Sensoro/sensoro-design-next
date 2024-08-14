@@ -3,8 +3,10 @@ import { Renderer as SVGRenderer } from '@antv/g-svg';
 import { Column, type ColumnConfig } from '@sensoro-design/plots';
 
 const meta = {
-  title: 'Charts/Column',
+  title: 'Plots/Column',
 };
+
+export default meta;
 
 const data = [
   {
@@ -88,8 +90,6 @@ const data = [
     月均降雨量: -42.4,
   },
 ];
-
-export default meta;
 
 export function Basic() {
   const config: ColumnConfig = {
