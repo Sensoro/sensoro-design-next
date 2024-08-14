@@ -22,8 +22,8 @@
   ],
   "exclude": [
     "node_modules",
-    "*.mjs",
-    "*.js",
+    "./**/*.js",
+    "./**/*.mjs",
     "./packages/storybook/storybook-static",
     "./packages/storybook/postcss.config.cjs",
     "./packages/@sensoro-design/*/dist/**/*",
