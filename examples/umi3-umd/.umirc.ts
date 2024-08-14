@@ -1,4 +1,3 @@
-// @ts-expect-error 暂时忽略
 import { defineConfig } from 'umi';
 
 export default defineConfig({

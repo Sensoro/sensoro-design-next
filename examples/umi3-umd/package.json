@@ -1,4 +1,5 @@
 {
+  "name": "umi3-umd",
   "private": true,
   "scripts": {
     "analyze": "ANALYZE=1 NODE_OPTIONS=--openssl-legacy-provider umi build",
