@@ -7,8 +7,8 @@
     "moduleResolution": "Node",
     "resolveJsonModule": true,
     "strict": true,
-    "declaration": true,
-    "emitDeclarationOnly": true,
+    "declaration": false,
+    "importHelpers": true,
     "esModuleInterop": true,
     "skipLibCheck": true
   },
