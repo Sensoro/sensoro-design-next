@@ -32,7 +32,8 @@
   },
   "dependencies": {
     "@sensoro-design/plots": "workspace:*",
-    "clsx": "^2.1.1"
+    "clsx": "^2.1.1",
+    "tslib": "^2.6.3"
   },
   "publishConfig": {
     "access": "public",
