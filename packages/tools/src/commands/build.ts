@@ -14,14 +14,7 @@ async function runCli() {
   });
 
   if (config.esm || config.cjs) {
-    const rollupConfig = await createRollupConfig({
-      ...config,
-      typescriptOptions: {
-        compilerOptions: {
-          declarationDir: 'es',
-        },
-      },
-    });
+    const rollupConfig = await createRollupConfig(config);
     const build = await rollup(rollupConfig);
 
     const outputs: OutputOptions[] = Array.isArray(rollupConfig.output)

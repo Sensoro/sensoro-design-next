@@ -1,17 +1,17 @@
 import commonjs from '@rollup/plugin-commonjs';
 import nodeResolve from '@rollup/plugin-node-resolve';
-import typescript from '@rollup/plugin-typescript';
+import esbuild from 'rollup-plugin-esbuild';
 
 import type { Plugin } from 'rollup';
 import type { RollupCommonJSOptions } from '@rollup/plugin-commonjs';
 import type { RollupNodeResolveOptions } from '@rollup/plugin-node-resolve';
-import type { RollupTypescriptOptions } from '@rollup/plugin-typescript';
+import type { Options as EsbuildOptions } from 'rollup-plugin-esbuild';
 
 export interface Options {
   plugins?: Plugin[];
   nodeResolveOptions?: RollupNodeResolveOptions;
   commonjsOptions?: RollupCommonJSOptions;
-  typescriptOptions?: RollupTypescriptOptions;
+  esbuildOptions?: EsbuildOptions;
 }
 
 export function getPlugins(opts: Options = {}): Plugin[] {
@@ -19,7 +19,7 @@ export function getPlugins(opts: Options = {}): Plugin[] {
     plugins = [],
     nodeResolveOptions = {},
     commonjsOptions = {},
-    typescriptOptions = {},
+    esbuildOptions = {},
   } = opts;
 
   return [
@@ -30,9 +30,9 @@ export function getPlugins(opts: Options = {}): Plugin[] {
       ...nodeResolveOptions,
     }),
     commonjs(commonjsOptions),
-    typescript({
-      sourceMap: true,
-      ...typescriptOptions,
+    esbuild({
+      sourceMap: false,
+      ...esbuildOptions,
     }),
   ];
 }

@@ -12,18 +12,29 @@ interface Options extends ToolsConfig, Omit<GetPluginOptions, 'plugins'> {
 
 export async function createConfig(options: Options = {}) {
   const {
-    cwd = process.cwd(),
     source = [
       'src/**/*.{ts,tsx}',
     ],
+    nodeResolveOptions,
+    esbuildOptions,
+    commonjsOptions,
   } = options;
+  const cwd = options.cwd ?? process.cwd();
 
   const packageJson = await readPackage({
     cwd,
   });
+  const isCli = packageJson.bin !== undefined;
 
   const plugins: Plugin[] = [
-    ...getPlugins(),
+    ...getPlugins({
+      esbuildOptions: {
+        platform: isCli ? 'node' : 'browser',
+        ...esbuildOptions,
+      },
+      nodeResolveOptions,
+      commonjsOptions,
+    }),
     {
       name: '@rollup-plugin/remove-empty-chunks',
       generateBundle(_, bundle) {
