@@ -106,7 +106,6 @@
     "ora": "^8.0.1",
     "pnpm": "^9.4.0",
     "postcss": "^8.4.41",
-    "postcss-less": "^6.0.0",
     "postcss-pxtorem": "^6.1.0",
     "prettier": "^3.3.3",
     "react": "^18.3.1",

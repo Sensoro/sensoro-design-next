@@ -1,4 +1,4 @@
-import { join } from 'node:path';
+import path from 'node:path';
 import { existsSync } from 'node:fs';
 
 /**
@@ -17,7 +17,7 @@ export function getEntryFile(
 ) {
   return files.reduce(
     (prev, cur) => {
-      const filePath = join(dirPath, cur);
+      const filePath = path.join(dirPath, cur);
 
       if (existsSync(filePath) && !prev)
         prev = cur;
@@ -34,4 +34,22 @@ export function getEntryFile(
  */
 export function isTsFile(filePath: string): boolean {
   return /\.(?:ts|tsx)$/i.test(filePath);
+}
+
+interface RenameOptions {
+  basename?: string;
+  extname?: string;
+}
+
+export function rename(
+  filePath: string,
+  options: RenameOptions = {},
+) {
+  const dirname = path.dirname(filePath);
+  const basename = path.basename(filePath, path.extname(filePath));
+  const extname = path.extname(filePath);
+
+  const fileName = `${options.basename || basename}${options.extname || extname}`;
+
+  return path.join(dirname, fileName);
 }

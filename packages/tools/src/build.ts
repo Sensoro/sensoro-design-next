@@ -11,6 +11,7 @@ import { createConfig as createViteConfig } from './helpers/vite';
 import { loadConfig } from './helpers/config';
 import { createLogger } from './helpers/signale';
 import { getBuildTime } from './helpers/time';
+import { buildLess } from './helpers/design';
 import { copyAssets } from './helpers/copy';
 import { DEFAULT_IGNORES } from './constants';
 
@@ -84,6 +85,13 @@ export async function build() {
       cwd,
       input: config.input!,
       ignore: config.ignores,
+    });
+
+    await buildLess({
+      cwd,
+      input: config.input!,
+      esmDir: config.esm?.output,
+      cjsDir: config.cjs?.output,
     });
   }
 
