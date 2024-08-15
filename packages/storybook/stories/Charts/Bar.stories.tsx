@@ -39,18 +39,6 @@ export function Basic() {
         domain: [0, 800],
       },
     },
-    axis: {
-      x: {
-        size: 0,
-        label: false,
-        grid: false,
-      },
-    },
-    label: {
-      text: 'name',
-      position: 'left',
-      dy: -15,
-    },
   };
 
   // @ts-expect-error 暂时忽略
