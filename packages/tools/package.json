@@ -35,8 +35,10 @@
     "stub": "unbuild --stub"
   },
   "dependencies": {
+    "@rollup/plugin-alias": "^5.1.0",
     "@rollup/plugin-commonjs": "^26.0.1",
     "@rollup/plugin-node-resolve": "^15.2.3",
+    "@rollup/plugin-replace": "^5.0.7",
     "@rollup/plugin-terser": "^0.4.4",
     "@rollup/plugin-typescript": "^11.1.6",
     "fast-glob": "^3.3.2",
@@ -44,6 +46,7 @@
     "lodash-es": "^4.17.21",
     "read-pkg": "^9.0.1",
     "rollup": "^4.20.0",
+    "rollup-plugin-esbuild": "^6.1.1",
     "unconfig": "^0.5.5",
     "vite": "^5.4.0",
     "vite-plugin-externals": "^0.6.2"
