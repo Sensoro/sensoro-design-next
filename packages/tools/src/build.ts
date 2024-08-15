@@ -42,7 +42,7 @@ export async function build() {
   const cwd = config.cwd!;
   const startTime = Date.now();
 
-  logger.log(`编译开始`);
+  config.mode === 'design' && logger.log(`组件库编译模式`);
 
   // 清空目录
   if (config.clean) {
@@ -87,6 +87,7 @@ export async function build() {
       ignore: config.ignores,
     });
 
+    // 编译 样式
     await buildLess({
       cwd,
       input: config.input!,

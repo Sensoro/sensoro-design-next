@@ -33,6 +33,7 @@ export async function buildLess(opts: Options) {
     cwd: path.join(cwd, input),
   });
 
+  // build less to css
   await Promise.all(files.map(async (item) => {
     const css = await lessToCss(path.join(cwd, input, item));
 
@@ -50,4 +51,30 @@ export async function buildLess(opts: Options) {
       );
     }
   }));
+
+  let content = '';
+  const dirs = fs.readdirSync(path.join(cwd, 'src'));
+
+  dirs.forEach((dir) => {
+    const lessFilePath = path.join(dir, 'style', 'index.less');
+    const filePath = path.join(cwd, 'src', lessFilePath);
+
+    if (fs.existsSync(filePath)) {
+      content += `@import "../${lessFilePath}";\n`;
+    }
+  });
+
+  if (esmDir) {
+    await fs.writeFile(
+      path.join(cwd, esmDir, 'style', 'components.less'),
+      content,
+    );
+  }
+
+  if (cjsDir) {
+    await fs.writeFile(
+      path.join(cwd, cjsDir, 'style', 'components.less'),
+      content,
+    );
+  }
 }
