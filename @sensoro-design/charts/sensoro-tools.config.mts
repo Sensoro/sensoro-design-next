@@ -10,6 +10,4 @@ export default defineConfig({
       'react-dom': 'ReactDOM',
     },
   },
-  esm: {},
-  cjs: {},
 });

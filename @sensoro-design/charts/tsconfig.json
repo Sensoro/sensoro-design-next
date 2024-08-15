@@ -9,7 +9,6 @@
     "strict": true,
     "declaration": true,
     "emitDeclarationOnly": true,
-    "importHelpers": true,
     "esModuleInterop": true,
     "skipLibCheck": true
   },

@@ -22,6 +22,11 @@ export interface ToolsConfig {
      * @default es
      */
     output?: string;
+    /**
+     * 是否生成类型定义
+     * @default true
+     */
+    dts?: boolean;
   };
 
   /**
@@ -33,6 +38,11 @@ export interface ToolsConfig {
      * @default lib
      */
     output?: string;
+    /**
+     * 是否生成类型定义
+     * @default true
+     */
+    dts?: boolean;
   };
 
   /**

@@ -6,6 +6,4 @@ export default defineConfig({
     name: 'sensoro',
     fileName: 'sensoro',
   },
-  esm: {},
-  cjs: {},
 });
