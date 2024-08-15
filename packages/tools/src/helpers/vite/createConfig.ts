@@ -1,11 +1,10 @@
 import process from 'node:process';
-import { type BuildOptions, defineConfig } from 'vite';
+import { defineConfig } from 'vite';
 import { viteExternalsPlugin } from 'vite-plugin-externals';
 import { getEntryFile } from '../../utils';
 import type { ToolsConfig } from '../../types';
 
 interface Options extends ToolsConfig {
-  target?: BuildOptions['target'];
   minify?: boolean;
 }
 

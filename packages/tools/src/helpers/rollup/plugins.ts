@@ -5,11 +5,13 @@ import typescript from '@rollup/plugin-typescript';
 import type { Plugin } from 'rollup';
 import type { RollupCommonJSOptions } from '@rollup/plugin-commonjs';
 import type { RollupNodeResolveOptions } from '@rollup/plugin-node-resolve';
+import type { RollupTypescriptOptions } from '@rollup/plugin-typescript';
 
-interface Options {
+export interface Options {
   plugins?: Plugin[];
   nodeResolveOptions?: RollupNodeResolveOptions;
   commonjsOptions?: RollupCommonJSOptions;
+  typescriptOptions?: RollupTypescriptOptions;
 }
 
 export function getPlugins(opts: Options = {}): Plugin[] {
@@ -17,6 +19,7 @@ export function getPlugins(opts: Options = {}): Plugin[] {
     plugins = [],
     nodeResolveOptions = {},
     commonjsOptions = {},
+    typescriptOptions = {},
   } = opts;
 
   return [
@@ -27,6 +30,9 @@ export function getPlugins(opts: Options = {}): Plugin[] {
       ...nodeResolveOptions,
     }),
     commonjs(commonjsOptions),
-    typescript({ sourceMap: true }),
+    typescript({
+      sourceMap: true,
+      ...typescriptOptions,
+    }),
   ];
 }
