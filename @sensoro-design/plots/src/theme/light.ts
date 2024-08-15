@@ -36,6 +36,8 @@ export function Light() {
       titleFontWeight: 500,
       /** 标题字体颜色 */
       titleFill: colorGrey10,
+      /** 标题透明度 */
+      titleFillOpacity: 1,
       /** 副标题文字大小 */
       subtitleFontSize: 12,
       /** 副标题字体颜色 */
