@@ -1,0 +1,20 @@
+{
+  "name": "umi3-umd",
+  "private": true,
+  "scripts": {
+    "analyze": "ANALYZE=1 NODE_OPTIONS=--openssl-legacy-provider umi build",
+    "start": "NODE_OPTIONS=--openssl-legacy-provider umi dev",
+    "build": "NODE_OPTIONS=--openssl-legacy-provider umi build"
+  },
+  "dependencies": {
+    "@sensoro-design/charts": "workspace:*",
+    "@sensoro-design/react": "workspace:*",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "umi": "^3.5.42"
+  },
+  "devDependencies": {
+    "@umijs/preset-react": "1.x",
+    "typescript": "^4.1.2"
+  }
+}

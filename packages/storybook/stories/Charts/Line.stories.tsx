@@ -1,4 +1,5 @@
 import React from 'react';
+import { Renderer as SVGRenderer } from '@antv/g-svg';
 import { Line, type LineConfig } from '@sensoro-design/plots';
 
 const meta = {
@@ -29,9 +30,8 @@ export function Basic() {
     ],
   };
 
-  return (
-    <Line {...config} />
-  );
+  // @ts-expect-error 暂时忽略
+  return <Line {...config} renderer={new SVGRenderer()} />;
 }
 
 export function Middle() {
@@ -70,9 +70,8 @@ export function Middle() {
     ],
   };
 
-  return (
-    <Line {...config} />
-  );
+  // @ts-expect-error 暂时忽略
+  return <Line {...config} renderer={new SVGRenderer()} />;
 }
 
 export function Smooth() {
@@ -95,9 +94,8 @@ export function Smooth() {
     ],
   };
 
-  return (
-    <Line {...config} />
-  );
+  // @ts-expect-error 暂时忽略
+  return <Line {...config} renderer={new SVGRenderer()} />;
 }
 
 export function MiddleSmooth() {
@@ -130,9 +128,8 @@ export function MiddleSmooth() {
     ],
   };
 
-  return (
-    <Line {...config} />
-  );
+  // @ts-expect-error 暂时忽略
+  return <Line {...config} renderer={new SVGRenderer()} />;
 }
 
 export function Baseline() {
@@ -175,7 +172,6 @@ export function Baseline() {
     ],
   };
 
-  return (
-    <Line {...config} />
-  );
+  // @ts-expect-error 暂时忽略
+  return <Line {...config} renderer={new SVGRenderer()} />;
 }

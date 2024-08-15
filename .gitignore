@@ -42,4 +42,7 @@ storybook-static
 .next
 out
 
+# umi
+.umi
+
 .contentlayer

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Renderer as SVGRenderer } from '@antv/g-svg';
 import { Bar, type BarConfig } from '@sensoro-design/plots';
 
 const meta = {
@@ -29,7 +30,7 @@ export default meta;
 export function Basic() {
   const config: BarConfig = {
     title: '基础条形图',
-    height: data.length * 8 + (data.length - 1) * 24 + 92,
+    height: data.length * 8 + (data.length - 1) * 24 + 92 + 48,
     data,
     xField: 'name',
     yField: 'value',
@@ -38,9 +39,22 @@ export function Basic() {
         domain: [0, 800],
       },
     },
+    axis: {
+      x: {
+        size: 0,
+        label: false,
+        grid: false,
+      },
+    },
+    label: {
+      text: 'name',
+      position: 'left',
+      dy: -15,
+    },
   };
 
-  return <Bar {...config} />;
+  // @ts-expect-error 暂时忽略
+  return <Bar {...config} renderer={new SVGRenderer()} />;
 }
 
 export function AloneTitle() {

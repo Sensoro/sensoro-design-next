@@ -1,4 +1,5 @@
 import React from 'react';
+import { Renderer as SVGRenderer } from '@antv/g-svg';
 import { Pie, type PieConfig } from '@sensoro-design/plots';
 
 const meta = {
@@ -48,7 +49,8 @@ export function Ring() {
     statisticText: 'AntV',
   };
 
-  return <Pie {...config} />;
+  // @ts-expect-error 暂时忽略
+  return <Pie {...config} renderer={new SVGRenderer()} />;
 }
 
 export function ZeroRing() {
@@ -61,5 +63,6 @@ export function ZeroRing() {
     statisticText: 'AntV',
   };
 
-  return <Pie {...config} />;
+  // @ts-expect-error 暂时忽略
+  return <Pie {...config} renderer={new SVGRenderer()} />;
 }

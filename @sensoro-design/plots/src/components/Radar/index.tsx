@@ -1,7 +1,6 @@
 import React, { forwardRef } from 'react';
 import AntRadar from '@ant-design/plots/es/components/radar';
 import type { Chart } from '@ant-design/plots/es/interface';
-import { Renderer as SVGRenderer } from '@antv/g-svg';
 import type { RadarConfig as AntRadarConfig } from '@ant-design/plots';
 import { deepMix } from '@antv/util';
 import { DEFAULT_INSET_LEFT, DEFAULT_INSET_RIGHT } from '../../config';
@@ -37,7 +36,6 @@ export const Radar = forwardRef<Chart, RadarConfig>(
         axis={axisConfig}
         {...rest}
         ref={ref}
-        renderer={new SVGRenderer()}
       />
     );
   },

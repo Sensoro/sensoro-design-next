@@ -1,4 +1,5 @@
 import React from 'react';
+import { Renderer as SVGRenderer } from '@antv/g-svg';
 import { Radar, type RadarConfig } from '@sensoro-design/plots';
 
 const data = [
@@ -42,7 +43,6 @@ export function Basic() {
     },
   };
 
-  return (
-    <Radar {...config} />
-  );
+  // @ts-expect-error 暂时忽略
+  return <Radar {...config} renderer={new SVGRenderer()} />;
 }

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Renderer as SVGRenderer } from '@antv/g-svg';
 import { Bubble, type BubbleConfig } from '@sensoro-design/plots';
 
 const meta = {
@@ -30,7 +31,6 @@ export function Basic() {
     ],
   };
 
-  return (
-    <Bubble {...config} />
-  );
+  // @ts-expect-error 暂时忽略
+  return <Bubble {...config} renderer={new SVGRenderer()} />;
 }

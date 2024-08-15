@@ -1,4 +1,5 @@
 import React from 'react';
+import { Renderer as SVGRenderer } from '@antv/g-svg';
 import { Area, type AreaConfig } from '@sensoro-design/plots';
 
 const meta = {
@@ -131,7 +132,8 @@ export function Basic() {
   };
 
   return (
-    <Area {...config} />
+    // @ts-expect-error 暂时忽略
+    <Area {...config} renderer={new SVGRenderer()} />
   );
 }
 
@@ -146,6 +148,7 @@ export function Stack() {
   };
 
   return (
-    <Area {...config} />
+    // @ts-expect-error 暂时忽略
+    <Area {...config} renderer={new SVGRenderer()} />
   );
 }

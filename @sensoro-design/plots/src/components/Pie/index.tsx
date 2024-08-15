@@ -2,7 +2,6 @@ import React, { forwardRef } from 'react';
 import AntPie from '@ant-design/plots/es/components/pie';
 import type { Chart } from '@ant-design/plots/es/interface';
 import type { PieConfig as AntPieConfig } from '@ant-design/plots';
-import { Renderer as SVGRenderer } from '@antv/g-svg';
 import { deepMix } from '@antv/util';
 import { DEFAULT_INSET_LEFT, DEFAULT_INSET_RIGHT } from '../../config';
 import { DEFAULT_ZERO_STYLE_CONFIG } from './config';
@@ -42,7 +41,6 @@ export const Pie = forwardRef<Chart, PieConfig>(
         style={styleConfig}
         {...rest}
         ref={ref}
-        renderer={new SVGRenderer()}
       />
     );
   },

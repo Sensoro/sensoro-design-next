@@ -9,7 +9,7 @@ import react from '@vitejs/plugin-react';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
-const lotusDesignDir = join(__dirname, '../../packages/react/src');
+const lotusDesignDir = join(__dirname, '../../@sensoro-design/react/src');
 const pathResolve = (pathname: string) => resolve(__dirname, '.', pathname);
 
 // https://vitejs.dev/config/
@@ -47,6 +47,6 @@ export default defineConfig({
     }),
   ],
   server: {
-    port: 8000,
+    port: 3000,
   },
 });

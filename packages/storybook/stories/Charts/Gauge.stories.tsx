@@ -1,4 +1,5 @@
 import React from 'react';
+import { Renderer as SVGRenderer } from '@antv/g-svg';
 import { Gauge, type GaugeConfig } from '@sensoro-design/plots';
 
 const meta = {
@@ -20,9 +21,8 @@ export function Basic() {
     width: 720,
   };
 
-  return (
-    <Gauge {...config} />
-  );
+  // @ts-expect-error 暂时忽略
+  return <Gauge {...config} renderer={new SVGRenderer()} />;
 }
 
 export function ZeroGauge() {
@@ -39,5 +39,6 @@ export function ZeroGauge() {
     width: 720,
   };
 
-  return <Gauge {...config} />;
+  // @ts-expect-error 暂时忽略
+  return <Gauge {...config} renderer={new SVGRenderer()} />;
 }

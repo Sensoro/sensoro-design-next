@@ -1,4 +1,5 @@
 import React from 'react';
+import { Renderer as SVGRenderer } from '@antv/g-svg';
 import { Funnel, type FunnelConfig } from '@sensoro-design/plots';
 
 const data = [
@@ -24,7 +25,6 @@ export function Basic() {
     width: 500,
   };
 
-  return (
-    <Funnel {...config} />
-  );
+  // @ts-expect-error 暂时忽略
+  return <Funnel {...config} renderer={new SVGRenderer()} />;
 }

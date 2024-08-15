@@ -1,7 +1,6 @@
 import React, { forwardRef } from 'react';
 import AntFunnel from '@ant-design/plots/es/components/funnel';
 import type { Chart } from '@ant-design/plots/es/interface';
-import { Renderer as SVGRenderer } from '@antv/g-svg';
 import { deepMix } from '@antv/util';
 import type { FunnelConfig as AntFunnelConfig } from '@ant-design/plots';
 import { DEFAULT_INSET_LEFT, DEFAULT_INSET_RIGHT } from '../../config';
@@ -29,7 +28,6 @@ export const Funnel = forwardRef<Chart, FunnelConfig>(
         style={styleConfig}
         {...rest}
         ref={ref}
-        renderer={new SVGRenderer()}
       />
     );
   },
