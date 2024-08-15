@@ -9,6 +9,12 @@ export interface ToolsConfig {
   cwd?: string;
 
   /**
+   * 是否清空输出目录
+   * @default true
+   */
+  clean?: boolean;
+
+  /**
    * 编译模式
    * @default 'default'
    */

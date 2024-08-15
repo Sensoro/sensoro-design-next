@@ -4,7 +4,7 @@ import { execa } from 'execa';
 import chalk from 'chalk';
 import fsExtra from 'fs-extra';
 import { build as viteBuild } from 'vite';
-import { type OutputOptions, rollup } from 'rollup';
+import { rollup } from 'rollup';
 import type { ToolsConfig } from './types';
 import { createConfig as createRollupConfig } from './helpers/rollup';
 import { createConfig as createViteConfig } from './helpers/vite';
@@ -16,6 +16,7 @@ import { DEFAULT_IGNORES } from './constants';
 const logger = createLogger('build');
 const defaults: ToolsConfig = {
   cwd: process.cwd(),
+  clean: true,
   esm: {
     output: 'es',
     dts: true,
@@ -40,16 +41,22 @@ export async function build() {
 
   logger.log(`编译开始`);
 
-  logger.log(`清空输出目录`);
-  const outputDirs = [config.esm?.output, config.cjs?.output, config.umd?.outDir]
-    .filter(Boolean)
-    .map(item => path.join(cwd, item!));
-  await Promise.all(outputDirs.map(dir => fsExtra.rmSync(dir, { recursive: true, force: true })));
+  // 清空目录
+  if (config.clean) {
+    logger.log(`清空输出目录`);
+    const outputDirs = [config.esm?.output, config.cjs?.output, config.umd?.outDir]
+      .filter(Boolean)
+      .map(item => path.join(cwd, item!));
+    await Promise.all(outputDirs.map(dir => fsExtra.rmSync(dir, { recursive: true, force: true })));
+  }
 
-  logger.log(`编译 ESM&CJS`);
-  // 编译 JS&TS
+  // 编译 TS
   if (config.esm || config.cjs) {
-    const rollupConfig = await createRollupConfig({
+    const {
+      rollupOptions,
+      esmOutpout,
+      cjsOutpout,
+    } = await createRollupConfig({
       ...config,
       source: [
         'src/**/*.{ts,tsx}',
@@ -60,17 +67,17 @@ export async function build() {
         'src/**/style/*.ts',
       ],
     });
-    const build = await rollup(rollupConfig);
+    const build = await rollup(rollupOptions);
 
-    const outputs: OutputOptions[] = Array.isArray(rollupConfig.output)
-      ? rollupConfig.output
-      : [rollupConfig.output!];
+    logger.log(`编译 ESM`);
+    await build.write(esmOutpout);
+    // 拷贝其他不可编译文件
 
-    await Promise.all(outputs.map(output => build.write(output)));
+    logger.log(`编译 CJS`);
+    await build.write(cjsOutpout);
   }
 
   logger.log(`编译类型定义`);
-  // 输出类型定义
   if (config.esm?.dts) {
     await execa('pnpm', [
       'tsc',

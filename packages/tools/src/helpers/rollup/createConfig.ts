@@ -80,35 +80,26 @@ export async function createConfig(options: Options = {}) {
     },
   };
 
-  const output: OutputOptions[] = [];
+  const esmOutpout: OutputOptions = {
+    format: 'es',
+    entryFileNames: '[name].mjs',
+    dir: path.resolve(cwd, options.esm?.output || 'es'),
+    preserveModules: true,
+    sourcemap: true,
+  };
 
-  if (options.esm) {
-    const esmOutpout: OutputOptions = {
-      format: 'es',
-      entryFileNames: '[name].mjs',
-      dir: path.resolve(cwd, options.esm?.output || 'es'),
-      preserveModules: true,
-      sourcemap: true,
-    };
-
-    output.push(esmOutpout);
-  }
-
-  if (options.cjs) {
-    const cjsOutpout: OutputOptions = {
-      format: 'cjs',
-      entryFileNames: '[name].cjs',
-      dir: path.resolve(cwd, options?.cjs?.output || 'lib'),
-      preserveModules: true,
-      sourcemap: true,
-      interop: 'auto',
-    };
-
-    output.push(cjsOutpout);
-  }
+  const cjsOutpout: OutputOptions = {
+    format: 'cjs',
+    entryFileNames: '[name].cjs',
+    dir: path.resolve(cwd, options?.cjs?.output || 'lib'),
+    preserveModules: true,
+    sourcemap: true,
+    interop: 'auto',
+  };
 
   return {
-    ...rollupOptions,
-    output,
+    rollupOptions,
+    esmOutpout,
+    cjsOutpout,
   };
 }
