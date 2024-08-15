@@ -31,7 +31,8 @@
     "@antv/g": "^6.0.0",
     "@antv/g2": "^5.2.3",
     "@antv/util": "^3.3.8",
-    "@rcuse/shared": "^0.25.0"
+    "@rcuse/shared": "^0.25.0",
+    "tslib": "^2.6.3"
   },
   "publishConfig": {
     "access": "public",
