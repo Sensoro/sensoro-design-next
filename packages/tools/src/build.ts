@@ -17,6 +17,7 @@ const logger = createLogger('build');
 const defaults: ToolsConfig = {
   cwd: process.cwd(),
   clean: true,
+  input: 'src',
   esm: {
     output: 'es',
     dts: true,
@@ -59,12 +60,12 @@ export async function build() {
     } = await createRollupConfig({
       ...config,
       source: [
-        'src/**/*.{ts,tsx}',
-        'src/**/*.{js,jsx}',
+        '**/*.{ts,tsx}',
+        '**/*.{js,jsx}',
       ],
       ignores: [
         ...(config.ignores || []),
-        'src/**/style/*.ts',
+        '**/style/*.ts',
       ],
     });
     const build = await rollup(rollupOptions);

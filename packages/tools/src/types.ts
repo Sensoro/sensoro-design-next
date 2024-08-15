@@ -9,6 +9,12 @@ export interface ToolsConfig {
   cwd?: string;
 
   /**
+   * source code directory
+   * @default src
+   */
+  input?: string;
+
+  /**
    * 是否清空输出目录
    * @default true
    */

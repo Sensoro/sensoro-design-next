@@ -12,6 +12,7 @@ interface Options extends ToolsConfig, Omit<GetPluginOptions, 'plugins'> {
 
 export async function createConfig(options: Options = {}) {
   const {
+    input = 'src',
     source = [],
     ignores = [],
     nodeResolveOptions,
@@ -19,6 +20,7 @@ export async function createConfig(options: Options = {}) {
     commonjsOptions,
   } = options;
   const cwd = options.cwd ?? process.cwd();
+  const sourceDir = path.join(cwd, input);
 
   const packageJson = await readPackage({
     cwd,
@@ -54,13 +56,13 @@ export async function createConfig(options: Options = {}) {
   const external = new RegExp(`^(${deps.join('|')})`);
 
   const entries = await glob(source, {
-    cwd,
+    cwd: sourceDir,
     ignore: ignores,
   });
 
   const rollupOptions: RollupOptions = {
     input: entries.map((filePath) => {
-      return path.resolve(cwd, filePath);
+      return path.resolve(sourceDir, filePath);
     }),
     plugins,
     external,
