@@ -11,6 +11,7 @@ import { createConfig as createViteConfig } from './helpers/vite';
 import { loadConfig } from './helpers/config';
 import { createLogger } from './helpers/signale';
 import { getBuildTime } from './helpers/time';
+import { copyAssets } from './helpers/copy';
 import { DEFAULT_IGNORES } from './constants';
 
 const logger = createLogger('build');
@@ -61,7 +62,6 @@ export async function build() {
       ...config,
       source: [
         '**/*.{ts,tsx}',
-        '**/*.{js,jsx}',
       ],
       ignores: [
         ...(config.ignores || []),
@@ -72,10 +72,19 @@ export async function build() {
 
     logger.log(`编译 ESM`);
     await build.write(esmOutpout);
-    // 拷贝其他不可编译文件
+    await copyAssets(config.esm?.output, {
+      cwd,
+      input: config.input!,
+      ignore: config.ignores,
+    });
 
     logger.log(`编译 CJS`);
     await build.write(cjsOutpout);
+    await copyAssets(config.cjs?.output, {
+      cwd,
+      input: config.input!,
+      ignore: config.ignores,
+    });
   }
 
   logger.log(`编译类型定义`);

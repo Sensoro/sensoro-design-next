@@ -27,3 +27,11 @@ export function getEntryFile(
     '',
   ) || 'index.tsx';
 }
+
+/**
+ * 判断文件是否为 TS 文件
+ * @param filePath
+ */
+export function isTsFile(filePath: string): boolean {
+  return /\.(?:ts|tsx)$/i.test(filePath);
+}
