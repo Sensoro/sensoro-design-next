@@ -37,18 +37,18 @@
   },
   "publishConfig": {
     "access": "public",
-    "main": "./lib/index.js",
-    "module": "./es/index.js",
+    "main": "./lib/index.cjs",
+    "module": "./es/index.mjs",
     "types": "./es/index.d.ts",
     "exports": {
       ".": {
         "import": {
           "types": "./es/index.d.ts",
-          "default": "./es/index.js"
+          "default": "./es/index.mjs"
         },
         "require": {
           "types": "./lib/index.d.ts",
-          "default": "./lib/index.js"
+          "default": "./lib/index.cjs"
         }
       },
       "./es/*": "./es/*",
