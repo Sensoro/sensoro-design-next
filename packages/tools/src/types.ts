@@ -7,11 +7,14 @@ export interface ToolsConfig {
    * @default process.cwd()
    */
   cwd?: string;
+
   /**
    * 编译模式
    * @default 'default'
    */
   mode?: BuildMode;
+
+  ignores?: string[];
 
   /**
    * transformer config (esm)

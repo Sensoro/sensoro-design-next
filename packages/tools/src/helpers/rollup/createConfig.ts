@@ -12,9 +12,8 @@ interface Options extends ToolsConfig, Omit<GetPluginOptions, 'plugins'> {
 
 export async function createConfig(options: Options = {}) {
   const {
-    source = [
-      'src/**/*.{ts,tsx}',
-    ],
+    source = [],
+    ignores = [],
     nodeResolveOptions,
     esbuildOptions,
     commonjsOptions,
@@ -56,11 +55,7 @@ export async function createConfig(options: Options = {}) {
 
   const entries = await glob(source, {
     cwd,
-    ignore: [
-      'src/**/style/*.ts',
-      'src/**/*.test.ts',
-      'src/**/*.test.tsx',
-    ],
+    ignore: ignores,
   });
 
   const rollupOptions: RollupOptions = {
