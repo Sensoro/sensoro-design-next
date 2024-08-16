@@ -11,7 +11,7 @@ import { createConfig as createViteConfig } from './helpers/vite';
 import { loadConfig } from './helpers/config';
 import { createLogger } from './helpers/signale';
 import { getBuildTime } from './helpers/time';
-import { buildLess, lessToCss } from './helpers/design';
+import { buildLess, buildLessTs, lessToCss } from './helpers/design';
 import { copyAssets } from './helpers/copy';
 import { DEFAULT_IGNORES } from './constants';
 import { rename } from './utils';
@@ -113,6 +113,22 @@ export async function build() {
         rename(designFilePath, { extname: '.css' }),
         designCss,
       );
+
+      const designMinCss = await lessToCss(designFilePath, {
+        minify: true,
+      });
+      await fsExtra.writeFile(
+        rename(designFilePath, { extname: '.min.css' }),
+        designMinCss,
+      );
+
+      // 编译样式入口文件
+      buildLessTs({
+        cwd,
+        input: config.input!,
+        esmDir: config.esm?.output,
+        cjsDir: config.cjs?.output,
+      });
     }
   }
 
