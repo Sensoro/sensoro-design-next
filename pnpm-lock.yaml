@@ -7,6 +7,7 @@ settings:
 overrides:
   '@ant-design/plots': ^2.2.8
   '@antv/g2': ^5.2.3
+  '@antv/util': ^3.3.8
 
 importers:
 
@@ -18,6 +19,9 @@ importers:
       '@antv/g2':
         specifier: ^5.2.3
         version: 5.2.3
+      '@antv/util':
+        specifier: ^3.3.8
+        version: 3.3.8
     devDependencies:
       '@antfu/eslint-config':
         specifier: 2.21.2
@@ -864,9 +868,6 @@ packages:
 
   '@antv/scale@0.4.16':
     resolution: {integrity: sha512-5wg/zB5kXHxpTV5OYwJD3ja6R8yTiqIOkjOhmpEJiowkzRlbEC/BOyMvNUq5fqFIHnMCE9woO7+c3zxEQCKPjw==}
-
-  '@antv/util@2.0.17':
-    resolution: {integrity: sha512-o6I9hi5CIUvLGDhth0RxNSFDRwXeywmt6ExR4+RmVAzIi48ps6HUy+svxOCayvrPBN37uE6TAc2KDofRo0nK9Q==}
 
   '@antv/util@3.3.8':
     resolution: {integrity: sha512-RO2vmp84adfZn5HVXuNtHr35PRWthw4oCUv0hn9DmEWwOJSeU6NtDCEg9KvU8sH2bJaS3fe/cppNSVy2L8tOaw==}
@@ -14715,7 +14716,7 @@ snapshots:
   '@antv/coord@0.4.7':
     dependencies:
       '@antv/scale': 0.4.16
-      '@antv/util': 2.0.17
+      '@antv/util': 3.3.8
       gl-matrix: 3.4.3
 
   '@antv/event-emitter@0.1.3': {}
@@ -14859,11 +14860,6 @@ snapshots:
       '@antv/util': 3.3.8
       color-string: 1.9.1
       fecha: 4.2.3
-
-  '@antv/util@2.0.17':
-    dependencies:
-      csstype: 3.1.3
-      tslib: 2.6.3
 
   '@antv/util@3.3.8':
     dependencies:

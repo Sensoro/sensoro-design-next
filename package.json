@@ -11,11 +11,12 @@
     "bootstrap": "pnpm install",
     "website": "pnpm --filter website dev",
     "dev": "pnpm storybook",
-    "build": "walrus build",
+    "build": "pnpm -r --if-present run build",
     "build:all": "walrus build all",
     "build:docs": "pnpm build:storybook",
     "build:react": "pnpm --filter=@sensoro-design/react run build",
-    "example:vite": "pnpm --filter=@example/vite run start",
+    "build:charts": "pnpm --filter=@sensoro-design/charts run build",
+    "build:plots": "pnpm --filter=@sensoro-design/plots run build",
     "release": "walrus release",
     "release:alpha:patch": "walrus release patch --stage alpha --tag next",
     "release:alpha:minor": "walrus release minor --stage alpha --tag next",
@@ -34,7 +35,7 @@
     "prepare": "husky || true",
     "clean:node-modules": "rm -rf node_modules && rm -rf packages/*/node_modules",
     "clean:lock": "rm -rf pnpm-lock.yaml && rm -rf package.lock.json",
-    "clean:dist": "rm -rf packages/*/es && rm -rf packages/*/lib",
+    "clean:dist": "rm -rf packages/*/es && rm -rf packages/*/lib && rm -rf packages/*/dist",
     "clean:all": "pnpm clean:lock && pnpm clean:node-modules && pnpm clean:dist",
     "reinstall": "pnpm clean:all && npm run bootstrap",
     "preinstall": "npx only-allow pnpm",
@@ -42,7 +43,8 @@
   },
   "dependencies": {
     "@ant-design/plots": "^2.2.8",
-    "@antv/g2": "^5.2.3"
+    "@antv/g2": "^5.2.3",
+    "@antv/util": "^3.3.8"
   },
   "devDependencies": {
     "@antfu/eslint-config": "2.21.2",
@@ -112,7 +114,8 @@
   },
   "resolutions": {
     "@ant-design/plots": "$@ant-design/plots",
-    "@antv/g2": "$@antv/g2"
+    "@antv/g2": "$@antv/g2",
+    "@antv/util": "$@antv/util"
   },
   "lint-staged": {
     "*.{ts,tsx}": [
