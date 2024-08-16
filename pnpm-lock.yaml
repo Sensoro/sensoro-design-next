@@ -556,6 +556,9 @@ importers:
       signale:
         specifier: ^1.4.0
         version: 1.4.0
+      typescript:
+        specifier: ^5.5.4
+        version: 5.5.4
       unconfig:
         specifier: ^0.5.5
         version: 0.5.5
