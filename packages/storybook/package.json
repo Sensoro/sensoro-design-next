@@ -26,7 +26,7 @@
     "@storybook/test": "^8.1.11",
     "@storybook/theming": "^8.1.11",
     "autoprefixer": "^10.4.20",
-    "postcss": "^8.4.38",
+    "postcss": "^8.4.41",
     "postcss-preset-mantine": "^1.15.0",
     "postcss-simple-vars": "^7.0.1",
     "storybook": "^8.1.11",
