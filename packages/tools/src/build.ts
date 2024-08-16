@@ -11,9 +11,10 @@ import { createConfig as createViteConfig } from './helpers/vite';
 import { loadConfig } from './helpers/config';
 import { createLogger } from './helpers/signale';
 import { getBuildTime } from './helpers/time';
-import { buildLess } from './helpers/design';
+import { buildLess, lessToCss } from './helpers/design';
 import { copyAssets } from './helpers/copy';
 import { DEFAULT_IGNORES } from './constants';
+import { rename } from './utils';
 
 const logger = createLogger('build');
 const defaults: ToolsConfig = {
@@ -87,13 +88,32 @@ export async function build() {
       ignore: config.ignores,
     });
 
-    // 编译 样式
-    await buildLess({
-      cwd,
-      input: config.input!,
-      esmDir: config.esm?.output,
-      cjsDir: config.cjs?.output,
-    });
+    if (config.mode === 'design') {
+      // 编译 样式
+      await buildLess({
+        cwd,
+        input: config.input!,
+        esmDir: config.esm?.output,
+        cjsDir: config.cjs?.output,
+      });
+
+      // 汇总所有样式
+      const designFilePath = path.join(
+        cwd,
+        config.umd?.outDir as string,
+        `${config.design?.designStyleFileName}.less`,
+      );
+      await fsExtra.ensureDir(path.join(cwd, 'dist'));
+      await fsExtra.writeFile(
+        designFilePath,
+        `@import "../${config.esm?.output}/style/index.less";\n@import "../${config.esm?.output}/style/components.less";`,
+      );
+      const designCss = await lessToCss(designFilePath);
+      await fsExtra.writeFile(
+        rename(designFilePath, { extname: '.css' }),
+        designCss,
+      );
+    }
   }
 
   logger.log(`编译类型定义`);

@@ -2,14 +2,28 @@ import path from 'node:path';
 import { $ } from 'zx';
 import fs from 'fs-extra';
 import postcss from 'postcss';
+import cssnano from 'cssnano';
 import glob from 'fast-glob';
 import autoprefixer from 'autoprefixer';
 import { rename } from '../../utils';
 
-export async function lessToCss(filePath: string) {
+interface LessToCssOptions {
+  minify?: boolean;
+}
+
+export async function lessToCss(filePath: string, options: LessToCssOptions = {}) {
+  const { minify } = options;
   const toCss = await $`lessc ${filePath}`;
 
-  const { css } = await postcss([autoprefixer])
+  const plugins: postcss.AcceptedPlugin[] = [
+    autoprefixer,
+  ];
+
+  if (minify) {
+    plugins.push(cssnano);
+  }
+
+  const { css } = await postcss(plugins)
     .process(toCss, {
       from: filePath,
     });
@@ -17,14 +31,14 @@ export async function lessToCss(filePath: string) {
   return css;
 }
 
-interface Options {
+interface BuildLessOptions {
   cwd: string;
   input: string;
   esmDir?: string;
   cjsDir?: string;
 }
 
-export async function buildLess(opts: Options) {
+export async function buildLess(opts: BuildLessOptions) {
   const { cwd, input, esmDir, cjsDir } = opts;
   if (!esmDir && !cjsDir)
     return;

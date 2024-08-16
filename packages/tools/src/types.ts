@@ -82,4 +82,12 @@ export interface ToolsConfig {
      */
     fileName?: string;
   };
+
+  /** design 模式相关配置 */
+  design?: {
+    /**
+     * 全部样式的文件名
+     */
+    designStyleFileName?: string;
+  };
 }

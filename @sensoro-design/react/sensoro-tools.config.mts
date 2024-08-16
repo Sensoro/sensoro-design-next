@@ -6,4 +6,7 @@ export default defineConfig({
     name: 'sensoro',
     fileName: 'sensoro',
   },
+  design: {
+    designStyleFileName: 'sensoro',
+  },
 });

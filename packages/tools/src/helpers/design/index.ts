@@ -1,1 +1,1 @@
-export { buildLess } from './less';
+export * from './style';
