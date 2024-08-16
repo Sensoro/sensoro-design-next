@@ -8,7 +8,6 @@ import { createLogger } from './helpers/utils/signale';
 import { publishPackage } from './helpers/publish/publishPackage';
 import { getDesignPackagesList } from './helpers/packages/getPackagesList';
 import { setDesignPackagesVersion } from './helpers/release/setPackagesVersion'
-import { buildAllPackages } from './helpers/build/buildAllPackages'
 import { getPath } from './helpers/utils/getPath';
 import packageJson from '../package.json';
 
@@ -45,7 +44,7 @@ async function release() {
   logger.log(`New version: ${chalk.cyan(incrementedVersion)}`);
   await setDesignPackagesVersion(incrementedVersion);
 
-  await buildAllPackages();
+  // await buildAllPackages();
   logger.success('All packages have been built successfully');
 
   logger.log('Publishing packages to npm');
