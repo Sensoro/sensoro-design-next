@@ -12,7 +12,6 @@
     "website": "pnpm --filter website dev",
     "dev": "pnpm storybook",
     "build": "pnpm -r --if-present run build",
-    "build:all": "walrus build all",
     "build:docs": "pnpm build:storybook",
     "build:react": "pnpm --filter=@sensoro-design/react run build",
     "build:charts": "pnpm --filter=@sensoro-design/charts run build",

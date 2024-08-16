@@ -40,7 +40,7 @@ export default defineConfig({
       libs: [
         {
           libraryName: '@sensoro-design/react',
-          resolveStyle: (name) => {
+          resolveStyle: (name: string) => {
             return join(designDir, name, 'style');
           },
         },
