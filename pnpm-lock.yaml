@@ -5,6 +5,7 @@ settings:
   excludeLinksFromLockfile: false
 
 overrides:
+  '@ant-design/plots': ^2.2.8
   '@antv/g2': ^5.2.3
 
 importers:
@@ -14,42 +15,9 @@ importers:
       '@ant-design/plots':
         specifier: ^2.2.8
         version: 2.2.8(lodash-es@4.17.21)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      '@antv/g':
-        specifier: ^6.0.0
-        version: 6.0.12
-      '@antv/g-svg':
-        specifier: ^2.0.10
-        version: 2.0.10
       '@antv/g2':
         specifier: ^5.2.3
         version: 5.2.3
-      '@antv/util':
-        specifier: ^3.3.8
-        version: 3.3.8
-      '@floating-ui/react':
-        specifier: ^0.26.22
-        version: 0.26.22(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      '@lotus-design/react-primitives':
-        specifier: ^1.0.0-alpha.3
-        version: 1.0.0-alpha.3(@types/react-dom@18.3.0)(@types/react@18.3.3)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      '@rcuse/core':
-        specifier: ^0.25.0
-        version: 0.25.0
-      clsx:
-        specifier: ^2.1.1
-        version: 2.1.1
-      dayjs:
-        specifier: ^1.11.10
-        version: 1.11.12
-      lodash-es:
-        specifier: ^4.17.21
-        version: 4.17.21
-      react-number-format:
-        specifier: ^5.4.0
-        version: 5.4.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      react-remove-scroll:
-        specifier: ^2.5.10
-        version: 2.5.10(@types/react@18.3.3)(react@18.3.1)
     devDependencies:
       '@antfu/eslint-config':
         specifier: 2.21.2
@@ -896,15 +864,6 @@ packages:
 
   '@antv/g-plugin-image-loader@2.0.8':
     resolution: {integrity: sha512-OFbtNLHT8N1jANvuNQSapHt8d/QymmhzWWass7bczHC/lRn8OId57c+FRJxg7ht7zwergf3I/vuTdeGvN4YlWQ==}
-
-  '@antv/g-plugin-svg-picker@2.0.10':
-    resolution: {integrity: sha512-g4NuxzFQlvSV7/SwY0u05POYQF8k17LewEkni2qY1hxS+XHfM+doYDrngh9nzgsMnQH6v2lUUGwuYT5IDVOLFg==}
-
-  '@antv/g-plugin-svg-renderer@2.0.10':
-    resolution: {integrity: sha512-pInmwVzC7S8zhywFjEUSO0kcbKM1kMIpvLKN36iqqC9PLU3BUcY7K3GdwH1LmvvhMUD/taYngeXOvux4z2h3cA==}
-
-  '@antv/g-svg@2.0.10':
-    resolution: {integrity: sha512-E/cJuIrZ1X0wAfSYfdm8hDESq3UPlKy0si3FcQT2Q9YLhq1CbScYlptqHVgiXzA8Txlq74nPF+PAu/WFCpcOcw==}
 
   '@antv/g-web-animations-api@2.0.9':
     resolution: {integrity: sha512-ekAB/OVaIBegNjtjydR9cmCZF67SK0w38aOj6n39G8EeOnCD2vOdV3grAIPWkjYU0oixoQ6IYQUXc+3nMZ0Txg==}
@@ -14876,28 +14835,6 @@ snapshots:
       '@antv/g-lite': 2.0.8
       '@antv/util': 3.3.8
       gl-matrix: 3.4.3
-      tslib: 2.6.3
-
-  '@antv/g-plugin-svg-picker@2.0.10':
-    dependencies:
-      '@antv/g-lite': 2.0.8
-      '@antv/g-plugin-svg-renderer': 2.0.10
-      tslib: 2.6.3
-
-  '@antv/g-plugin-svg-renderer@2.0.10':
-    dependencies:
-      '@antv/g-lite': 2.0.8
-      '@antv/util': 3.3.8
-      gl-matrix: 3.4.3
-      tslib: 2.6.3
-
-  '@antv/g-svg@2.0.10':
-    dependencies:
-      '@antv/g-lite': 2.0.8
-      '@antv/g-plugin-dom-interaction': 2.0.8
-      '@antv/g-plugin-svg-picker': 2.0.10
-      '@antv/g-plugin-svg-renderer': 2.0.10
-      '@antv/util': 3.3.8
       tslib: 2.6.3
 
   '@antv/g-web-animations-api@2.0.9':

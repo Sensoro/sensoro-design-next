@@ -42,18 +42,7 @@
   },
   "dependencies": {
     "@ant-design/plots": "^2.2.8",
-    "@antv/g": "^6.0.0",
-    "@antv/g-svg": "^2.0.10",
-    "@antv/g2": "^5.2.3",
-    "@antv/util": "^3.3.8",
-    "@floating-ui/react": "^0.26.22",
-    "@lotus-design/react-primitives": "^1.0.0-alpha.3",
-    "@rcuse/core": "^0.25.0",
-    "clsx": "^2.1.1",
-    "dayjs": "^1.11.10",
-    "lodash-es": "^4.17.21",
-    "react-number-format": "^5.4.0",
-    "react-remove-scroll": "^2.5.10"
+    "@antv/g2": "^5.2.3"
   },
   "devDependencies": {
     "@antfu/eslint-config": "2.21.2",
@@ -127,6 +116,7 @@
     "zx": "^8.1.4"
   },
   "resolutions": {
+    "@ant-design/plots": "$@ant-design/plots",
     "@antv/g2": "$@antv/g2"
   },
   "lint-staged": {
