@@ -82,5 +82,6 @@ export function AloneTitle() {
     },
   };
 
-  return <Bar {...config} />;
+  // @ts-expect-error 暂时忽略
+  return <Bar {...config} renderer={new SVGRenderer()} />;
 }
