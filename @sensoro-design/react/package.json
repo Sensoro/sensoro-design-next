@@ -33,6 +33,10 @@
     "es",
     "lib"
   ],
+  "scripts": {
+    "clean": "rimraf lib es dist",
+    "build": "sensoro-tools"
+  },
   "peerDependencies": {
     "@types/react": "*",
     "@types/react-dom": "*",

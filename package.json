@@ -1,5 +1,5 @@
 {
-  "name": "@sensoro-design/monorepo",
+  "name": "root",
   "version": "2.0.0",
   "private": true,
   "packageManager": "pnpm@9.4.0",
@@ -8,7 +8,6 @@
     "node": "^18.0.0 || >=20.0.0"
   },
   "scripts": {
-    "bootstrap": "pnpm install",
     "website": "pnpm --filter website dev",
     "dev": "pnpm storybook",
     "build": "pnpm -r --if-present run build",
@@ -32,11 +31,7 @@
     "lint": "eslint --cache .",
     "lint:fix": "nr lint --fix",
     "prepare": "husky || true",
-    "clean:node-modules": "rm -rf node_modules && rm -rf packages/*/node_modules",
-    "clean:lock": "rm -rf pnpm-lock.yaml && rm -rf package.lock.json",
-    "clean:dist": "rm -rf packages/*/es && rm -rf packages/*/lib && rm -rf packages/*/dist",
-    "clean:all": "pnpm clean:lock && pnpm clean:node-modules && pnpm clean:dist",
-    "reinstall": "pnpm clean:all && npm run bootstrap",
+    "clean": "pnpm --filter \"./@sensoro-design/**\" run clean",
     "preinstall": "npx only-allow pnpm",
     "major": "taze minor -wIr"
   },
