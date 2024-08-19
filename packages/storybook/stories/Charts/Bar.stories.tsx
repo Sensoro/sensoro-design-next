@@ -11,7 +11,7 @@ export default meta;
 const data = [
   {
     name: '蓝领',
-    value: 10,
+    value: 8,
   },
   {
     name: '白领',
@@ -34,11 +34,16 @@ export function Basic() {
     data,
     xField: 'name',
     yField: 'value',
+    // 需要传入宽度
+    width: 480,
     scale: {
       y: {
-        domain: [0, 800],
+        domain: [0, 1200],
       },
     },
+    // TODO 以下内容需要再 charts 中实现
+    paddingRight: 21,
+    markBackground: { label: { dx: 317 } },
   };
 
   // @ts-expect-error 暂时忽略
@@ -52,11 +57,16 @@ export function AloneTitle() {
     data,
     xField: 'name',
     yField: 'value',
+    // 需要传入宽度
+    width: 480,
     scale: {
       y: {
-        domain: [0, 800],
+        domain: [0, 1200],
       },
     },
+    // TODO 以下内容需要再 charts 中实现
+    paddingRight: 21,
+    markBackground: { label: { dx: 427 } },
     axis: {
       x: {
         size: 0,

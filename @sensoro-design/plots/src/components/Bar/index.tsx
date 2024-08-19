@@ -20,7 +20,7 @@ export const Bar = forwardRef<Chart, BarConfig>((props, ref) => {
     scale,
     interaction,
     markBackground,
-    paddingRight = 44,
+    paddingRight = 0, // TODO 需要再charts中抹平 paddingRight 和数据值的位数关系:最大值的长度 * 3
     ...rest
   } = props;
 
