@@ -42,7 +42,7 @@ export function Middle() {
     colorField: 'category',
     legend: {
       color: {
-        itemMarker: 'hyphen',
+        itemMarker: 'hyphenPoint',
         layout: {
           justifyContent: 'flex-end',
         },
