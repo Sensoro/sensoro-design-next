@@ -2,7 +2,7 @@ import { Bar as BaseBar } from '@sensoro-design/plots';
 import type { BarConfig as BaseBarConfig } from '@sensoro-design/plots';
 import { deepMix } from '@antv/util';
 
-interface BarConfig extends BaseBarConfig {
+export interface BarConfig extends BaseBarConfig {
   // 自定义属性
   aloneLabel?: boolean; // label是否单独一行
 }

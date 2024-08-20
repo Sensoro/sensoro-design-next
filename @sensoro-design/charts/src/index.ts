@@ -6,3 +6,6 @@ export type { LineConfig } from './line';
 
 export { default as Area } from './area';
 export type { AreaConfig } from './area';
+
+export { default as Bar } from './bar';
+export type { BarConfig } from './bar';
