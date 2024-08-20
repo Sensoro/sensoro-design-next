@@ -6,6 +6,8 @@ import { PATHS } from '../../scripts/.internal/constants';
 const designDir = join(PATHS.DESIGN, 'react/src');
 const chartsDir = join(PATHS.DESIGN, 'charts/src');
 const plotsDir = join(PATHS.DESIGN, 'plots/src');
+const vchartDir = join(PATHS.DESIGN, 'vchart/src');
+const vchartThemeDir = join(PATHS.DESIGN, 'vchart-theme/src');
 
 export default defineConfig({
   resolve: {
@@ -25,6 +27,14 @@ export default defineConfig({
       {
         find: '@sensoro-design/plots',
         replacement: plotsDir,
+      },
+      {
+        find: '@sensoro-design/vchart',
+        replacement: vchartDir,
+      },
+      {
+        find: '@sensoro-design/vchart-theme',
+        replacement: vchartThemeDir,
       },
     ],
   },
