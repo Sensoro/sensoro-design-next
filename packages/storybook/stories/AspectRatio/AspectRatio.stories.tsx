@@ -1,4 +1,3 @@
-import '@lotus-design/react-primitives/es/context';
 import React from 'react';
 import { Space } from '@arco-design/web-react';
 import { Map } from '@pansy/react-amap';
