@@ -11,7 +11,7 @@ export default meta;
 const data = [
   {
     name: '蓝领',
-    value: 10,
+    value: 8,
   },
   {
     name: '白领',
@@ -34,11 +34,16 @@ export function Basic() {
     data,
     xField: 'name',
     yField: 'value',
+    // 需要传入宽度
+    width: 480, // 480 - 48 - 110 - 16,
     scale: {
       y: {
-        domain: [0, 800],
+        domain: [0, 1200],
       },
     },
+    // TODO 以下内容需要再 charts 中实现
+    paddingRight: 21,
+    markBackground: { label: { dx: 316 } },
   };
 
   // @ts-expect-error 暂时忽略
@@ -48,15 +53,20 @@ export function Basic() {
 export function AloneTitle() {
   const config: BarConfig = {
     title: '独立标题行条形图',
-    height: data.length * 8 + (data.length - 1) * 24 + 92 + 48,
+    height: data.length * 8 + (data.length - 1) * 36 + 92 + 48,
     data,
     xField: 'name',
     yField: 'value',
+    // 需要传入宽度
+    width: 480,
     scale: {
       y: {
-        domain: [0, 800],
+        domain: [0, 1200],
       },
     },
+    // TODO 以下内容需要再 charts 中实现
+    paddingRight: 21,
+    markBackground: { label: { dx: 427 } },
     axis: {
       x: {
         size: 0,
@@ -72,5 +82,6 @@ export function AloneTitle() {
     },
   };
 
-  return <Bar {...config} />;
+  // @ts-expect-error 暂时忽略
+  return <Bar {...config} renderer={new SVGRenderer()} />;
 }

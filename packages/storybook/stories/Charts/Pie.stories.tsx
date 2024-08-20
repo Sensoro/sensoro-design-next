@@ -35,7 +35,8 @@ export function Basic() {
     innerRadius: 0,
   };
 
-  return <Pie {...config} />;
+  // @ts-expect-error 暂时忽略
+  return <Pie {...config} renderer={new SVGRenderer()} />;
 }
 
 export function Ring() {
