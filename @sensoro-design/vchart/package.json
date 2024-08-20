@@ -1,0 +1,50 @@
+{
+  "name": "@sensoro-design/vchart",
+  "version": "2.0.0",
+  "description": "",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sensoro/sensoro-design-next.git",
+    "directory": "@sensoro-design/vchart"
+  },
+  "sideEffects": false,
+  "main": "src/index.ts",
+  "files": [
+    "dist",
+    "es",
+    "lib"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "peerDependencies": {
+    "react": ">=16.9.0",
+    "react-dom": ">=16.9.0"
+  },
+  "dependencies": {
+    "@sensoro-design/vchart-theme": "workspace:*",
+    "@visactor/react-vchart": "^1.12.0"
+  },
+  "publishConfig": {
+    "access": "public",
+    "main": "./lib/index.js",
+    "module": "./es/index.js",
+    "types": "./es/index.d.ts",
+    "exports": {
+      ".": {
+        "import": {
+          "types": "./es/index.d.ts",
+          "default": "./es/index.js"
+        },
+        "require": {
+          "types": "./lib/index.d.ts",
+          "default": "./lib/index.js"
+        }
+      },
+      "./es/*": "./es/*",
+      "./lib/*": "./lib/*",
+      "./package.json": "./package.json"
+    }
+  }
+}
