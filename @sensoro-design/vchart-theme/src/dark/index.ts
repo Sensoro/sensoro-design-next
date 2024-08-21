@@ -3,7 +3,7 @@ import { token } from '../token';
 import { colorScheme } from './colorScheme';
 
 export const dark: ITheme = {
-  name: 'senDark',
+  name: 'sensoroDesignDark',
   description: 'Sensoro Design - dark',
   type: 'dark',
   token,

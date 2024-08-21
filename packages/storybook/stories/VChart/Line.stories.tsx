@@ -10,8 +10,8 @@ export default meta;
 export function Middle() {
   const config: LineProps = {
     title: {
-      visible: true,
       text: '多条折线图',
+      subtext: '这是描述',
     },
     xField: 'year',
     yField: 'value',
