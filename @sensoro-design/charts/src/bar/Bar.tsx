@@ -1,6 +1,7 @@
 import { Bar as BaseBar } from '@sensoro-design/plots';
 import type { BarConfig as BaseBarConfig } from '@sensoro-design/plots';
 import { deepMix } from '@antv/util';
+import React from 'react';
 
 export interface BarConfig extends BaseBarConfig {
   // 自定义属性

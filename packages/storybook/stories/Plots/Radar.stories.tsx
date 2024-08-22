@@ -1,9 +1,9 @@
 import React from 'react';
 import { Renderer as SVGRenderer } from '@antv/g-svg';
-import { Radar, type RadarConfig } from '@sensoro-design/charts';
+import { Radar, type RadarConfig } from '@sensoro-design/plots';
 
 const meta = {
-  title: 'Charts/Radar',
+  title: 'Plots/Radar',
 };
 
 export default meta;
@@ -40,14 +40,6 @@ export function Basic() {
     colorField: 'type',
     scale: {
       y: { domainMax: 80 },
-    },
-    legend: {
-      color: {
-        itemMarker: 'hyphenPoint',
-        layout: {
-          justifyContent: 'flex-end',
-        },
-      },
     },
   };
 

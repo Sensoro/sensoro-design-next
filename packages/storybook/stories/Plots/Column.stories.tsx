@@ -1,9 +1,9 @@
 import React from 'react';
 import { Renderer as SVGRenderer } from '@antv/g-svg';
-import { Column, type ColumnConfig } from '@sensoro-design/charts';
+import { Column, type ColumnConfig } from '@sensoro-design/plots';
 
 const meta = {
-  title: 'Charts/Column',
+  title: 'Plots/Column',
 };
 
 export default meta;

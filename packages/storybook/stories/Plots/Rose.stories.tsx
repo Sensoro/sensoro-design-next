@@ -1,9 +1,9 @@
 import React from 'react';
 import { Renderer as SVGRenderer } from '@antv/g-svg';
-import { Rose, type RoseConfig } from '@sensoro-design/charts';
+import { Rose, type RoseConfig } from '@sensoro-design/plots';
 
 const meta = {
-  title: 'Charts/Rose',
+  title: 'Plots/Rose',
 };
 
 export default meta;
