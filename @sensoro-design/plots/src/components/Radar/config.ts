@@ -1,5 +1,3 @@
-import { rgb2arr } from '@antv/util';
-import { colorBlue2 } from '../../config';
 import type { AreaConfig, AxisConfig, PointConfig } from './types';
 
 export const DEFAULT_AREA_CONFIG: AreaConfig = {
@@ -26,6 +24,7 @@ export const DEFAULT_AXIS_CONFIG: AxisConfig = {
     labelSpacing: 4,
     gridConnect: 'line',
     gridLineWidth: 1,
+    zIndex: 0,
     gridLineDash: [3, 2],
   },
 };
