@@ -41,6 +41,14 @@ export function Basic() {
     scale: {
       y: { domainMax: 80 },
     },
+    legend: {
+      color: {
+        itemMarker: 'hyphenPoint',
+        layout: {
+          justifyContent: 'flex-end',
+        },
+      },
+    },
   };
 
   // @ts-expect-error 暂时忽略

@@ -12,6 +12,7 @@ export const DEFAULT_POINT_CONFIG: PointConfig = {
     // TODO: 黑色主题下怎么处理？
     fill: 'white',
   },
+  tooltip: false,
 };
 
 export const DEFAULT_AXIS_CONFIG: AxisConfig = {
