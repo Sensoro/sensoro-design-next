@@ -1,9 +1,9 @@
 import React from 'react';
 import { Renderer as SVGRenderer } from '@antv/g-svg';
-import { Radar, type RadarConfig } from '@sensoro-design/charts';
+import { Radar, type RadarConfig } from '@sensoro-design/plots';
 
 const meta = {
-  title: 'Charts/Radar',
+  title: 'Plots/Radar',
 };
 
 export default meta;

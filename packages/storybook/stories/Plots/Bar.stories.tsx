@@ -1,9 +1,9 @@
 import React from 'react';
 import { Renderer as SVGRenderer } from '@antv/g-svg';
-import { Bar, type BarConfig } from '@sensoro-design/charts';
+import { Bar, type BarConfig } from '@sensoro-design/plots';
 
 const meta = {
-  title: 'Charts/Bar',
+  title: 'Plots/Bar',
 };
 
 export default meta;
@@ -11,7 +11,7 @@ export default meta;
 const data = [
   {
     name: '蓝领',
-    value: 108,
+    value: 8,
   },
   {
     name: '白领',
@@ -41,6 +41,9 @@ export function Basic() {
         domain: [0, 1200],
       },
     },
+    // TODO 以下内容需要再 charts 中实现
+    paddingRight: 21,
+    markBackground: { label: { dx: 316 } },
   };
 
   // @ts-expect-error 暂时忽略
@@ -61,7 +64,22 @@ export function AloneTitle() {
         domain: [0, 1200],
       },
     },
-    aloneLabel: true,
+    // TODO 以下内容需要再 charts 中实现
+    paddingRight: 21,
+    markBackground: { label: { dx: 427 } },
+    axis: {
+      x: {
+        size: 0,
+        label: false,
+      },
+    },
+    label: {
+      text: 'name',
+      position: 'left',
+      transform: [{ type: 'overlapDodgeY' }],
+      dy: -18,
+      lineHeight: 20,
+    },
   };
 
   // @ts-expect-error 暂时忽略

@@ -1,9 +1,9 @@
 import React from 'react';
 import { Renderer as SVGRenderer } from '@antv/g-svg';
-import { Treemap, type TreemapConfig } from '@sensoro-design/charts';
+import { Treemap, type TreemapConfig } from '@sensoro-design/plots';
 
 const meta = {
-  title: 'Charts/Treemap',
+  title: 'Plots/Treemap',
 };
 
 export default meta;

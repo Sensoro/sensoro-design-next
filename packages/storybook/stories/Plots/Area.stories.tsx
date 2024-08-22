@@ -1,9 +1,9 @@
 import React from 'react';
 import { Renderer as SVGRenderer } from '@antv/g-svg';
-import { Area, type AreaConfig } from '@sensoro-design/charts';
+import { Area, type AreaConfig } from '@sensoro-design/plots';
 
 const meta = {
-  title: 'Charts/Area',
+  title: 'Plots/Area',
 };
 
 export default meta;

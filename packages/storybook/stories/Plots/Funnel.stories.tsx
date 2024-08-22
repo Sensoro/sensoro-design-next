@@ -1,9 +1,9 @@
 import React from 'react';
 import { Renderer as SVGRenderer } from '@antv/g-svg';
-import { Funnel, type FunnelConfig } from '@sensoro-design/charts';
+import { Funnel, type FunnelConfig } from '@sensoro-design/plots';
 
 const meta = {
-  title: 'Charts/Funnel',
+  title: 'Plots/Funnel',
 };
 
 export default meta;

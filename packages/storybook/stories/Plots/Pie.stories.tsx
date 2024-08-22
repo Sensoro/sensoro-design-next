@@ -1,9 +1,9 @@
 import React from 'react';
 import { Renderer as SVGRenderer } from '@antv/g-svg';
-import { Pie, type PieConfig } from '@sensoro-design/charts';
+import { Pie, type PieConfig } from '@sensoro-design/plots';
 
 const meta = {
-  title: 'Charts/Pie',
+  title: 'Plots/Pie',
 };
 
 export default meta;
