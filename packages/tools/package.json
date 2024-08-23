@@ -54,7 +54,7 @@
     "signale": "^1.4.0",
     "typescript": "^5.5.4",
     "unconfig": "^0.5.5",
-    "vite": "^5.4.0",
+    "vite": "^5.4.2",
     "vite-plugin-externals": "^0.6.2",
     "zx": "^8.1.4"
   }
