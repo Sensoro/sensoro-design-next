@@ -1,6 +1,6 @@
 import React from 'react';
-import { Renderer as SVGRenderer } from '@antv/g-svg';
 import { Column, type ColumnConfig } from '@sensoro-design/plots';
+import { getSharedConfig } from './utils';
 
 const meta = {
   title: 'Plots/Column',
@@ -92,7 +92,10 @@ const data = [
 ];
 
 export function Basic() {
+  const sharedConfig = getSharedConfig<ColumnConfig>();
+
   const config: ColumnConfig = {
+    ...sharedConfig,
     title: '基础柱状图',
     data: [
       { letter: 'A', frequency: 67 },
@@ -110,12 +113,14 @@ export function Basic() {
     yField: 'frequency',
   };
 
-  // @ts-expect-error 暂时忽略
-  return <Column {...config} renderer={new SVGRenderer()} />;
+  return <Column {...config} />;
 }
 
 export function Group() {
+  const sharedConfig = getSharedConfig<ColumnConfig>();
+
   const config: ColumnConfig = {
+    ...sharedConfig,
     title: '分组柱状图',
     data: {
       type: 'fetch',
@@ -128,12 +133,14 @@ export function Group() {
     group: true,
   };
 
-  // @ts-expect-error 暂时忽略
-  return <Column {...config} renderer={new SVGRenderer()} />;
+  return <Column {...config} />;
 }
 
 export function BothwayGroup() {
+  const sharedConfig = getSharedConfig<ColumnConfig>();
+
   const config: ColumnConfig = {
+    ...sharedConfig,
     title: '双向柱状图',
     data,
     xField: '月份',
@@ -141,6 +148,5 @@ export function BothwayGroup() {
     colorField: 'name',
   };
 
-  // @ts-expect-error 暂时忽略
-  return <Column {...config} renderer={new SVGRenderer()} />;
+  return <Column {...config} />;
 }

@@ -103,7 +103,7 @@ export function Smooth() {
     ],
   };
 
-  return <Line {...sharedConfig} {...config} />;
+  return <Line {...config} />;
 }
 
 export function MiddleSmooth() {

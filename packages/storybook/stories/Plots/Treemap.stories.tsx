@@ -1,6 +1,6 @@
 import React from 'react';
-import { Renderer as SVGRenderer } from '@antv/g-svg';
 import { Treemap, type TreemapConfig } from '@sensoro-design/plots';
+import { getSharedConfig } from './utils';
 
 const meta = {
   title: 'Plots/Treemap',
@@ -635,7 +635,10 @@ const data2 = {
 };
 
 export function Basic() {
+  const sharedConfig = getSharedConfig<TreemapConfig>();
+
   const config: TreemapConfig = {
+    ...sharedConfig,
     title: '矩形树图',
     data,
     valueField: 'value',
@@ -645,12 +648,14 @@ export function Basic() {
     legend: false,
   };
 
-  // @ts-expect-error 暂时忽略
-  return <Treemap {...config} renderer={new SVGRenderer()} />;
+  return <Treemap {...config} />;
 }
 
 export function MoreTier() {
+  const sharedConfig = getSharedConfig<TreemapConfig>();
+
   const config: TreemapConfig = {
+    ...sharedConfig,
     title: '多级矩形树图',
     data: data2,
     valueField: 'value',
@@ -660,6 +665,5 @@ export function MoreTier() {
     legend: false,
   };
 
-  // @ts-expect-error 暂时忽略
-  return <Treemap {...config} renderer={new SVGRenderer()} />;
+  return <Treemap {...config} />;
 }

@@ -21,7 +21,6 @@ export const Bar = forwardRef<Chart, BarConfig>((props, ref) => {
     interaction,
     markBackground,
     paddingRight = 0, // TODO 需要再charts中抹平 paddingRight 和数据值的位数关系:最大值的长度 * 3
-    // @ts-expect-error 暂时忽略
     ...rest
   } = props;
 

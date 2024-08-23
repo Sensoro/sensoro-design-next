@@ -1,6 +1,6 @@
 import React from 'react';
-import { Renderer as SVGRenderer } from '@antv/g-svg';
 import { Bar, type BarConfig } from '@sensoro-design/plots';
+import { getSharedConfig } from './utils';
 
 const meta = {
   title: 'Plots/Bar',
@@ -28,7 +28,10 @@ const data = [
 ];
 
 export function Basic() {
+  const sharedConfig = getSharedConfig<BarConfig>();
+
   const config: BarConfig = {
+    ...sharedConfig,
     title: '基础条形图',
     height: data.length * 8 + (data.length - 1) * 24 + 92 + 48,
     data,
@@ -46,12 +49,14 @@ export function Basic() {
     markBackground: { label: { dx: 316 } },
   };
 
-  // @ts-expect-error 暂时忽略
-  return <Bar {...config} renderer={new SVGRenderer()} />;
+  return <Bar {...config} />;
 }
 
 export function AloneTitle() {
+  const sharedConfig = getSharedConfig<BarConfig>();
+
   const config: BarConfig = {
+    ...sharedConfig,
     title: '独立标题行条形图',
     height: data.length * 8 + (data.length - 1) * 36 + 92 + 48,
     data,
@@ -82,6 +87,5 @@ export function AloneTitle() {
     },
   };
 
-  // @ts-expect-error 暂时忽略
-  return <Bar {...config} renderer={new SVGRenderer()} />;
+  return <Bar {...config} />;
 }

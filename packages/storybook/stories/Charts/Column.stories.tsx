@@ -113,7 +113,7 @@ export function Basic() {
     yField: 'frequency',
   };
 
-  return <Column {...sharedConfig} {...config} />;
+  return <Column {...config} />;
 }
 
 export function Group() {

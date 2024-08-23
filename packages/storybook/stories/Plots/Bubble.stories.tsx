@@ -1,6 +1,6 @@
 import React from 'react';
-import { Renderer as SVGRenderer } from '@antv/g-svg';
 import { Bubble, type BubbleConfig } from '@sensoro-design/plots';
+import { getSharedConfig } from './utils';
 
 const meta = {
   title: 'Plots/Bubble',
@@ -9,7 +9,10 @@ const meta = {
 export default meta;
 
 export function Basic() {
+  const sharedConfig = getSharedConfig<BubbleConfig>();
+
   const config: BubbleConfig = {
+    ...sharedConfig,
     layout: {
       padding: 10,
     },
@@ -31,6 +34,5 @@ export function Basic() {
     ],
   };
 
-  // @ts-expect-error 暂时忽略
-  return <Bubble {...config} renderer={new SVGRenderer()} />;
+  return <Bubble {...config} />;
 }

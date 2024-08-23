@@ -1,6 +1,6 @@
 import React from 'react';
-import { Renderer as SVGRenderer } from '@antv/g-svg';
 import { Pie, type PieConfig } from '@sensoro-design/plots';
+import { getSharedConfig } from './utils';
 
 const meta = {
   title: 'Plots/Pie',
@@ -27,7 +27,10 @@ const zeroData = [
 ];
 
 export function Basic() {
+  const sharedConfig = getSharedConfig<PieConfig>();
+
   const config: PieConfig = {
+    ...sharedConfig,
     title: '饼图',
     data,
     angleField: 'value',
@@ -35,12 +38,14 @@ export function Basic() {
     innerRadius: 0,
   };
 
-  // @ts-expect-error 暂时忽略
-  return <Pie {...config} renderer={new SVGRenderer()} />;
+  return <Pie {...config} />;
 }
 
 export function Ring() {
+  const sharedConfig = getSharedConfig<PieConfig>();
+
   const config: PieConfig = {
+    ...sharedConfig,
     title: '环图',
     data,
     angleField: 'value',
@@ -50,12 +55,14 @@ export function Ring() {
     statisticText: 'AntV',
   };
 
-  // @ts-expect-error 暂时忽略
-  return <Pie {...config} renderer={new SVGRenderer()} />;
+  return <Pie {...config} />;
 }
 
 export function ZeroRing() {
+  const sharedConfig = getSharedConfig<PieConfig>();
+
   const config: PieConfig = {
+    ...sharedConfig,
     title: '无数据环图',
     data: zeroData,
     angleField: 'value',
@@ -64,6 +71,5 @@ export function ZeroRing() {
     statisticText: 'AntV',
   };
 
-  // @ts-expect-error 暂时忽略
-  return <Pie {...config} renderer={new SVGRenderer()} />;
+  return <Pie {...config} />;
 }
