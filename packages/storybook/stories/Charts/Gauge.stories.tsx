@@ -1,6 +1,6 @@
 import React from 'react';
-import { Renderer as SVGRenderer } from '@antv/g-svg';
 import { Gauge, type GaugeConfig } from '@sensoro-design/charts';
+import { getSharedConfig } from './utils';
 
 const meta = {
   title: 'Charts/Gauge',
@@ -9,7 +9,10 @@ const meta = {
 export default meta;
 
 export function Basic() {
+  const sharedConfig = getSharedConfig<GaugeConfig>();
+
   const config: GaugeConfig = {
+    ...sharedConfig,
     title: '仪表盘',
     // data 格式为 { target: number, total: number } | { percent: number }
     // percent 优先级更高，会覆盖 target 和 total
@@ -21,12 +24,14 @@ export function Basic() {
     width: 720,
   };
 
-  // @ts-expect-error 暂时忽略
-  return <Gauge {...config} renderer={new SVGRenderer()} />;
+  return <Gauge {...config} />;
 }
 
 export function ZeroGauge() {
+  const sharedConfig = getSharedConfig<GaugeConfig>();
+
   const config: GaugeConfig = {
+    ...sharedConfig,
     title: '无数据仪表盘',
     // data 格式为 { target: number, total: number } | { percent: number }
     // 如果比例为 0 时，只传入percent: 0会导致没有圆环，此时需要传入target和total的方式
@@ -39,6 +44,5 @@ export function ZeroGauge() {
     width: 720,
   };
 
-  // @ts-expect-error 暂时忽略
-  return <Gauge {...config} renderer={new SVGRenderer()} />;
+  return <Gauge {...config} />;
 }

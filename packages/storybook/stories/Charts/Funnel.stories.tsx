@@ -1,6 +1,6 @@
 import React from 'react';
-import { Renderer as SVGRenderer } from '@antv/g-svg';
 import { Funnel, type FunnelConfig } from '@sensoro-design/charts';
+import { getSharedConfig } from './utils';
 
 const meta = {
   title: 'Charts/Funnel',
@@ -17,7 +17,10 @@ const data = [
 ];
 
 export function Basic() {
+  const sharedConfig = getSharedConfig<FunnelConfig>();
+
   const config: FunnelConfig = {
+    ...sharedConfig,
     title: '漏斗图',
     data,
     xField: 'stage',
@@ -25,6 +28,5 @@ export function Basic() {
     width: 500,
   };
 
-  // @ts-expect-error 暂时忽略
-  return <Funnel {...config} renderer={new SVGRenderer()} />;
+  return <Funnel {...config} />;
 }

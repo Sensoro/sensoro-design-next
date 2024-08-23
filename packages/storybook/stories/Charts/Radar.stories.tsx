@@ -1,6 +1,6 @@
 import React from 'react';
-import { Renderer as SVGRenderer } from '@antv/g-svg';
 import { Radar, type RadarConfig } from '@sensoro-design/charts';
+import { getSharedConfig } from './utils';
 
 const meta = {
   title: 'Charts/Radar',
@@ -32,7 +32,10 @@ const data = [
 ];
 
 export function Basic() {
+  const sharedConfig = getSharedConfig<RadarConfig>();
+
   const config: RadarConfig = {
+    ...sharedConfig,
     title: '雷达图',
     data,
     xField: 'item',
@@ -51,6 +54,5 @@ export function Basic() {
     },
   };
 
-  // @ts-expect-error 暂时忽略
-  return <Radar {...config} renderer={new SVGRenderer()} />;
+  return <Radar {...config} />;
 }

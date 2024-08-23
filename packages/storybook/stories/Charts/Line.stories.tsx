@@ -1,6 +1,6 @@
 import React from 'react';
-import { Renderer as SVGRenderer } from '@antv/g-svg';
 import { Line, type LineConfig } from '@sensoro-design/charts';
+import { getSharedConfig } from './utils';
 
 const meta = {
   title: 'Charts/Line',
@@ -9,7 +9,10 @@ const meta = {
 export default meta;
 
 export function Basic() {
+  const sharedConfig = getSharedConfig<LineConfig>();
+
   const config: LineConfig = {
+    ...sharedConfig,
     // TODO: 标题底部间距无法实现
     title: {
       title: '基础折线图',
@@ -30,12 +33,14 @@ export function Basic() {
     ],
   };
 
-  // @ts-expect-error 暂时忽略
-  return <Line {...config} renderer={new SVGRenderer()} />;
+  return <Line {...config} />;
 }
 
 export function Middle() {
+  const sharedConfig = getSharedConfig<LineConfig>();
+
   const config: LineConfig = {
+    ...sharedConfig,
     title: '多条折线图',
     xField: 'year',
     yField: 'value',
@@ -72,12 +77,14 @@ export function Middle() {
     ],
   };
 
-  // @ts-expect-error 暂时忽略
-  return <Line {...config} renderer={new SVGRenderer()} />;
+  return <Line {...config} />;
 }
 
 export function Smooth() {
+  const sharedConfig = getSharedConfig<LineConfig>();
+
   const config: LineConfig = {
+    ...sharedConfig,
     title: '曲线图',
     shapeField: 'smooth',
     xField: 'time',
@@ -96,12 +103,14 @@ export function Smooth() {
     ],
   };
 
-  // @ts-expect-error 暂时忽略
-  return <Line {...config} renderer={new SVGRenderer()} />;
+  return <Line {...sharedConfig} {...config} />;
 }
 
 export function MiddleSmooth() {
+  const sharedConfig = getSharedConfig<LineConfig>();
+
   const config: LineConfig = {
+    ...sharedConfig,
     title: '多条曲线图',
     shapeField: 'smooth',
     xField: 'year',
@@ -130,12 +139,14 @@ export function MiddleSmooth() {
     ],
   };
 
-  // @ts-expect-error 暂时忽略
-  return <Line {...config} renderer={new SVGRenderer()} />;
+  return <Line {...config} />;
 }
 
 export function Baseline() {
+  const sharedConfig = getSharedConfig<LineConfig>();
+
   const config: LineConfig = {
+    ...sharedConfig,
     title: '辅助线',
     shapeField: 'smooth',
     xField: 'time',
@@ -161,7 +172,6 @@ export function Baseline() {
         },
         label: {
           text: '报警阀值:50',
-          // dx: 30,
           position: 'right',
           style: {
             strokeOpacity: 0,
@@ -174,6 +184,5 @@ export function Baseline() {
     ],
   };
 
-  // @ts-expect-error 暂时忽略
-  return <Line {...config} renderer={new SVGRenderer()} />;
+  return <Line {...config} />;
 }

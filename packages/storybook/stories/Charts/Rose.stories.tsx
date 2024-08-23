@@ -1,6 +1,6 @@
 import React from 'react';
-import { Renderer as SVGRenderer } from '@antv/g-svg';
 import { Rose, type RoseConfig } from '@sensoro-design/charts';
+import { getSharedConfig } from './utils';
 
 const meta = {
   title: 'Charts/Rose',
@@ -9,7 +9,10 @@ const meta = {
 export default meta;
 
 export function Basic() {
+  const sharedConfig = getSharedConfig<RoseConfig>();
+
   const config: RoseConfig = {
+    ...sharedConfig,
     title: '玫瑰图',
     data: {
       type: 'fetch',
@@ -21,6 +24,5 @@ export function Basic() {
     colorField: 'year',
   };
 
-  // @ts-expect-error 暂时忽略
-  return <Rose {...config} renderer={new SVGRenderer()} />;
+  return <Rose {...config} />;
 }

@@ -1,6 +1,6 @@
 import React from 'react';
-import { Renderer as SVGRenderer } from '@antv/g-svg';
 import { Area, type AreaConfig } from '@sensoro-design/charts';
+import { getSharedConfig } from './utils';
 
 const meta = {
   title: 'Charts/Area',
@@ -123,7 +123,10 @@ const stackData = [
 ];
 
 export function Basic() {
+  const sharedConfig = getSharedConfig<AreaConfig>();
+
   const config: AreaConfig = {
+    ...sharedConfig,
     title: '基础面积图',
     data: basicData,
     xField: 'date',
@@ -132,13 +135,15 @@ export function Basic() {
   };
 
   return (
-    // @ts-expect-error 暂时忽略
-    <Area {...config} renderer={new SVGRenderer()} />
+    <Area {...config} />
   );
 }
 
 export function Stack() {
+  const sharedConfig = getSharedConfig<AreaConfig>();
+
   const config: AreaConfig = {
+    ...sharedConfig,
     title: '堆叠面积图',
     data: stackData,
     xField: 'date',
@@ -148,7 +153,6 @@ export function Stack() {
   };
 
   return (
-    // @ts-expect-error 暂时忽略
-    <Area {...config} renderer={new SVGRenderer()} />
+    <Area {...config} />
   );
 }
