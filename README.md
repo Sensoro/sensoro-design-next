@@ -1,4 +1,10 @@
-<h1 align="center">Sensoro Design</h1>
+<div align="center">
+
+<h1>Sensoro Design</h1>
+
+一套开箱即用的 React 组件库。
+
+</div>
 
 ## 💻 本地开发
 
