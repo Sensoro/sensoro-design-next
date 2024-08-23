@@ -8,7 +8,7 @@
     "node": "^18.0.0 || >=20.0.0"
   },
   "scripts": {
-    "website": "pnpm --filter website dev",
+    "start": "pnpm --filter website dev",
     "dev": "pnpm storybook",
     "build": "pnpm -r --if-present run build",
     "build:docs": "pnpm build:storybook",
