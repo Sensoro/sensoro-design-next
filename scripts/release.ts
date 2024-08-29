@@ -16,7 +16,9 @@ async function release() {
   }
 
   logger.log('check git remote update');
-  if (status.behind) {
+  await git.fetch()
+  const status1 = await git.status();
+  if (status1.behind) {
     logger.error('git status is behind remote`');
     process.exit(1);
   }
