@@ -14,7 +14,6 @@
     "build:react": "pnpm --filter=@sensoro-design/react run build",
     "build:charts": "pnpm --filter=@sensoro-design/charts run build",
     "build:plots": "pnpm --filter=@sensoro-design/plots run build",
-    "release": "walrus release",
     "release:build": "lerna run --concurrency 8 --no-private build",
     "release:version": "lerna version --conventional-commits --no-push --no-git-tag-version --no-private",
     "release:publish": "pnpm publish --recursive --tag latest",
