@@ -22,6 +22,8 @@ async function release() {
     logger.error('git status is behind remote`');
     process.exit(1);
   }
+
+  logger.log('check');
 }
 
 release().catch(() => {
