@@ -16,7 +16,7 @@
     "build:plots": "pnpm --filter=@sensoro-design/plots run build",
     "release": "walrus release",
     "release:build": "lerna run --concurrency 8 --no-private build",
-    "release:version": "lerna version --conventional-commits --no-push --no-private",
+    "release:version": "lerna version --conventional-commits --no-push --yes --no-private",
     "release:publish": "pnpm publish --recursive --tag latest",
     "storybook": "pnpm --filter storybook start",
     "build:storybook": "pnpm --filter storybook build",
