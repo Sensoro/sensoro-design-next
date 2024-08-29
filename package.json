@@ -16,6 +16,7 @@
     "build:charts": "pnpm --filter=@sensoro-design/charts run build",
     "build:plots": "pnpm --filter=@sensoro-design/plots run build",
     "release": "walrus release",
+    "release:version": "lerna version --no-changelog --no-push --no-git-tag-version --no-private",
     "release:alpha:patch": "walrus release patch --stage alpha --tag next",
     "release:alpha:minor": "walrus release minor --stage alpha --tag next",
     "release:alpha:major": "walrus release major --stage alpha --tag next",
