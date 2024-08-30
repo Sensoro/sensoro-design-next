@@ -132,6 +132,12 @@ export function Basic() {
     xField: 'date',
     yField: 'value',
     colorField: 'country',
+    legend: {
+      color: {
+        x: 100,
+        y: -38,
+      },
+    },
   };
 
   return (

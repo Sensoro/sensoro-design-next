@@ -1,0 +1,16 @@
+diff --git a/esm/ui/legend/category.js b/esm/ui/legend/category.js
+index a04ace992ad978634e0d56ddfa65d84e538a89c2..3949f941b32e00e9ddd637e8b0a37d68e048ab2b 100644
+--- a/esm/ui/legend/category.js
++++ b/esm/ui/legend/category.js
+@@ -51,9 +51,9 @@ var Category = /** @class */ (function (_super) {
+     };
+     Object.defineProperty(Category.prototype, "availableSpace", {
+         get: function () {
+-            var _a = this.attributes, showTitle = _a.showTitle, width = _a.width, height = _a.height;
++            var _a = this.attributes, showTitle = _a.showTitle, width = _a.width, height = _a.height, x = _a.x, y = _a.y;
+             if (!showTitle)
+-                return new BBox(0, 0, width, height);
++                return new BBox(x === void 0 ? 0: x, y === void 0 ? 0: y, width, height);
+             return this.title.node().getAvailableSpace();
+         },
+         enumerable: false,
