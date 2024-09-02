@@ -134,8 +134,11 @@ export function Basic() {
     colorField: 'country',
     legend: {
       color: {
-        x: 100,
+        x: -24,
         y: -38,
+        layout: {
+          justifyContent: 'flex-end',
+        },
       },
     },
   };
