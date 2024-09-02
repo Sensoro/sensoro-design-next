@@ -103,6 +103,11 @@
     "yargs": "^17.7.2",
     "zx": "^8.1.4"
   },
+  "pnpm": {
+    "patchedDependencies": {
+      "@antv/component@2.0.1": "patches/@antv__component@2.0.1.patch"
+    }
+  },
   "resolutions": {
     "@ant-design/plots": "$@ant-design/plots",
     "@antv/g2": "$@antv/g2",

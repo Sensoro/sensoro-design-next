@@ -26,6 +26,8 @@ export function Light() {
       itemLabelFill: colorGrey08,
       itemLabelFillOpacity: 1,
       itemLabelFontSize: 12,
+      itemSpacing: 8,
+      colPadding: 24,
     },
     title: {
       /** 主标题、副标题之间的上下间距 */
@@ -78,29 +80,30 @@ export function Light() {
       crosshairsStrokeOpacity: 1,
       css: {
         '.g2-tooltip': {
-          boxShadow: 'none',
-          background: colorGrey09,
-          opacity: 1,
-          padding: '12px 12px 8px',
+          'box-shadow': 'none',
+          'background': colorGrey10,
+          'opacity': 0.8,
+          'padding': '12px 12px 8px',
         },
         '.g2-tooltip-title': {
           color: colorGrey06,
-          fontSize: 12,
-          lineHeight: '20px',
           margin: '0 0 4px',
+        },
+        '.g2-tooltip-list-item': {
+          'line-height': '20px',
+          'margin-bottom': '4px',
         },
         '.g2-tooltip-list-item-name-label': {
           color: '#fff',
-          whiteSpace: 'nowrap',
-          textOverflow: 'ellipsis',
-          overflow: 'hidden',
-          fontWeight: 400,
         },
         '.g2-tooltip-list-item-value': {
-          color: '#fff',
-          fontFamily: 'DIN Alternate',
-          marginLeft: '16px',
-          textAlign: 'right',
+          'color': '#fff',
+          'font-family': 'DINAlternate-Bold',
+          'margin-left': '16px',
+        },
+        '.g2-tooltip-list-item-marker': {
+          'border-radius': '1px',
+          'margin-right': '8px',
         },
       },
     },
