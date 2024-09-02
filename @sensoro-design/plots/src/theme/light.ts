@@ -26,6 +26,8 @@ export function Light() {
       itemLabelFill: colorGrey08,
       itemLabelFillOpacity: 1,
       itemLabelFontSize: 12,
+      itemSpacing: 8,
+      colPadding: 24,
     },
     title: {
       /** 主标题、副标题之间的上下间距 */
