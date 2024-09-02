@@ -127,7 +127,10 @@ export function Basic() {
 
   const config: AreaConfig = {
     ...sharedConfig,
-    title: '基础面积图',
+    title: {
+      title: '基础面积图',
+      size: -1,
+    },
     data: basicData,
     xField: 'date',
     yField: 'value',
@@ -135,7 +138,7 @@ export function Basic() {
     legend: {
       color: {
         x: -24,
-        y: -38,
+        y: -16,
         layout: {
           justifyContent: 'flex-end',
         },
