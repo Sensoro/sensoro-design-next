@@ -5,6 +5,10 @@ export default defineConfig({
   umd: {
     name: 'sensoro',
     fileName: 'sensoro',
+    externals: {
+      'react': 'React',
+      'react-dom': 'ReactDOM',
+    },
   },
   design: {
     designStyleFileName: 'sensoro',

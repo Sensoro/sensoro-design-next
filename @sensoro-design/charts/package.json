@@ -29,6 +29,7 @@
     "react-dom": ">=16.9.0"
   },
   "dependencies": {
+    "@antv/util": "^3.3.8",
     "@sensoro-design/plots": "workspace:*",
     "clsx": "^2.1.1",
     "tslib": "^2.6.3"
