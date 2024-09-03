@@ -1,4 +1,5 @@
 import React from 'react';
+import { } from '@sensoro-design/react/es/config-provider';
 
 export interface TitleProps {
   /** 标题 */
