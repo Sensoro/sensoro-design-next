@@ -1,7 +1,7 @@
 {
   "name": "@sensoro-design/react",
   "type": "module",
-  "version": "2.1.0",
+  "version": "2.2.0",
   "description": "Sensoro Design React UI Library.",
   "author": "SensoroDesign Team",
   "license": "MIT",

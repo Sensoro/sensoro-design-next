@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.2.0](https://github.com/sensoro/sensoro-design-next/compare/v2.1.0...v2.2.0) (2024-09-03)
+
+### Features
+
+- 修改 antv/component 图例 xy 偏移取值为 legend 属性传入 ([3d56f4d](https://github.com/sensoro/sensoro-design-next/commit/3d56f4de82951e4c2516c90d974201bc8b617b3f))
+
 # 2.1.0 (2024-08-29)
 
 ### Bug Fixes
