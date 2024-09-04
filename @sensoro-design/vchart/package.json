@@ -25,7 +25,7 @@
   },
   "dependencies": {
     "@sensoro-design/vchart-theme": "workspace:*",
-    "@visactor/react-vchart": "^1.12.0"
+    "@visactor/react-vchart": "catalog:"
   },
   "publishConfig": {
     "access": "public",

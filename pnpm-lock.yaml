@@ -54,6 +54,9 @@ catalogs:
     '@types/signale':
       specifier: ^1.4.7
       version: 1.4.7
+    '@visactor/react-vchart':
+      specifier: ^1.12.2
+      version: 1.12.2
     '@visactor/vchart':
       specifier: ^1.12.2
       version: 1.12.2
@@ -479,8 +482,8 @@ importers:
         specifier: workspace:*
         version: link:../vchart-theme
       '@visactor/react-vchart':
-        specifier: ^1.12.0
-        version: 1.12.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+        specifier: 'catalog:'
+        version: 1.12.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       react:
         specifier: '>=16.9.0'
         version: 18.3.1
@@ -4135,8 +4138,8 @@ packages:
   '@unocss/reset@0.60.4':
     resolution: {integrity: sha512-MEngG4byIHnfb0osvxqU2gBdBkXPPE4z+G9HeEt3JUadWAp2gggm8ojC1/1PoJF5M31loxGEVVrB0FLSKACw3g==}
 
-  '@visactor/react-vchart@1.12.1':
-    resolution: {integrity: sha512-nQLsj6zQf/a6cClABbGKgwFYTSqFJ7ZWBAt0YjePEBHI8xERsVpD2lgEYXFqkA822QIFGv9wk82NeJXRkT8oJA==}
+  '@visactor/react-vchart@1.12.2':
+    resolution: {integrity: sha512-9gn9Bfi4U8rSU2O0T4YRbyJeqCK/fNQ81P/LJ0V/N0ga0VptUoSJu8k6X/xfoye3/veBfotNj+/bub9O205Pew==}
     peerDependencies:
       react: '>=16.0.0'
       react-dom: '>=16.0.0'
@@ -4148,9 +4151,6 @@ packages:
 
   '@visactor/vchart@1.12.0':
     resolution: {integrity: sha512-GMC5IoQu0cTM1IdvPO6r9EpO3UBJfQbDN2FdOquU8AD1yBK1VfR2R+oQ8j6u73PSAKwhiFN+e0+S7SzWo41slA==}
-
-  '@visactor/vchart@1.12.1':
-    resolution: {integrity: sha512-/MSNRN2+gL8lgmXw3IQw9oG2ORxp1Kehvd4p4W95yd8EK6CVwYMRqredT84J3kr4jOtpK2a3ylsWNMUNFk8CrQ==}
 
   '@visactor/vchart@1.12.2':
     resolution: {integrity: sha512-dFrw9XjoaBr+oVAOBxc6qn+54uR2yg7x05SiAqoOXSM9/zrTCLlqAsVo2OvZWclvhOVeDpA04cKIX+8CtUEFQw==}
@@ -4235,9 +4235,6 @@ packages:
 
   '@visactor/vutils-extension@1.12.0':
     resolution: {integrity: sha512-PzTurfVcQ/e3WSFPYrBqAeCQYmeJuMZpu/cApHN4u0NWVPeFgICWyb/OUhf30HueqoL/mXQnKnPXibnz6oNr9w==}
-
-  '@visactor/vutils-extension@1.12.1':
-    resolution: {integrity: sha512-4UcTDdlgkCpDNUxO+U1OMWWqkxhYNS9UF8qR3xBC3x5z7Mu2c8ppM7oZDujnTeJEoG7+JKpOIpX/el3pFFh8Rg==}
 
   '@visactor/vutils-extension@1.12.2':
     resolution: {integrity: sha512-79JdieFcMWTvz6FuI1QhB2ssIOy+mu8chUfBCjYgmf9qOuD0fBzbQk1YmB3a17fNy3RQ+9w03ymzcBrl3J7Egw==}
@@ -17424,12 +17421,12 @@ snapshots:
 
   '@unocss/reset@0.60.4': {}
 
-  '@visactor/react-vchart@1.12.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
+  '@visactor/react-vchart@1.12.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
     dependencies:
-      '@visactor/vchart': 1.12.1
-      '@visactor/vgrammar-core': 0.14.0
-      '@visactor/vrender-core': 0.20.0
-      '@visactor/vrender-kits': 0.20.0
+      '@visactor/vchart': 1.12.2
+      '@visactor/vgrammar-core': 0.14.2
+      '@visactor/vrender-core': 0.20.1
+      '@visactor/vrender-kits': 0.20.1
       '@visactor/vutils': 0.18.15
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
@@ -17456,24 +17453,6 @@ snapshots:
       '@visactor/vscale': 0.18.15
       '@visactor/vutils': 0.18.15
       '@visactor/vutils-extension': 1.12.0
-
-  '@visactor/vchart@1.12.1':
-    dependencies:
-      '@visactor/vdataset': 0.18.15
-      '@visactor/vgrammar-core': 0.14.0
-      '@visactor/vgrammar-hierarchy': 0.14.0
-      '@visactor/vgrammar-projection': 0.14.0
-      '@visactor/vgrammar-sankey': 0.14.0
-      '@visactor/vgrammar-util': 0.14.0
-      '@visactor/vgrammar-venn': 0.14.0
-      '@visactor/vgrammar-wordcloud': 0.14.0
-      '@visactor/vgrammar-wordcloud-shape': 0.14.0
-      '@visactor/vrender-components': 0.20.0
-      '@visactor/vrender-core': 0.20.0
-      '@visactor/vrender-kits': 0.20.0
-      '@visactor/vscale': 0.18.15
-      '@visactor/vutils': 0.18.15
-      '@visactor/vutils-extension': 1.12.1
 
   '@visactor/vchart@1.12.2':
     dependencies:
@@ -17694,11 +17673,6 @@ snapshots:
       '@visactor/vutils': 0.18.15
 
   '@visactor/vutils-extension@1.12.0':
-    dependencies:
-      '@visactor/vdataset': 0.18.15
-      '@visactor/vutils': 0.18.15
-
-  '@visactor/vutils-extension@1.12.1':
     dependencies:
       '@visactor/vdataset': 0.18.15
       '@visactor/vutils': 0.18.15

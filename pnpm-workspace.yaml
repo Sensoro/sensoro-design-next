@@ -9,6 +9,7 @@ catalog:
   '@antv/g2': ^5.2.5
   '@antv/util': ^3.3.8
   '@visactor/vchart': ^1.12.2
+  '@visactor/react-vchart': ^1.12.2
   '@antfu/eslint-config': 2.21.2
   '@antfu/ni': ^0.23.0
   '@commitlint/cli': ^19.4.1
