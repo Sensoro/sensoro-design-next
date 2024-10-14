@@ -46,3 +46,6 @@ out
 .umi
 
 .contentlayer
+
+pnpm-lock.yaml
+.idea
