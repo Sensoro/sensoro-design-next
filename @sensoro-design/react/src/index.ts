@@ -8,3 +8,5 @@ export { default as NumberFormatter } from './number-formatter';
 export type { NumberFormatterProps } from './number-formatter';
 
 export { default as Divider } from './divider';
+
+export { default as PinCode } from './pin-code';

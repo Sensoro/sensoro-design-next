@@ -1,0 +1,63 @@
+@import "../../style/theme/default.less";
+
+@code-prefix-cls: ~"@{prefix}-pc";
+
+.generate-input(@size, @font-size, @padding, @margin) {
+  width: @size;
+  height: @size;
+
+  &:not(:last-child) {
+    margin-right: @margin;
+  }
+
+  input {
+    padding: @padding;
+    font-size: @font-size;
+  }
+}
+
+.@{code-prefix-cls} {
+  &-wrapper {
+    display: flex;
+  }
+
+  &-input {
+    &-wrapper {
+      border-radius: @border-radius-base;
+      .generate-input(40px, 24px, @padding-xss, @margin-sm);
+
+      &:not(:last-child) {
+        margin-right: @margin-sm;
+      }
+
+      input {
+        width: 100%;
+        height: 100%;
+        text-align: center;
+        outline: 1px solid @color-neutral-bg-4;
+        border-radius: @border-radius-base;
+        transition: all @animation-duration-base;
+        color: @text-color-primary;
+
+        &:focus, &:active {
+          outline: 1px solid @blue-5;
+        }
+      }
+
+      input[type="number"] {
+        -moz-appearance: textfield; /* Firefox */
+        appearance: textfield;
+      }
+
+      input[type="number"]::-webkit-inner-spin-button,
+      input[type="number"]::-webkit-outer-spin-button {
+        -webkit-appearance: none; /* Safari */
+        margin: 0;
+      }
+
+      &.@{code-prefix-cls}-lg {
+        .generate-input(80px, 48px, @padding-sm, @margin-lg);
+      }
+    }
+  }
+}
