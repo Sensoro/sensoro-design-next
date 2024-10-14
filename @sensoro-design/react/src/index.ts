@@ -10,3 +10,4 @@ export type { NumberFormatterProps } from './number-formatter';
 export { default as Divider } from './divider';
 
 export { default as PinCode } from './pin-code';
+export type { PinCodeProps, PinCodeRefs } from './pin-code';
