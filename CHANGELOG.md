@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.3.0](https://github.com/Sensoro/sensoro-design-next/compare/v2.2.0...v2.3.0) (2024-10-14)
+
+### Features
+
+- add PinCode component ([6e2feab](https://github.com/Sensoro/sensoro-design-next/commit/6e2feab463b75918c21c18d54de6e230ab8b6cea))
+
 # [2.2.0](https://github.com/Sensoro/sensoro-design-next/compare/v2.1.0...v2.2.0) (2024-09-03)
 
 ### Features
