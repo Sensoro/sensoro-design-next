@@ -27,9 +27,9 @@
     "react-dom": ">=16.9.0"
   },
   "dependencies": {
-    "@ant-design/plots": "^2.2.8",
+    "@ant-design/plots": "^2.3.2",
     "@antv/g": "^6.0.0",
-    "@antv/g2": "^5.2.3",
+    "@antv/g2": "^5.2.7",
     "@antv/util": "^3.3.8",
     "@rcuse/shared": "^0.25.0",
     "tslib": "^2.6.3"
