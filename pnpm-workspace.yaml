@@ -8,8 +8,8 @@ catalog:
   '@ant-design/plots': ^2.3.1
   '@antv/g2': ^5.2.5
   '@antv/util': ^3.3.8
-  '@visactor/vchart': ^1.12.2
-  '@visactor/react-vchart': ^1.12.2
+  '@visactor/vchart': ^1.12.10
+  '@visactor/react-vchart': ^1.12.10
   '@antfu/eslint-config': 2.21.2
   '@antfu/ni': ^0.23.0
   '@commitlint/cli': ^19.4.1
@@ -58,12 +58,12 @@ catalog:
   stylelint-config-standard: ^36.0.1
   stylelint-order: ^6.0.4
   stylelint-prettier: ^5.0.2
-  taze: ^0.16.7
-  tsx: ^4.19.0
-  type-fest: ^4.26.0
-  typescript: ^5.5.4
+  taze: ^0.18.0
+  tsx: ^4.19.2
+  type-fest: ^4.26.1
+  typescript: ^5.6.3
   unbuild: ^2.0.0
-  vite: ^5.4.3
+  vite: ^5.4.10
   vite-plugin-style-import: ^2.0.0
-  vitest: ^2.0.5
-  zx: ^8.1.5
+  vitest: ^2.1.4
+  zx: ^8.2.0
