@@ -26,7 +26,7 @@ export function Light() {
       itemLabelFill: colorGrey08,
       itemLabelFillOpacity: 1,
       itemLabelFontSize: 12,
-      itemSpacing: 8,
+      itemSpacing: [8, 8],
       colPadding: 24,
     },
     title: {
