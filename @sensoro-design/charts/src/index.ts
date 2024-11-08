@@ -33,3 +33,6 @@ export type { RoseConfig } from './rose';
 
 export { default as Treemap } from './treemap';
 export type { TreemapConfig } from './treemap';
+
+export { default as DualAxes } from './dual-axes';
+export type { DualAxesConfig } from './dual-axes';

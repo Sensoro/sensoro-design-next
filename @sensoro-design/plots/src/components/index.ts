@@ -30,3 +30,6 @@ export type { FunnelConfig } from './Funnel';
 
 export { Gauge } from './Gauge';
 export type { GaugeConfig } from './Gauge';
+
+export { DualAxes } from './DualAxes';
+export type { DualAxesConfig } from './DualAxes';
