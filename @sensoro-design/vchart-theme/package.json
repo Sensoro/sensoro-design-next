@@ -2,7 +2,7 @@
   "name": "@sensoro-design/vchart-theme",
   "version": "2.0.0",
   "private": true,
-  "description": "",
+  "description": "vchart theme for sensoro design",
   "license": "MIT",
   "repository": {
     "type": "git",
@@ -16,9 +16,7 @@
     "es",
     "lib"
   ],
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+  "scripts": {},
   "peerDependencies": {
     "@visactor/vchart": ">=1.10.4"
   },
