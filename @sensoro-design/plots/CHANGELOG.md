@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.4.0](https://github.com/sensoro/sensoro-design-next/compare/v2.3.1...v2.4.0) (2024-11-08)
+
+### Features
+
+- add DualAxes ([#25](https://github.com/sensoro/sensoro-design-next/issues/25)) ([5b724dc](https://github.com/sensoro/sensoro-design-next/commit/5b724dc488903c7ca943447d4351f477be0c27d5))
+
 # [2.2.0](https://github.com/sensoro/sensoro-design-next/compare/v2.1.0...v2.2.0) (2024-09-03)
 
 ### Features
