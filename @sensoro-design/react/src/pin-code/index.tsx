@@ -92,12 +92,22 @@ const PinCode = forwardRef<PinCodeRefs, PinCodeProps>(
 
         const code = evt.keyCode || evt.which;
         const { tagName, id } = document.activeElement ?? {};
+
         if ([37, 39].includes(code)) {
           const operate = code === 37 ? -1 : 1;
           const index = tagName === 'INPUT' ? Number(id) + operate : 0;
           if (index >= 0 && index < count) {
             inputs[index].focus();
           }
+        }
+
+        // 删除
+        if (code === 8 && tagName === 'INPUT') {
+          setTimeout(() => {
+            if (Number(id) > 0) {
+              inputs[Number(id) - 1].focus();
+            }
+          }, 0);
         }
       };
 
